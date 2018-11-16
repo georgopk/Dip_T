@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Tutorial: Coax to Waveguide Adapter" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Tutorial:_Coax_to_Waveguide_Adapter&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Tutorial: Coax to Waveguide Adapter - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Tutorial:_Coax_to_Waveguide_Adapter";
+		var wgTitle = "Tutorial: Coax to Waveguide Adapter";
+		var wgAction = "view";
+		var wgArticleId = "219";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 1026;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Tutorial_Coax_to_Waveguide_Adapter skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Tutorial: Coax to Waveguide Adapter</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="Tutorial:_Coax_to_Waveguide_Adapter.html#column-one">navigation</a>, <a href="Tutorial:_Coax_to_Waveguide_Adapter.html#searchInput">search</a></div>			<!-- start content -->
+			<ul>
+<li><b>Simulation time:</b> ~5 minutes</li>
+<li><b>Download</b> the latest matlab file: <a href="https://openems.de/forum/download/file.php?id=215" class="external autonumber" title="https://openems.de/forum/download/file.php?id=215" rel="nofollow">[1]</a></li>
+</ul>
+<hr />
+<p>We will cover in this tutorial:</p>
+<ul>
+<li>Setup of the FDTD parameters for waveguide</li>
+<li>Setup of the inhomogeneous FDTD mesh</li>
+<li>Devices with ports with different characteristic impedance</li>
+<li>Visualizing the Electric field in the time domain with Matlab</li>
+</ul>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="Tutorial:_Coax_to_Waveguide_Adapter.html#Excitation_Setup"><span class="tocnumber">1</span> <span class="toctext">Excitation Setup</span></a>
+<ul>
+<li class="toclevel-2"><a href="Tutorial:_Coax_to_Waveguide_Adapter.html#Setup_the_FDTD_parameters"><span class="tocnumber">1.1</span> <span class="toctext">Setup the FDTD parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Tutorial:_Coax_to_Waveguide_Adapter.html#Grid_Setup"><span class="tocnumber">2</span> <span class="toctext">Grid Setup</span></a>
+<ul>
+<li class="toclevel-2"><a href="Tutorial:_Coax_to_Waveguide_Adapter.html#Setup_the_inhomogeneous_grid"><span class="tocnumber">2.1</span> <span class="toctext">Setup the inhomogeneous grid</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Tutorial:_Coax_to_Waveguide_Adapter.html#Post-Processing"><span class="tocnumber">3</span> <span class="toctext">Post-Processing</span></a>
+<ul>
+<li class="toclevel-2"><a href="Tutorial:_Coax_to_Waveguide_Adapter.html#Modeling_devices_with_different_characteristic_impedances_at_each_port"><span class="tocnumber">3.1</span> <span class="toctext">Modeling devices with different characteristic impedances at each port</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Tutorial:_Coax_to_Waveguide_Adapter.html#Visualization"><span class="tocnumber">4</span> <span class="toctext">Visualization</span></a>
+<ul>
+<li class="toclevel-2"><a href="Tutorial:_Coax_to_Waveguide_Adapter.html#Visualization_of_the_electric_field_in_the_time_domain_using_Matlab"><span class="tocnumber">4.1</span> <span class="toctext">Visualization of the electric field in the time domain using Matlab</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Excitation_Setup" id="Excitation_Setup"></a></p>
+<h2><span class="mw-headline">Excitation Setup</span></h2>
+<p>This tutorial uses the same layout as the other tutorials. Only the key points to be illustrated will be covered here.</p>
+<p><a name="Setup_the_FDTD_parameters" id="Setup_the_FDTD_parameters"></a></p>
+<h3><span class="mw-headline">Setup the FDTD parameters</span></h3>
+<p>In FDTD there is a conflict between using a wide frequency band pulse and the cutoff frequency of the waveguide. In FDTD, we prefer to use a wide frequency band pulse to study a broad range of frequencies and to shorten the simulation time. Waveguide has a cutoff frequency below which the wave will not propagate. In this example using WR-75 waveguide, the cutoff frequency is 7.87 GHz. The standard operating band is 10 to 15 GHz, which is not that far from the cutoff frequency. The only choice to study frequencies down to 10 GHz is to use a narrow frequency band of 10 to 15 GHz. Using 10 to 20 GHz is too wide, resulting in frequencies below cutoff frequency. The end result is the energy never decays out of the system and the post processing results are garbage. Simply using the standard operating band for the standard waveguide sizes with the code below will produce good results.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+f_start = 10e9;    
+f_stop  = 15e9;   
+TE_mode = <span class="co2">'TE10'</span>;
+ 
+<span class="co1">%% setup FDTD parameter &amp; excitation function %%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+FDTD = InitFDTD<span class="br0">(</span><span class="co2">'NrTS'</span>,NumTS,<span class="co2">'EndCriteria'</span>, 1e-5<span class="br0">)</span>; 
+FDTD = SetGaussExcite<span class="br0">(</span>FDTD,.5*<span class="br0">(</span>f_stop+f_start<span class="br0">)</span>,.5*<span class="br0">(</span>f_stop-f_start<span class="br0">)</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Grid_Setup" id="Grid_Setup"></a></p>
+<h2><span class="mw-headline">Grid Setup</span></h2>
+<p><a name="Setup_the_inhomogeneous_grid" id="Setup_the_inhomogeneous_grid"></a></p>
+<h3><span class="mw-headline">Setup the inhomogeneous grid</span></h3>
+<p>Other simulation techniques, such as finite elements, allow use of tetrahedral polygons to exactly represent curved surfaces. In FDTD, only rectangular cells are permitted. This forces use of a finer mesh to model curved surface regions in order to reduce the stair-casing effect caused by discretizing the curved surface into a rectangular grid. Unfortunately this smaller cell size causes longer simulation time. On the other hand, the total number of cells can be greatly reduced because FDTD allows a non homogeneous grid. The restriction is that neighboring cells cannot vary in dimension more than a factor of 2. The SmoothLines2 function is used to produce the locally dense mesh as well as gradually transition from the small cell size to the regular cell size of the problem. In this example, the neighbor cell dimension transition factor is set to 1.3</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+mesh_res = <span class="br0">[</span>.007 .01 .007<span class="br0">]</span>;
+ 
+<span class="kw2">mesh</span>.<span class="me1">x</span> = SmoothMeshLines2<span class="br0">(</span> <span class="br0">[</span>a/<span class="nu0">2</span>-OuterCondODSMA/<span class="nu0">2</span> a/<span class="nu0">2</span>-InnerCondSMA/<span class="nu0">2</span> a/<span class="nu0">2</span>+InnerCondSMA/<span class="nu0">2</span> a/<span class="nu0">2</span>+OuterCondODSMA/<span class="nu0">2</span><span class="br0">]</span>,mesh_res<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>/<span class="nu0">3</span>,<span class="nu0">1.3</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">x</span> = SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="kw2">mesh</span>.<span class="me1">x</span> a<span class="br0">]</span>, mesh_res<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>,<span class="nu0">1.3</span><span class="br0">)</span>;
+ 
+<span class="kw2">mesh</span>.<span class="me1">y</span> = SmoothMeshLines2<span class="br0">(</span><span class="br0">[</span>b-ProbeDepth b b+WallThickness<span class="br0">]</span>,mesh_res<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>/<span class="nu0">2</span>,<span class="nu0">1.3</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="kw2">mesh</span>.<span class="me1">y</span> b+WallThickness+SMALength<span class="br0">]</span>, mesh_res<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span><span class="br0">)</span>;
+ 
+<span class="kw2">mesh</span>.<span class="me1">z</span> = SmoothMeshLines2<span class="br0">(</span><span class="br0">[</span>length-BackShort-OuterCondODSMA/<span class="nu0">2</span> length-BackShort-InnerCondSMA/<span class="nu0">2</span> length-BackShort+InnerCondSMA/<span class="nu0">2</span>,length-BackShort+OuterCondODSMA/<span class="nu0">2</span><span class="br0">]</span>,mesh_res<span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span>/<span class="nu0">3</span>,<span class="nu0">1.3</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">z</span> = SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="kw2">mesh</span>.<span class="me1">z</span> <span class="kw2">length</span><span class="br0">]</span>, mesh_res<span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Post-Processing" id="Post-Processing"></a></p>
+<h2><span class="mw-headline">Post-Processing</span></h2>
+<p><a name="Modeling_devices_with_different_characteristic_impedances_at_each_port" id="Modeling_devices_with_different_characteristic_impedances_at_each_port"></a></p>
+<h3><span class="mw-headline">Modeling devices with different characteristic impedances at each port</span></h3>
+<p>This is the key problem that is illustrated in this tutorial. In this example, the coax portion has a constant impedance of 50 ohms. However, the waveguide characteristic impedance is a function of frequency and it is typically a few hundred ohms. This presents a problem in the calculation of S21 because both ports do not have the same impedance. In the example, port 1 is the coax port and port 2 is the waveguide port. The calculation of S11 is standard. However, to the standard S21 calculation (port{2}.uf.ref./port{1}.uf.inc)a front multiplication factor is added which is the square root of the ratio of the characteristic impedances at each frequency of each port). After simulation, you will notice that the S21 is about 0.1 dB even though this is set up as a lossless device. This is due to discretization errors of the coaxial structure in the rectangular grid which cause the impedance of the coax port to be about 50.7 ohms instead of 50 ohms.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+s11 = port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./ port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+s21 = <span class="kw2">sqrt</span><span class="br0">(</span><span class="kw2">real</span><span class="br0">(</span>port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">ZL_ref</span><span class="br0">)</span>./port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>.<span class="me1">ZL_ref</span><span class="br0">)</span>.*port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+</pre></div>
+</div>
+<p><a name="Visualization" id="Visualization"></a></p>
+<h2><span class="mw-headline">Visualization</span></h2>
+<p><a name="Visualization_of_the_electric_field_in_the_time_domain_using_Matlab" id="Visualization_of_the_electric_field_in_the_time_domain_using_Matlab"></a></p>
+<h3><span class="mw-headline">Visualization of the electric field in the time domain using Matlab</span></h3>
+<p>This is a great tool for debugging problems that may have occured in the simulation, for example, if the absorbing and PEC boundaries were accidently switched, you can see this by looking at the movie of the E field in the time domain.</p>
+<p>The following code snippet is the set up before the simulation engine is run. SubSampling '4,4,4' indicates that only every 4th value is saved to the file in order to save disk space.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="co1">%% define dump box... %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+CSX = AddDump<span class="br0">(</span>CSX,<span class="co2">'Et'</span>,<span class="co2">'FileType'</span>,<span class="nu0">1</span>,<span class="co2">'SubSampling'</span>,<span class="co2">'4,4,4'</span><span class="br0">)</span>;
+start = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">]</span>;
+stop  = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span><span class="br0">]</span>;
+</pre></div>
+</div>
+<p>The following code snippet is in the post processing section and is where the move is actually displayed. PlotArgs.slice is where the x, y, and z planes are positioned to display the electric field. In this example, the x and y planes are placed in the midle of the waveguide.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="co1">%% Plot the field dumps </span>
+<span class="kw2">figure</span>
+dump_file = <span class="br0">[</span>Sim_Path <span class="co2">'/Et.h5'</span><span class="br0">]</span>;
+PlotArgs.<span class="kw2">slice</span> = <span class="br0">{</span>a/<span class="nu0">2</span>*unit <span class="br0">(</span>b/<span class="nu0">2</span><span class="br0">)</span>*unit <span class="br0">(</span>.05<span class="br0">)</span>*unit<span class="br0">}</span>;
+PlotArgs.<span class="me1">pauseTime</span>=<span class="nu0">0.01</span>;
+PlotArgs.<span class="me1">component</span>=<span class="nu0">0</span>;
+PlotArgs.<span class="me1">Limit</span> = <span class="co2">'auto'</span>;
+PlotHDF5FieldData<span class="br0">(</span>dump_file, PlotArgs<span class="br0">)</span>;
+</pre></div>
+</div>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 24/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:219-0!1!0!!en!2!edit=0 and timestamp 20181110114352 -->
+<div class="printfooter">
+Retrieved from "<a href="Tutorial:_Coax_to_Waveguide_Adapter.html">index.php/Tutorial:_Coax_to_Waveguide_Adapter</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 11 April 2017, at 23:34.</li>
+					<li id="viewcount">This page has been accessed 11,184 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

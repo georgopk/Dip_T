@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Compile from Source,AppCSXCAD,Tutorial: Importing with hyp2mat" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Compile_from_Source&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Compile from Source - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Compile_from_Source";
+		var wgTitle = "Compile from Source";
+		var wgAction = "view";
+		var wgArticleId = "106";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 1111;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Compile_from_Source skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Compile from Source</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="http://openems.de/index.php/Compile_from_Source.html#column-one">navigation</a>, <a href="http://openems.de/index.php/Compile_from_Source.html#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Compile_from_Source.html#Linux"><span class="tocnumber">1</span> <span class="toctext">Linux</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Compile_from_Source.html#Requirement"><span class="tocnumber">1.1</span> <span class="toctext">Requirement</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Compile_from_Source.html#Build_and_Install"><span class="tocnumber">1.2</span> <span class="toctext">Build and Install</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Compile_from_Source.html#Setup_Matlab.2FOctave"><span class="tocnumber">1.3</span> <span class="toctext">Setup Matlab/Octave</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Compile_from_Source.html#Build_from_Github"><span class="tocnumber">1.4</span> <span class="toctext">Build from Github</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Compile_from_Source.html#Mac_OS-X"><span class="tocnumber">2</span> <span class="toctext">Mac OS-X</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Linux" id="Linux"></a></p>
+<h1><span class="mw-headline">Linux</span></h1>
+<p><a name="Requirement" id="Requirement"></a></p>
+<h3><span class="mw-headline">Requirement</span></h3>
+<ul>
+<li>Install all necessary packages and libraries: git, qt4, tinyxml, hdf5 and boost.</li>
+</ul>
+<p>For example on <b>Ubuntu 14.04 LTS or above</b>:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> build-essential <span class="kw2">git</span> cmake libhdf5-dev libvtk5-dev libboost-all-dev libcgal-dev libtinyxml-dev libqt4-dev libvtk5-qt4-dev
+</pre></div>
+</div>
+<p><b>Note for Ubuntu 16.04:</b> Due to a bug in CGAL the package <i>libcgal-qt5-dev</i> may be required.</p>
+<p><b>Optional:</b> Additional packages for <a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html" title="Tutorial: Importing with hyp2mat">hyp2mat</a>:</p>
+<p>For example on <b>Ubuntu 14.04 or above</b>:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> gengetopt help2man groff pod2pdf <span class="kw2">bison</span> <span class="kw2">flex</span> libhpdf-dev libtool <span class="kw2">autoconf</span>
+</pre></div>
+</div>
+<p><b>Optional:</b> Install octave and octave devel packages:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> octave liboctave-dev epstool transfig
+</pre></div>
+</div>
+<p><b>Optional:</b> Install ParaView so that gridded model can be viewed:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> paraview
+</pre></div>
+</div>
+<p><a name="Build_and_Install" id="Build_and_Install"></a></p>
+<h3><span class="mw-headline">Build and Install</span></h3>
+<p><b>This instructions assume that you will install openEMS to <i>~/opt/openEMS</i></b></p>
+<ul>
+<li>Get the <a href="https://openems.de/download/src/" class="external text" title="https://openems.de/download/src/" rel="nofollow">openEMS</a> source code, extract, build and install:</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+<span class="kw3">cd</span> <span class="sy0">/</span>tmp
+<span class="kw2">wget</span> http:<span class="sy0">//</span>openems.de<span class="sy0">/</span>download<span class="sy0">/</span>src<span class="sy0">/</span>openEMS-v0.0.35.tar.bz2
+<span class="kw2">tar</span> jxf openEMS-v0.0.35.tar.bz2
+<span class="kw3">cd</span> openEMS
+.<span class="sy0">/</span>update_openEMS.sh ~<span class="sy0">/</span>opt<span class="sy0">/</span>openEMS
+</pre></div>
+</div>
+<ul>
+<li><b>Alternatively</b> include hyp2mat and the <a href="https://github.com/thliebig/CTB" class="external text" title="https://github.com/thliebig/CTB" rel="nofollow">circuit toolbox</a>:</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+.<span class="sy0">/</span>update_openEMS.sh ~<span class="sy0">/</span>opt<span class="sy0">/</span>openEMS <span class="re5">--with-hyp2mat</span> <span class="re5">--with-CTB</span>
+</pre></div>
+</div>
+<ul>
+<li><b>Alternatively</b> disable <a href="http://openems.de/index.php/AppCSXCAD.html" title="AppCSXCAD">AppCSXCAD</a> build (e.g. for a server-system):</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+.<span class="sy0">/</span>update_openEMS.sh ~<span class="sy0">/</span>opt<span class="sy0">/</span>openEMS <span class="re5">--disable-GUI</span>
+</pre></div>
+</div>
+<p><a name="Setup_Matlab.2FOctave" id="Setup_Matlab.2FOctave"></a></p>
+<h3><span class="mw-headline">Setup Matlab/Octave</span></h3>
+<p>Add the openEMS path to matlab (store the commands in "startup.m" or ".octaverc" in your home directory to load them on startup in matlab or octave respectively):</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">addpath</span><span class="br0">(</span><span class="co2">'~/opt/openEMS/share/openEMS/matlab'</span><span class="br0">)</span>;
+<span class="kw2">addpath</span><span class="br0">(</span><span class="co2">'~/opt/openEMS/share/CSXCAD/matlab'</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>If you installed hyp2mat and circuit toolbox, add the paths for these optional packages as well:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">addpath</span><span class="br0">(</span><span class="co2">'~/opt/openEMS/share/hyp2mat/matlab'</span><span class="br0">)</span>; <span class="co1">% hyp2mat package</span>
+<span class="kw2">addpath</span><span class="br0">(</span><span class="co2">'~/opt/openEMS/share/CTB/matlab'</span><span class="br0">)</span>; <span class="co1">% circuit toolbox</span>
+</pre></div>
+</div>
+<p><a name="Build_from_Github" id="Build_from_Github"></a></p>
+<h3><span class="mw-headline">Build from Github</span></h3>
+<ul>
+<li>If you want to get the latest development version of openEMS:</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+<span class="kw2">git clone</span> <span class="re5">--recursive</span> https:<span class="sy0">//</span>github.com<span class="sy0">/</span>thliebig<span class="sy0">/</span>openEMS-Project.git
+<span class="kw3">cd</span> openEMS-Project
+.<span class="sy0">/</span>update_openEMS.sh ~<span class="sy0">/</span>opt<span class="sy0">/</span>openEMS
+</pre></div>
+</div>
+<p><a name="Mac_OS-X" id="Mac_OS-X"></a></p>
+<h1><span class="mw-headline">Mac OS-X</span></h1>
+<p>Experimental support using <a href="https://brew.sh" class="external text" title="https://brew.sh" rel="nofollow">brew</a>: <a href="https://github.com/thliebig/openEMS-Project/blob/master/brew/README.md" class="external text" title="https://github.com/thliebig/openEMS-Project/blob/master/brew/README.md" rel="nofollow">brew file</a></p>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 37/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:106-0!1!0!!en!2!edit=0 and timestamp 20181110114349 -->
+<div class="printfooter">
+Retrieved from "<a href="http://openems.de/index.php/Compile_from_Source.html">index.php/Compile_from_Source</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 12 May 2017, at 17:56.</li>
+					<li id="viewcount">This page has been accessed 97,098 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="OpenEMS pt,OpenEMS pt,Binaries,Compile from Source,Paraview,Tutorial: First Steps,Vtk" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=OpenEMS_pt&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>OpenEMS pt - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "OpenEMS_pt";
+		var wgTitle = "OpenEMS pt";
+		var wgAction = "view";
+		var wgArticleId = "220";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 989;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-OpenEMS_pt skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">OpenEMS pt</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="OpenEMS_pt.html#column-one">navigation</a>, <a href="OpenEMS_pt.html#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="OpenEMS_pt.html#Instala.C3.A7.C3.A3o"><span class="tocnumber">1</span> <span class="toctext">Instalação</span></a>
+<ul>
+<li class="toclevel-2"><a href="OpenEMS_pt.html#Windows"><span class="tocnumber">1.1</span> <span class="toctext">Windows</span></a></li>
+<li class="toclevel-2"><a href="OpenEMS_pt.html#Linux"><span class="tocnumber">1.2</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-2"><a href="OpenEMS_pt.html#OS-X"><span class="tocnumber">1.3</span> <span class="toctext">OS-X</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="OpenEMS_pt.html#Software_Adicional"><span class="tocnumber">2</span> <span class="toctext">Software Adicional</span></a>
+<ul>
+<li class="toclevel-2"><a href="OpenEMS_pt.html#Paraview"><span class="tocnumber">2.1</span> <span class="toctext">Paraview</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Instala.C3.A7.C3.A3o" id="Instala.C3.A7.C3.A3o"></a></p>
+<h2><span class="mw-headline">Instalação</span></h2>
+<p>Siga as seguintes instruções depois de instalar o <a href="https://en.wikipedia.org/wiki/Matlab" class="external text" title="https://en.wikipedia.org/wiki/Matlab" rel="nofollow">Matlab</a> ou <a href="https://en.wikipedia.org/wiki/GNU_Octave" class="external text" title="https://en.wikipedia.org/wiki/GNU_Octave" rel="nofollow">Octave</a>.</p>
+<p><a name="Windows" id="Windows"></a></p>
+<h3><span class="mw-headline">Windows</span></h3>
+<ul>
+<li>Faça o <b>Download</b> da última versão <a href="https://openems.de/download/win64/openEMS_x64_v0.0.33-20-gadd2f2d.zip" class="external text" title="https://openems.de/download/win64/openEMS_x64_v0.0.33-20-gadd2f2d.zip" rel="nofollow">64bit openEMS</a>. (Versões antigas podem ser encontradas aqui: <a href="https://openems.de/download/win32/" class="external text" title="https://openems.de/download/win32/" rel="nofollow">win32</a>, <a href="https://openems.de/download/win64/" class="external text" title="https://openems.de/download/win64/" rel="nofollow">win64</a>)</li>
+<li>Extraia (<b>Unzip</b>) o arquivo em uma pasta de sua escolha e.g. "D:/" (o arquivo zip possue uma pasta chamada openEMS)</li>
+<li>Acrescente openEMS ao <b>path</b> do matlab:
+<ul>
+<li>Usando o matlab crie um arquivo chamado <i>startup.m</i> com o seguinte código:
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">addpath</span><span class="br0">(</span><span class="co2">'D:/openEMS/matlab'</span><span class="br0">)</span>;
+</pre></div>
+</div>
+</li>
+<li>Guarde o arquivo na pasta de inicio do Matlab. Para saber qual é a pasta de inicio execute no Matlab:
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">which</span> startupsav
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+<p>o resultado deve ser algo do tipo:</p>
+<pre>
+ &gt;&gt; C:\MATLABR11\toolbox\local\startupsav.m
+</pre>
+<p>sendo assim, guarde o arquivo <i>startup.m</i> na pasta C:\MATLABR11\toolbox\local\</p>
+<ul>
+<li><b>Pronto!</b> Verifique sua instalação seguindo os passos do <a href="http://openems.de/index.php/Tutorial:_First_Steps.html" title="Tutorial: First Steps">First Steps Tutorial</a></li>
+<li>De uma olhada na seção de <a href="OpenEMS_pt.html#Additional_Software" title="OpenEMS pt">software adicional</a>.</li>
+<li>Pode comentar sua experiência no <a href="https://openems.de/forum/" class="external text" title="https://openems.de/forum/" rel="nofollow">openEMS-Forum</a>. (em inglês)</li>
+</ul>
+<p><a name="Linux" id="Linux"></a></p>
+<h3><span class="mw-headline">Linux</span></h3>
+<p>A forma recomendada é instalando desde o <a href="http://openems.de/index.php/Compile_from_Source.html" title="Compile from Source">código fonte do openEMS</a>. (em inglês)</p>
+<p>Também existem repositórios para algumas distribuições Linux. Siga as instruções <a href="http://openems.de/index.php/Binaries.html" title="Binaries">aqui</a>. (em inglês)</p>
+<p>De uma olhada na seção de <a href="OpenEMS_pt.html#Additional_Software" title="OpenEMS pt">software adicional</a>.</p>
+<p><a name="OS-X" id="OS-X"></a></p>
+<h3><span class="mw-headline">OS-X</span></h3>
+<p>Suporte experimental usando <a href="https://brew.sh" class="external text" title="https://brew.sh" rel="nofollow">brew</a>: <a href="https://github.com/thliebig/openEMS-Project/blob/master/brew/README.md" class="external text" title="https://github.com/thliebig/openEMS-Project/blob/master/brew/README.md" rel="nofollow">arquivo brew</a></p>
+<p><a name="Software_Adicional" id="Software_Adicional"></a></p>
+<h2><span class="mw-headline">Software Adicional</span></h2>
+<p>Software adicional que pode ser útil:</p>
+<p><a name="Paraview" id="Paraview"></a></p>
+<h3><span class="mw-headline">Paraview</span></h3>
+<dl>
+<dd>"<a href="Paraview.html" title="Paraview">Paraview</a> é uma aplicação livre e multi-plataforma para a visualização e o analise de dados." <a href="https://www.paraview.org/" class="external text" title="https://www.paraview.org/" rel="nofollow">Paraview Homepage</a></dd>
+</dl>
+<p><a href="Paraview.html" title="Paraview">Paraview</a> pode ser usado para visualizar arquivos <a href="http://openems.de/index.php/index.php?title=Vtk&amp;action=edit&amp;redlink=1" class="new" title="Vtk (page does not exist)">vtk</a> que contenham os depósitos de campo (<i>field dumps</i>) gerados por openEMS. No Linux, você pode usar seu administrador de pacotes para instalar o Paraview. Para outros sistemas operativos, faça o download em&#160;: <a href="https://www.paraview.org/paraview/resources/software.html" class="external free" title="https://www.paraview.org/paraview/resources/software.html" rel="nofollow">https://www.paraview.org/paraview/resources/software.html</a></p>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 13/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:220-0!1!0!!en!2!edit=0 and timestamp 20181110114349 -->
+<div class="printfooter">
+Retrieved from "<a href="OpenEMS_pt.html">index.php/OpenEMS_pt</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 14 November 2016, at 08:58.</li>
+					<li id="viewcount">This page has been accessed 18,293 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

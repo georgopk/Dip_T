@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Tutorial: MRI LP Birdcage,Tutorials,Virtual Family Body Model,SAR" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Tutorial:_MRI_LP_Birdcage&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Tutorial: MRI LP Birdcage - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Tutorial:_MRI_LP_Birdcage";
+		var wgTitle = "Tutorial: MRI LP Birdcage";
+		var wgAction = "view";
+		var wgArticleId = "183";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 837;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Tutorial_MRI_LP_Birdcage skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Tutorial: MRI LP Birdcage</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html#column-one">navigation</a>, <a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html#searchInput">search</a></div>			<!-- start content -->
+			<ul>
+<li><b>Download</b> the latest matlab file using gitweb: <a href="https://www.openems.de/gitweb/?p=openEMS.git;a=blob_plain;f=matlab/Tutorials/MRI_LP_Birdcage.m;hb=refs/heads/master" class="external text" title="https://www.openems.de/gitweb/?p=openEMS.git;a=blob_plain;f=matlab/Tutorials/MRI_LP_Birdcage.m;hb=refs/heads/master" rel="nofollow">MRI_LP_Birdcage.m</a></li>
+</ul>
+<div class="thumb tright">
+<div class="thumbinner" style="width:402px;"><a href="File:MRI_LP_BirdCage_CSX.png.html" class="image" title="MRI low pass birdcage and VF human body model"><img alt="" src="../images/thumb/4/44/MRI_LP_BirdCage_CSX.png/400px-MRI_LP_BirdCage_CSX.png" width="400" height="314" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:MRI_LP_BirdCage_CSX.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+MRI low pass birdcage and VF human body model</div>
+</div>
+</div>
+<p><b>Warning:</b> This tutorials runs for almost 7h at a speed of 65 MC/s.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html#Requirements"><span class="tocnumber">1</span> <span class="toctext">Requirements</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html#This_tutorial_covers"><span class="tocnumber">2</span> <span class="toctext">This tutorial covers</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html#Results"><span class="tocnumber">3</span> <span class="toctext">Results</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html#Literature"><span class="tocnumber">4</span> <span class="toctext">Literature</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html#Return_To_Tutorials_Index"><span class="tocnumber">4.1</span> <span class="toctext">Return To Tutorials Index</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Requirements" id="Requirements"></a></p>
+<h3><span class="mw-headline">Requirements</span></h3>
+<ul>
+<li>openEMS v0.0.31 or later</li>
+<li>Matlab R2011a or later for converting the body model once! (Octave currently is not supported)</li>
+<li>The "Virtual Family Model" <sup id="cite_ref-christ_0-0" class="reference"><a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html#cite_note-christ-0" title="">[1]</a></sup>, more infos: <a href="https://www.itis.ethz.ch/itis-for-health/virtual-population/overview" class="external autonumber" title="https://www.itis.ethz.ch/itis-for-health/virtual-population/overview" rel="nofollow">[1]</a></li>
+</ul>
+<p><a name="This_tutorial_covers" id="This_tutorial_covers"></a></p>
+<h2><span class="mw-headline">This tutorial covers</span></h2>
+<ul>
+<li>setup of an <b>3T MRI low pass birdcage coil</b> (f_0 = 128 MHz)</li>
+<li>setup of a <b>cylindrical FDTD mesh</b> including sub-grids</li>
+<li>Converting and including a <a href="http://openems.de/index.php/index.php?title=Virtual_Family_Body_Model&amp;action=edit&amp;redlink=1" class="new" title="Virtual Family Body Model (page does not exist)">Virtual Family Body Model</a></li>
+<li>adding a 3D <a href="http://openems.de/index.php/index.php?title=SAR&amp;action=edit&amp;redlink=1" class="new" title="SAR (page does not exist)">SAR</a> dump box</li>
+<li>calculate the S-Parameter</li>
+<li>calculate and plot <img class="tex" alt="B_1^+" src="../images/math/4/f/0/4f09bf3be5fa8c346439fdaead9c434b.png" /> and <img class="tex" alt="B_1^-" src="../images/math/a/2/c/a2c86022494539a9e73b655099c7d934.png" /></li>
+<li>calculate and plot the SAR distribution</li>
+</ul>
+<p><a name="Results" id="Results"></a></p>
+<h2><span class="mw-headline">Results</span></h2>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:582px;"><a href="File:MRI_LP_BirdCage_3D_SAR.png.html" class="image" title="MRI Low Pass BirdCage Coil, VF human body model and SAR plot in Paraview"><img alt="" src="../images/thumb/f/f9/MRI_LP_BirdCage_3D_SAR.png/580px-MRI_LP_BirdCage_3D_SAR.png" width="580" height="316" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:MRI_LP_BirdCage_3D_SAR.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+MRI Low Pass BirdCage Coil, VF human body model and SAR plot in Paraview</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:602px;"><a href="File:MRI_LP_BirdCage_B1.png.html" class="image" title="B_1 field distribution on a xy-plane"><img alt="" src="../images/thumb/1/1d/MRI_LP_BirdCage_B1.png/600px-MRI_LP_BirdCage_B1.png" width="600" height="287" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:MRI_LP_BirdCage_B1.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+B_1 field distribution on a xy-plane</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:382px;"><a href="File:MRI_LP_BirdCage_SAR.png.html" class="image" title="local SAR distribution on a xy-plane"><img alt="" src="../images/thumb/b/ba/MRI_LP_BirdCage_SAR.png/380px-MRI_LP_BirdCage_SAR.png" width="380" height="285" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:MRI_LP_BirdCage_SAR.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+local SAR distribution on a xy-plane</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p><a name="Literature" id="Literature"></a></p>
+<h2><span class="mw-headline">Literature</span></h2>
+<ol class="references">
+<li id="cite_note-christ-0"><a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html#cite_ref-christ_0-0" title="">↑</a> Christ A, Kainz W, Hahn E G, Honegger K, Zefferer M, Neufeld E, Rascher W, Janka R, Bautz W, Chen J, Kiefer B, Schmitt P, Hollenbach H P, Shen J X, Oberle M,Szczerba D, Kam A, Guag J and Kuster N: The Virtual Family – Development of surface­based anatomical models of two adults and two children for dosimetric simulations, Phys. Med. Biol. 55 (2010)</li>
+</ol>
+<p><a name="Return_To_Tutorials_Index" id="Return_To_Tutorials_Index"></a></p>
+<h3><span class="mw-headline"><a href="http://openems.de/index.php/Tutorials.html" title="Tutorials">Return To Tutorials Index</a></span></h3>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 28/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:183-0!1!0!!en!2!edit=0 and timestamp 20181110114353 -->
+<div class="printfooter">
+Retrieved from "<a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html">index.php/Tutorial:_MRI_LP_Birdcage</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 30 September 2013, at 13:18.</li>
+					<li id="viewcount">This page has been accessed 16,200 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

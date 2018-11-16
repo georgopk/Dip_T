@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="FDTD Mesh,FDTD Boundary Conditions" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=FDTD_Mesh&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>FDTD Mesh - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "FDTD_Mesh";
+		var wgTitle = "FDTD Mesh";
+		var wgAction = "view";
+		var wgArticleId = "51";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 1135;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-FDTD_Mesh skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">FDTD Mesh</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="FDTD_Mesh.html#column-one">navigation</a>, <a href="FDTD_Mesh.html#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="FDTD_Mesh.html#General"><span class="tocnumber">1</span> <span class="toctext">General</span></a>
+<ul>
+<li class="toclevel-2"><a href="FDTD_Mesh.html#Rules_of_thumb"><span class="tocnumber">1.1</span> <span class="toctext">Rules of thumb</span></a></li>
+<li class="toclevel-2"><a href="FDTD_Mesh.html#FDTD_Mesh_example"><span class="tocnumber">1.2</span> <span class="toctext">FDTD Mesh example</span></a></li>
+<li class="toclevel-2"><a href="FDTD_Mesh.html#openEMS_example"><span class="tocnumber">1.3</span> <span class="toctext">openEMS example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="FDTD_Mesh.html#FDTD_cylindrical_mesh_.5B1.5D"><span class="tocnumber">2</span> <span class="toctext">FDTD cylindrical mesh [1]</span></a>
+<ul>
+<li class="toclevel-2"><a href="FDTD_Mesh.html#example"><span class="tocnumber">2.1</span> <span class="toctext">example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="FDTD_Mesh.html#Boundary_Conditions"><span class="tocnumber">3</span> <span class="toctext">Boundary Conditions</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="General" id="General"></a></p>
+<h1><span class="mw-headline">General</span></h1>
+<p>The mesh used by the finite-difference time-domain (FDTD) method is a strictly rectilinear mesh using <b>Yee-cells</b>.</p>
+<p>For detailed informations you should have a close look here: <a href="https://en.wikipedia.org/wiki/FDTD" class="external text" title="https://en.wikipedia.org/wiki/FDTD" rel="nofollow">FDTD</a></p>
+<p><a name="Rules_of_thumb" id="Rules_of_thumb"></a></p>
+<h2><span class="mw-headline">Rules of thumb</span></h2>
+<p>Here are some (maybe) helpful rules of thumb:</p>
+<ul>
+<li><b>The largest mesh cell must not be bigger than about a tenth of the smallest wavelength.</b></li>
+</ul>
+<p>Better: <span class="texhtml"><i>m</i><i>a</i><i>x</i>(Δ<sub><i>x</i>,<i>y</i>,<i>z</i></sub>) &lt; λ<sub><i>m</i><i>i</i><i>n</i></sub> / 15</span></p>
+<p>The smallest wavelength is defined by the greatest excited frequency and the material properties!</p>
+<ul>
+<li><b>Make the mesh as coarse as possible and as fine as needed</b></li>
+</ul>
+<ul>
+<li><b>Keep an adequate distance to an absorbing boundary</b></li>
+</ul>
+<p>Try to keep structure <span class="texhtml">&gt; λ<sub><i>m</i><i>a</i><i>x</i></sub> / 4</span> from a <a href="FDTD_Boundary_Conditions.html" title="FDTD Boundary Conditions">PML</a></p>
+<ul>
+<li><b>Create a smooth mesh</b>: Neighboring cell sizes should not exceed a factor of ~2</li>
+</ul>
+<ul>
+<li><b>Thirds Rule</b>&#160;: At the edges of a 2D metal you have a strong electric field enhancement that FDTD has trouble to calculate properly.</li>
+</ul>
+<p>That means that e.g. for micro-strip line (MSL) the line-impedance and wave propagation differs somewhat between simulation and measurement. So, it is preferred in precision calculation to put a mesh line 1/3 inside and 2/3 outside the metal.</p>
+<p><br /></p>
+<p><a name="FDTD_Mesh_example" id="FDTD_Mesh_example"></a></p>
+<h2><span class="mw-headline">FDTD Mesh example</span></h2>
+<p><a href="File:Thirds_rule_explanation_core.png.html" class="image" title="Thirds rule explanation core.png"><img alt="" src="../images/thumb/0/0a/Thirds_rule_explanation_core.png/1000px-Thirds_rule_explanation_core.png" width="1000" height="750" border="0" /></a></p>
+<p><br /></p>
+<ul>
+<li>The first thing is to place the thirds rule mesh lines 1/3 inside and 2/3 outside the metal (the red ones).</li>
+<li>In second, place the metal mesh lines (the blue ones) which should cover all Micro Strip Lines in the width direction with a maximum spacing of mres (mres is metal mesh resolution <span class="texhtml">&lt; = λ<sub><i>m</i><i>i</i><i>n</i></sub> / 20</span> for example)</li>
+<li>A the end, complete this mesh with substrate mesh lines (the black ones) which should cover all the substrate with a maximum spacing of sres (sres is substrate mesh resolution <span class="texhtml">&lt; = λ<sub><i>m</i><i>i</i><i>n</i></sub> / 10</span> for example)</li>
+</ul>
+<p>Mesh lines are calculation time so try to add only needed lines (sometimes, red or blue lines already cover the substrate mesh)</p>
+<p><br /></p>
+<p><a name="openEMS_example" id="openEMS_example"></a></p>
+<h2><span class="mw-headline">openEMS example</span></h2>
+<ul>
+<li><b>Define a homogeneous mesh with the matlab interface:</b></li>
+</ul>
+<p><code>SmoothMeshLines</code> enables us to define meshes with points which match important dimensions and have an interval less than a specified maximum. This is demonstrated with the following simple examples.</p>
+<p>First, a simple mesh from 1 to 10 with a maximum resolution of 1:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+&gt;&gt; SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">1</span> <span class="nu0">10</span><span class="br0">]</span>, <span class="nu0">1</span><span class="br0">)</span>
+<span class="kw2">ans</span> =
+ 
+    <span class="nu0">1</span>    <span class="nu0">2</span>    <span class="nu0">3</span>    <span class="nu0">4</span>    <span class="nu0">5</span>    <span class="nu0">6</span>    <span class="nu0">7</span>    <span class="nu0">8</span>    <span class="nu0">9</span>   <span class="nu0">10</span>
+</pre></div>
+</div>
+<p>Now suppose we want a point at 5.2. This is added to the vector (first argument):</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+&gt;&gt; SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">1</span> <span class="nu0">5.2</span> <span class="nu0">10</span><span class="br0">]</span>, <span class="nu0">1</span><span class="br0">)</span>
+<span class="kw2">ans</span> =
+ 
+ Columns <span class="nu0">1</span> through <span class="nu0">8</span>:
+ 
+    <span class="nu0">1.0000</span>    <span class="nu0">1.8400</span>    <span class="nu0">2.6800</span>    <span class="nu0">3.5200</span>    <span class="nu0">4.3600</span>    <span class="nu0">5.2000</span>    <span class="nu0">6.1600</span>    <span class="nu0">7.1200</span>
+ 
+ Columns <span class="nu0">9</span> through <span class="nu0">11</span>:
+ 
+    <span class="nu0">8.0800</span>    <span class="nu0">9.0400</span>   <span class="nu0">10.0000</span>
+</pre></div>
+</div>
+<p>Create a homogeneous mesh with a resolution of 10mm in <i>x</i>- and <i>y</i>-direction and 15mm in <i>z</i>-direction:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = InitCSX<span class="br0">(</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">x</span> = <span class="nu0">0</span>:<span class="nu0">10</span>:<span class="nu0">500</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="nu0">750</span><span class="br0">]</span>, <span class="nu0">10</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">z</span> = SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="nu0">2000</span><span class="br0">]</span>, <span class="nu0">15</span><span class="br0">)</span>;
+CSX = DefineRectGrid<span class="br0">(</span>CSX, 1e-3 ,<span class="kw2">mesh</span><span class="br0">)</span>; <span class="co1">% define the mesh with a drawing unit of 1mm (1e-3)</span>
+</pre></div>
+</div>
+<p><a name="FDTD_cylindrical_mesh_.5B1.5D" id="FDTD_cylindrical_mesh_.5B1.5D"></a></p>
+<h1><span class="mw-headline">FDTD cylindrical mesh <a href="https://www.ate.uni-due.de/data/dokumente_2012/JNM_2012_Liebig_Online.pdf" class="external autonumber" title="https://www.ate.uni-due.de/data/dokumente_2012/JNM_2012_Liebig_Online.pdf" rel="nofollow">[1]</a></span></h1>
+<p>An adaption of the conventional FDTD algorithm to the cylindrical coordinate has been realized with only minimal changes. As in the rectilinear mesh, the Maxwell equations are evaluated on the surfaces and edges of cylindrical Yee cell but with different formulation in the calculation of surface area and edge lengths.</p>
+<p>To reduce inevitable smaller cell size as <span class="texhtml"><i>r</i></span> approaches 0 which induces smaller step size and hence slower simulation, a new multi-grid approach for cylindrical mesh is introduced. In contrast to conventional FDTD multi-grid that increases the mesh resolution, this method is adopted for reducing excessive mesh resolution in the center and its neighboring area. By introducing sub-grid, every second radial lines of the original mesh is excluded. This enlarge the relevant cell size and time step by a factor of two. For a huge number of mesh line in azimuthal direction, this approach can be nested several times. Correspond to it, the cell size and time step are increased by a factor of <span class="texhtml">2<sup><i>n</i></sup></span> where <span class="texhtml"><i>n</i></span> is the number of nested stage.</p>
+<p><a name="example" id="example"></a></p>
+<h2><span class="mw-headline">example</span></h2>
+<p>Cylindrical mesh without subgrid:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+FDTD = InitFDTD<span class="br0">(</span> 1e9, 1e-3, <span class="co2">'CoordSystem'</span> , <span class="nu0">1</span> <span class="br0">)</span>;
+CSX = InitCSX<span class="br0">(</span><span class="co2">'CoordSystem'</span> , <span class="nu0">1</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">r</span>= AutoSmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="nu0">200</span><span class="br0">]</span>, <span class="nu0">10</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">a</span>= <span class="nu0">0</span>:<span class="nu0">2</span>*<span class="kw2">pi</span>/<span class="nu0">352</span>:<span class="nu0">2</span>*<span class="kw2">pi</span>;  <span class="co1">% azimuthal equidistant  </span>
+<span class="kw2">mesh</span>.<span class="me1">z</span>= AutoSmoothMeshLines<span class="br0">(</span><span class="br0">[</span>-<span class="nu0">1000</span> <span class="nu0">1000</span><span class="br0">]</span>, <span class="nu0">15</span><span class="br0">)</span>;
+CSX = DefineRectGrid<span class="br0">(</span> CSX, 1e-3, <span class="kw2">mesh</span> <span class="br0">)</span>; <span class="co1">% define the mesh with a drawing unit of 1mm (1e-3)</span>
+</pre></div>
+</div>
+<p>Cylindrical mesh with subgrid defined at <span class="texhtml"><i>r</i> = 50<i>m</i><i>m</i></span> &#160;:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+FDTD = InitFDTD<span class="br0">(</span> 1e9, 1e-3, <span class="co2">'CoordSystem'</span> , <span class="nu0">1</span> ,<span class="co2">'MultiGrid'</span>,<span class="nu0">50</span><span class="br0">)</span>;
+CSX = InitCSX<span class="br0">(</span><span class="co2">'CoordSystem'</span> , <span class="nu0">1</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">r</span>= AutoSmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="nu0">200</span><span class="br0">]</span>, <span class="nu0">10</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">a</span>= <span class="nu0">0</span>:<span class="nu0">2</span>*<span class="kw2">pi</span>/<span class="nu0">352</span>:<span class="nu0">2</span>*<span class="kw2">pi</span>;  <span class="co1">% azimuthal equidistant  </span>
+<span class="kw2">mesh</span>.<span class="me1">z</span>= AutoSmoothMeshLines<span class="br0">(</span><span class="br0">[</span>-<span class="nu0">1000</span> <span class="nu0">1000</span><span class="br0">]</span>, <span class="nu0">15</span><span class="br0">)</span>;
+CSX = DefineRectGrid<span class="br0">(</span> CSX, 1e-3, <span class="kw2">mesh</span> <span class="br0">)</span>; <span class="co1">% define the mesh with a drawing unit of 1mm (1e-3)</span>
+</pre></div>
+</div>
+<p><a name="Boundary_Conditions" id="Boundary_Conditions"></a></p>
+<h1><span class="mw-headline">Boundary Conditions</span></h1>
+<p>To complete the mesh, boundary conditions must be specified. This is done with the function <code>SetBoundaryCond</code> in this manner:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+BC = <span class="br0">[</span>xmin xmax ymin ymax zmin zmax<span class="br0">]</span>;
+FDTD = SetBoundaryCond<span class="br0">(</span>FDTD, BC, <span class="kw2">varargin</span><span class="br0">)</span>
+</pre></div>
+</div>
+<p>where values for the <code>BC</code> vector are:</p>
+<pre>
+   0 = PEC      or  'PEC'
+   1 = PMC      or  'PMC'
+   2 = MUR-ABC  or  'MUR'
+   3 = PML-ABC  or  'PML_x' with pml size x =&gt; 4..50
+</pre>
+<p>Here are two equivalent examples:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+BC = <span class="br0">[</span> <span class="nu0">1</span>     <span class="nu0">1</span>     <span class="nu0">0</span>     <span class="nu0">0</span>     <span class="nu0">2</span>     <span class="nu0">3</span>     <span class="br0">]</span>  <span class="co1">%using numbers or</span>
+BC = <span class="br0">{</span><span class="co2">'PMC'</span> <span class="co2">'PMC'</span> <span class="co2">'PEC'</span> <span class="co2">'PEC'</span> <span class="co2">'MUR'</span> <span class="co2">'PML_8'</span><span class="br0">}</span>  <span class="co1">%using equivalent strings</span>
+</pre></div>
+</div>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 56/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:51-0!1!0!!en!2!edit=0 and timestamp 20181110114348 -->
+<div class="printfooter">
+Retrieved from "<a href="FDTD_Mesh.html">index.php/FDTD_Mesh</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 18 May 2017, at 21:11.</li>
+					<li id="viewcount">This page has been accessed 35,462 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

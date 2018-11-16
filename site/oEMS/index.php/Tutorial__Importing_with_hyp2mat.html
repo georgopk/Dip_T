@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Tutorial: Importing with hyp2mat,OpenEMS" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Tutorial:_Importing_with_hyp2mat&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Tutorial: Importing with hyp2mat - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Tutorial:_Importing_with_hyp2mat";
+		var wgTitle = "Tutorial: Importing with hyp2mat";
+		var wgAction = "view";
+		var wgArticleId = "101";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 1161;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Tutorial_Importing_with_hyp2mat skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Tutorial: Importing with hyp2mat</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#column-one">navigation</a>, <a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Exporting_to_Hyperlynx"><span class="tocnumber">2</span> <span class="toctext">Exporting to Hyperlynx</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Running_openEMS"><span class="tocnumber">3</span> <span class="toctext">Running openEMS</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Importing_a_printed_circuit_board"><span class="tocnumber">4</span> <span class="toctext">Importing a printed circuit board</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Adding_a_component"><span class="tocnumber">5</span> <span class="toctext">Adding a component</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Adding_excitation_and_load"><span class="tocnumber">6</span> <span class="toctext">Adding excitation and load</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Setting_up_a_mesh"><span class="tocnumber">7</span> <span class="toctext">Setting up a mesh</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Setting_boundary_conditions"><span class="tocnumber">8</span> <span class="toctext">Setting boundary conditions</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Simulation"><span class="tocnumber">9</span> <span class="toctext">Simulation</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Write_to_Disk"><span class="tocnumber">9.1</span> <span class="toctext">Write to Disk</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Display_the_3D_model"><span class="tocnumber">9.2</span> <span class="toctext">Display the 3D model</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Run_the_simulation"><span class="tocnumber">9.3</span> <span class="toctext">Run the simulation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Calculating_the_s-parameters"><span class="tocnumber">10</span> <span class="toctext">Calculating the s-parameters</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Calculating_the_step_response"><span class="tocnumber">11</span> <span class="toctext">Calculating the step response</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Error_messages"><span class="tocnumber">12</span> <span class="toctext">Error messages</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Unquoted_strings"><span class="tocnumber">12.1</span> <span class="toctext">Unquoted strings</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#Unassigned_component_values"><span class="tocnumber">12.2</span> <span class="toctext">Unassigned component values</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#References"><span class="tocnumber">13</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Introduction" id="Introduction"></a></p>
+<h2><span class="mw-headline">Introduction</span></h2>
+<p>hyp2mat is a package which allows you to import pcb's from your CAD system in openEMS for simulation. A HyperLynx file contains all information needed for simulating the board: board layout, netlists, component values, component placement, board dielectric constant, copper thickness and resistivity.</p>
+<p>To use hyp2mat your CAD system has to be able to export in HyperLynx format. A number of CAD system export HyperLynx, e.g. Altium Designer, Expedition, PADS, CADsoft Eagle.</p>
+<p>In this tutorial the freeware version of Eagle is used.</p>
+<p>This tutorial covers:</p>
+<ul>
+<li>Exporting to HyperLynx</li>
+<li>Importing in openEMS</li>
+<li>Adding a component</li>
+<li>Adding excitation and load</li>
+<li>Setting boundary conditions</li>
+<li>Setting up a mesh</li>
+<li>Simulation</li>
+<li>Calculating the s-parameters</li>
+<li>Calculating the step response</li>
+</ul>
+<p>As an example, we'll use a practical problem in pcb design: a capacitor in a microstrip line.</p>
+<p>A microstrip line is used to connect a transmitter and a receiver. A capacitor is placed in the microstrip line to provide ac coupling between transmitter and receiver. Unfortunately, the capacitance between capacitor solder pads and the ground plane causes a mismatch between capacitor and microstrip. A common solution is partially removing the ground plane below the capacitor. This lowers the capacitance of the solder pads to the ground plane. A trial-and-error method is used to determine the size of the hole in the ground plane for a good match between capacitor and microstrip.<sup id="cite_ref-0" class="reference"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#cite_note-0" title="">[1]</a></sup></p>
+<p>We'll now create a printed circuit board with a microstrip line and a capacitor, and then simulate the board using openEMS. If you are running Windows, the tutorial can be found at <tt>openems\hyp2mat\eagle\tutorial</tt>. If you are running linux and have installed the hyp2mat-demo package, tutorial files are at <tt>/usr/share/hyp2mat/eagle/tutorial</tt>. Files for the tutorial can also be downloaded from <a href="https://github.com/koendv/hyp2mat/tree/master/eagle/tutorial" class="external text" title="https://github.com/koendv/hyp2mat/tree/master/eagle/tutorial" rel="nofollow">github</a>. Copy tutorial files to a directory where you have read/write access before running.</p>
+<p><a name="Exporting_to_Hyperlynx" id="Exporting_to_Hyperlynx"></a></p>
+<h2><span class="mw-headline">Exporting to Hyperlynx</span></h2>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:402px;"><a href="File:Msl_schematic.png.html" class="image" title="Schematic of microstrip and capacitor."><img alt="" src="../images/thumb/5/50/Msl_schematic.png/400px-Msl_schematic.png" width="400" height="269" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:Msl_schematic.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Schematic of microstrip and capacitor.</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:402px;"><a href="File:Msl_board.png.html" class="image" title="Board with microstrip and capacitor."><img alt="" src="../images/thumb/1/17/Msl_board.png/400px-Msl_board.png" width="400" height="400" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:Msl_board.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Board with microstrip and capacitor.</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p>This shows schematic and board of our test setup. The schematic is simple: a 100n capacitor between two test pads. An excitation, e.g. a signal generator, is connected between TP1 and TP3. A load, e.g. a 50R resistor, is connected between TP2 and TP4. The board has a ground plane and a signal layer. The ground plane is shown in blue. There ground plane has a cutout in the center, where an SMD capacitor is placed. A microstrip runs from TP1 to capacitor and from capacitor to TP2. At the back of the board there are two test points, TP3 and TP4, which connect to the ground plane.</p>
+<p>When drawing the board, it is important to design the board for simulation:</p>
+<ul>
+<li>Avoid unnecessary 'small' features. Small features mean long simulation times.</li>
+<li>In general, only a few nets of interest are simulated, not the whole board. When importing in openEMS, the net names are used to select the signals of interest. Make sure all wires and polygons which you wish to simulate have been assigned to a net. Give all nets which you want to simulate a name.</li>
+<li>During simulation, we will place excitation and load at component pins. Add test points if necessary.</li>
+</ul>
+<p>At this moment, the following limits apply:</p>
+<ul>
+<li>polygon edges are always drawn with width 0 (zero).</li>
+<li>polygons should not be self-intersecting</li>
+</ul>
+<p>When using CADsoft Eagle:</p>
+<ul>
+<li>Before exporting a board to HyperLynx in Eagle, make sure you have downloaded the latest version of the hyperlynx.ulp script <a href="https://forums.autodesk.com/t5/eagle-forum/hyperlynx-export/m-p/7254537" class="external free" title="https://forums.autodesk.com/t5/eagle-forum/hyperlynx-export/m-p/7254537" rel="nofollow">https://forums.autodesk.com/t5/eagle-forum/hyperlynx-export/m-p/7254537</a> .</li>
+<li>To export to HyperLynx, switch to the Eagle board editor, and type:
+<pre>
+ratsnest
+run hyperlynx
+</pre>
+The resulting HyperLynx file has the .hyp suffix.</li>
+<li>At this moment, the Eagle script which exports Hyperlynx has hardcoded values for copper thickness, dielectric thickness, and dielectric constant. Changing these values requires modifying either the Eagle script or the exported file. This is a deficiency. Other CAD systems use actual board values.</li>
+</ul>
+<p>This tutorial includes a ready-to-run Hyperlynx file, msl.hyp. Including a HyperLynx file allows for a stand-alone tutorial. If you're interested how copper and dielectric thickness were changed for this tutorial, look at msl.patch.</p>
+<p><a name="Running_openEMS" id="Running_openEMS"></a></p>
+<h2><span class="mw-headline">Running openEMS</span></h2>
+<p>openEMS runs in matlab or Gnu octave. Start matlab or octave to proceed.</p>
+<p>Create an empty environment:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">close</span> <span class="kw2">all</span>
+<span class="kw2">clear</span>
+<span class="kw2">clc</span>
+</pre></div>
+</div>
+<p>Load physical constants (speed of light, permittivity of vacuum) and set the maximum frequency we're interested in.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+physical_constants;
+f_max = 7e9;
+</pre></div>
+</div>
+<p>We now proceed to build two structures:</p>
+<ul>
+<li>CSX, a 3D model of the pcb we wish to simulate</li>
+<li>FDTD, the finite-difference time-domain simulation</li>
+</ul>
+<p>We begin with building the 3D model.</p>
+<p><a name="Importing_a_printed_circuit_board" id="Importing_a_printed_circuit_board"></a></p>
+<h2><span class="mw-headline">Importing a printed circuit board</span></h2>
+<p>To import the pcb in openEMS, type:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = InitCSX<span class="br0">(</span><span class="br0">)</span>;
+CSX = ImportHyperLynx<span class="br0">(</span>CSX, <span class="co2">'msl.HYP'</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>If an error message states 'InitCSX' or 'ImportHyperLynx' is undefined, you need to have another look at the <a href="http://openems.de/index.php/OpenEMS.html#Installation" title="OpenEMS">install instructions</a>:</p>
+<p>Alternatively, you may choose to import only a few nets:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = InitCSX<span class="br0">(</span><span class="br0">)</span>;
+CSX = ImportHyperLynx<span class="br0">(</span>CSX, <span class="co2">'msl.HYP'</span>, <span class="br0">{</span><span class="co2">'GND'</span> <span class="co2">'V1'</span><span class="br0">}</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>imports only nets GND and V1.</p>
+<p>Terminal output of openEMS is copper thickness, epsilon r, and board size.</p>
+<pre>
+loading msl.HYP
+copper: Top = 35.56 um
+copper: Bottom = 35.56 um
+epsilonr = 4.8
+board: x = 0 : 20 mm
+       y = 0 : 20 mm
+       z = 0 : 1.8717 mm
+</pre>
+<p>You should verify the values are plausible for your board. In the above, 36 µm is approximately 1 ounce of copper per square foot.</p>
+<p><a name="Adding_a_component" id="Adding_a_component"></a></p>
+<h2><span class="mw-headline">Adding a component</span></h2>
+<p>We want to add a capacitor to our board. The GetHyperLynxPort function provides the coordinates of component pins and pads. To obtain a list of available pads, type:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+GetHyperLynxPort<span class="br0">(</span>CSX, <span class="co2">''</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>The capacitor pads are called C1.1 and C1.2.</p>
+<p>First we obtain the coordinates of the capacitor solder pads:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="br0">[</span>pad1_material, pad1_start, pad1_stop<span class="br0">]</span> = GetHyperLynxPort<span class="br0">(</span>CSX, <span class="co2">'C1.1'</span><span class="br0">)</span>;
+<span class="br0">[</span>pad2_material, pad2_start, pad2_stop<span class="br0">]</span> = GetHyperLynxPort<span class="br0">(</span>CSX, <span class="co2">'C1.2'</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Calculate two opposing corners of the capacitor, c1_start and c1_stop. The capacitor begins and ends in the middle of a solder pad:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+c1_height = pad1_stop - pad1_start;
+c1_start = <span class="br0">[</span><span class="br0">(</span>pad1_start<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>+pad1_stop<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span>/<span class="nu0">2</span>, pad1_start<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>, pad1_start<span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span><span class="br0">]</span>;
+c1_stop  = <span class="br0">[</span><span class="br0">(</span>pad2_start<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>+pad2_stop<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span>/<span class="nu0">2</span>, pad2_stop<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>, pad2_stop<span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span>+c1_height<span class="br0">]</span>;
+</pre></div>
+</div>
+<p>Create a 100n capacitor:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = AddLumpedElement<span class="br0">(</span> CSX, <span class="co2">'Capacitor'</span>, <span class="nu0">0</span>, <span class="co2">'Caps'</span>, <span class="nu0">1</span>, <span class="co2">'C'</span>, 100e-9<span class="br0">)</span>;
+CSX = AddBox<span class="br0">(</span> CSX, <span class="co2">'Capacitor'</span>, <span class="nu0">0</span>, c1_start, c1_stop <span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Adding_excitation_and_load" id="Adding_excitation_and_load"></a></p>
+<h2><span class="mw-headline">Adding excitation and load</span></h2>
+<p>Obtain the coordinates of the test pads where excitation and load are applied:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="br0">[</span>port1_material, port1_start, port1_stop<span class="br0">]</span> = GetHyperLynxPort<span class="br0">(</span>CSX, <span class="co2">'TP1.TP'</span><span class="br0">)</span>;
+<span class="br0">[</span>gnd1_material, gnd1_start, gnd1_stop<span class="br0">]</span>    = GetHyperLynxPort<span class="br0">(</span>CSX, <span class="co2">'TP3.TP'</span><span class="br0">)</span>;
+<span class="br0">[</span>port2_material, port2_start, port2_stop<span class="br0">]</span> = GetHyperLynxPort<span class="br0">(</span>CSX, <span class="co2">'TP2.TP'</span><span class="br0">)</span>;
+<span class="br0">[</span>gnd2_material, gnd2_start, gnd2_stop<span class="br0">]</span>    = GetHyperLynxPort<span class="br0">(</span>CSX, <span class="co2">'TP4.TP'</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Add an excitation between input test pad and ground:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="br0">[</span>CSX, port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="br0">]</span> = AddLumpedPort<span class="br0">(</span> CSX, <span class="nu0">999</span>, <span class="nu0">1</span>, <span class="nu0">50</span>, gnd1_start, port1_stop, <span class="br0">[</span><span class="nu0">0</span> <span class="nu0">0</span> -<span class="nu0">1</span><span class="br0">]</span>, true<span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Add a load between output test pad and ground:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="br0">[</span>CSX, port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span><span class="br0">]</span> = AddLumpedPort<span class="br0">(</span> CSX, <span class="nu0">999</span>, <span class="nu0">2</span>, <span class="nu0">50</span>, gnd2_start, port2_stop, <span class="br0">[</span><span class="nu0">0</span> <span class="nu0">0</span> -<span class="nu0">1</span><span class="br0">]</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Setting_up_a_mesh" id="Setting_up_a_mesh"></a></p>
+<h2><span class="mw-headline">Setting up a mesh</span></h2>
+<p>Calculate mesh size in pcb and in air as a fraction of λ. GetUnits() and GetEpsilon() extract scale factor and epsilon r from the model ImportHyperLynx() built.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+unit = GetUnits<span class="br0">(</span>CSX<span class="br0">)</span>;
+substrate_epr = GetEpsilon<span class="br0">(</span>CSX<span class="br0">)</span>;
+resolution = c0 / f_max / <span class="kw2">sqrt</span><span class="br0">(</span>substrate_epr<span class="br0">)</span> / unit / <span class="nu0">25</span>;
+AirBox = c0 / f_max / unit / <span class="nu0">25</span>;
+</pre></div>
+</div>
+<p>A mesh can be specified manually, created automatically from the model, or both. As an example, we create the mesh from the 3D model and specify an additional mesh line through the middle of the board:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+z_top = port1_start<span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span>;
+z_bottom = gnd1_start<span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span>;
+z_middle = <span class="br0">(</span>z_top+z_bottom<span class="br0">)</span>/<span class="nu0">2</span>;
+ 
+<span class="kw2">mesh</span>.<span class="me1">x</span> = <span class="br0">[</span><span class="br0">]</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = <span class="br0">[</span><span class="br0">]</span>;
+<span class="kw2">mesh</span>.<span class="me1">z</span> = <span class="br0">[</span> z_middle <span class="br0">]</span>;
+</pre></div>
+</div>
+<p>Add the edges of our 3D model to the mesh:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">mesh</span> = DetectEdges<span class="br0">(</span>CSX, <span class="kw2">mesh</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Next, we create an air-box around the imported structure:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">mesh</span>.<span class="me1">x</span> = <span class="br0">[</span><span class="kw2">min</span><span class="br0">(</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">)</span>-AirBox <span class="kw2">max</span><span class="br0">(</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">)</span>+AirBox <span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">]</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = <span class="br0">[</span><span class="kw2">min</span><span class="br0">(</span><span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">)</span>-AirBox <span class="kw2">max</span><span class="br0">(</span><span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">)</span>+AirBox <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">]</span>;
+<span class="kw2">mesh</span>.<span class="me1">z</span> = <span class="br0">[</span><span class="kw2">min</span><span class="br0">(</span><span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">)</span>-AirBox <span class="kw2">max</span><span class="br0">(</span><span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">)</span>+<span class="nu0">2</span>*AirBox <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">]</span>;
+</pre></div>
+</div>
+<p>Finally, the mesh is smoothened:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">mesh</span> = SmoothMesh<span class="br0">(</span><span class="kw2">mesh</span>, resolution<span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Setting_boundary_conditions" id="Setting_boundary_conditions"></a></p>
+<h2><span class="mw-headline">Setting boundary conditions</span></h2>
+<p>Create the FDTD simulation. The excitation is a Gaussian pulse:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+FDTD = InitFDTD<span class="br0">(</span><span class="br0">)</span>;
+FDTD = SetGaussExcite<span class="br0">(</span>FDTD, f_max/<span class="nu0">2</span>, f_max/<span class="nu0">2</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>A Perfectly Matched Layer (PML) is placed around our model. A Perfectly Matched Layer a material which absorbs incident fields.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+BC   = <span class="br0">{</span><span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span><span class="br0">}</span>;
+FDTD = SetBoundaryCond<span class="br0">(</span>FDTD, BC <span class="br0">)</span>;
+</pre></div>
+</div>
+<p>This Perfectly Matched Layer is 8 cells deep. We need to add 8 cells to the mesh to make room for the PML:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">mesh</span> = AddPML<span class="br0">(</span><span class="kw2">mesh</span>, <span class="nu0">8</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>The finished mesh is now written to our model:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = DefineRectGrid<span class="br0">(</span>CSX, unit, <span class="kw2">mesh</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>This completes the model. Simulation is next.</p>
+<p><a name="Simulation" id="Simulation"></a></p>
+<h2><span class="mw-headline">Simulation</span></h2>
+<p>We write the model to disk, display the model and run the simulation.</p>
+<p><a name="Write_to_Disk" id="Write_to_Disk"></a></p>
+<h3><span class="mw-headline">Write to Disk</span></h3>
+<p>First clean up the directory where we will run the simulation:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+Sim_Path = <span class="co2">'tmp'</span>;
+Sim_CSX = <span class="co2">'msl.xml'</span>;
+ 
+<span class="br0">[</span>status, message, messageid<span class="br0">]</span> = rmdir<span class="br0">(</span>Sim_Path, <span class="co2">'s'</span><span class="br0">)</span>; <span class="co1">% clear previous directory</span>
+<span class="br0">[</span>status, message, messageid<span class="br0">]</span> = <span class="kw2">mkdir</span><span class="br0">(</span>Sim_Path <span class="br0">)</span>; <span class="co1">% create empty simulation folder</span>
+</pre></div>
+</div>
+<p>Write CSX 3D model and FDTD simulation parameters to disk</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+WriteOpenEMS<span class="br0">(</span><span class="br0">[</span>Sim_Path <span class="co2">'/'</span> Sim_CSX<span class="br0">]</span>, FDTD, CSX<span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Display_the_3D_model" id="Display_the_3D_model"></a></p>
+<h3><span class="mw-headline">Display the 3D model</span></h3>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:402px;"><a href="File:MSL_3d_Model.png.html" class="image" title="3D CSX model. The grey box in the center is the SMD capacitor."><img alt="" src="../images/thumb/6/6b/MSL_3d_Model.png/400px-MSL_3d_Model.png" width="400" height="318" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:MSL_3d_Model.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+3D CSX model. The grey box in the center is the SMD capacitor.</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p>Display the 3D model and verify its correctness.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSXGeomPlot<span class="br0">(</span><span class="br0">[</span>Sim_Path <span class="co2">'/'</span> Sim_CSX<span class="br0">]</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>A small word about error messages.</p>
+<p>ImportHyperLynx creates two materials for every layer: one for the copper and one for holes in the copper. A layer "Top" will have associated two materials:</p>
+<ul>
+<li>"Top_copper" for copper traces</li>
+<li>"Top_cutout" for holes in polygons</li>
+</ul>
+<p>An error message "No primitives found in property: Top_cutout" means layer "Top" has no copper polygons with holes. Similarly, "No primitives found in property: via" means the board has no vias.</p>
+<p>Now is a good moment to take a look at the generated mesh. You may want to switch to 2D view to see whether mesh and edges coincide.</p>
+<p>In general, mesh lines which are close together mean a long simulation time. Several strategies are available to reduce the mesh:</p>
+<ul>
+<li>Change the geometry of your design so edges coincide</li>
+<li>Change the geometry of your design so edges are further apart</li>
+<li>Change the algorithm SmoothMesh uses, e.g.
+<pre>
+mesh = SmoothMesh(mesh, resolution, 'algorithm', [ 1 ]);
+</pre>
+Trial and error may be needed to select the optimal set of algorithms.</li>
+</ul>
+<p><a name="Run_the_simulation" id="Run_the_simulation"></a></p>
+<h3><span class="mw-headline">Run the simulation</span></h3>
+<p>Run the openEMS simulation:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+RunOpenEMS<span class="br0">(</span>Sim_Path, Sim_CSX<span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Calculating_the_s-parameters" id="Calculating_the_s-parameters"></a></p>
+<h2><span class="mw-headline">Calculating the s-parameters</span></h2>
+<p>Calculate voltage and currents at the input and output ports.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">close</span> <span class="kw2">all</span>
+f = <span class="kw2">linspace</span><span class="br0">(</span> 1e6, f_max, <span class="nu0">1601</span> <span class="br0">)</span>;
+port = calcPort<span class="br0">(</span> port, Sim_Path, f, <span class="co2">'RefImpedance'</span>, <span class="nu0">50</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Calculate s11 and s21 as reflected voltage divided by incoming voltage.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+s11 = port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./ port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+s21 = port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./ port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+</pre></div>
+</div>
+<p><br />
+Plot a graph of s11 and s21</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">semilogx</span><span class="br0">(</span>f/1e9,<span class="nu0">20</span>*<span class="kw2">log10</span><span class="br0">(</span><span class="kw2">abs</span><span class="br0">(</span>s11<span class="br0">)</span><span class="br0">)</span>,<span class="co2">'k-'</span>,<span class="co2">'LineWidth'</span>,<span class="nu0">2</span><span class="br0">)</span>;
+<span class="kw2">hold</span> on;
+<span class="kw2">grid</span> on;
+<span class="kw2">semilogx</span><span class="br0">(</span>f/1e9,<span class="nu0">20</span>*<span class="kw2">log10</span><span class="br0">(</span><span class="kw2">abs</span><span class="br0">(</span>s21<span class="br0">)</span><span class="br0">)</span>,<span class="co2">'r--'</span>,<span class="co2">'LineWidth'</span>,<span class="nu0">2</span><span class="br0">)</span>;
+<span class="kw2">legend</span><span class="br0">(</span><span class="co2">'S_{11}'</span>,<span class="co2">'S_{21}'</span><span class="br0">)</span>;
+<span class="kw2">ylabel</span><span class="br0">(</span><span class="co2">'S-Parameter (dB)'</span>,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+<span class="kw2">xlabel</span><span class="br0">(</span><span class="co2">'frequency (GHz) \rightarrow'</span>,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+<span class="kw2">ylim</span><span class="br0">(</span><span class="br0">[</span>-<span class="nu0">80</span> <span class="nu0">10</span><span class="br0">]</span><span class="br0">)</span>;
+<span class="kw2">print</span><span class="br0">(</span><span class="co2">'sparam.png'</span>, <span class="co2">'-dpng'</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<table>
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:402px;"><a href="File:MSL_Sparam.png.html" class="image" title="s-parameters."><img alt="" src="../images/thumb/b/bb/MSL_Sparam.png/400px-MSL_Sparam.png" width="400" height="300" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:MSL_Sparam.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+s-parameters.</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p>Obviously the frequency response of this board can be improved.</p>
+<p><a name="Calculating_the_step_response" id="Calculating_the_step_response"></a></p>
+<h2><span class="mw-headline">Calculating the step response</span></h2>
+<p>Calculate the step response from the s-parameters. This still needs to be done. See <a href="https://hig.diva-portal.org/smash/get/diva2:356588/FULLTEXT01" class="external text" title="https://hig.diva-portal.org/smash/get/diva2:356588/FULLTEXT01" rel="nofollow">here</a> for a possible approach.</p>
+<p><a name="Error_messages" id="Error_messages"></a></p>
+<h2><span class="mw-headline">Error messages</span></h2>
+<p>If an error occurs while scanning or parsing the HyperLynx file, an error message is printed, and scanning or parsing continues with the next HyperLynx record or subrecord, if any. Of course, it is always prudent to check the cause of an error message. Usually, a trivial edit of the HyperLynx file will suppress the error message. Two common causes of errors are unquoted strings, and unassigned component values. We'll look at these two errors in detail, should you encounter them in your projects.</p>
+<p><a name="Unquoted_strings" id="Unquoted_strings"></a></p>
+<h3><span class="mw-headline">Unquoted strings</span></h3>
+<p>Sample error message:</p>
+<pre>
+syntax error, unexpected STRING at 'Logo'
+</pre>
+<p>Sample corresponding line in the .hyp file:</p>
+<pre>
+(? REF=Altium Logo BOT1 L=Bottom_Layer)
+</pre>
+<p>An unquoted string contains a space (' '). This is an error in the program which created the .hyp file. To solve, edit the .hyp file and put the string between double quotes:</p>
+<pre>
+(? REF="Altium Logo BOT1" L=Bottom_Layer)
+</pre>
+<p><a name="Unassigned_component_values" id="Unassigned_component_values"></a></p>
+<h3><span class="mw-headline">Unassigned component values</span></h3>
+<p>Sample error message:</p>
+<pre>
+syntax error, unexpected L, expecting FLOAT or STRING at 'L'
+</pre>
+<p>Sample corresponding line in the .hyp file:</p>
+<pre>
+(L REF="L1" VAL= L="Top")
+</pre>
+<p>Coil L1 on layer "Top" has not been assigned a value (VAL =). To solve, edit the .hyp file and assign a value to the component:</p>
+<pre>
+(L REF="L1" VAL=0 L="Top")
+</pre>
+<p>or assign the coil a value in the schematics editor and re-export to HyperLynx.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="cite_note-0"><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html#cite_ref-0" title="">↑</a> Xilinx UG293: Spartan-6 FPGA PCB Design and Pin Planning Guide, p. 50: Design of Transitions for High-Speed Signals</li>
+</ol>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 143/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:101-0!1!0!!en!2!edit=0 and timestamp 20181110114351 -->
+<div class="printfooter">
+Retrieved from "<a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html">index.php/Tutorial:_Importing_with_hyp2mat</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 30 July 2017, at 06:57.</li>
+					<li id="viewcount">This page has been accessed 127,760 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

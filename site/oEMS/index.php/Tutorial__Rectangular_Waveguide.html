@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Tutorial: Rectangular Waveguide,Tutorials" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Tutorial:_Rectangular_Waveguide&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Tutorial: Rectangular Waveguide - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Tutorial:_Rectangular_Waveguide";
+		var wgTitle = "Tutorial: Rectangular Waveguide";
+		var wgAction = "view";
+		var wgArticleId = "33";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 1095;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Tutorial_Rectangular_Waveguide skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Tutorial: Rectangular Waveguide</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="http://openems.de/index.php/Tutorial:_Rectangular_Waveguide.html#column-one">navigation</a>, <a href="http://openems.de/index.php/Tutorial:_Rectangular_Waveguide.html#searchInput">search</a></div>			<!-- start content -->
+			<ul>
+<li><b>Download</b> the latest matlab file using gitweb: <a href="https://openems.de/gitweb/?p=openEMS.git;a=blob_plain;f=matlab/Tutorials/Rect_Waveguide.m;hb=HEAD" class="external text" title="https://openems.de/gitweb/?p=openEMS.git;a=blob_plain;f=matlab/Tutorials/Rect_Waveguide.m;hb=HEAD" rel="nofollow">Rect_Waveguide.m</a></li>
+<li><b>Simulation Time</b>: ~ 5 min for a 5m long waveguide</li>
+</ul>
+<hr />
+<p>We will cover in this tutorial:</p>
+<ul>
+<li>setup a mode profile excitation,</li>
+<li>create voltage and current probes using the mode profile,</li>
+<li>calculate and plot the waveguide impedance and s-parameters.</li>
+</ul>
+<p><a name="Octave_.28Matlab.29_Simulation_Script" id="Octave_.28Matlab.29_Simulation_Script"></a></p>
+<h2><span class="mw-headline">Octave (Matlab) Simulation Script</span></h2>
+<p>To start the script within an empty environment, the first lines are:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">close</span> <span class="kw2">all</span>
+<span class="kw2">clear</span>
+<span class="kw2">clc</span>
+</pre></div>
+</div>
+<p>Setup the simulation, starting with the units:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+physical_constants;
+unit = 1e-6; <span class="co1">%drawing unit in microns</span>
+</pre></div>
+</div>
+<p>Next, specify the waveguide dimensions for WR42:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+a = <span class="nu0">10700</span>;   <span class="co1">%waveguide width</span>
+b = <span class="nu0">4300</span>;    <span class="co1">%waveguide height</span>
+<span class="kw2">length</span> = <span class="nu0">50000</span>;
+</pre></div>
+</div>
+<p>Specify the frequency range of interest:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+f_start = 20e9;
+f_0     = 24e9;
+f_stop  = 26e9;
+lambda0 = c0/f_0/unit;
+</pre></div>
+</div>
+<p>The last instruction gives the wavelength of the centre frequency in microns.</p>
+<p>Define the waveguide TE mode:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+TE_mode = <span class="co2">'TE10'</span>;
+</pre></div>
+</div>
+<p>Specify the mesh resolution as 30 cells per wavelength in all directions:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+mesh_res = lambda0./<span class="br0">[</span><span class="nu0">30</span> <span class="nu0">30</span> <span class="nu0">30</span><span class="br0">]</span>;
+</pre></div>
+</div>
+<p>Initialize the FDTD structure:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+FDTD = InitFDTD<span class="br0">(</span><span class="co2">'NrTS'</span>,1e4, <span class="co2">'OverSampling'</span>, <span class="nu0">5</span><span class="br0">)</span>;
+FDTD = SetGaussExcite<span class="br0">(</span>FDTD,<span class="nu0">0.5</span>*<span class="br0">(</span>f_start+f_stop<span class="br0">)</span>,<span class="nu0">0.5</span>*<span class="br0">(</span>f_stop-f_start<span class="br0">)</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Set the boundary conditions. The wave is propagating in the z-direction so the ends of the waveguide are terminated with perfectly-matched layers (PML or 3). The sidewalls of the waveguide are formed by the x and y extents of the simulation space using perfect electric conductor (PEC or 0) boundary conditions.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+BC = <span class="br0">[</span><span class="nu0">0</span> <span class="nu0">0</span> <span class="nu0">0</span> <span class="nu0">0</span> <span class="nu0">3</span> <span class="nu0">3</span><span class="br0">]</span>; <span class="co1">%pml in pos. and neg. z-direction</span>
+FDTD = SetBoundaryCond<span class="br0">(</span>FDTD,BC<span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Now setup the CSXCAD mesh:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = InitCSX<span class="br0">(</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">x</span> = SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> a<span class="br0">]</span>, mesh_res<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> b<span class="br0">]</span>, mesh_res<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">z</span> = SmoothMeshLines<span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="kw2">length</span><span class="br0">]</span>, mesh_res<span class="br0">(</span><span class="nu0">3</span><span class="br0">)</span><span class="br0">)</span>;
+CSX = DefineRectGrid<span class="br0">(</span>CSX, unit,<span class="kw2">mesh</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Now specify the waveguide ports. Port 1 is 11 cells from the bottom end of the waveguide and port 2 is 13 cells from the top end. Ports are in the form of a box with the excitation plane located at the start position and the voltage and current probes located at the stop position. The stop position specifies the reference plane for the port. Port 1 is active with an amplitude of 1 while the second port is passive (no excitation amplitude specified).</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+start=<span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="nu0">11</span><span class="br0">)</span><span class="br0">]</span>;
+stop =<span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="nu0">15</span><span class="br0">)</span><span class="br0">]</span>;
+<span class="br0">[</span>CSX, port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="br0">]</span> = AddRectWaveGuidePort<span class="br0">(</span> CSX, <span class="nu0">0</span>, <span class="nu0">1</span>, start, stop, <span class="co2">'z'</span>, a*unit, b*unit, TE_mode, <span class="nu0">1</span><span class="br0">)</span>;
+ 
+start=<span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span>end-<span class="nu0">13</span><span class="br0">)</span><span class="br0">]</span>;
+stop =<span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span>end-<span class="nu0">14</span><span class="br0">)</span><span class="br0">]</span>;
+<span class="br0">[</span>CSX, port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span><span class="br0">]</span> = AddRectWaveGuidePort<span class="br0">(</span> CSX, <span class="nu0">0</span>, <span class="nu0">2</span>, start, stop, <span class="co2">'z'</span>, a*unit, b*unit, TE_mode<span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Define a dump box to capture time-domain E-field results:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = AddDump<span class="br0">(</span>CSX,<span class="co2">'Et'</span>,<span class="co2">'FileType'</span>,<span class="nu0">1</span>,<span class="co2">'SubSampling'</span>,<span class="co2">'2,2,2'</span><span class="br0">)</span>;
+start = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span><span class="br0">]</span>;
+stop  = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span><span class="br0">]</span>;
+CSX = AddBox<span class="br0">(</span>CSX,<span class="co2">'Et'</span>,<span class="nu0">0</span> , start,stop<span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Write the simulation model and execute the simulation:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+Sim_Path = <span class="co2">'tmp_mod'</span>;
+Sim_CSX = <span class="co2">'rect_wg.xml'</span>;
+ 
+<span class="br0">[</span>status, message, messageid<span class="br0">]</span> = rmdir<span class="br0">(</span>Sim_Path,<span class="co2">'s'</span><span class="br0">)</span>;
+<span class="br0">[</span>status, message, messageid<span class="br0">]</span> = <span class="kw2">mkdir</span><span class="br0">(</span>Sim_Path<span class="br0">)</span>;
+ 
+WriteOpenEMS<span class="br0">(</span><span class="br0">[</span>Sim_Path <span class="co2">'/'</span> Sim_CSX<span class="br0">]</span>,FDTD,CSX<span class="br0">)</span>;
+ 
+RunOpenEMS<span class="br0">(</span>Sim_Path, Sim_CSX<span class="br0">)</span>
+</pre></div>
+</div>
+<p><a name="Results" id="Results"></a></p>
+<h2><span class="mw-headline">Results</span></h2>
+<p>Here are the post-processing steps to calculate the s-parameters and waveguide impedance:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+freq = <span class="kw2">linspace</span><span class="br0">(</span>f_start,f_stop,<span class="nu0">201</span><span class="br0">)</span>;
+port = calcPort<span class="br0">(</span>port, Sim_Path, freq<span class="br0">)</span>;
+ 
+s11 = port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./ port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+s21 = port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./ port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+ZL = port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">tot</span>./port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="kw1">if</span>.<span class="me1">tot</span>;
+ZL_a = port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">ZL</span>; <span class="co1">% analytic waveguide impedance</span>
+</pre></div>
+</div>
+<p>Note that "uf" refers to the frequency-domain voltages, "if" refers to the frequency-domain currents, "inc" refers to incident, "ref" refers to reflected, and "tot" refers to total.</p>
+<p>Plot the s-parameters:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">figure</span>
+<span class="kw2">plot</span><span class="br0">(</span>freq*1e-6,<span class="nu0">20</span>*<span class="kw2">log10</span><span class="br0">(</span><span class="kw2">abs</span><span class="br0">(</span>s11<span class="br0">)</span><span class="br0">)</span>,<span class="co2">'k-'</span>,<span class="co2">'Linewidth'</span>,<span class="nu0">2</span><span class="br0">)</span>;
+<span class="kw2">xlim</span><span class="br0">(</span><span class="br0">[</span>freq<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span> freq<span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span><span class="br0">]</span>*1e-6<span class="br0">)</span>;
+<span class="kw2">grid</span> on;
+<span class="kw2">hold</span> on;
+<span class="kw2">plot</span><span class="br0">(</span>freq*1e-6,<span class="nu0">20</span>*<span class="kw2">log10</span><span class="br0">(</span><span class="kw2">abs</span><span class="br0">(</span>s21<span class="br0">)</span><span class="br0">)</span>,<span class="co2">'r--'</span>,<span class="co2">'Linewidth'</span>,<span class="nu0">2</span><span class="br0">)</span>;
+l = <span class="kw2">legend</span><span class="br0">(</span><span class="co2">'S_{11}'</span>,<span class="co2">'S_{21}'</span>,<span class="co2">'Location'</span>,<span class="co2">'Best'</span><span class="br0">)</span>;
+<span class="kw2">set</span><span class="br0">(</span>l,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+<span class="kw2">ylabel</span><span class="br0">(</span><span class="co2">'S-Parameter (dB)'</span>,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+<span class="kw2">xlabel</span><span class="br0">(</span><span class="co2">'frequency (MHz) \rightarrow'</span>,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a href="File:Rect_wg_fig1.png.html" class="image" title="File:Rect_wg_fig1.png"><img alt="File:Rect_wg_fig1.png" src="../images/2/2e/Rect_wg_fig1.png" width="503" height="386" border="0" /></a></p>
+<p>Compare analytic and numerical wave-impedance:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">figure</span>
+<span class="kw2">plot</span><span class="br0">(</span>freq*1e-6,<span class="kw2">real</span><span class="br0">(</span>ZL<span class="br0">)</span>,<span class="co2">'Linewidth'</span>,<span class="nu0">2</span><span class="br0">)</span>;
+<span class="kw2">hold</span> on;
+<span class="kw2">grid</span> on;
+<span class="kw2">plot</span><span class="br0">(</span>freq*1e-6,<span class="kw2">imag</span><span class="br0">(</span>ZL<span class="br0">)</span>,<span class="co2">'r--'</span>,<span class="co2">'Linewidth'</span>,<span class="nu0">2</span><span class="br0">)</span>;
+<span class="kw2">plot</span><span class="br0">(</span>freq*1e-6,ZL_a,<span class="co2">'g-.'</span>,<span class="co2">'Linewidth'</span>,<span class="nu0">2</span><span class="br0">)</span>;
+<span class="kw2">ylabel</span><span class="br0">(</span><span class="co2">'ZL (\Omega)'</span>,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+<span class="kw2">xlabel</span><span class="br0">(</span><span class="co2">'frequency (MHz) \rightarrow'</span>,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+<span class="kw2">xlim</span><span class="br0">(</span><span class="br0">[</span>freq<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span> freq<span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span><span class="br0">]</span>*1e-6<span class="br0">)</span>;
+l = <span class="kw2">legend</span><span class="br0">(</span><span class="co2">'\Re(Z_L)'</span>,<span class="co2">'\Im(Z_L)'</span>,<span class="co2">'Z_L analytic'</span>,<span class="co2">'Location'</span>,<span class="co2">'Best'</span><span class="br0">)</span>;
+<span class="kw2">set</span><span class="br0">(</span>l,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a href="File:Rect_wg_fig2.png.html" class="image" title="File:Rect_wg_fig2.png"><img alt="File:Rect_wg_fig2.png" src="../images/e/e9/Rect_wg_fig2.png" width="512" height="385" border="0" /></a></p>
+<p>Plot the field dumps:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">figure</span>
+dump_file = <span class="br0">[</span>Sim_Path <span class="co2">'/Et.h5'</span><span class="br0">]</span>;
+PlotArgs.<span class="kw2">slice</span> = <span class="br0">{</span>a/<span class="nu0">2</span>*unit b/<span class="nu0">2</span>*unit <span class="nu0">0</span><span class="br0">}</span>;
+PlotArgs.<span class="me1">pauseTime</span>=<span class="nu0">0.01</span>;
+PlotArgs.<span class="me1">component</span>=<span class="nu0">0</span>;
+PlotArgs.<span class="me1">Limit</span> = <span class="co2">'auto'</span>;
+PlotHDF5FieldData<span class="br0">(</span>dump_file, PlotArgs<span class="br0">)</span>
+</pre></div>
+</div>
+<p><a href="File:Rect_wg_animation.gif.html" class="image" title="File:Rect_wg_animation.gif"><img alt="File:Rect_wg_animation.gif" src="../images/4/44/Rect_wg_animation.gif" width="287" height="420" border="0" /></a></p>
+<p><a name="Return_To_Tutorials_Index" id="Return_To_Tutorials_Index"></a></p>
+<h3><span class="mw-headline"><a href="http://openems.de/index.php/Tutorials.html" title="Tutorials">Return To Tutorials Index</a></span></h3>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 52/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:33-0!1!0!!en!2!edit=0 and timestamp 20181110114350 -->
+<div class="printfooter">
+Retrieved from "<a href="http://openems.de/index.php/Tutorial:_Rectangular_Waveguide.html">index.php/Tutorial:_Rectangular_Waveguide</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 11 May 2017, at 19:09.</li>
+					<li id="viewcount">This page has been accessed 39,802 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

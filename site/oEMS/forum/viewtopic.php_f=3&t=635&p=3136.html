@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Importing a CSX file - openEMS.de</title>
+
+
+	<link rel="canonical" href="http://openems.de/forum/viewtopic.php?t=635">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/en/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=3" rel="stylesheet">
+<![endif]-->
+
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index.php.html" title="Board index"><span class="site_logo"></span></a>
+				<h1>openEMS.de</h1>
+				<p>OpenEMS Support Forum</p>
+				<p class="skiplink"><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#start_here">Skip to content</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="http://openems.de/forum/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="Search for keywords" class="inputbox search tiny" size="20" value="" placeholder="Search…" />
+					<button class="button button-search" type="submit" title="Search">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+					</button>
+					<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="http://openems.de/forum/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Unanswered topics</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://openems.de/forum/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>Active topics</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="http://openems.de/forum/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>Search</span>
+								</a>
+							</li>
+					
+											<li class="separator"></li>
+																			<li>
+								<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+									<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+								</a>
+							</li>
+																<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="http://openems.de/forum/app.php/help/faq" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp.php%3Fmode=login.html" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp.php%3Fmode=register.html" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+						<li class="breadcrumbs">
+										<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><a href="index.php.html" itemprop="url" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="title">Board index</span></a></span>
+
+											<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="1"><a href="viewforum.php%3Ff=1.html" itemprop="url"><span itemprop="title">openEMS Support</span></a></span>
+															<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="3"><a href="viewforum.php%3Ff=3.html" itemprop="url"><span itemprop="title">Usage</span></a></span>
+												</li>
+		
+					<li class="rightside responsive-search">
+				<a href="http://openems.de/forum/search.php" title="View the advanced search options" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php%3Ff=3&amp;t=635.html">Importing a CSX file</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">How to use openEMS. Discussion on examples, tutorials etc<br /></div>
+<p>
+	<strong>Moderator:</strong> <a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="http://openems.de/forum/posting.php?mode=reply&amp;f=3&amp;t=635" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=3&amp;t=635&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="http://openems.de/forum/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…" />
+				<button class="button button-search" type="submit" title="Search">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</button>
+				<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+				</a>
+				<input type="hidden" name="t" value="635" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			10 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p3124" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3124">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=565&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Sat 24 Mar 2018, 18:53</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3124">
+
+						<h3 class="first"><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3124">Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3124" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3124#p3124" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a></strong> &raquo; </span>Sat 24 Mar 2018, 19:16
+			</p>
+			
+			
+			
+			<div class="content">I'm very new to openEMS. I'm wondering if there is a function to import a CSX file and use that rather than using the CSX object directly within Octave. I see the WriteEMS function for exporting to an XML file, and I'm wondering if I can do the reverse. The reason for my question is that I want to generate the CSX file through another process and run a simulation on it.</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3125" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3125">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3125">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3125">Re: Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3125" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3125#p3125" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Sat 24 Mar 2018, 21:17
+			</p>
+			
+			
+			
+			<div class="content">"WriteOpenEMS" is indeed creating the xml file. But the same file is just run by openEMS. Thus you can easily create it by a totally different means and run it with openEMS. Even completely outside of Octave (or Matlab).<br>
+Just run openEMS in a terminal with the xml file as the first argument and inside the folder in which to create the output.<br>
+<br>
+The only thing you need to do then is the post-processing. But than can be done in Octave or any other software too as this is just reading and analysing the output files generated by openEMS...<br>
+<br>
+May I ask by what means/tool you intend to create the xml files? And why?<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3126" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3126">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=565&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Sat 24 Mar 2018, 18:53</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3126">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3126">Re: Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3126" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3126#p3126" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a></strong> &raquo; </span>Sat 24 Mar 2018, 23:38
+			</p>
+			
+			
+			
+			<div class="content">Thanks for the quick response Thorsten. I don't have an existing tool to create the XML, but I may write one. I need to make adjustments to my CSX programmatically, and I am trying to get my arms around how the pieces fit together. I don't know if I want to do that in Octave (which I'm totally unfamiliar with) or some other way. Would it make sense to do that directly through a C++ program?<br>
+<br>
+Thanks,<br>
+<br>
+Alan Lash</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3127" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3127">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3127">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3127">Re: Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3127" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3127#p3127" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Sun 25 Mar 2018, 09:13
+			</p>
+			
+			
+			
+			<div class="content">Hi Alan,<br>
+<br>
+if you on Windows I cannot recommend doing it via C++ as you would need to build and maintain all dependencies. On Linux this is easy and for the python interface I created a few years back I improved the C++ interface quite a bit to use it for the cython interface.<br>
+But in any case I never saw any real reason to modify the CSX data later on. Just create a script that e.g. depends on sime input variables and just always recreate your CSX to your needs. Why modify it later? Maybe you can explain what your idea is and why you would need to modify your CSX after creation.<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3129" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3129">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=565&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Sat 24 Mar 2018, 18:53</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3129">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3129">Re: Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3129" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3129#p3129" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a></strong> &raquo; </span>Sun 01 Apr 2018, 18:06
+			</p>
+			
+			
+			
+			<div class="content">Hi Thorsten, I will try to describe why I am thinking of altering the CSX file from another source. Basically, I'm wondering if I can use OpenEMS to help determine objects that I do not know in advance. I have some antennae that are emitting pulses, and they are reflecting off of something I am trying to learn about. My idea is to use OpenEMS in a loop system, repeatedly adjusting the definition of the CSX until I get the right results. I'll say it more explicitly.<br>
+<br>
+1) Start by defining the CSX with the antennae and a guess of the object<br>
+2) Run OpenEMS to produce the outputs of time and amplitudes<br>
+3) Compare the output to the target signals that I am receiving from my actual object<br>
+4) Based on the difference of the target signals and the OpenEMS, alter the CSX file<br>
+5) Rerun OpenEMS and continue the process until the difference goes to zero<br>
+6) The resulting CSX defines my object.<br>
+<br>
+I have one additional note to that description. Although my antennae are easily defined in a CSX file with geometric primitives, my object may not be. I'm wondering if it's smarter to hit the FDTD algorithm a little deeper in the process. That is, instead of a CSX file, maybe I define the mesh directly with a dielectric constant for each tiny unit box and call the FDTD code. Then my loop would alter the mesh with each go around. Does that make any sense within the context of how your program works? <br>
+<br>
+I realize that this may not be a good topic for the forum, so feel free to contact me directly through my email (<a href="mailto:alan.lash@numberzoo.com">alan.lash@numberzoo.com</a>) if you have any interest. I would love to hear your thoughts on this and get any direction you may have for this approach.<br>
+<br>
+Alan</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3130" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3130">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3130">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3130">Re: Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3130" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3130#p3130" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Mon 02 Apr 2018, 09:35
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+well still you could do all this always just (re-)creating the CSX-file with Matlab.<br>
+But there is an easier way maybe. openEMS supports discretized material files. They are used for e.g. human body models.<br>
+You could just create your basic CSX file and its mesh purely referencing such a discrete material file.<br>
+In all of your runs you only modifiy the material distribution in this material file and run openEMS with the same (unaltered) CSX file again...<br>
+The file is bases on the hdf5 file format and this can be modified in almost all languages...<br>
+
+<blockquote class="uncited"><div>I realize that this may not be a good topic for the forum</div></blockquote>
+No, this is all about how to use openEMS. Simple or more complex. All is good and we should continue here ...<br>
+openEMS is all about doing crazy things that you potentially cannot do with other (e.g. commercial) tools.<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3132" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3132">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=565&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Sat 24 Mar 2018, 18:53</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3132">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3132">Re: Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3132" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3132#p3132" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a></strong> &raquo; </span>Thu 05 Apr 2018, 20:17
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>thorsten wrote:</cite>
+<br>
+You could just create your basic CSX file and its mesh purely referencing such a discrete material file.<br>
+
+</div></blockquote>
+
+This sounds like what I'm after. Do you have a reference for learning about discrete material files? How to set one up. How to insert it into the program. I've been looking at the code to get a feeling for it, but there is a lot there!<br>
+<br>
+Thanks,<br>
+<br>
+Alan</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3133" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3133">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=565&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Sat 24 Mar 2018, 18:53</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3133">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3133">Re: Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3133" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3133#p3133" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a></strong> &raquo; </span>Thu 05 Apr 2018, 21:41
+			</p>
+			
+			
+			
+			<div class="content">I probably posted that question too soon. I found a page describing adding a discrete material to your CSX: <a href="http://openems.de/index.php/AddDiscMaterial" class="postlink">http://openems.de/index.php/AddDiscMaterial</a>.<br>
+<br>
+Unless you have something to add, I'll work from there. <br>
+<br>
+Alan</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3134" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3134">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3134">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3134">Re: Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3134" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3134#p3134" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Sat 07 Apr 2018, 11:42
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+you should additionally study the help texts from the two matlab functions "AddDiscMaterial" and "CreateDiscMaterial". But other than that I do not have any additional resources.<br>
+I may only add that "CreateDiscMaterial" is one of the few (or only?) methods that require Matlab and do not work with Octave (I believe).<br>
+But the data file could alternative created using e.g. python (with h5py) if you keep the dataset and attribute layout the same.<br>
+<br>
+Of course I would welcome any additionaly documentation for these interfaces  <img class="smilies" src="images/smilies/icon_e_wink.gif" width="15" height="17" alt=";)" title="Wink"> <br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3136" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3136">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=565&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Sat 24 Mar 2018, 18:53</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3136">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#p3136">Re: Importing a CSX file</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=3136" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=3136#p3136" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=565.html" class="username">lash</a></strong> &raquo; </span>Tue 10 Apr 2018, 20:02
+			</p>
+			
+			
+			
+			<div class="content">Hi Thorsten, thanks for more detail on those functions. If I do figure out enough to share, I will contribute to the documentation. <br>
+<br>
+I do have another more general question along these lines. I was doing a bit of reading through other forum posts, and it appears that both you another user, named Neils, spend a bit of time on medical imaging. That's the usage that I am currently working on, and I wonder if either of you, or someone else you might know of, tried what I'm thinking about doing. To put my previous post with the numbered steps into a little more context, I'm specifically trying to produce a brain image by recursively using OpenEMS to converge the output on my signal output. <br>
+<br>
+Have you heard of anyone trying to use OpenEMS in this fashion?<br>
+<br>
+Alan</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="http://openems.de/forum/posting.php?mode=reply&amp;f=3&amp;t=635" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=3&amp;t=635&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php%3Ff=3&amp;t=635.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			10 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php%3Ff=3.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Usage”</span>
+		</a>
+	</p>
+	
+		<div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+			<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+				<span>Jump to</span>
+				<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+			</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																				<li><a href="viewforum.php%3Ff=1.html" class="jumpbox-cat-link"> <span> openEMS Support</span></a></li>
+																<li><a href="viewforum.php%3Ff=5.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News</span></a></li>
+																<li><a href="viewforum.php%3Ff=2.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Install</span></a></li>
+																<li><a href="viewforum.php%3Ff=3.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Usage</span></a></li>
+																<li><a href="viewforum.php%3Ff=4.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Feedback</span></a></li>
+																<li><a href="viewforum.php%3Ff=6.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Development</span></a></li>
+											</ul>
+		</div>
+	</div>
+
+	</div>
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="UTC+2">UTC+02:00</span></li>
+							<li class="rightside">
+				<a href="http://openems.de/forum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+												<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+					<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+				</a>
+			</li>
+									<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=contactadmin.html" role="menuitem">
+					<i class="icon fa-envelope fa-fw" aria-hidden="true"></i><span>Contact us</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row">
+			<a class="footer-link" href="ucp.php%3Fmode=privacy.html" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="ucp.php%3Fmode=terms.html" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php%3Ff=3&amp;t=635&amp;p=3136.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script type="text/javascript" src="assets/javascript/jquery.min.js%3Fassets_version=3"></script>
+<script type="text/javascript" src="assets/javascript/core.js%3Fassets_version=3"></script>
+
+
+
+<script src="styles/prosilver/template/forum_fn.js%3Fassets_version=3"></script>
+<script src="styles/prosilver/template/ajax.js%3Fassets_version=3"></script>
+
+
+
+</body>
+</html>

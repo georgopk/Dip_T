@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Error linking libtinyxml - openEMS.de</title>
+
+
+	<link rel="canonical" href="viewtopic.php%3Ft=578.html">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/en/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=3" rel="stylesheet">
+<![endif]-->
+
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index.php.html" title="Board index"><span class="site_logo"></span></a>
+				<h1>openEMS.de</h1>
+				<p>OpenEMS Support Forum</p>
+				<p class="skiplink"><a href="viewtopic.php%3Ff=2&amp;t=578.html#start_here">Skip to content</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="http://openems.de/forum/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="Search for keywords" class="inputbox search tiny" size="20" value="" placeholder="Search…" />
+					<button class="button button-search" type="submit" title="Search">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+					</button>
+					<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="viewtopic.php%3Ff=2&amp;t=578.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="http://openems.de/forum/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Unanswered topics</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://openems.de/forum/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>Active topics</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="http://openems.de/forum/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>Search</span>
+								</a>
+							</li>
+					
+											<li class="separator"></li>
+																			<li>
+								<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+									<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+								</a>
+							</li>
+																<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="http://openems.de/forum/app.php/help/faq" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp.php%3Fmode=login.html" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp.php%3Fmode=register.html" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+						<li class="breadcrumbs">
+										<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><a href="index.php.html" itemprop="url" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="title">Board index</span></a></span>
+
+											<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="1"><a href="viewforum.php%3Ff=1.html" itemprop="url"><span itemprop="title">openEMS Support</span></a></span>
+															<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="2"><a href="viewforum.php%3Ff=2.html" itemprop="url"><span itemprop="title">Install</span></a></span>
+												</li>
+		
+					<li class="rightside responsive-search">
+				<a href="http://openems.de/forum/search.php" title="View the advanced search options" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php%3Ff=2&amp;t=578.html">Error linking libtinyxml</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">Install support for openEMS<br /></div>
+<p>
+	<strong>Moderators:</strong> <a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>, <a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="posting.php%3Fmode=reply&amp;f=2&amp;t=578.html" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=578&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="http://openems.de/forum/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…" />
+				<button class="button button-search" type="submit" title="Search">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</button>
+				<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+				</a>
+				<input type="hidden" name="t" value="578" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			7 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p3030" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3030">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=406&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 26 Aug 2016, 10:38</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3030">
+
+						<h3 class="first"><a href="viewtopic.php%3Ff=2&amp;t=578.html#p3030">Error linking libtinyxml</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=3030.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=3030.html#p3030" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a></strong> &raquo; </span>Wed 10 Jan 2018, 16:33
+			</p>
+			
+			
+			
+			<div class="content">Hi everyone,<br>
+<br>
+when trying to recompile openEMS-v0.0.35 to resolve some issues with a Qt update, compilation fails when trying to link with libtinyxml:<br>
+
+<blockquote class="uncited"><div>/usr/bin/c++   -O3 -DNDEBUG    CMakeFiles/AppCSXCAD.dir/main.cpp.o CMakeFiles/AppCSXCAD.dir/AppCSXCAD.cpp.o CMakeFiles/AppCSXCAD.dir/AppCSXCAD_automoc.cpp.o  -o AppCSXCAD -rdynamic /usr/qt/lib64/libQt5Widgets.so.5.10.0 /usr/qt/lib64/libQt5Xml.so.5.10.0 /usr/opt/openEMS/lib/libCSXCAD.so /usr/opt/openEMS/lib/libQCSXCAD.so /usr/lib64/math/libhdf5.so -lz -ldl -lm /usr/lib64/math/libhdf5_hl.so /usr/qt/lib64/libQt5Gui.so.5.10.0 /usr/qt/lib64/libQt5Core.so.5.10.0 -Wl,-rpath,/usr/qt/lib64:/usr/opt/openEMS/lib:/usr/lib64/math:/usr/X11R6/lib64: -Wl,-rpath-link,/usr/X11R6/lib64 <br>
+/usr/opt/openEMS/lib/libCSXCAD.so: undefined reference to `TiXmlDocument::TiXmlDocument(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)'<br>
+/usr/opt/openEMS/lib/libCSXCAD.so: undefined reference to `TiXmlElement::Attribute(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) const'<br>
+/usr/opt/openEMS/lib/libCSXCAD.so: undefined reference to `TiXmlElement::SetAttribute(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)'<br>
+collect2: error: ld returned 1 exit status
+</div></blockquote> <br>
+<br>
+openEMS-v0.0.35 compiled fine for me in the past. libtinyxml has not changed since then. The main difference is that I upgraded gcc from version 4.9.3 to 6.4.0. Any ideas? May be an issue with different C++ standards?<br>
+<br>
+Any help is welcome.<br>
+Erik</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=578.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3031" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3031">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3031">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=578.html#p3031">Re: Error linking libtinyxml</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=3031.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=3031.html#p3031" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Wed 10 Jan 2018, 19:37
+			</p>
+			
+			
+			
+			<div class="content">You information are a little bit sparse. Which distro is this? Have you tried a full build? I don't think this is gcc related. What is odd is that tinyxml is not linked in. But it should be already linkes for CSXCAD. Maybe you try an ldd on libCSXCAD.<br>
+<br>
+br<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=578.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3032" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3032">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=406&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 26 Aug 2016, 10:38</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3032">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=578.html#p3032">Re: Error linking libtinyxml</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=3032.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=3032.html#p3032" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a></strong> &raquo; </span>Wed 10 Jan 2018, 20:01
+			</p>
+			
+			
+			
+			<div class="content">Ho Thorsten,<br>
+<br>
+thanks for the answer. My system is a homegrown Linux based on Gnome-3 on an x86_64 . Qt version is 5.10.0.<br>
+Yes, this has been a full build of openEMS. tinyxml IS linked, since libCSXCAD.so is linked against it. Output of `ldd libCSXCAD.so` is shown below.<br>
+So a -ltinyxml does't change anything. libtinyxml ist built from tinyxml-2.6.2 sources and has worked before. <br>
+<br>
+Unfortunately, my C++ knowledge is quite limited, so I do not really understand these linker error messages. I had similar problems before with other C++ based software which could be solved by recompiling the shared libraries. This didn't help in this case, though.<br>
+<br>
+Best regards,<br>
+Erik <br>
+<br>
+
+<blockquote class="uncited"><div>ldd /usr/opt/openEMS/lib/libCSXCAD.so<br>
+	linux-vdso.so.1 (0x00007ffec05c7000)<br>
+	libfparser.so.4 =&gt; /usr/opt/openEMS/lib/libfparser.so.4 (0x00007fd399a67000)<br>
+	libtinyxml.so =&gt; /usr/lib64/libtinyxml.so (0x00007fd39984d000)<br>
+	libhdf5.so.100 =&gt; /usr/lib64/math/libhdf5.so.100 (0x00007fd399375000)<br>
+	libz.so.1 =&gt; /usr/lib64/libz.so.1 (0x00007fd399162000)<br>
+	libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007fd398f5e000)<br>
+	libhdf5_hl.so.100 =&gt; /usr/lib64/math/libhdf5_hl.so.100 (0x00007fd398d40000)<br>
+	libCGAL.so.11 =&gt; /usr/lib64/libCGAL.so.11 (0x00007fd398b1a000)<br>
+	libboost_thread.so.1.61.0 =&gt; /usr/lib64/libboost_thread.so.1.61.0 (0x00007fd3988f6000)<br>
+	libboost_system.so.1.61.0 =&gt; /usr/lib64/libboost_system.so.1.61.0 (0x00007fd3986f3000)<br>
+	libboost_date_time.so.1.61.0 =&gt; /usr/lib64/libboost_date_time.so.1.61.0 (0x00007fd3984e2000)<br>
+	libboost_serialization.so.1.61.0 =&gt; /usr/lib64/libboost_serialization.so.1.61.0 (0x00007fd39829d000)<br>
+	libboost_chrono.so.1.61.0 =&gt; /usr/lib64/libboost_chrono.so.1.61.0 (0x00007fd398097000)<br>
+	libfreetype.so.6 =&gt; /usr/graphics/lib64/libfreetype.so.6 (0x00007fd397e07000)<br>
+	libexpat.so.1 =&gt; /usr/lib64/libexpat.so.1 (0x00007fd39a0c5000)<br>
+	libvtkDomainsChemistryOpenGL2-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkDomainsChemistryOpenGL2-7.1.so.1 (0x00007fd397bfc000)<br>
+	libjpeg.so.9 =&gt; /usr/graphics/lib64/libjpeg.so.9 (0x00007fd3979c2000)<br>
+	libpng16.so.16 =&gt; /usr/graphics/lib64/libpng16.so.16 (0x00007fd397790000)<br>
+	libtiff.so.5 =&gt; /usr/graphics/lib64/libtiff.so.5 (0x00007fd39751b000)<br>
+	libvtkFiltersFlowPaths-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersFlowPaths-7.1.so.1 (0x00007fd3972ce000)<br>
+	libvtkFiltersGeneric-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersGeneric-7.1.so.1 (0x00007fd3970a6000)<br>
+	libvtkFiltersHyperTree-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersHyperTree-7.1.so.1 (0x00007fd396e78000)<br>
+	libvtkFiltersParallelImaging-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersParallelImaging-7.1.so.1 (0x00007fd396c62000)<br>
+	libvtkFiltersPoints-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersPoints-7.1.so.1 (0x00007fd3969cb000)<br>
+	libvtkFiltersProgrammable-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersProgrammable-7.1.so.1 (0x00007fd3967be000)<br>
+	libvtkFiltersSMP-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersSMP-7.1.so.1 (0x00007fd396576000)<br>
+	libvtkFiltersSelection-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersSelection-7.1.so.1 (0x00007fd396366000)<br>
+	libvtkFiltersVerdict-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersVerdict-7.1.so.1 (0x00007fd396151000)<br>
+	libvtkverdict-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkverdict-7.1.so.1 (0x00007fd395f2b000)<br>
+	libvtkGUISupportQtSQL-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkGUISupportQtSQL-7.1.so.1 (0x00007fd395d28000)<br>
+	libvtkIOSQL-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOSQL-7.1.so.1 (0x00007fd395af6000)<br>
+	libvtksqlite-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtksqlite-7.1.so.1 (0x00007fd395895000)<br>
+	libvtkGeovisCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkGeovisCore-7.1.so.1 (0x00007fd39563d000)<br>
+	libvtkproj4-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkproj4-7.1.so.1 (0x00007fd3953f2000)<br>
+	libvtkIOAMR-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOAMR-7.1.so.1 (0x00007fd3951c9000)<br>
+	libm.so.6 =&gt; /lib64/libm.so.6 (0x00007fd394eb7000)<br>
+	libvtkIOEnSight-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOEnSight-7.1.so.1 (0x00007fd394c61000)<br>
+	libvtkIOExodus-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOExodus-7.1.so.1 (0x00007fd3949e3000)<br>
+	libnetcdf_c++.so.4 =&gt; /usr/lib64/math/libnetcdf_c++.so.4 (0x00007fd3947ca000)<br>
+	libnetcdf.so.11 =&gt; /usr/lib64/math/libnetcdf.so.11 (0x00007fd391477000)<br>
+	libvtkIOExport-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOExport-7.1.so.1 (0x00007fd391237000)<br>
+	libvtkRenderingGL2PSOpenGL2-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingGL2PSOpenGL2-7.1.so.1 (0x00007fd39102b000)<br>
+	libgl2ps.so.1 =&gt; /usr/graphics/lib64/libgl2ps.so.1 (0x00007fd390e16000)<br>
+	libvtkIOImport-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOImport-7.1.so.1 (0x00007fd390be6000)<br>
+	libvtkIOInfovis-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOInfovis-7.1.so.1 (0x00007fd390995000)<br>
+	libxml2.so.2 =&gt; /usr/lib64/libxml2.so.2 (0x00007fd39066c000)<br>
+	libvtkIOLSDyna-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOLSDyna-7.1.so.1 (0x00007fd390433000)<br>
+	libvtkIOMINC-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOMINC-7.1.so.1 (0x00007fd3901e9000)<br>
+	libvtkIOMovie-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOMovie-7.1.so.1 (0x00007fd38ffde000)<br>
+	libtheoraenc.so.1 =&gt; /usr/media/lib64/libtheoraenc.so.1 (0x00007fd38fdb6000)<br>
+	libtheoradec.so.1 =&gt; /usr/media/lib64/libtheoradec.so.1 (0x00007fd38fba9000)<br>
+	libogg.so.0 =&gt; /usr/media/lib64/libogg.so.0 (0x00007fd38f9a4000)<br>
+	libvtkIOPLY-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOPLY-7.1.so.1 (0x00007fd38f790000)<br>
+	libvtkIOParallel-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOParallel-7.1.so.1 (0x00007fd38f53c000)<br>
+	libjsoncpp.so.19 =&gt; /usr/lib64/libjsoncpp.so.19 (0x00007fd38f313000)<br>
+	libvtkIOParallelXML-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOParallelXML-7.1.so.1 (0x00007fd38f0f0000)<br>
+	libvtkIOTecplotTable-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOTecplotTable-7.1.so.1 (0x00007fd38eee6000)<br>
+	libvtkIOVideo-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOVideo-7.1.so.1 (0x00007fd38ecda000)<br>
+	libvtkImagingMorphological-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingMorphological-7.1.so.1 (0x00007fd38ea7a000)<br>
+	libvtkImagingStatistics-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingStatistics-7.1.so.1 (0x00007fd38e85f000)<br>
+	libvtkImagingStencil-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingStencil-7.1.so.1 (0x00007fd38e63e000)<br>
+	libvtkInteractionImage-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkInteractionImage-7.1.so.1 (0x00007fd38e42c000)<br>
+	libvtkRenderingContextOpenGL2-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingContextOpenGL2-7.1.so.1 (0x00007fd38e206000)<br>
+	libvtkRenderingImage-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingImage-7.1.so.1 (0x00007fd38dfe2000)<br>
+	libvtkRenderingLOD-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingLOD-7.1.so.1 (0x00007fd38ddd5000)<br>
+	libvtkRenderingQt-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingQt-7.1.so.1 (0x00007fd38dbbe000)<br>
+	libvtkRenderingVolumeOpenGL2-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingVolumeOpenGL2-7.1.so.1 (0x00007fd38d979000)<br>
+	libvtkViewsContext2D-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkViewsContext2D-7.1.so.1 (0x00007fd38d76e000)<br>
+	libvtkViewsQt-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkViewsQt-7.1.so.1 (0x00007fd38d54b000)<br>
+	libvtkDomainsChemistry-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkDomainsChemistry-7.1.so.1 (0x00007fd38d2ff000)<br>
+	libpthread.so.0 =&gt; /lib64/libpthread.so.0 (0x00007fd38d0e1000)<br>
+	libvtkFiltersAMR-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersAMR-7.1.so.1 (0x00007fd38cebf000)<br>
+	libvtkFiltersParallel-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersParallel-7.1.so.1 (0x00007fd38cc2f000)<br>
+	libvtkexoIIc-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkexoIIc-7.1.so.1 (0x00007fd38c9f4000)<br>
+	libvtkIOGeometry-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOGeometry-7.1.so.1 (0x00007fd38c729000)<br>
+	libvtkIONetCDF-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIONetCDF-7.1.so.1 (0x00007fd38c4d8000)<br>
+	libvtkParallelCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkParallelCore-7.1.so.1 (0x00007fd38c29c000)<br>
+	libvtkIOLegacy-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOLegacy-7.1.so.1 (0x00007fd38c020000)<br>
+	libvtkFiltersTexture-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersTexture-7.1.so.1 (0x00007fd38be09000)<br>
+	libvtkImagingMath-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingMath-7.1.so.1 (0x00007fd38bbd9000)<br>
+	libvtkGUISupportQt-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkGUISupportQt-7.1.so.1 (0x00007fd38b9a0000)<br>
+	libvtkRenderingOpenGL2-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingOpenGL2-7.1.so.1 (0x00007fd38b60f000)<br>
+	libvtkglew-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkglew-7.1.so.1 (0x00007fd38b391000)<br>
+	libSM.so.6 =&gt; /usr/X11R6/lib64/libSM.so.6 (0x00007fd38b18b000)<br>
+	libICE.so.6 =&gt; /usr/X11R6/lib64/libICE.so.6 (0x00007fd38af73000)<br>
+	libX11.so.6 =&gt; /usr/X11R6/lib64/libX11.so.6 (0x00007fd38ac7e000)<br>
+	libXext.so.6 =&gt; /usr/X11R6/lib64/libXext.so.6 (0x00007fd38aa6f000)<br>
+	libXt.so.6 =&gt; /usr/X11R6/lib64/libXt.so.6 (0x00007fd38a818000)<br>
+	libvtkViewsInfovis-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkViewsInfovis-7.1.so.1 (0x00007fd38a57e000)<br>
+	libvtkChartsCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkChartsCore-7.1.so.1 (0x00007fd38a2a6000)<br>
+	libvtkRenderingContext2D-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingContext2D-7.1.so.1 (0x00007fd38a07c000)<br>
+	libvtkFiltersImaging-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersImaging-7.1.so.1 (0x00007fd389e67000)<br>
+	libvtkInfovisLayout-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkInfovisLayout-7.1.so.1 (0x00007fd389bff000)<br>
+	libvtkInfovisCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkInfovisCore-7.1.so.1 (0x00007fd38995f000)<br>
+	libvtkViewsCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkViewsCore-7.1.so.1 (0x00007fd389741000)<br>
+	libvtkInteractionWidgets-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkInteractionWidgets-7.1.so.1 (0x00007fd38936c000)<br>
+	libvtkFiltersHybrid-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersHybrid-7.1.so.1 (0x00007fd3890c7000)<br>
+	libvtkImagingGeneral-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingGeneral-7.1.so.1 (0x00007fd388e2b000)<br>
+	libvtkImagingSources-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingSources-7.1.so.1 (0x00007fd388bfc000)<br>
+	libvtkFiltersModeling-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersModeling-7.1.so.1 (0x00007fd3889a9000)<br>
+	libvtkInteractionStyle-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkInteractionStyle-7.1.so.1 (0x00007fd38876a000)<br>
+	libvtkFiltersExtraction-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersExtraction-7.1.so.1 (0x00007fd3884cc000)<br>
+	libvtkFiltersStatistics-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersStatistics-7.1.so.1 (0x00007fd38826b000)<br>
+	libvtkImagingFourier-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingFourier-7.1.so.1 (0x00007fd38804a000)<br>
+	libvtkalglib-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkalglib-7.1.so.1 (0x00007fd387e34000)<br>
+	libvtkImagingHybrid-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingHybrid-7.1.so.1 (0x00007fd387bdf000)<br>
+	libvtkIOImage-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOImage-7.1.so.1 (0x00007fd3878d0000)<br>
+	libvtkDICOMParser-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkDICOMParser-7.1.so.1 (0x00007fd3876be000)<br>
+	libvtkmetaio-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkmetaio-7.1.so.1 (0x00007fd387454000)<br>
+	libvtkRenderingAnnotation-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingAnnotation-7.1.so.1 (0x00007fd38718e000)<br>
+	libvtkImagingColor-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingColor-7.1.so.1 (0x00007fd386f58000)<br>
+	libvtkRenderingVolume-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingVolume-7.1.so.1 (0x00007fd38691a000)<br>
+	libvtkImagingCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkImagingCore-7.1.so.1 (0x00007fd3865e1000)<br>
+	libvtkIOXML-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOXML-7.1.so.1 (0x00007fd386337000)<br>
+	libvtkIOXMLParser-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOXMLParser-7.1.so.1 (0x00007fd386125000)<br>
+	libvtkIOCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkIOCore-7.1.so.1 (0x00007fd385ed2000)<br>
+	libvtkRenderingLabel-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingLabel-7.1.so.1 (0x00007fd385c5b000)<br>
+	libvtkRenderingFreeType-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingFreeType-7.1.so.1 (0x00007fd3859b9000)<br>
+	libvtkRenderingCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkRenderingCore-7.1.so.1 (0x00007fd38562d000)<br>
+	libvtkCommonColor-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkCommonColor-7.1.so.1 (0x00007fd38541a000)<br>
+	libvtkFiltersGeometry-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersGeometry-7.1.so.1 (0x00007fd3851bb000)<br>
+	libvtkFiltersSources-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersSources-7.1.so.1 (0x00007fd384f41000)<br>
+	libvtkFiltersGeneral-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersGeneral-7.1.so.1 (0x00007fd384b4c000)<br>
+	libvtkCommonComputationalGeometry-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkCommonComputationalGeometry-7.1.so.1 (0x00007fd38491b000)<br>
+	libvtkFiltersCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkFiltersCore-7.1.so.1 (0x00007fd3843e7000)<br>
+	libvtkCommonExecutionModel-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkCommonExecutionModel-7.1.so.1 (0x00007fd384152000)<br>
+	libvtkCommonDataModel-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkCommonDataModel-7.1.so.1 (0x00007fd383cb7000)<br>
+	libvtkCommonTransforms-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkCommonTransforms-7.1.so.1 (0x00007fd383a91000)<br>
+	libvtkCommonMisc-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkCommonMisc-7.1.so.1 (0x00007fd38387c000)<br>
+	libvtkCommonMath-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkCommonMath-7.1.so.1 (0x00007fd38365d000)<br>
+	libvtkCommonSystem-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkCommonSystem-7.1.so.1 (0x00007fd38344b000)<br>
+	libvtkCommonCore-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtkCommonCore-7.1.so.1 (0x00007fd382fc9000)<br>
+	libvtksys-7.1.so.1 =&gt; /usr/opt/VTK/lib/libvtksys-7.1.so.1 (0x00007fd382d96000)<br>
+	libQt5Widgets.so.5 =&gt; /usr/qt/lib64/libQt5Widgets.so.5 (0x00007fd382678000)<br>
+	libQt5Gui.so.5 =&gt; /usr/qt/lib64/libQt5Gui.so.5 (0x00007fd3820de000)<br>
+	libQt5Core.so.5 =&gt; /usr/qt/lib64/libQt5Core.so.5 (0x00007fd381aad000)<br>
+	libstdc++.so.6 =&gt; /usr/lib64/libstdc++.so.6 (0x00007fd381773000)<br>
+	libgcc_s.so.1 =&gt; /usr/lib64/libgcc_s.so.1 (0x00007fd381561000)<br>
+	libc.so.6 =&gt; /lib64/libc.so.6 (0x00007fd3811c2000)<br>
+	/lib64/ld-linux-x86-64.so.2 (0x00007fd399fee000)<br>
+	libmpfr.so.4 =&gt; /usr/lib64/libmpfr.so.4 (0x00007fd380f71000)<br>
+	libgmp.so.10 =&gt; /usr/lib64/libgmp.so.10 (0x00007fd380d10000)<br>
+	librt.so.1 =&gt; /lib64/librt.so.1 (0x00007fd380b08000)<br>
+	libbz2.so.1.0 =&gt; /usr/lib64/libbz2.so.1.0 (0x00007fd3809fc000)<br>
+	libGLU.so.1 =&gt; /usr/X11R6/lib64/libGLU.so.1 (0x00007fd38079f000)<br>
+	libGL.so.1 =&gt; /usr/X11R6/lib64/libGL.so.1 (0x00007fd38053f000)<br>
+	liblzma.so.5 =&gt; /usr/lib64/liblzma.so.5 (0x00007fd38031f000)<br>
+	libjbig.so.2 =&gt; /usr/graphics/lib64/libjbig.so.2 (0x00007fd380113000)<br>
+	libQt5Sql.so.5 =&gt; /usr/qt/lib64/libQt5Sql.so.5 (0x00007fd37fee3000)<br>
+	libcurl.so.4 =&gt; /usr/lib/../lib64/libcurl.so.4 (0x00007fd37fc86000)<br>
+	libidn.so.11 =&gt; /usr/lib/../lib64/libidn.so.11 (0x00007fd37fb56000)<br>
+	libssl.so.1 =&gt; /usr/lib/../lib64/libssl.so.1 (0x00007fd37f8fa000)<br>
+	libcrypto.so.1 =&gt; /usr/lib/../lib64/libcrypto.so.1 (0x00007fd37f543000)<br>
+	libQt5X11Extras.so.5 =&gt; /usr/qt/lib64/libQt5X11Extras.so.5 (0x00007fd37f33f000)<br>
+	libuuid.so.1 =&gt; /lib64/libuuid.so.1 (0x00007fd37f13b000)<br>
+	libxcb.so.1 =&gt; /usr/X11R6/lib64/libxcb.so.1 (0x00007fd37ef1f000)<br>
+	libXau.so.6 =&gt; /usr/X11R6/lib64/libXau.so.6 (0x00007fd37ed1d000)<br>
+	libXdmcp.so.6 =&gt; /usr/X11R6/lib64/libXdmcp.so.6 (0x00007fd37eb18000)<br>
+	libharfbuzz.so.0 =&gt; /usr/graphics/lib64/libharfbuzz.so.0 (0x00007fd37e884000)<br>
+	libpcre2-16.so.0 =&gt; /usr/lib64/libpcre2-16.so.0 (0x00007fd37e625000)<br>
+	libdouble-conversion.so.3.0.0 =&gt; /usr/lib64/libdouble-conversion.so.3.0.0 (0x00007fd37e41a000)<br>
+	libgthread-2.0.so.0 =&gt; /usr/lib64/libgthread-2.0.so.0 (0x00007fd37e218000)<br>
+	libglib-2.0.so.0 =&gt; /usr/lib64/libglib-2.0.so.0 (0x00007fd37df2c000)<br>
+	libxcb-dri3.so.0 =&gt; /usr/X11R6/lib64/libxcb-dri3.so.0 (0x00007fd37dd2a000)<br>
+	libxcb-present.so.0 =&gt; /usr/X11R6/lib64/libxcb-present.so.0 (0x00007fd37db28000)<br>
+	libxcb-sync.so.1 =&gt; /usr/X11R6/lib64/libxcb-sync.so.1 (0x00007fd37d923000)<br>
+	libxshmfence.so.1 =&gt; /usr/X11R6/lib64/libxshmfence.so.1 (0x00007fd37d722000)<br>
+	libglapi.so.0 =&gt; /usr/X11R6/lib64/libglapi.so.0 (0x00007fd37d4f4000)<br>
+	libXdamage.so.1 =&gt; /usr/X11R6/lib64/libXdamage.so.1 (0x00007fd37d2f2000)<br>
+	libXfixes.so.3 =&gt; /usr/X11R6/lib64/libXfixes.so.3 (0x00007fd37d0ed000)<br>
+	libX11-xcb.so.1 =&gt; /usr/X11R6/lib64/libX11-xcb.so.1 (0x00007fd37ceec000)<br>
+	libxcb-glx.so.0 =&gt; /usr/X11R6/lib64/libxcb-glx.so.0 (0x00007fd37ccd7000)<br>
+	libxcb-dri2.so.0 =&gt; /usr/X11R6/lib64/libxcb-dri2.so.0 (0x00007fd37cad3000)<br>
+	libXxf86vm.so.1 =&gt; /usr/X11R6/lib64/libXxf86vm.so.1 (0x00007fd37c8cf000)<br>
+	libdrm.so.2 =&gt; /usr/X11R6/lib64/libdrm.so.2 (0x00007fd37c6c1000)<br>
+	libssl.so.1.1 =&gt; /usr/lib/../lib64/libssl.so.1.1 (0x00007fd37c464000)<br>
+	libcrypto.so.1.1 =&gt; /usr/lib/../lib64/libcrypto.so.1.1 (0x00007fd37c033000)<br>
+	libpcre.so.1 =&gt; /usr/lib64/libpcre.so.1 (0x00007fd37bdfa000)
+</div></blockquote></div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=578.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3033" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3033">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3033">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=578.html#p3033">Re: Error linking libtinyxml</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=3033.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=3033.html#p3033" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Wed 10 Jan 2018, 21:23
+			</p>
+			
+			
+			
+			<div class="content">I'm really not sure I can help you much. At least openEMS itself should run fine? Only the GUI tool "AppCSXCAD" cannot be build?<br>
+<br>
+br<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=578.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3034" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3034">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=406&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 26 Aug 2016, 10:38</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3034">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=578.html#p3034">Re: Error linking libtinyxml</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=3034.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=3034.html#p3034" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a></strong> &raquo; </span>Thu 11 Jan 2018, 11:31
+			</p>
+			
+			
+			
+			<div class="content">Linking the openEMS binary fails as well:<br>
+
+<blockquote class="uncited"><div>
+libopenEMS.so.0.0.35: undefined reference to `TiXmlDocument::TiXmlDocument(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)'<br>
+/usr/opt/openEMS/lib/libCSXCAD.so: undefined reference to `TiXmlElement::Attribute(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) const'<br>
+/usr/opt/openEMS/lib/libCSXCAD.so: undefined reference to `TiXmlElement::SetAttribute(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;)'<br>
+collect2: error: ld returned 1 exit status<br>
+make[5]: *** [CMakeFiles/openEMS_bin.dir/build.make:242: openEMS] Error 1
+</div></blockquote>
+
+It would be interesting if someone successfully compiled openEMS using gcc6 and if so, which version of libtinyxml was used.<br>
+<br>
+Best regards,<br>
+Erik</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=578.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3035" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3035">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=406&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 26 Aug 2016, 10:38</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3035">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=578.html#p3035">Re: Error linking libtinyxml</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=3035.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=3035.html#p3035" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a></strong> &raquo; </span>Fri 12 Jan 2018, 14:42
+			</p>
+			
+			
+			
+			<div class="content">I solved the problem. tinyxml has to be compiled with -DTIXML_USE_STL switch. <br>
+Now openEMS and AppCSXCAD again build fine. <br>
+<br>
+Best regards,<br>
+Erik</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=578.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p3036" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile3036">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content3036">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=578.html#p3036">Re: Error linking libtinyxml</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=3036.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=3036.html#p3036" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Fri 12 Jan 2018, 17:27
+			</p>
+			
+			
+			
+			<div class="content"><blockquote class="uncited"><div>I solved the problem. tinyxml has to be compiled with -DTIXML_USE_STL switch.</div></blockquote>
+Yes indeed. I forgot about that since all distros these days have it on by default...<br>
+<br>
+br<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=578.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="posting.php%3Fmode=reply&amp;f=2&amp;t=578.html" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=578&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php%3Ff=2&amp;t=578.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			7 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php%3Ff=2.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Install”</span>
+		</a>
+	</p>
+	
+		<div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+			<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+				<span>Jump to</span>
+				<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+			</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																				<li><a href="viewforum.php%3Ff=1.html" class="jumpbox-cat-link"> <span> openEMS Support</span></a></li>
+																<li><a href="viewforum.php%3Ff=5.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News</span></a></li>
+																<li><a href="viewforum.php%3Ff=2.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Install</span></a></li>
+																<li><a href="viewforum.php%3Ff=3.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Usage</span></a></li>
+																<li><a href="viewforum.php%3Ff=4.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Feedback</span></a></li>
+																<li><a href="viewforum.php%3Ff=6.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Development</span></a></li>
+											</ul>
+		</div>
+	</div>
+
+	</div>
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="UTC+2">UTC+02:00</span></li>
+							<li class="rightside">
+				<a href="http://openems.de/forum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+												<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+					<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+				</a>
+			</li>
+									<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=contactadmin.html" role="menuitem">
+					<i class="icon fa-envelope fa-fw" aria-hidden="true"></i><span>Contact us</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row">
+			<a class="footer-link" href="ucp.php%3Fmode=privacy.html" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="ucp.php%3Fmode=terms.html" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php%3Ff=2&amp;t=578.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php%3Ff=2&amp;t=578.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script type="text/javascript" src="assets/javascript/jquery.min.js%3Fassets_version=3"></script>
+<script type="text/javascript" src="assets/javascript/core.js%3Fassets_version=3"></script>
+
+
+
+<script src="styles/prosilver/template/forum_fn.js%3Fassets_version=3"></script>
+<script src="styles/prosilver/template/ajax.js%3Fassets_version=3"></script>
+
+
+
+</body>
+</html>

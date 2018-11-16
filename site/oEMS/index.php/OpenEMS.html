@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="OpenEMS,OpenEMS,AppCSXCAD,Binaries,CSXCAD,Compile from Source,Dispersive Material Property,Dump Box Property,Excitation,FDTD Boundary Conditions,FDTD Mesh" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=OpenEMS&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>OpenEMS - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "OpenEMS";
+		var wgTitle = "OpenEMS";
+		var wgAction = "view";
+		var wgArticleId = "15";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 984;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-bibtex {line-height: normal;}
+.source-bibtex li, .source-bibtex pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bibtex
+ * CSS class: source-bibtex, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.bibtex.source-bibtex .de1, .bibtex.source-bibtex .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.bibtex.source-bibtex  {font-family:monospace;}
+.bibtex.source-bibtex .imp {font-weight: bold; color: red;}
+.bibtex.source-bibtex li, .bibtex.source-bibtex .li1 {font-weight: normal; vertical-align:top;}
+.bibtex.source-bibtex .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bibtex.source-bibtex .li2 {font-weight: bold; vertical-align:top;}
+.bibtex.source-bibtex .kw1 {color: #C02020;}
+.bibtex.source-bibtex .kw2 {color: #C02020;}
+.bibtex.source-bibtex .kw3 {color: #C08020;}
+.bibtex.source-bibtex .kw4 {color: #C08020;}
+.bibtex.source-bibtex .co1 {color: #2C922C; font-style: italic;}
+.bibtex.source-bibtex .es0 {color: #000000; font-weight: bold;}
+.bibtex.source-bibtex .br0 {color: #E02020;}
+.bibtex.source-bibtex .sy0 {color: #E02020;}
+.bibtex.source-bibtex .st0 {color: #2020C0;}
+.bibtex.source-bibtex .re1 {color: #2020C0;}
+.bibtex.source-bibtex .re2 {color: #C08020;}
+.bibtex.source-bibtex .re3 {color: #800000;}
+.bibtex.source-bibtex .ln-xtra, .bibtex.source-bibtex li.ln-xtra, .bibtex.source-bibtex div.ln-xtra {background-color: #ffc;}
+.bibtex.source-bibtex span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-OpenEMS skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">OpenEMS</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="http://openems.de/index.php/OpenEMS.html#column-one">navigation</a>, <a href="http://openems.de/index.php/OpenEMS.html#searchInput">search</a></div>			<!-- start content -->
+			<p>OpenEMS is a free and open source <a href="http://openems.de/index.php/index.php?title=EC-FDTD&amp;action=edit&amp;redlink=1" class="new" title="EC-FDTD (page does not exist)">EC-FDTD</a> solver. The development was started in February 2010 and is written in C++. An extensive Matlab (or Octave) interface is used to define the FDTD options. The geometry used for the FDTD simulations is handled by the <a href="CSXCAD.html" title="CSXCAD">CSXCAD</a> library which is part of the openEMS project.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="http://openems.de/index.php/OpenEMS.html#Features"><span class="tocnumber">1</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/OpenEMS.html#Components"><span class="tocnumber">2</span> <span class="toctext">Components</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/OpenEMS.html#Dependencies"><span class="tocnumber">3</span> <span class="toctext">Dependencies</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/OpenEMS.html#Installation"><span class="tocnumber">4</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/OpenEMS.html#Windows"><span class="tocnumber">4.1</span> <span class="toctext">Windows</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/OpenEMS.html#Linux"><span class="tocnumber">4.2</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/OpenEMS.html#OS-X"><span class="tocnumber">4.3</span> <span class="toctext">OS-X</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/OpenEMS.html#Octave_Support"><span class="tocnumber">5</span> <span class="toctext">Octave Support</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/OpenEMS.html#Additional_Software"><span class="tocnumber">6</span> <span class="toctext">Additional Software</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/OpenEMS.html#Paraview"><span class="tocnumber">6.1</span> <span class="toctext">Paraview</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/OpenEMS.html#Reference"><span class="tocnumber">7</span> <span class="toctext">Reference</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Features" id="Features"></a></p>
+<h2><span class="mw-headline">Features</span></h2>
+<ul>
+<li>Efficient EC-FDTD method in full 3D cartesian coordinates (<i>x</i>,<i>y</i>,<i>z</i>)</li>
+<li>Efficient EC-FDTD method in full 3D cylindrical coordinates (<i>ρ</i>, <i>φ</i>, <i>z</i>)</li>
+<li>Fully <a href="FDTD_Mesh.html" title="FDTD Mesh">graded mesh</a></li>
+<li>Multi-threading, SIMD (SSE) and <a href="http://openems.de/index.php/index.php?title=MPI&amp;action=edit&amp;redlink=1" class="new" title="MPI (page does not exist)">MPI</a> support for high speed parallel FDTD</li>
+<li>Simple engine extensions API to easily introduce new features to the FDTD algorithm</li>
+<li><a href="List_of_Functions.html" title="List of Functions">Matlab-Interface</a></li>
+<li>Absorbing <a href="FDTD_Boundary_Conditions.html" title="FDTD Boundary Conditions">boundary conditions (MUR, PML)</a></li>
+<li>Coordinate dependent <a href="Material_Property.html" title="Material Property">material</a> definitions</li>
+<li>Coordinate dependent <a href="Excitation.html" title="Excitation">excitation</a> definitions (e.g. mode-profiles)</li>
+<li><a href="Dispersive_Material_Property.html" title="Dispersive Material Property">Dispersive material</a> (Drude/Lorentz/Debye type)</li>
+<li><a href="Dump_Box_Property.html" title="Dump Box Property">Field dumps</a> in time and frequency domain as vtk or hdf5 file format</li>
+<li>Flexible post-processing routines (mostly in Matlab)</li>
+<li>Subgrids to reduce simulation time in cylindrical coordinates</li>
+<li>Remote simulations using <a href="Remote_SSH.html" title="Remote SSH">SSH</a> (Linux only)</li>
+</ul>
+<p><a name="Components" id="Components"></a></p>
+<h2><span class="mw-headline">Components</span></h2>
+<ul>
+<li><strong class="selflink">OpenEMS</strong> - A free and open source EC-FDTD solver.</li>
+<li><a href="CSXCAD.html" title="CSXCAD">CSXCAD</a> - A C++ library to describe geometrical objects and their physical or non-physical properties.</li>
+<li><a href="http://openems.de/index.php/AppCSXCAD.html" title="AppCSXCAD">AppCSXCAD</a> - A visualization program, capable of showing the structure defined inside a CSXCAD xml-file.</li>
+<li>QCSXCAD - The visualisation library used by AppCSXCAD.</li>
+</ul>
+<p><a name="Dependencies" id="Dependencies"></a></p>
+<h2><span class="mw-headline">Dependencies</span></h2>
+<p>Libraries used by openEMS:</p>
+<ul>
+<li><a href="CSXCAD.html" title="CSXCAD">CSXCAD</a>: Part of the openEMS project. Author: Thorsten Liebig</li>
+<li>tinyxml: A small and tiny xml parser written in C++. <a href="https://www.grinninglizard.com/tinyxml/" class="external text" title="https://www.grinninglizard.com/tinyxml/" rel="nofollow">TinyXml website</a></li>
+<li>fparser: Function parser library for C++ <a href="https://warp.povusers.org/FunctionParser/" class="external text" title="https://warp.povusers.org/FunctionParser/" rel="nofollow">fparser Website</a></li>
+<li>boost: <a href="https://www.boost.org/" class="external free" title="https://www.boost.org/" rel="nofollow">https://www.boost.org/</a></li>
+<li>hdf5: Hierarchical Data Format <a href="https://www.hdfgroup.org/" class="external free" title="https://www.hdfgroup.org/" rel="nofollow">https://www.hdfgroup.org/</a></li>
+<li>vtk: The Visualization Toolkit (VTK) <a href="https://www.vtk.org/" class="external free" title="https://www.vtk.org/" rel="nofollow">https://www.vtk.org/</a></li>
+<li>mpi: Message Passing Interface. <a href="https://www.mcs.anl.gov/research/projects/mpich2/" class="external text" title="https://www.mcs.anl.gov/research/projects/mpich2/" rel="nofollow">mpich2</a> or <a href="https://www.open-mpi.org/" class="external text" title="https://www.open-mpi.org/" rel="nofollow">Open-MPI</a></li>
+</ul>
+<p><a name="Installation" id="Installation"></a></p>
+<h2><span class="mw-headline">Installation</span></h2>
+<p>Instructions in Portuguese <a href="OpenEMS_pt.html" title="OpenEMS pt">here</a></p>
+<p><a name="Windows" id="Windows"></a></p>
+<h3><span class="mw-headline">Windows</span></h3>
+<ul>
+<li><b>Download</b> the latest <a href="https://openems.de/download/win64/openEMS_x64_current.zip" class="external text" title="https://openems.de/download/win64/openEMS_x64_current.zip" rel="nofollow">64bit openEMS</a>. (Old versions can be found here: <a href="https://openems.de/download/win32/" class="external text" title="https://openems.de/download/win32/" rel="nofollow">win32</a>, <a href="https://openems.de/download/win64/" class="external text" title="https://openems.de/download/win64/" rel="nofollow">win64</a>)</li>
+<li><b>Unzip</b> to a folder of your choice e.g. "D:/" (zip contains an openEMS folder)</li>
+<li>Add the openEMS path to matlab (maybe in a "startup.m" in your Matlab startup folder):</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">addpath</span><span class="br0">(</span><span class="co2">'D:/openEMS/matlab'</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p><b>That's it!</b> Check your installation in the <a href="http://openems.de/index.php/Tutorial:_First_Steps.html" title="Tutorial: First Steps">First Steps Tutorial</a></p>
+<ul>
+<li>You may want to check the <a href="http://openems.de/index.php/OpenEMS.html#Additional_Software" title="OpenEMS">additional software</a> section (see below).</li>
+<li>Give some feedback in the <a href="https://openems.de/forum/" class="external text" title="https://openems.de/forum/" rel="nofollow">openEMS-Forum</a>.</li>
+</ul>
+<p><a name="Linux" id="Linux"></a></p>
+<h3><span class="mw-headline">Linux</span></h3>
+<p>The recommended way is to install <a href="http://openems.de/index.php/Compile_from_Source.html" title="Compile from Source">openEMS from source</a>.</p>
+<p>For some Linux distributions we have binary repositories. Follow the instructions <a href="http://openems.de/index.php/Binaries.html" title="Binaries">here</a>.</p>
+<p><a name="OS-X" id="OS-X"></a></p>
+<h3><span class="mw-headline">OS-X</span></h3>
+<p>Experimental support using <a href="https://brew.sh" class="external text" title="https://brew.sh" rel="nofollow">brew</a>: <a href="https://github.com/thliebig/openEMS-Project/blob/master/brew/README.md" class="external text" title="https://github.com/thliebig/openEMS-Project/blob/master/brew/README.md" rel="nofollow">brew file</a></p>
+<p><a name="Octave_Support" id="Octave_Support"></a></p>
+<h2><span class="mw-headline">Octave Support</span></h2>
+<p>As of version v0.0.26 Octave support should be nearly complete. After installing a new openEMS version or a new Octave version (recommended and tested is Octave &gt;3.4.3) add the command</p>
+<pre>
+ addpath("c:/openEMS/matlab/"); 
+</pre>
+<p>to the file c:\Octave\Octave-4.0.0\share\octave\site\m\startup\octaverc and to the file c:\Octave\Octave-4.0.0\share\octave\4.0.0\m\startup\octaverc</p>
+<p>(Assuming that openEMS has been installed in c:\openEMS and Octave 4.0.0 has been installed in c:\Octave.) This will automatically add a path to the openEMS matlab files directory every time Octave is executed.</p>
+<pre>
+    Then execute:
+</pre>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+setup
+</pre></div>
+</div>
+<p><a name="Additional_Software" id="Additional_Software"></a></p>
+<h2><span class="mw-headline">Additional Software</span></h2>
+<p>Additional Software that you may find useful:</p>
+<p><a name="Paraview" id="Paraview"></a></p>
+<h3><span class="mw-headline">Paraview</span></h3>
+<dl>
+<dd>"<a href="Paraview.html" title="Paraview">Paraview</a> is an open-source, multi-platform data analysis and visualization application." <a href="https://www.paraview.org/" class="external text" title="https://www.paraview.org/" rel="nofollow">Paraview Homepage</a></dd>
+</dl>
+<p><a href="Paraview.html" title="Paraview">Paraview</a> can be used to visualize <a href="http://openems.de/index.php/index.php?title=Vtk&amp;action=edit&amp;redlink=1" class="new" title="Vtk (page does not exist)">vtk</a> files containing field dumps generated by openEMS. Use your package-manager to install (Linux) or download at: <a href="https://www.paraview.org/paraview/resources/software.html" class="external free" title="https://www.paraview.org/paraview/resources/software.html" rel="nofollow">https://www.paraview.org/paraview/resources/software.html</a></p>
+<p><a name="Reference" id="Reference"></a></p>
+<h2><span class="mw-headline">Reference</span></h2>
+<p>We kindly ask you to reference openEMS in any publication that you were using openEMS for:</p>
+<p>BibTex:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bibtex source-bibtex">
+<pre class="de1">
+@ELECTRONIC<span class="br0">{</span><span class="re1">openEMS<span class="sy0">,</span>
+  <span class="kw3">author</span> <span class="sy0">=</span> <span class="br0">{</span>Thorsten Liebig<span class="br0">}</span><span class="sy0">,</span>
+  <span class="kw3">title</span> <span class="sy0">=</span> <span class="br0">{</span>openEMS - Open Electromagnetic Field Solver<span class="br0">}</span><span class="sy0">,</span>
+  <span class="kw3">organization</span> <span class="sy0">=</span> <span class="br0">{</span>General and Theoretical Electrical Engineering <span class="br0">(</span>ATE<span class="br0">)</span><span class="sy0">,</span> University of Duisburg-Essen<span class="br0">}</span><span class="sy0">,</span>
+  <span class="kw4">url</span> <span class="sy0">=</span> <span class="br0">{</span>https://www.openEMS.de<span class="br0">}</span>
+</span><span class="br0">}</span>
+</pre></div>
+</div>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 21/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:15-0!1!0!!en!2!edit=0 and timestamp 20181110114202 -->
+<div class="printfooter">
+Retrieved from "<a href="http://openems.de/index.php/OpenEMS.html">index.php/OpenEMS</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 1 September 2016, at 18:40.</li>
+					<li id="viewcount">This page has been accessed 380,527 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

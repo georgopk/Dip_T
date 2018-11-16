@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Packages for Debian Wheezy [solved] - openEMS.de</title>
+
+
+	<link rel="canonical" href="http://openems.de/forum/viewtopic.php?t=93">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/en/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=3" rel="stylesheet">
+<![endif]-->
+
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index.php.html" title="Board index"><span class="site_logo"></span></a>
+				<h1>openEMS.de</h1>
+				<p>OpenEMS Support Forum</p>
+				<p class="skiplink"><a href="viewtopic.php%3Ff=2&amp;t=93.html#start_here">Skip to content</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="http://openems.de/forum/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="Search for keywords" class="inputbox search tiny" size="20" value="" placeholder="Search…" />
+					<button class="button button-search" type="submit" title="Search">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+					</button>
+					<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="viewtopic.php%3Ff=2&amp;t=93.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="http://openems.de/forum/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Unanswered topics</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://openems.de/forum/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>Active topics</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="http://openems.de/forum/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>Search</span>
+								</a>
+							</li>
+					
+											<li class="separator"></li>
+																			<li>
+								<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+									<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+								</a>
+							</li>
+																<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="http://openems.de/forum/app.php/help/faq" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp.php%3Fmode=login.html" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp.php%3Fmode=register.html" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+						<li class="breadcrumbs">
+										<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><a href="index.php.html" itemprop="url" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="title">Board index</span></a></span>
+
+											<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="1"><a href="viewforum.php%3Ff=1.html" itemprop="url"><span itemprop="title">openEMS Support</span></a></span>
+															<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="2"><a href="viewforum.php%3Ff=2.html" itemprop="url"><span itemprop="title">Install</span></a></span>
+												</li>
+		
+					<li class="rightside responsive-search">
+				<a href="http://openems.de/forum/search.php" title="View the advanced search options" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php%3Ff=2&amp;t=93.html">Packages for Debian Wheezy [solved]</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">Install support for openEMS<br /></div>
+<p>
+	<strong>Moderators:</strong> <a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>, <a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="http://openems.de/forum/posting.php?mode=reply&amp;f=2&amp;t=93" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=93&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="http://openems.de/forum/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…" />
+				<button class="button button-search" type="submit" title="Search">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</button>
+				<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+				</a>
+				<input type="hidden" name="t" value="93" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			8 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p579" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile579">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=128&amp;sr=posts">54</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 17 Dec 2012, 14:58</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content579">
+
+						<h3 class="first"><a href="viewtopic.php%3Ff=2&amp;t=93.html#p579">Packages for Debian Wheezy [solved]</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=579" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=579#p579" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a></strong> &raquo; </span>Tue 18 Dec 2012, 17:22
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+as I am using Debian Wheezy I guess I need to install from source code, because the package "libhdf5-serial-1.8.4" and others are not available in Wheezy.<br>
+<br>
+When building OpenEMS from source, is the AppCSXCad software also included in the sources ?<br>
+Did anyone in the forum succesfully install OpenEMS in Wheezy ?<br>
+<br>
+[edit]<br>
+On <a href="../index.php/Compile_from_Source.html#Source_Code" class="postlink">http://openems.de/index.php/Compile_fro ... ource_Code</a> what does 
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Ff=2&amp;t=93.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>for mod in CSXCAD QCSXCAD AppCSXCAD openEMS; do
+	echo "Clone $mod from openEMS.de"
+	git clone git://openEMS.de/$mod.git
+done</code></pre></div>
+mean ? <br>
+Do I have to create a script with this content and execute ? <br>
+<br>
+Hints are highly appreciated.<br>
+<br>
+THX<br>
+HWe</div>
+
+			
+													<div class="notice">
+					Last edited by <a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a> on Wed 19 Dec 2012, 21:23, edited 1 time in total.
+									</div>
+			
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=93.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p580" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile580">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content580">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=93.html#p580">Re: Packages for Debian Wheezy [edited]</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=580" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=580#p580" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Tue 18 Dec 2012, 20:12
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+the latest openEMS v0.0.30 does no longer require the serial version of hdf5. And Debian should have the parallel version. Maybe something is wrong with the debian package?<br>
+<br>
+About the compile from source, you still need to have all the required devel libs installed. I just now updated the list on needed packages to reflect the changed requirements for v0.0.30.<br>
+And the code you postet you can just copy and paste into your terminal window.<br>
+What it means is that it will download/clone all necessary modules using <a href="http://git-scm.com/" class="postlink">git</a>.<br>
+<br>
+If you are new to building from source etc. I highly recommend using the packages. Maybe Sebastian can take a look?<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=93.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p581" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile581">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=55&amp;sr=posts">114</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:36</dd>		
+		
+											
+							<dd class="profile-contact">
+				<strong>Contact:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="viewtopic.php%3Ff=2&amp;t=93.html#" class="dropdown-trigger" title="Contact sebastian">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contact sebastian</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="../index.html" title="Website" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">Website</span>
+									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content581">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=93.html#p581">Re: Packages for Debian Wheezy [edited]</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=581" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=581#p581" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a></strong> &raquo; </span>Tue 18 Dec 2012, 20:46
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+We use the openSUSE build service to create our binaries. Debian Wheezy is not yet present there.<br>
+Thorsten used a new feature from a recent tinyxml library, which is too old in Debian 6 and Ubuntu Natty. That's why the current openEMS is not yet available for these platforms.<br>
+<br>
+To build your own package, go to<br>
+<a href="http://download.opensuse.org/repositories/home:/sibbi77:/openEMS/xUbuntu_12.10/" class="postlink">http://download.opensuse.org/repositori ... ntu_12.10/</a><br>
+and download the files ending in <strong class="text-strong">.dsc</strong> and <strong class="text-strong">.gz</strong>.<br>
+Then excecute
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Ff=2&amp;t=93.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>dpkg-source -x *.dsc</code></pre></div>
+Go into the csxcad directory and execute
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Ff=2&amp;t=93.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>dpkg-buildpackage</code></pre></div>
+This will produce <strong class="text-strong">.deb</strong> files that you can install with your prefered packaging tool (e.g. dpkg -i).<br>
+<br>
+I hope that helps.<br>
+<br>
+Sebastian</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=93.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p583" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile583">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=128&amp;sr=posts">54</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 17 Dec 2012, 14:58</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content583">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=93.html#p583">Re: Packages for Debian Wheezy [edited]</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=583" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=583#p583" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a></strong> &raquo; </span>Tue 18 Dec 2012, 23:12
+			</p>
+			
+			
+			
+			<div class="content">Hi Sebastian,<br>
+thanks for your link - it works !<br>
+<br>
+For the other users here is the order how to build packages via dpkg-buildpackage:<br>
+<br>
+1) libfparser (missing dependecy to "cmake" - installed from Debian repos)<br>
+2) cxscad (there was a missing dependency to "libcgal-dev" - had to install this one from Debian repos) <br>
+3) csxcad-dev<br>
+4) qcsxcad<br>
+5) qcxscad-dev<br>
+6) appcsxcad<br>
+7) openems<br>
+<br>
+Installation was successfull - now lets see how the software runs on Wheezy ........<br>
+<br>
+Thx<br>
+HWe</div>
+
+			
+													<div class="notice">
+					Last edited by <a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a> on Thu 20 Dec 2012, 19:49, edited 1 time in total.
+									</div>
+			
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=93.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p585" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile585">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=128&amp;sr=posts">54</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 17 Dec 2012, 14:58</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content585">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=93.html#p585">Re: Packages for Debian Wheezy [edited]</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=585" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=585#p585" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a></strong> &raquo; </span>Wed 19 Dec 2012, 13:20
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+trying to setup octave failed. Here is what I did:
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Ff=2&amp;t=93.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>octave:1&gt; addpath ("/usr/share/openEMS/matlab")
+octave:2&gt; setup
+setting up openEMS matlab/octave interface
+error: `isOctave' undefined near line 17 column 4
+error: called from:
+error:   /usr/share/openEMS/matlab/setup.m at line 17, column 1
+octave:2&gt; InitCSX
+error: `InitCSX' undefined near line 2 column 1
+octave:5&gt; help isOctave
+error: help: `isOctave' not found
+octave:7&gt; ver
+----------------------------------------------------------------------
+GNU Octave Version 3.6.2
+GNU Octave License: GNU General Public License
+Operating System: Linux 3.2.0-3-686-pae #1 SMP Mon Jul 23 03:50:34 UTC 2012 i686
+----------------------------------------------------------------------
+no packages installed.
+</code></pre></div>
+
+It seems the octave function "isoctave()" is now know - do I miss any octave package ?<br>
+Other functions like "sin" "cos" "sqrt" are know !<br>
+<br>
+Rgds.<br>
+HWe</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=93.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p586" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile586">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content586">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=93.html#p586">Re: Packages for Debian Wheezy [edited]</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=586" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=586#p586" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Wed 19 Dec 2012, 13:56
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+you have not installed the CSXCAD interface<br>
+<br>
+Add:
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Ff=2&amp;t=93.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>addpath ("/usr/share/CSXCAD/matlab")</code></pre></div>
+that should fix it.<br>
+<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=93.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p587" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile587">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content587">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=93.html#p587">Re: Packages for Debian Wheezy [edited]</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=587" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=587#p587" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Wed 19 Dec 2012, 14:12
+			</p>
+			
+			
+			
+			<div class="content">Well I just though about it.<br>
+<br>
+I think running setup will fail? Because it needs to create an oct-file. But by default you cannot create files in /usr/share... <br>
+That was the reason why we needed a special package for that.<br>
+So either you have this h5readattr_octave.oct file already or you won't be able to create it...<br>
+<br>
+Anyways running setup manually should not be necessary any more. If ReadHDF5Dump can't find the function it tries to execute setup automatically...<br>
+<br>
+<strong class="text-strong">Possible solution</strong>, copy the openEMS interface into your home-folder (somewhere) and add this path to your scripts...<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=93.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p588" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile588">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=128&amp;sr=posts">54</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 17 Dec 2012, 14:58</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content588">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=93.html#p588">Re: Packages for Debian Wheezy [edited]</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=588" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=588#p588" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=128.html" class="username">hwe</a></strong> &raquo; </span>Wed 19 Dec 2012, 21:22
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>thorsten wrote:</cite>Well I just though about it.<br>
+<br>
+I think running setup will fail? Because it needs to create an oct-file. But by default you cannot create files in /usr/share... <br>
+That was the reason why we needed a special package for that.<br>
+So either you have this h5readattr_octave.oct file already or you won't be able to create it...
+</div></blockquote>
+
+Hi,<br>
+problem with setup solved: I just ran setup as root and the compilation worked successfully.<br>
+I also can run InitCSX as user !<br>
+<br>
+Looks like its running now !<br>
+<br>
+Thanks<br>
+HWe</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=93.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="http://openems.de/forum/posting.php?mode=reply&amp;f=2&amp;t=93" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=93&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php%3Ff=2&amp;t=93.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			8 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php%3Ff=2.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Install”</span>
+		</a>
+	</p>
+	
+		<div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+			<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+				<span>Jump to</span>
+				<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+			</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																				<li><a href="viewforum.php%3Ff=1.html" class="jumpbox-cat-link"> <span> openEMS Support</span></a></li>
+																<li><a href="viewforum.php%3Ff=5.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News</span></a></li>
+																<li><a href="viewforum.php%3Ff=2.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Install</span></a></li>
+																<li><a href="viewforum.php%3Ff=3.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Usage</span></a></li>
+																<li><a href="viewforum.php%3Ff=4.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Feedback</span></a></li>
+																<li><a href="viewforum.php%3Ff=6.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Development</span></a></li>
+											</ul>
+		</div>
+	</div>
+
+	</div>
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="UTC+2">UTC+02:00</span></li>
+							<li class="rightside">
+				<a href="http://openems.de/forum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+												<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+					<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+				</a>
+			</li>
+									<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=contactadmin.html" role="menuitem">
+					<i class="icon fa-envelope fa-fw" aria-hidden="true"></i><span>Contact us</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row">
+			<a class="footer-link" href="ucp.php%3Fmode=privacy.html" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="ucp.php%3Fmode=terms.html" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php%3Ff=2&amp;t=93.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php%3Ff=2&amp;t=93.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	<img src="http://openems.de/forum/cron.php?cron_type=cron.task.core.tidy_cache" width="1" height="1" alt="cron" /></div>
+
+<script type="text/javascript" src="assets/javascript/jquery.min.js%3Fassets_version=3"></script>
+<script type="text/javascript" src="assets/javascript/core.js%3Fassets_version=3"></script>
+
+
+
+<script src="styles/prosilver/template/forum_fn.js%3Fassets_version=3"></script>
+<script src="styles/prosilver/template/ajax.js%3Fassets_version=3"></script>
+
+
+
+</body>
+</html>

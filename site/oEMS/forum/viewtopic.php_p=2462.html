@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>INstallation with VTK Version other than 6.1 - openEMS.de</title>
+
+
+	<link rel="canonical" href="viewtopic.php%3Ft=426.html">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/en/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=3" rel="stylesheet">
+<![endif]-->
+
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index.php.html" title="Board index"><span class="site_logo"></span></a>
+				<h1>openEMS.de</h1>
+				<p>OpenEMS Support Forum</p>
+				<p class="skiplink"><a href="viewtopic.php%3Fp=2462.html#start_here">Skip to content</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="http://openems.de/forum/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="Search for keywords" class="inputbox search tiny" size="20" value="" placeholder="Search…" />
+					<button class="button button-search" type="submit" title="Search">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+					</button>
+					<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="viewtopic.php%3Fp=2462.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="http://openems.de/forum/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Unanswered topics</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://openems.de/forum/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>Active topics</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="http://openems.de/forum/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>Search</span>
+								</a>
+							</li>
+					
+											<li class="separator"></li>
+																			<li>
+								<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+									<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+								</a>
+							</li>
+																<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="http://openems.de/forum/app.php/help/faq" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp.php%3Fmode=login.html" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp.php%3Fmode=register.html" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+						<li class="breadcrumbs">
+										<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><a href="index.php.html" itemprop="url" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="title">Board index</span></a></span>
+
+											<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="1"><a href="viewforum.php%3Ff=1.html" itemprop="url"><span itemprop="title">openEMS Support</span></a></span>
+															<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="2"><a href="viewforum.php%3Ff=2.html" itemprop="url"><span itemprop="title">Install</span></a></span>
+												</li>
+		
+					<li class="rightside responsive-search">
+				<a href="http://openems.de/forum/search.php" title="View the advanced search options" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php%3Ff=2&amp;t=426.html">INstallation with VTK Version other than 6.1</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">Install support for openEMS<br /></div>
+<p>
+	<strong>Moderators:</strong> <a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>, <a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="posting.php%3Fmode=reply&amp;f=2&amp;t=426.html" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=426&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="http://openems.de/forum/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…" />
+				<button class="button button-search" type="submit" title="Search">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</button>
+				<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+				</a>
+				<input type="hidden" name="t" value="426" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			14 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=426&amp;start=10.html" role="button">2</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php%3Ff=2&amp;t=426&amp;start=10.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+		</div>
+
+
+
+
+			<div id="p2454" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2454">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=95&amp;sr=posts">10</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu 10 May 2012, 10:49</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2454">
+
+						<h3 class="first"><a href="viewtopic.php%3Fp=2462.html#p2454">INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2454.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2454.html#p2454" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a></strong> &raquo; </span>Fri 09 Dec 2016, 20:11
+			</p>
+			
+			
+			
+			<div class="content">Hello,<br>
+<br>
+running the script as well as cmake (and make) separately, I get<br>
+CMake Warning at CMakeLists.txt:124 (find_package):<br>
+  Could not find a configuration file for package "VTK" that is compatible<br>
+  with requested version "6.1".<br>
+<br>
+  The following configuration files were considered but not accepted:<br>
+<br>
+    /usr/local/lib/cmake/vtk-7.1/VTKConfig.cmake, version: 7.1.0<br>
+<br>
+-- Found package VTK. Using version 7.1.0<br>
+<br>
+which is obviously telling me, I have a wrong version of VTK installed. In order not to mess up my installation (I need VTK also for other programs) I wonder, if it is possible to run version 7.1 as well. Just changing 6.1 to 7.1.0 in related CMakeFiles.txt did not really help.<br>
+Do you have any suggestions? The above is valid for 0.34 and git-version.<br>
+Thanks<br>
+Gerald</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2455" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2455">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2455">
+
+						<h3 ><a href="viewtopic.php%3Fp=2462.html#p2455">Re: INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2455.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2455.html#p2455" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Fri 09 Dec 2016, 22:02
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+I first try to request vtk &gt;6.1 and then even fallback to any available version. Thus I'm not sure what is happening. Is vtk 7.x marked as not compatible with 6.x? <br>
+Unfortunately I have no experience with vtk 7.x yet. Thus I'm not sure how I can help.<br>
+What error messages appear? Does cmake fail completely or does make fail? What are the error messages?<br>
+From what you wrote, vtk did "fallback" to 7.1. But then the question is what happened... <br>
+<br>
+Unfortunately I really cannot support all Linux distros in existence. <br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2459" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2459">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=95&amp;sr=posts">10</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu 10 May 2012, 10:49</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2459">
+
+						<h3 ><a href="viewtopic.php%3Fp=2462.html#p2459">Re: INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2459.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2459.html#p2459" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a></strong> &raquo; </span>Sun 11 Dec 2016, 11:04
+			</p>
+			
+			
+			
+			<div class="content">Hi Thorsten,<br>
+thanks for looking at this. I fully understand, that you cannot support all possible configs on earth.<br>
+<br>
+However, it seems I was mistaken, it is make taht is failing with the message:<br>
+<br>
+---------------------------<br>
+/usr/bin/cmake3 -E cmake_link_script CMakeFiles/cmTC_77a8d.dir/link.txt --verbose=1<br>
+/usr/bin/c++    -frounding-math -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_77a8d.dir/CheckFunctionExists.cxx.o  -o cmTC_77a8d -rdynamic -lpthreads <br>
+/usr/bin/ld: cannot find -lpthreads<br>
+collect2: Fehler: ld gab 1 als Ende-Status zurück<br>
+gmake[4]: *** [cmTC_77a8d] Fehler 1<br>
+gmake[4]: Leaving directory `/home/varmeins/fenics-project/openEMS-Project/openEMS/CSXCAD-prefix/src/CSXCAD-build/CMakeFiles/CMakeTmp'<br>
+------------------------------<br>
+<br>
+"cannot find -lpthreads". To me this seems odd, because Cmake find pthread but not pthreads (see CMakeCache.txt from CSXCAD:<br>
+<br>
+//Have symbol pthread_create<br>
+CMAKE_HAVE_LIBC_CREATE:INTERNAL=<br>
+//Have library pthreads<br>
+CMAKE_HAVE_PTHREADS_CREATE:INTERNAL=<br>
+//Have library pthread<br>
+CMAKE_HAVE_PTHREAD_CREATE:INTERNAL=1<br>
+//Have include pthread.h<br>
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1<br>
+<br>
+Do you have an idea, where to set this properly?<br>
+<br>
+Thanks again<br>
+<br>
+Gerald</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2460" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2460">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2460">
+
+						<h3 ><a href="viewtopic.php%3Fp=2462.html#p2460">Re: INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2460.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2460.html#p2460" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Sun 11 Dec 2016, 14:19
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+are you sure this is at all relevant? It looks to me like the cmake internal test to determine if pthread<strong class="text-strong">s</strong> is available or not.<br>
+Which it is not, but that is fine. I can see this messages too but it has really no meaning and is totally expected...<br>
+<br>
+Does cmake run trough? Is a Makefile generated and what does make do?<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2461" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2461">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=95&amp;sr=posts">10</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu 10 May 2012, 10:49</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2461">
+
+						<h3 ><a href="viewtopic.php%3Fp=2462.html#p2461">Re: INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2461.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2461.html#p2461" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a></strong> &raquo; </span>Sun 11 Dec 2016, 21:02
+			</p>
+			
+			
+			
+			<div class="content">Hello Thorsten,<br>
+<br>
+Yes, cmake runs through fine.<br>
+Makefiles are generated<br>
+make is aborting with the error message that it cannot find "-lpthreads" (I believe the "s" at the end is relevant). And I do not have libpthreads.so, I do have libthread.so. I have little experience with cmake. Usually, cmake tests if thread or threads is available and then generates makefiles accordingly. some excerpts from error and log are in the previous post.<br>
+Best regards<br>
+Gerald</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2462" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2462">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2462">
+
+						<h3 ><a href="viewtopic.php%3Fp=2462.html#p2462">Re: INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2462.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2462.html#p2462" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Mon 12 Dec 2016, 07:54
+			</p>
+			
+			
+			
+			<div class="content">This is all very odd. Is this a cmake bug? Why is cmake detecting that pthread<strong class="text-strong">s</strong> is not available and still tries to link it...<br>
+<br>
+You can define cmake arguments like this:
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=2462.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>cmake -DCMAKE_HAVE_PTHREADS_CREATE:INTERNAL=  [..] </code></pre></div>
+
+But this is all very odd and would still need to be understand properly...<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2463" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2463">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=95&amp;sr=posts">10</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu 10 May 2012, 10:49</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2463">
+
+						<h3 ><a href="viewtopic.php%3Fp=2462.html#p2463">Re: INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2463.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2463.html#p2463" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a></strong> &raquo; </span>Mon 12 Dec 2016, 09:00
+			</p>
+			
+			
+			
+			<div class="content">Hello Thorsten,<br>
+<br>
+this is what cake says:<br>
+CMake Warning:<br>
+  Manually-specified variables were not used by the project:<br>
+<br>
+    CMAKE_HAVE_PTHREADS_CREATE<br>
+<br>
+and the end-result is the same. I got openEMS to work on a different machine (rather clean Debian Jessie stable distro). Therefore this helps a little bit, but I still would like to get it running on the other machine (Scientific Linux (Centos-based) 7, with the VTK7.1 (if that matters)). If you have any hint, or want me to try something, I am happy to do it.<br>
+<br>
+Best regards<br>
+Gerald</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2465" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2465">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=95&amp;sr=posts">10</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu 10 May 2012, 10:49</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2465">
+
+						<h3 ><a href="viewtopic.php%3Fp=2462.html#p2465">Re: INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2465.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2465.html#p2465" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a></strong> &raquo; </span>Mon 12 Dec 2016, 15:37
+			</p>
+			
+			
+			
+			<div class="content">Hello,<br>
+I got it to work also on the other machine (SL7, VTK7.1), this is what I did (I do not know, if these are just hacks or proper solutions):<br>
+1. in all subdirectory CMakeLists.txt I added "C" in e.g. PROJECT( AppCSXCAD CXX C). cmake threw an error, that it couldn't execute a try_compile, because the language "C" was not activated. This was actually the main reason also for the -lpthreads problem: cmake did not execute the rest of the lists-file after a.m. error.<br>
+3. I modified the HDF5 section of relevant CMakeLists.txt so that<br>
+  find_package(HDF5 1.8 COMPONENTS C HL REQUIRED)<br>
+  INCLUDE_DIRECTORIES (${HDF5_INCLUDE_DIRS})<br>
+The "S" is actually important here, however, I believe since the includes here are in the standard path, this did not matter.<br>
+4.  in TARGET_LINK_LIBRARIES(... I added  ${HDF5_HL_LIBRARIES} where required (openEMS, AppCSXCAD)<br>
+5. of course I needed to compile the VTK-QT (Gui support)<br>
+So with that I was able to execute the helical_antenna tutorial just fine.<br>
+<br>
+I f I can help in any way to test things or i should send the CmakeLists, just let me know.<br>
+<br>
+Best regards<br>
+<br>
+Gerald</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2466" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2466">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2466">
+
+						<h3 ><a href="viewtopic.php%3Fp=2462.html#p2466">Re: INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2466.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2466.html#p2466" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Mon 12 Dec 2016, 22:29
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+to 1.) very odd that this is now required and was never before. According to <a href="https://cmake.org/cmake/help/v3.0/command/project.html" class="postlink">this</a> specifying nothing would be an alternative too...<br>
+to 2.) I agree <img class="smilies" src="images/smilies/icon_e_wink.gif" width="15" height="17" alt=";)" title="Wink"><br>
+to 3.) Well I had this fixed for openEMS, but not CSXCAD and others?<br>
+to 4.) can you check if linking HDF5_HL only for CSXCAD and openEMS would be sufficient. Because AppCSXCAD is really not doing any hdf5 on its own... Thus I suspect CSXCAD is requiring it not AppCSXCAD. But it only fails for the final binary...<br>
+to 5.) Sure<br>
+
+ <blockquote class="uncited"><div>
+I f I can help in any way to test things or i should send the CmakeLists, just let me know.</div></blockquote>
+
+I can make all the necessary changes, but maybe you want to create the appropriate git commits yourself and create a pull request on github? I will then review them and give my feedback. Just let me know what route you want to go...<br>
+Thanks for the patience in figuring this out.<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2467" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2467">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=95&amp;sr=posts">10</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu 10 May 2012, 10:49</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2467">
+
+						<h3 ><a href="viewtopic.php%3Fp=2462.html#p2467">Re: INstallation with VTK Version other than 6.1</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=2467.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=2467.html#p2467" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=95.html" class="username">gobers</a></strong> &raquo; </span>Tue 13 Dec 2016, 08:07
+			</p>
+			
+			
+			
+			<div class="content">HI,<br>
+about (4). AppCSXCAD: Yes it is building the last binary that fails, and yes, AppCSXCAD needed the hdf5-stuff, at least the way I built it with not using the script, but the "mkdir build &amp;&amp; cd build &amp;&amp; cmake ../ &amp;&amp; make AppCSXCAD" chain of commands (gives better access to logs and errors).<br>
+I will try to do it with the git/fork/commit, but it may take one or two day.<br>
+<br>
+Thanks and best regards<br>
+<br>
+Gerald</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=2462.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="posting.php%3Fmode=reply&amp;f=2&amp;t=426.html" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=426&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php%3Ff=2&amp;t=426.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			14 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=426&amp;start=10.html" role="button">2</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php%3Ff=2&amp;t=426&amp;start=10.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php%3Ff=2.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Install”</span>
+		</a>
+	</p>
+	
+		<div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+			<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+				<span>Jump to</span>
+				<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+			</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																				<li><a href="viewforum.php%3Ff=1.html" class="jumpbox-cat-link"> <span> openEMS Support</span></a></li>
+																<li><a href="viewforum.php%3Ff=5.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News</span></a></li>
+																<li><a href="viewforum.php%3Ff=2.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Install</span></a></li>
+																<li><a href="viewforum.php%3Ff=3.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Usage</span></a></li>
+																<li><a href="viewforum.php%3Ff=4.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Feedback</span></a></li>
+																<li><a href="viewforum.php%3Ff=6.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Development</span></a></li>
+											</ul>
+		</div>
+	</div>
+
+	</div>
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="UTC+2">UTC+02:00</span></li>
+							<li class="rightside">
+				<a href="http://openems.de/forum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+												<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+					<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+				</a>
+			</li>
+									<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=contactadmin.html" role="menuitem">
+					<i class="icon fa-envelope fa-fw" aria-hidden="true"></i><span>Contact us</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row">
+			<a class="footer-link" href="ucp.php%3Fmode=privacy.html" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="ucp.php%3Fmode=terms.html" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php%3Fp=2462.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php%3Fp=2462.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script type="text/javascript" src="assets/javascript/jquery.min.js%3Fassets_version=3"></script>
+<script type="text/javascript" src="assets/javascript/core.js%3Fassets_version=3"></script>
+
+
+
+<script src="styles/prosilver/template/forum_fn.js%3Fassets_version=3"></script>
+<script src="styles/prosilver/template/ajax.js%3Fassets_version=3"></script>
+
+
+
+</body>
+</html>

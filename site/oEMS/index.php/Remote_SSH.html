@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Remote SSH" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Remote_SSH&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Remote SSH - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Remote_SSH";
+		var wgTitle = "Remote SSH";
+		var wgAction = "view";
+		var wgArticleId = "59";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 877;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Remote_SSH skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Remote SSH</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="Remote_SSH.html#column-one">navigation</a>, <a href="Remote_SSH.html#searchInput">search</a></div>			<!-- start content -->
+			<p>Using the <b>ssh</b> protocol it is possible to run an openEMS simulation on a remote host, even over the internet. Currently this is only possible on <b>Linux</b>, since <b>Windows</b> does not have a native support for ssh. Although it is possible to run openEMS and <a href="https://www.cygwin.com/" class="external text" title="https://www.cygwin.com/" rel="nofollow">cygwin</a> on a Windows remote host.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="Remote_SSH.html#Requirements"><span class="tocnumber">1</span> <span class="toctext">Requirements</span></a>
+<ul>
+<li class="toclevel-2"><a href="Remote_SSH.html#Windows_Server"><span class="tocnumber">1.1</span> <span class="toctext">Windows Server</span></a></li>
+<li class="toclevel-2"><a href="Remote_SSH.html#Windows_clients"><span class="tocnumber">1.2</span> <span class="toctext">Windows clients</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Remote_SSH.html#Single_Remote_Machine"><span class="tocnumber">2</span> <span class="toctext">Single Remote Machine</span></a></li>
+<li class="toclevel-1"><a href="Remote_SSH.html#Cluster_of_Remote_Machines"><span class="tocnumber">3</span> <span class="toctext">Cluster of Remote Machines</span></a></li>
+<li class="toclevel-1"><a href="Remote_SSH.html#Remote_openEMS_over_the_Internet"><span class="tocnumber">4</span> <span class="toctext">Remote openEMS over the Internet</span></a></li>
+<li class="toclevel-1"><a href="Remote_SSH.html#Abort_a_remote_simulation"><span class="tocnumber">5</span> <span class="toctext">Abort a remote simulation</span></a></li>
+<li class="toclevel-1"><a href="Remote_SSH.html#Technical_details"><span class="tocnumber">6</span> <span class="toctext">Technical details</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Requirements" id="Requirements"></a></p>
+<h2><span class="mw-headline">Requirements</span></h2>
+<ul>
+<li>You need a user account on the remote machine</li>
+<li>You will need passwordless ssh access using public/private key's. For more information: <a href="https://www.debian-administration.org/articles/152" class="external autonumber" title="https://www.debian-administration.org/articles/152" rel="nofollow">[1]</a></li>
+<li>openEMS must be installed on the remote machine in a known path. e.g.: "/opt/openEMS/openEMS"</li>
+</ul>
+<p>You can try if you pass all this requirements by opening a terminal and executing:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+<span class="kw2">ssh</span> <span class="sy0">&lt;</span>username<span class="sy0">&gt;@&lt;</span><span class="kw2">hostname</span><span class="sy0">&gt;</span> <span class="sy0">/</span>opt<span class="sy0">/</span>openEMS<span class="sy0">/</span>openEMS<span class="sy0">/</span>openEMS.sh
+</pre></div>
+</div>
+<p>No password must be required and the remote openEMS should give you the welcome screen and possible openEMS options.</p>
+<p><a name="Windows_Server" id="Windows_Server"></a></p>
+<h3><span class="mw-headline">Windows Server</span></h3>
+<p>This is a small instruction how to setup an openEMS server on Windows (if desired, Linux as server is recommended)</p>
+<ul>
+<li>Install <a href="https://www.cygwin.com/" class="external text" title="https://www.cygwin.com/" rel="nofollow">cygwin</a></li>
+<li>Install cygwin packages "openssh" and "cygrunsrv", see also: <a href="https://www.noah.org/ssh/cygwin-sshd.html" class="external autonumber" title="https://www.noah.org/ssh/cygwin-sshd.html" rel="nofollow">[2]</a></li>
+<li>Open a cygwin terminal (with admin rights) and run:</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+ssh-host-config <span class="re5">-y</span>
+cygrunsrv <span class="re5">-S</span> sshd
+</pre></div>
+</div>
+<ul>
+<li>Create a firewall exception for cygwins sshd (e.g.: "C:\cygwin64\usr\sbin\sshd.exe")</li>
+<li>Download and install openEMS to e.g. "C:\cygwin64\home\&lt;your_user_name&gt;\opt\openEMS"</li>
+<li>Try to login to the server and test run openEMS</li>
+</ul>
+<p>That's it! See how to setup your client...</p>
+<p><a name="Windows_clients" id="Windows_clients"></a></p>
+<h3><span class="mw-headline">Windows clients</span></h3>
+<p>Windows does not have a native support for ssh. We need to use a <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" class="external text" title="https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" rel="nofollow">Putty</a> for that. To setup the passwordless login with Putty: <a href="https://www.howtoforge.com/ssh_key_based_logins_putty" class="external autonumber" title="https://www.howtoforge.com/ssh_key_based_logins_putty" rel="nofollow">[3]</a></p>
+<p>Finally you need to add to the settings where to find the "putty.exe" binary and your private ssh-key:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+Settings.SSH.Putty.Path = <span class="st_h">'&lt;path/to/putty&gt;'</span>; <span class="sy0">%</span> path with plink.exe and pscp.exe <span class="kw1">in</span> it
+Settings.SSH.Putty.Key = <span class="st_h">'&lt;path/to/putty_private_key.ppk'</span>;
+</pre></div>
+</div>
+<p><a name="Single_Remote_Machine" id="Single_Remote_Machine"></a></p>
+<h2><span class="mw-headline">Single Remote Machine</span></h2>
+<ul>
+<li>To run openEMS on a specific remote maschine, add the following settings to RunOpenEMS:</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+Settings.<span class="me1">SSH</span>.<span class="me1">host</span> = <span class="co2">'&lt;username&gt;@&lt;hostname&gt;'</span>
+Settings.<span class="me1">SSH</span>.<span class="me1">bin</span> = <span class="co2">'&lt;path_to_openEMS&gt;/openEMS.sh'</span>
+ 
+RunOpenEMS<span class="br0">(</span>Sim_Path,Sim_File,<span class="co2">''</span>,Settings<span class="br0">)</span>
+</pre></div>
+</div>
+<p>This will run openEMS on the given host.</p>
+<p><a name="Cluster_of_Remote_Machines" id="Cluster_of_Remote_Machines"></a></p>
+<h2><span class="mw-headline">Cluster of Remote Machines</span></h2>
+<ul>
+<li>To run openEMS on one machine in a cluster of remote maschines, add the following settings to RunOpenEMS:</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+Settings.<span class="me1">SSH</span>.<span class="me1">host_list</span> = <span class="br0">{</span><span class="co2">'&lt;username&gt;@&lt;hostname1&gt;'</span>,<span class="co2">'&lt;hostname2&gt;'</span>,<span class="co2">'&lt;username2&gt;@&lt;hostname3&gt;'</span><span class="br0">}</span>
+Settings.<span class="me1">SSH</span>.<span class="me1">bin</span> = <span class="co2">'&lt;path_to_openEMS&gt;/openEMS.sh'</span>
+ 
+RunOpenEMS<span class="br0">(</span>Sim_Path,Sim_File,<span class="co2">''</span>,Settings<span class="br0">)</span>
+</pre></div>
+</div>
+<ul>
+<li>This will search for a free host and run openEMS on that machine.</li>
+<li>If all host are busy running openEMS, RunOpenEMS will wait until one of the host is free.</li>
+</ul>
+<p><a name="Remote_openEMS_over_the_Internet" id="Remote_openEMS_over_the_Internet"></a></p>
+<h2><span class="mw-headline">Remote openEMS over the Internet</span></h2>
+<ul>
+<li>Both methods (single &amp; cluster machine) can be used in the same way for a local area network or over the internet.</li>
+<li>Avoid large data dumps since they are copied back after the simulation: Have a look at the technical details below!</li>
+</ul>
+<p><a name="Abort_a_remote_simulation" id="Abort_a_remote_simulation"></a></p>
+<h2><span class="mw-headline">Abort a remote simulation</span></h2>
+<p>While running a remote simulation pressing e.g. "<i>Ctrl+C</i>" would terminate the ssh connection, effectively aborting the simulation, but all results would remain on the host. To abort an openEMS simulation in a clean way the empty file "ABORT" needs to be created in the remote simulation folder.</p>
+<ul>
+<li>Copy the temp-path from the matlab command window (should look simething like: /tmp/openEMS_O4lDAm0EbN29 and don't use "<i>Ctrl+C</i>" to copy...)</li>
+<li>Open a terminal and execute:</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="bash source-bash">
+<pre class="de1">
+<span class="kw2">ssh</span> <span class="sy0">&lt;</span>username<span class="sy0">&gt;@&lt;</span><span class="kw2">hostname</span><span class="sy0">&gt;</span> <span class="kw2">touch</span> <span class="sy0">/</span>tmp<span class="sy0">/</span>openEMS_O4lDAm0EbN29<span class="sy0">/</span>ABORT
+</pre></div>
+</div>
+<p><a name="Technical_details" id="Technical_details"></a></p>
+<h2><span class="mw-headline">Technical details</span></h2>
+<ul>
+<li>When running a remote openEMS simulation, the complete &lt;Sim_Path&gt; will be <b>copied</b> (scp) to a temp folder on the remote host. --&gt; Make sure the simulation path contains only the necessary files to run the simulation, because <b>everything</b> is being copied!</li>
+<li>If the ssh connection is lost during the simulation, the simulation will be <b>aborted</b> and the remote temp folder will <b>not be cleaned up</b>! Linux will cleanup the <i>/tmp</i> folder on the next boot.</li>
+<li>After the simulation, all data are <b>copied back</b> to the client machine, including all openEMS results. If no huge field dumps where performed, this should be fast. If the simulation was carried out over the internet, this may take a longer time, for slow connections and huge data dumps maybe even longer than the actual simulation.</li>
+</ul>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 27/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:59-0!1!0!!en!2!edit=0 and timestamp 20181110114349 -->
+<div class="printfooter">
+Retrieved from "<a href="Remote_SSH.html">index.php/Remote_SSH</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 6 December 2013, at 11:09.</li>
+					<li id="viewcount">This page has been accessed 30,233 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

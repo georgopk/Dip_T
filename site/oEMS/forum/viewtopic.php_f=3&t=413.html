@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Regarding materials, box priorities, and mesh coordinates - openEMS.de</title>
+
+
+	<link rel="canonical" href="http://openems.de/forum/viewtopic.php?t=413">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/en/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=3" rel="stylesheet">
+<![endif]-->
+
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index.php.html" title="Board index"><span class="site_logo"></span></a>
+				<h1>openEMS.de</h1>
+				<p>OpenEMS Support Forum</p>
+				<p class="skiplink"><a href="viewtopic.php%3Ff=3&amp;t=413.html#start_here">Skip to content</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="http://openems.de/forum/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="Search for keywords" class="inputbox search tiny" size="20" value="" placeholder="Search…" />
+					<button class="button button-search" type="submit" title="Search">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+					</button>
+					<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="viewtopic.php%3Ff=3&amp;t=413.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="http://openems.de/forum/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Unanswered topics</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://openems.de/forum/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>Active topics</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="http://openems.de/forum/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>Search</span>
+								</a>
+							</li>
+					
+											<li class="separator"></li>
+																			<li>
+								<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+									<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+								</a>
+							</li>
+																<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="http://openems.de/forum/app.php/help/faq" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp.php%3Fmode=login.html" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp.php%3Fmode=register.html" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+						<li class="breadcrumbs">
+										<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><a href="index.php.html" itemprop="url" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="title">Board index</span></a></span>
+
+											<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="1"><a href="viewforum.php%3Ff=1.html" itemprop="url"><span itemprop="title">openEMS Support</span></a></span>
+															<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="3"><a href="viewforum.php%3Ff=3.html" itemprop="url"><span itemprop="title">Usage</span></a></span>
+												</li>
+		
+					<li class="rightside responsive-search">
+				<a href="http://openems.de/forum/search.php" title="View the advanced search options" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php%3Ff=3&amp;t=413.html">Regarding materials, box priorities, and mesh coordinates</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">How to use openEMS. Discussion on examples, tutorials etc<br /></div>
+<p>
+	<strong>Moderator:</strong> <a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="http://openems.de/forum/posting.php?mode=reply&amp;f=3&amp;t=413" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=3&amp;t=413&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="http://openems.de/forum/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…" />
+				<button class="button button-search" type="submit" title="Search">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</button>
+				<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+				</a>
+				<input type="hidden" name="t" value="413" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			20 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php%3Ff=3&amp;t=413&amp;start=10.html" role="button">2</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php%3Ff=3&amp;t=413&amp;start=10.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+		</div>
+
+
+
+
+			<div id="p2393" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2393">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=406&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 26 Aug 2016, 10:38</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2393">
+
+						<h3 class="first"><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2393">Regarding materials, box priorities, and mesh coordinates</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2393" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2393#p2393" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a></strong> &raquo; </span>Thu 06 Oct 2016, 14:51
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+I noticed, that my simulation results depend on the priority of adjacent Box primitives, which do not overlap. This happens if one box is filled with a metal defined with AddMetal() and the neighbouring one with a material defined with AddMaterial(). My understanding was, that priority only matters in case of overlapping structures. All box boundaries are exactly on mesh coordinates. Mesh coordinates are integer or fractional numbers.<br>
+<br>
+Is this behaviour correct? If yes - what should I do to make openEMS recognize my geometry definition as intended?<br>
+<br>
+Thank you,<br>
+Erik</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2395" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2395">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2395">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2395">Re: Regarding materials, box priorities, and mesh coordinate</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2395" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2395#p2395" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Thu 06 Oct 2016, 20:05
+			</p>
+			
+			
+			
+			<div class="content">Hi Erik,<br>
+<br>
+I assume with neighboring you mean touching at a mesh surface. In this case it is a normal and expected behavior as this touching counts as overlapping  <img class="smilies" src="images/smilies/icon_e_wink.gif" width="15" height="17" alt=";)" title="Wink"> <br>
+<br>
+The reason is the different ways how metal (PEC) and normal (bulk) material is discretized. <br>
+Materials are discretized as cell filling materials that gets averaged into the FDTD coefficients. But for metal (AddMetal --&gt; PEC) the electric field located at the center of the mesh edges is short-circuited (set to zero) if a metal is present there. But if a material with higher priority is present too, this will override the metal. Thus material can override metals on mesh edges or surfaces (many edges) ...<br>
+Two touching materials would not show this effect...<br>
+<br>
+It is all quite complex, but I hope you could follow my explanation...<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2396" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2396">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2396">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2396">Re: Regarding materials, box priorities, and mesh coordinate</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2396" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2396#p2396" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Thu 06 Oct 2016, 20:12
+			</p>
+			
+			
+			
+			<div class="content">This is by the way also the reason why you can have 1D or 2D metals (PEC), but not as "normal"/bulk material, even if you define it to be a metal with a finite conductivity...<br>
+<br>
+<strong class="text-strong">BUT</strong>, you can define a 1D or 2D material to cut out 1D or 2D metals and at the same time the material does have no further influence...  <img class="smilies" src="images/smilies/icon_e_wink.gif" width="15" height="17" alt=";)" title="Wink"> <br>
+Thus it doesn't even matter what material properties you give it... but this is all very advanced  ... <img class="smilies" src="http://openems.de/forum/images/smilies/icon_e_geek.gif" width="17" height="17" alt=":geek:" title="Geek"><br>
+<br>
+Just keep in mind, priorities <span style="text-decoration:underline">can</span> even matter for touching objects...</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2397" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2397">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=406&amp;sr=posts">11</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 26 Aug 2016, 10:38</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2397">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2397">Re: Regarding materials, box priorities, and mesh coordinate</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2397" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2397#p2397" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=406.html" class="username">eheinz</a></strong> &raquo; </span>Thu 06 Oct 2016, 22:18
+			</p>
+			
+			
+			
+			<div class="content">Thank you, Thorsten,<br>
+<br>
+I think I understand at least partially. So it seems preferable to give metals higher priorities than materials at mesh boundaries, to get more physical results. Is this correct?<br>
+<br>
+This is not possible, of course, when using the technique of cutting holes into bulk metals by adding air objects. Would it be a good idea to place box surfaces with a small offset to mesh boundaries, in this case?<br>
+<br>
+Best regards,<br>
+Erik</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2398" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2398">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2398">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2398">Re: Regarding materials, box priorities, and mesh coordinate</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2398" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2398#p2398" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Thu 06 Oct 2016, 22:36
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+just use priorities properly and no further steps are necessary. Just  give metals a higher priority than your (dielectric) materials, e.g. substrates, and again higher priorities to materials that are meant to cut out metal parts if necessary.<br>
+<br>
+Small oversizes can always be helpful in case the mesh lines are complex fractions. <br>
+In this case for example, 1D or 2D metals may otherwise not hit the edges and thus get not recognized at all. But if they are missed completely openEMS warns about unused objects.<br>
+I actually never do this but rather take care of proper meshing, e.g. using micrometer as drawing unit and rely on integer values only...<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2729" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2729">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=435.html" class="username">Garias</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=435&amp;sr=posts">14</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 13 Feb 2017, 19:11</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2729">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2729">Re: Regarding materials, box priorities, and mesh coordinate</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2729" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2729#p2729" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=435.html" class="username">Garias</a></strong> &raquo; </span>Sun 23 Apr 2017, 01:33
+			</p>
+			
+			
+			
+			<div class="content">Hello Thorsen and Sebastian: (This is an old post, but I failed to find a more recent one to address this question)<br>
+<br>
+You said ..."Just keep in mind, priorities can even matter for touching objects..."<br>
+<br>
+What happens with two dielectric objects touching each other just at a mesh plane having different properties? <br>
+<br>
+at...<br>
+ <br>
+    - Case one: Different priorities<br>
+    - Case two: Same priority<br>
+<br>
+Thank you for maintaining this tool and answering questions.<br>
+<br>
+German</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2732" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2732">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2732">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2732">Re: Regarding materials, box priorities, and mesh coordinate</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2732" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2732#p2732" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Sun 23 Apr 2017, 19:23
+			</p>
+			
+			
+			
+			<div class="content">It would not matter in this case  <img class="smilies" src="images/smilies/icon_e_wink.gif" width="15" height="17" alt=";)" title="Wink"> <br>
+<br>
+For "normal" materials it only matters how the cells are filled to calculate the FDTD coefficients. The mesh edges (and thus the mesh planes too) only matter for perfect metal (PEC) materials (and excitations).<br>
+Because in this case the coefficients are set to 0 (because zero E-field inside a perfect metal). <br>
+For case one this would mean the edge is either metal or not, case two would be undefined and should be avoided.<br>
+Just as a rule of thump, try to avoid properties with identical priorities. There exist enough numbers to do this right?<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2739" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2739">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=435.html" class="username">Garias</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=435&amp;sr=posts">14</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 13 Feb 2017, 19:11</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2739">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2739">Re: Regarding materials, box priorities, and mesh coordinate</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2739" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2739#p2739" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=435.html" class="username">Garias</a></strong> &raquo; </span>Tue 25 Apr 2017, 16:54
+			</p>
+			
+			
+			
+			<div class="content">Thanks, Thorsen,<br>
+<br>
+Yes, there is enough numbers to do priorities right... <img class="smilies" src="images/smilies/icon_e_wink.gif" width="15" height="17" alt=";)" title="Wink"> <br>
+It's just I want to create inhomogeneous dielectrics whose properties vary with their position within the computational space. I attempt to do this by means of subwavelength little cubes ("Lego's" in my other thread... <img class="smilies" src="images/smilies/icon_e_smile.gif" width="15" height="17" alt=":)" title="Smile"> ) whose boundaries coincide with meshing planes and it would be a cumbersome to give them different priorities.<br>
+<br>
+But I understood there is no undefinition when "normal materials" touch each other just at a meshing plane. What it counts in terms of calculating FDTD coeficients, is the what they are filled with and since they don't overlap (they just share a boundary at a mesh plane i.e. only touch themselves), they can have the same priority.<br>
+<br>
+Again, good stuff and thanks for the patience.<br>
+<br>
+Germán</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2740" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2740">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2740">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2740">Re: Regarding materials, box priorities, and mesh coordinate</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2740" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2740#p2740" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Tue 25 Apr 2017, 19:48
+			</p>
+			
+			
+			
+			<div class="content"><blockquote class="uncited"><div>It's just I want to create inhomogeneous dielectrics whose properties vary with their position within the computational space.</div></blockquote>
+Well there is of course always the option to define a positional dependent material by using an equation that may depend on x,y,z, etc.<br>
+See: <a href="https://github.com/thliebig/CSXCAD/blob/master/matlab/SetMaterialWeight.m" class="postlink">SetMaterialWeight</a><br>
+<br>
+best regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p2761" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile2761">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=435.html" class="username">Garias</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=435&amp;sr=posts">14</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 13 Feb 2017, 19:11</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content2761">
+
+						<h3 ><a href="viewtopic.php%3Ff=3&amp;t=413.html#p2761">Re: Regarding materials, box priorities, and mesh coordinate</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=3&amp;p=2761" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=2761#p2761" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=435.html" class="username">Garias</a></strong> &raquo; </span>Tue 09 May 2017, 20:01
+			</p>
+			
+			
+			
+			<div class="content">Interesting...!<br>
+<br>
+I was trying to make this function to work with the following... <br>
+(stuffing a piece of guide with inhomogeneous epsilon properties: <br>
+<br>
+start=[-a/2 -b/2 -horn.feed_length];<br>
+stop =[a/2 b/2 0];<br>
+CSX = AddMaterial(CSX, 'metamaterial');<br>
+CSX = SetMaterialProperty(CSX, 'metamaterial', 'Epsilon', 1);<br>
+CSX = SetMaterialWeight(CSX, 'metamaterial', 'Epsilon', ['1+(max ([exp(abs(x))/exp(horn.width)*max_epsilon , exp(abs(y))/exp(horn.height)*max_epsilon , exp(abs(z))/exp(horn.feed_length)*max_epsilon]))']);<br>
+CSX = AddBox(CSX, 'metamaterial' ,10 , start, stop);<br>
+<br>
+(using the "horn" tutorial as the main script)<br>
+<br>
+Epsilon supposes to increase towards the walls and in the z-direction.<br>
+<br>
+I keep on getting:<br>
+<br>
+A geometry read error occurred!<br>
+<br>
+Error in Material-Property Epsilon-Value weighting function (ID:0) Syntax error (check Parameter)<br>
+Error in Material-Property Epsilon-Value weighting function (ID:0)<br>
+Error in Material-Property Epsilon-Value weighting function (ID:0)<br>
+<br>
+(it pop up twice before showing the structure)<br>
+<br>
+I'd hate to bother you with a syntax error but I tried the function on its own and it does provide answer<br>
+Any suggestion, Thorsen?<br>
+<br>
+Best Regards<br>
+<br>
+German</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=3&amp;t=413.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="http://openems.de/forum/posting.php?mode=reply&amp;f=3&amp;t=413" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=3&amp;t=413&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php%3Ff=3&amp;t=413.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			20 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php%3Ff=3&amp;t=413&amp;start=10.html" role="button">2</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php%3Ff=3&amp;t=413&amp;start=10.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php%3Ff=3.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Usage”</span>
+		</a>
+	</p>
+	
+		<div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+			<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+				<span>Jump to</span>
+				<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+			</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																				<li><a href="viewforum.php%3Ff=1.html" class="jumpbox-cat-link"> <span> openEMS Support</span></a></li>
+																<li><a href="viewforum.php%3Ff=5.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News</span></a></li>
+																<li><a href="viewforum.php%3Ff=2.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Install</span></a></li>
+																<li><a href="viewforum.php%3Ff=3.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Usage</span></a></li>
+																<li><a href="viewforum.php%3Ff=4.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Feedback</span></a></li>
+																<li><a href="viewforum.php%3Ff=6.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Development</span></a></li>
+											</ul>
+		</div>
+	</div>
+
+	</div>
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="UTC+2">UTC+02:00</span></li>
+							<li class="rightside">
+				<a href="http://openems.de/forum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+												<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+					<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+				</a>
+			</li>
+									<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=contactadmin.html" role="menuitem">
+					<i class="icon fa-envelope fa-fw" aria-hidden="true"></i><span>Contact us</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row">
+			<a class="footer-link" href="ucp.php%3Fmode=privacy.html" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="ucp.php%3Fmode=terms.html" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php%3Ff=3&amp;t=413.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php%3Ff=3&amp;t=413.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script type="text/javascript" src="assets/javascript/jquery.min.js%3Fassets_version=3"></script>
+<script type="text/javascript" src="assets/javascript/core.js%3Fassets_version=3"></script>
+
+
+
+<script src="styles/prosilver/template/forum_fn.js%3Fassets_version=3"></script>
+<script src="styles/prosilver/template/ajax.js%3Fassets_version=3"></script>
+
+
+
+</body>
+</html>

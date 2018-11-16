@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Tutorial: CRLH Leaky Wave Antenna,AppCSXCAD,Tutorial: CRLH Parameter Extraction,Tutorial: First Steps,Tutorials" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Tutorial:_CRLH_Leaky_Wave_Antenna&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Tutorial: CRLH Leaky Wave Antenna - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Tutorial:_CRLH_Leaky_Wave_Antenna";
+		var wgTitle = "Tutorial: CRLH Leaky Wave Antenna";
+		var wgAction = "view";
+		var wgArticleId = "47";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 446;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Tutorial_CRLH_Leaky_Wave_Antenna skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Tutorial: CRLH Leaky Wave Antenna</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="Tutorial:_CRLH_Leaky_Wave_Antenna.html#column-one">navigation</a>, <a href="Tutorial:_CRLH_Leaky_Wave_Antenna.html#searchInput">search</a></div>			<!-- start content -->
+			<ul>
+<li><b>Download</b> the latest matlab files using gitweb: <a href="https://openems.de/gitweb/?p=openEMS.git;a=blob_plain;f=matlab/Tutorials/CRLH_LeakyWaveAnt.m;hb=HEAD" class="external text" title="https://openems.de/gitweb/?p=openEMS.git;a=blob_plain;f=matlab/Tutorials/CRLH_LeakyWaveAnt.m;hb=HEAD" rel="nofollow">CRLH_LeakyWaveAnt.m</a> &amp; <a href="https://openems.de/gitweb/?p=openEMS.git;a=blob_plain;f=matlab/Tutorials/CreateCRLH.m;hb=HEAD" class="external text" title="https://openems.de/gitweb/?p=openEMS.git;a=blob_plain;f=matlab/Tutorials/CreateCRLH.m;hb=HEAD" rel="nofollow">CreateCRLH.m</a></li>
+<li><b>Simulation Time</b>: ~ 30 min</li>
+<li><b>Post-Processing</b>: up to 7h for a full 3D radiation pattern (needs an optimization)</li>
+</ul>
+<div class="thumb tright">
+<div class="thumbinner" style="width:402px;"><a href="File:CRLH_LWA_Geometry.png.html" class="image" title="Setup for the CRLH leaky wave antenna with 8 unit cells"><img alt="" src="../images/thumb/2/2e/CRLH_LWA_Geometry.png/400px-CRLH_LWA_Geometry.png" width="400" height="244" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:CRLH_LWA_Geometry.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Setup for the CRLH leaky wave antenna with 8 unit cells</div>
+</div>
+</div>
+<hr />
+<p>We will cover in this tutorial:</p>
+<ul>
+<li>setup a feeding mircostrip line &amp; port</li>
+<li>use an external script to setup several CRLH unit cell</li>
+<li>calculate the radiation pattern</li>
+</ul>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="Tutorial:_CRLH_Leaky_Wave_Antenna.html#First_Steps"><span class="tocnumber">1</span> <span class="toctext">First Steps</span></a></li>
+<li class="toclevel-1"><a href="Tutorial:_CRLH_Leaky_Wave_Antenna.html#Matlab_Simulation_Script"><span class="tocnumber">2</span> <span class="toctext">Matlab Simulation Script</span></a></li>
+<li class="toclevel-1"><a href="Tutorial:_CRLH_Leaky_Wave_Antenna.html#Post-Processing"><span class="tocnumber">3</span> <span class="toctext">Post-Processing</span></a>
+<ul>
+<li class="toclevel-2"><a href="Tutorial:_CRLH_Leaky_Wave_Antenna.html#Return_To_Tutorials_Index"><span class="tocnumber">3.1</span> <span class="toctext">Return To Tutorials Index</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="First_Steps" id="First_Steps"></a></p>
+<h2><span class="mw-headline">First Steps</span></h2>
+<ul>
+<li>Install and verify your openEMS installation: <a href="http://openems.de/index.php/Tutorial:_First_Steps.html" title="Tutorial: First Steps">Tutorial: First Steps</a></li>
+<li>You may have a look at the tutorial introducing a CRLH unit cell extraction: <a href="Tutorial:_CRLH_Parameter_Extraction.html" title="Tutorial: CRLH Parameter Extraction">Tutorial: CRLH Parameter Extraction</a></li>
+</ul>
+<p><a name="Matlab_Simulation_Script" id="Matlab_Simulation_Script"></a></p>
+<h2><span class="mw-headline">Matlab Simulation Script</span></h2>
+<ul>
+<li><b>Start the script within an empty environment:</b></li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">close</span> <span class="kw2">all</span>
+<span class="kw2">clear</span>
+<span class="kw2">clc</span>
+</pre></div>
+</div>
+<ul>
+<li><b>Setup the simulation &amp; geometrical parameter</b></li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+physical_constants;
+unit = 1e-6; <span class="co1">% specify everything in um</span>
+ 
+feed_length = <span class="nu0">20000</span>;
+ 
+substrate_thickness = <span class="br0">[</span><span class="nu0">1524</span> <span class="nu0">101</span> <span class="nu0">254</span><span class="br0">]</span>;
+substrate_epsr = <span class="br0">[</span><span class="nu0">3.48</span> <span class="nu0">3.48</span> <span class="nu0">3.48</span><span class="br0">]</span>;
+ 
+N_Cells = <span class="nu0">8</span>;        <span class="co1">%number of CRLH unit cells</span>
+ 
+CRLH.<span class="me1">LL</span> = 14e3;     <span class="co1">%CRLH totel (line) length</span>
+CRLH.<span class="me1">LW</span> = 4e3;      <span class="co1">%CRLH unit cell width (without the stubs)</span>
+CRLH.<span class="me1">GLB</span> = <span class="nu0">1950</span>;    <span class="co1">%CRLH gap width bottom layer</span>
+CRLH.<span class="me1">GLT</span> = <span class="nu0">4700</span>;    <span class="co1">%CRLH gap width top layer</span>
+CRLH.<span class="me1">SL</span> = <span class="nu0">7800</span>;     <span class="co1">%CRLH stub length (bottom layer, both sides)</span>
+CRLH.<span class="me1">SW</span> = <span class="nu0">1000</span>;     <span class="co1">%CRLH stub width  (bottom layer, both sides)</span>
+CRLH.<span class="me1">VR</span> = <span class="nu0">250</span>;      <span class="co1">%CRLH via hole radius (stub -&gt; ground)</span>
+CRLH.<span class="me1">TopSig</span> = <span class="kw2">sum</span><span class="br0">(</span>substrate_thickness<span class="br0">)</span>;  <span class="co1">%top layer height</span>
+CRLH.<span class="me1">BottomSig</span> = CRLH.<span class="me1">TopSig</span> - substrate_thickness<span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span>;  <span class="co1">%bottom layer height</span>
+ 
+substrate_width = CRLH.<span class="me1">LW</span> + <span class="nu0">2</span>*CRLH.<span class="me1">SL</span>;
+Air_Spacer = <span class="nu0">25000</span>;
+ 
+<span class="co1">% frequency range of interest</span>
+f_start = 0.8e9;
+f_stop  = 6e9;
+ 
+f_rad = <span class="br0">(</span><span class="nu0">1.9</span>:<span class="nu0">0.1</span>:<span class="nu0">4.2</span><span class="br0">)</span>*1e9;
+ 
+Plot_3D_Rad_Pattern = <span class="nu0">0</span>; <span class="co1">%this may take a very very long time! &gt; 7h</span>
+</pre></div>
+</div>
+<ul>
+<li><b>Setup the FDTD parameter</b> including the excitation time signal and boundary conditions</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+FDTD = InitFDTD<span class="br0">(</span> <span class="nu0">20000</span> <span class="br0">)</span>;
+FDTD = SetGaussExcite<span class="br0">(</span> FDTD, <span class="br0">(</span>f_start+f_stop<span class="br0">)</span>/<span class="nu0">2</span>, <span class="br0">(</span>f_stop-f_start<span class="br0">)</span>/<span class="nu0">2</span> <span class="br0">)</span>;
+BC   = <span class="br0">{</span><span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span> <span class="co2">'PML_8'</span><span class="br0">}</span>;
+FDTD = SetBoundaryCond<span class="br0">(</span> FDTD, BC <span class="br0">)</span>;
+</pre></div>
+</div>
+<ul>
+<li><b>Setup the inhomogeneous FDTD mesh and the CRLH unit cells</b></li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = InitCSX<span class="br0">(</span><span class="br0">)</span>;
+resolution = c0/<span class="br0">(</span>f_stop*<span class="kw2">sqrt</span><span class="br0">(</span><span class="kw2">max</span><span class="br0">(</span>substrate_epsr<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>/unit /<span class="nu0">30</span>; <span class="co1">% resolution of lambda/30</span>
+ 
+<span class="kw2">mesh</span>.<span class="me1">x</span> = <span class="br0">[</span>-feed_length-<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span>-Air_Spacer -feed_length-<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span> <span class="nu0">0</span> feed_length+<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span> feed_length+<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span>+Air_Spacer<span class="br0">]</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = <span class="br0">[</span>-Air_Spacer-substrate_width/<span class="nu0">2</span> <span class="nu0">0</span> Air_Spacer+substrate_width/<span class="nu0">2</span><span class="br0">]</span>;
+substratelines = <span class="kw2">cumsum</span><span class="br0">(</span>substrate_thickness<span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">z</span> = <span class="br0">[</span>-<span class="nu0">0.7</span>*Air_Spacer <span class="nu0">0</span> <span class="kw2">cumsum</span><span class="br0">(</span>substrate_thickness<span class="br0">)</span> <span class="kw2">linspace</span><span class="br0">(</span>substratelines<span class="br0">(</span>end-<span class="nu0">1</span><span class="br0">)</span>,substratelines<span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span>,<span class="nu0">4</span><span class="br0">)</span> Air_Spacer<span class="br0">]</span>;
+ 
+<span class="co1">% create the CRLH unit cells (will define additional fixed mesh lines)</span>
+pos_x = -<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span> + CRLH.<span class="me1">LL</span>/<span class="nu0">2</span>;
+<span class="kw1">for</span> n=<span class="nu0">1</span>:N_Cells
+    <span class="br0">[</span>CSX <span class="kw2">mesh</span><span class="br0">]</span> = CreateCRLH<span class="br0">(</span>CSX, <span class="kw2">mesh</span>, CRLH, resolution/<span class="nu0">4</span>, <span class="br0">[</span>pos_x <span class="nu0">0</span> <span class="nu0">0</span><span class="br0">]</span><span class="br0">)</span>;
+    pos_x = pos_x + CRLH.<span class="me1">LL</span>;
+<span class="kw1">end</span>
+ 
+<span class="co1">% Smooth the given mesh</span>
+<span class="kw2">mesh</span>.<span class="me1">x</span> = SmoothMeshLines<span class="br0">(</span><span class="kw2">mesh</span>.<span class="me1">x</span>, resolution, <span class="nu0">1.5</span>, <span class="nu0">0</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = SmoothMeshLines<span class="br0">(</span><span class="kw2">mesh</span>.<span class="me1">y</span>, resolution, <span class="nu0">1.5</span>, <span class="nu0">0</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">z</span> = SmoothMeshLines<span class="br0">(</span><span class="kw2">mesh</span>.<span class="me1">z</span>, resolution, <span class="nu0">1.5</span>, <span class="nu0">0</span><span class="br0">)</span>;
+CSX = DefineRectGrid<span class="br0">(</span> CSX, unit, <span class="kw2">mesh</span> <span class="br0">)</span>;
+</pre></div>
+</div>
+<ul>
+<li><b>A closer look inside the CreateCRLH function</b>:</li>
+</ul>
+<p>This function will add all the necessary metal objects composing a CRLH unit cell. Additionally it will add appropriate mesh lines as needed for a smooth mesh including a thin metal handling.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw1">function</span> <span class="br0">[</span>CSX <span class="kw2">mesh</span><span class="br0">]</span> = CreateCRLH<span class="br0">(</span>CSX, <span class="kw2">mesh</span>, CRLH, resolution, translate<span class="br0">)</span>
+ 
+<span class="kw1">if</span> <span class="br0">(</span>nargin&lt;<span class="nu0">5</span><span class="br0">)</span>
+    translate = <span class="br0">[</span><span class="nu0">0</span> <span class="nu0">0</span> <span class="nu0">0</span><span class="br0">]</span>;
+<span class="kw1">end</span>
+ 
+CSX = AddMetal<span class="br0">(</span>CSX, <span class="co2">'metal_top'</span><span class="br0">)</span>;
+one_two_third = <span class="br0">[</span>-resolution/<span class="nu0">3</span> <span class="nu0">2</span>*resolution/<span class="nu0">3</span><span class="br0">]</span>;
+ 
+start = <span class="br0">[</span>-CRLH.<span class="me1">LL</span>/<span class="nu0">2</span> -CRLH.<span class="me1">LW</span>/<span class="nu0">2</span> CRLH.<span class="me1">TopSig</span><span class="br0">]</span>+translate;
+stop  = <span class="br0">[</span>-CRLH.<span class="me1">GLT</span>/<span class="nu0">2</span>  CRLH.<span class="me1">LW</span>/<span class="nu0">2</span> CRLH.<span class="me1">TopSig</span><span class="br0">]</span>+translate;
+CSX = AddBox<span class="br0">(</span>CSX, <span class="co2">'metal_top'</span>, <span class="nu0">10</span>, start, stop<span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">x</span> = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span> start<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span> stop<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>+one_two_third<span class="br0">]</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">y</span> start<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>-one_two_third stop<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>+one_two_third<span class="br0">]</span>;
+ 
+start = <span class="br0">[</span>+CRLH.<span class="me1">LL</span>/<span class="nu0">2</span>  -CRLH.<span class="me1">LW</span>/<span class="nu0">2</span> CRLH.<span class="me1">TopSig</span><span class="br0">]</span>+translate;
+stop  = <span class="br0">[</span>+CRLH.<span class="me1">GLT</span>/<span class="nu0">2</span>  CRLH.<span class="me1">LW</span>/<span class="nu0">2</span> CRLH.<span class="me1">TopSig</span><span class="br0">]</span>+translate;
+CSX = AddBox<span class="br0">(</span>CSX, <span class="co2">'metal_top'</span>, <span class="nu0">10</span>, start, stop<span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">x</span> = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span> start<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span> stop<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>-one_two_third<span class="br0">]</span>;
+ 
+CSX = AddMetal<span class="br0">(</span>CSX, <span class="co2">'metal_bot'</span><span class="br0">)</span>;
+start = <span class="br0">[</span>-<span class="br0">(</span>CRLH.<span class="me1">LL</span>-CRLH.<span class="me1">GLB</span><span class="br0">)</span>/<span class="nu0">2</span> -CRLH.<span class="me1">LW</span>/<span class="nu0">2</span> CRLH.<span class="me1">BottomSig</span><span class="br0">]</span>+translate;
+stop  = <span class="br0">[</span>+<span class="br0">(</span>CRLH.<span class="me1">LL</span>-CRLH.<span class="me1">GLB</span><span class="br0">)</span>/<span class="nu0">2</span>  CRLH.<span class="me1">LW</span>/<span class="nu0">2</span> CRLH.<span class="me1">BottomSig</span><span class="br0">]</span>+translate;
+CSX = AddBox<span class="br0">(</span>CSX, <span class="co2">'metal_bot'</span>, <span class="nu0">10</span>, start, stop<span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">x</span> = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span> start<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>-one_two_third stop<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>+one_two_third<span class="br0">]</span>;
+ 
+start = <span class="br0">[</span>-CRLH.<span class="me1">SW</span>/<span class="nu0">2</span> -CRLH.<span class="me1">LW</span>/<span class="nu0">2</span>-CRLH.<span class="me1">SL</span> CRLH.<span class="me1">BottomSig</span><span class="br0">]</span>+translate;
+stop  = <span class="br0">[</span>+CRLH.<span class="me1">SW</span>/<span class="nu0">2</span>  CRLH.<span class="me1">LW</span>/<span class="nu0">2</span>+CRLH.<span class="me1">SL</span> CRLH.<span class="me1">BottomSig</span><span class="br0">]</span>+translate;
+CSX = AddBox<span class="br0">(</span>CSX, <span class="co2">'metal_bot'</span>, <span class="nu0">10</span>, start, stop<span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">x</span> = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span> start<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>-one_two_third stop<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>+one_two_third<span class="br0">]</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">y</span> start<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span> stop<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span><span class="br0">]</span>;
+ 
+CSX = AddMetal<span class="br0">(</span>CSX, <span class="co2">'via'</span><span class="br0">)</span>;
+start = <span class="br0">[</span><span class="nu0">0</span> -CRLH.<span class="me1">LW</span>/<span class="nu0">2</span>-CRLH.<span class="me1">SL</span>+CRLH.<span class="me1">SW</span>/<span class="nu0">2</span> <span class="nu0">0</span><span class="br0">]</span>+translate;
+stop  = <span class="br0">[</span><span class="nu0">0</span> -CRLH.<span class="me1">LW</span>/<span class="nu0">2</span>-CRLH.<span class="me1">SL</span>+CRLH.<span class="me1">SW</span>/<span class="nu0">2</span> CRLH.<span class="me1">BottomSig</span><span class="br0">]</span>+translate;
+CSX = AddCylinder<span class="br0">(</span>CSX, <span class="co2">'via'</span>, <span class="nu0">10</span>, start, stop, CRLH.<span class="me1">VR</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">x</span> = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span> start<span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>+<span class="br0">[</span>-<span class="nu0">1</span> <span class="nu0">0</span> <span class="nu0">1</span><span class="br0">]</span>*CRLH.<span class="me1">VR</span><span class="br0">]</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">y</span> start<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>+<span class="br0">[</span>-<span class="nu0">1</span> <span class="nu0">0</span> <span class="nu0">1</span><span class="br0">]</span>*CRLH.<span class="me1">VR</span><span class="br0">]</span>;
+ 
+start<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span> = -start<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>;
+stop<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>  = -stop<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>;
+CSX = AddCylinder<span class="br0">(</span>CSX, <span class="co2">'via'</span>, <span class="nu0">10</span>, start, stop, CRLH.<span class="me1">VR</span><span class="br0">)</span>;
+<span class="kw2">mesh</span>.<span class="me1">y</span> = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">y</span> start<span class="br0">(</span><span class="nu0">2</span><span class="br0">)</span>+<span class="br0">[</span>-<span class="nu0">1</span> <span class="nu0">0</span> <span class="nu0">1</span><span class="br0">]</span>*CRLH.<span class="me1">VR</span><span class="br0">]</span>;
+<span class="kw1">end</span>
+</pre></div>
+</div>
+<ul>
+<li><b>Add the subtrate layer</b>:</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+substratelines = <span class="br0">[</span><span class="nu0">0</span> substratelines<span class="br0">]</span>;
+<span class="kw1">for</span> n=<span class="nu0">1</span>:numel<span class="br0">(</span>substrate_thickness<span class="br0">)</span>
+    CSX = AddMaterial<span class="br0">(</span> CSX, <span class="br0">[</span><span class="co2">'substrate'</span> <span class="kw2">int2str</span><span class="br0">(</span>n<span class="br0">)</span><span class="br0">]</span> <span class="br0">)</span>;
+    CSX = SetMaterialProperty<span class="br0">(</span> CSX, <span class="br0">[</span><span class="co2">'substrate'</span> <span class="kw2">int2str</span><span class="br0">(</span>n<span class="br0">)</span><span class="br0">]</span>, <span class="co2">'Epsilon'</span>, substrate_epsr<span class="br0">(</span>n<span class="br0">)</span> <span class="br0">)</span>;
+    start = <span class="br0">[</span>-feed_length-<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span>, -substrate_width/<span class="nu0">2</span>, substratelines<span class="br0">(</span>n<span class="br0">)</span><span class="br0">]</span>;
+    stop  = <span class="br0">[</span>+feed_length+<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span>,  substrate_width/<span class="nu0">2</span>, substratelines<span class="br0">(</span>n+<span class="nu0">1</span><span class="br0">)</span><span class="br0">]</span>;
+    CSX = AddBox<span class="br0">(</span> CSX, <span class="br0">[</span><span class="co2">'substrate'</span> <span class="kw2">int2str</span><span class="br0">(</span>n<span class="br0">)</span><span class="br0">]</span>, <span class="nu0">0</span>, start, stop <span class="br0">)</span>;
+<span class="kw1">end</span>
+</pre></div>
+</div>
+<ul>
+<li><b>Add the two feeding MSL ports and a ground plane</b></li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = AddMetal<span class="br0">(</span> CSX, <span class="co2">'PEC'</span> <span class="br0">)</span>;
+start = <span class="br0">[</span>-feed_length-<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span>, -substrate_width/<span class="nu0">2</span>, <span class="nu0">0</span><span class="br0">]</span>;
+stop  = <span class="br0">[</span>+feed_length+<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span>,  substrate_width/<span class="nu0">2</span>, <span class="nu0">0</span><span class="br0">]</span>;
+<span class="co1">%ground plane</span>
+CSX = AddBox<span class="br0">(</span> CSX, <span class="co2">'PEC'</span>, <span class="nu0">0</span>, start, stop <span class="br0">)</span>;
+ 
+portstart = <span class="br0">[</span> -feed_length-<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span> , -CRLH.<span class="me1">LW</span>/<span class="nu0">2</span>, substratelines<span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span><span class="br0">]</span>;
+portstop  = <span class="br0">[</span> -<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span>,  CRLH.<span class="me1">LW</span>/<span class="nu0">2</span>, <span class="nu0">0</span><span class="br0">]</span>;
+<span class="br0">[</span>CSX,portstruct<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="br0">]</span> = AddMSLPort<span class="br0">(</span> CSX, <span class="nu0">999</span>, <span class="nu0">1</span>, <span class="co2">'PEC'</span>, portstart, portstop, <span class="nu0">0</span>, <span class="br0">[</span><span class="nu0">0</span> <span class="nu0">0</span> -<span class="nu0">1</span><span class="br0">]</span>, <span class="co2">'ExcitePort'</span>, <span class="co2">'excite'</span>, <span class="co2">'MeasPlaneShift'</span>,  feed_length/<span class="nu0">2</span>, <span class="co2">'Feed_R'</span>, <span class="nu0">50</span><span class="br0">)</span>;
+ 
+portstart = <span class="br0">[</span> feed_length+<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span> , -CRLH.<span class="me1">LW</span>/<span class="nu0">2</span>, substratelines<span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span><span class="br0">]</span>;
+portstop  = <span class="br0">[</span> +<span class="br0">(</span>N_Cells*CRLH.<span class="me1">LL</span><span class="br0">)</span>/<span class="nu0">2</span>,   CRLH.<span class="me1">LW</span>/<span class="nu0">2</span>, <span class="nu0">0</span><span class="br0">]</span>;
+<span class="br0">[</span>CSX,portstruct<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span><span class="br0">]</span> = AddMSLPort<span class="br0">(</span> CSX, <span class="nu0">999</span>, <span class="nu0">2</span>, <span class="co2">'PEC'</span>, portstart, portstop, <span class="nu0">0</span>, <span class="br0">[</span><span class="nu0">0</span> <span class="nu0">0</span> -<span class="nu0">1</span><span class="br0">]</span>, <span class="co2">'MeasPlaneShift'</span>,  feed_length/<span class="nu0">2</span>, <span class="co2">'Feed_R'</span>, <span class="nu0">50</span> <span class="br0">)</span>;
+</pre></div>
+</div>
+<ul>
+<li><b>Setup the near- to far-field (nf2ff) dump box</b>: The box has to be about 10 cells smaller as the simulation domain to not get in conflict with the pml boundary conditions!</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+start = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>  <span class="br0">]</span> + <span class="nu0">10</span>*resolution;
+stop  = <span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span><span class="br0">]</span> - <span class="nu0">10</span>*resolution;
+<span class="br0">[</span>CSX nf2ff<span class="br0">]</span> = CreateNF2FFBox<span class="br0">(</span>CSX, <span class="co2">'nf2ff'</span>, start, stop<span class="br0">)</span>;
+</pre></div>
+</div>
+<ul>
+<li><b>Create the simulation folder/ write the xml file/ View the file using <a href="http://openems.de/index.php/AppCSXCAD.html" title="AppCSXCAD">AppCSXCAD</a> and run openEMS</b></li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+Sim_Path = <span class="co2">'tmp'</span>;
+Sim_CSX = <span class="co2">'CRLH.xml'</span>;
+ 
+<span class="br0">[</span>status, message, messageid<span class="br0">]</span> = rmdir<span class="br0">(</span> Sim_Path, <span class="co2">'s'</span> <span class="br0">)</span>; <span class="co1">% clear previous directory</span>
+<span class="br0">[</span>status, message, messageid<span class="br0">]</span> = <span class="kw2">mkdir</span><span class="br0">(</span> Sim_Path <span class="br0">)</span>; <span class="co1">% create empty simulation folder</span>
+ 
+WriteOpenEMS<span class="br0">(</span> <span class="br0">[</span>Sim_Path <span class="co2">'/'</span> Sim_CSX<span class="br0">]</span>, FDTD, CSX <span class="br0">)</span>;
+CSXGeomPlot<span class="br0">(</span> <span class="br0">[</span>Sim_Path <span class="co2">'/'</span> Sim_CSX<span class="br0">]</span> <span class="br0">)</span>;
+RunOpenEMS<span class="br0">(</span> Sim_Path, Sim_CSX <span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Post-Processing" id="Post-Processing"></a></p>
+<h2><span class="mw-headline">Post-Processing</span></h2>
+<ul>
+<li><b>Read the port voltages &amp; currents and calculate the port characteristics</b></li>
+</ul>
+<div class="thumb tright">
+<div class="thumbinner" style="width:402px;"><a href="File:CRLH_LWA_SPara.png.html" class="image" title="S-Parameter for the CRLH leaky wave antenna"><img alt="" src="../images/thumb/7/7f/CRLH_LWA_SPara.png/400px-CRLH_LWA_SPara.png" width="400" height="300" border="0" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="File:CRLH_LWA_SPara.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+S-Parameter for the CRLH leaky wave antenna</div>
+</div>
+</div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw2">close</span> <span class="kw2">all</span>
+f = <span class="kw2">linspace</span><span class="br0">(</span> f_start, f_stop, <span class="nu0">1601</span> <span class="br0">)</span>;
+port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span> = calcPort<span class="br0">(</span> portstruct<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>, Sim_Path, f, <span class="co2">'RefPlaneShift'</span>, feed_length*unit<span class="br0">)</span>;
+port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span> = calcPort<span class="br0">(</span> portstruct<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>, Sim_Path, f, <span class="co2">'RefPlaneShift'</span>, feed_length*unit<span class="br0">)</span>;
+ 
+s11 = port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./ port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+s21 = port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./ port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+ 
+<span class="kw2">plot</span><span class="br0">(</span>f/1e9,<span class="nu0">20</span>*<span class="kw2">log10</span><span class="br0">(</span><span class="kw2">abs</span><span class="br0">(</span>s11<span class="br0">)</span><span class="br0">)</span>,<span class="co2">'k-'</span>,<span class="co2">'LineWidth'</span>,<span class="nu0">2</span><span class="br0">)</span>;
+<span class="kw2">hold</span> on;
+<span class="kw2">grid</span> on;
+<span class="kw2">plot</span><span class="br0">(</span>f/1e9,<span class="nu0">20</span>*<span class="kw2">log10</span><span class="br0">(</span><span class="kw2">abs</span><span class="br0">(</span>s21<span class="br0">)</span><span class="br0">)</span>,<span class="co2">'r--'</span>,<span class="co2">'LineWidth'</span>,<span class="nu0">2</span><span class="br0">)</span>;
+l = <span class="kw2">legend</span><span class="br0">(</span><span class="co2">'S_{11}'</span>,<span class="co2">'S_{21}'</span>,<span class="co2">'Location'</span>,<span class="co2">'Best'</span><span class="br0">)</span>;
+<span class="kw2">set</span><span class="br0">(</span>l,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+<span class="kw2">ylabel</span><span class="br0">(</span><span class="co2">'S-Parameter (dB)'</span>,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+<span class="kw2">xlabel</span><span class="br0">(</span><span class="co2">'frequency (GHz) \rightarrow'</span>,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>;
+<span class="kw2">ylim</span><span class="br0">(</span><span class="br0">[</span>-<span class="nu0">40</span> <span class="nu0">2</span><span class="br0">]</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<ul>
+<li><b>Calculate the 2D radiation pattern for all frequencies of interest</b>:</li>
+</ul>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+thetaRange = <span class="br0">(</span><span class="nu0">0</span>:<span class="nu0">3</span>:<span class="nu0">359</span><span class="br0">)</span> - <span class="nu0">180</span>;
+<span class="kw1">for</span> n=<span class="nu0">1</span>:numel<span class="br0">(</span>f_rad<span class="br0">)</span>
+    f_res = f_rad<span class="br0">(</span>n<span class="br0">)</span>
+    <span class="co1">% calculate the far field at phi=0 degrees and at phi=90 degrees</span>
+    r = <span class="nu0">1</span>; <span class="co1">% evaluate fields at radius r</span>
+    <span class="kw2">disp</span><span class="br0">(</span> <span class="co2">'calculating far field at phi=[0 90] deg...'</span> <span class="br0">)</span>;
+    <span class="br0">[</span>E_far_theta<span class="br0">{</span>n<span class="br0">}</span>,E_far_phi<span class="br0">{</span>n<span class="br0">}</span>,Prad<span class="br0">(</span>n<span class="br0">)</span>,Dmax<span class="br0">(</span>n<span class="br0">)</span><span class="br0">]</span> = AnalyzeNF2FF<span class="br0">(</span> Sim_Path, nf2ff, f_res, thetaRange, <span class="nu0">0</span>, r <span class="br0">)</span>;
+    <span class="kw2">toc</span>
+<span class="kw1">end</span>
+ 
+<span class="co1">%%</span>
+Dlog=<span class="nu0">10</span>*<span class="kw2">log10</span><span class="br0">(</span>Dmax<span class="br0">)</span>;
+<span class="kw2">figure</span>
+thetaRange = <span class="br0">(</span><span class="nu0">0</span>:<span class="nu0">3</span>:<span class="nu0">359</span><span class="br0">)</span> - <span class="nu0">180</span>;
+<span class="kw1">for</span> n=<span class="nu0">1</span>:numel<span class="br0">(</span>f_rad<span class="br0">)</span>
+    f_res = f_rad<span class="br0">(</span>n<span class="br0">)</span>
+ 
+    <span class="co1">% display power and directivity</span>
+    <span class="kw2">disp</span><span class="br0">(</span> <span class="br0">[</span><span class="co2">'radiated power: Prad = '</span> <span class="kw2">num2str</span><span class="br0">(</span>Prad<span class="br0">(</span>n<span class="br0">)</span><span class="br0">)</span> <span class="co2">' Watt'</span><span class="br0">]</span><span class="br0">)</span>;
+    <span class="kw2">disp</span><span class="br0">(</span> <span class="br0">[</span><span class="co2">'directivity: Dmax = '</span> <span class="kw2">num2str</span><span class="br0">(</span>Dlog<span class="br0">(</span>n<span class="br0">)</span><span class="br0">)</span> <span class="co2">' dBi'</span><span class="br0">]</span> <span class="br0">)</span>;
+ 
+    <span class="co1">% calculate the e-field magnitude for phi = 0 deg</span>
+    E_phi0_far<span class="br0">{</span>n<span class="br0">}</span> = <span class="kw2">zeros</span><span class="br0">(</span><span class="nu0">1</span>,numel<span class="br0">(</span>thetaRange<span class="br0">)</span><span class="br0">)</span>;
+    <span class="kw1">for</span> m=<span class="nu0">1</span>:numel<span class="br0">(</span>thetaRange<span class="br0">)</span>
+        E_phi0_far<span class="br0">{</span>n<span class="br0">}</span><span class="br0">(</span>m<span class="br0">)</span> = <span class="kw2">norm</span><span class="br0">(</span> <span class="br0">[</span>E_far_theta<span class="br0">{</span>n<span class="br0">}</span><span class="br0">(</span>m,<span class="nu0">1</span><span class="br0">)</span> E_far_phi<span class="br0">{</span>n<span class="br0">}</span><span class="br0">(</span>m,<span class="nu0">1</span><span class="br0">)</span><span class="br0">]</span> <span class="br0">)</span>;
+    <span class="kw1">end</span>
+ 
+    E_phi0_far_log<span class="br0">{</span>n<span class="br0">}</span> = <span class="nu0">20</span>*<span class="kw2">log10</span><span class="br0">(</span><span class="kw2">abs</span><span class="br0">(</span>E_phi0_far<span class="br0">{</span>n<span class="br0">}</span><span class="br0">)</span>/<span class="kw2">max</span><span class="br0">(</span><span class="kw2">abs</span><span class="br0">(</span>E_phi0_far<span class="br0">{</span>n<span class="br0">}</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+    E_phi0_far_log<span class="br0">{</span>n<span class="br0">}</span> = E_phi0_far_log<span class="br0">{</span>n<span class="br0">}</span> + Dlog<span class="br0">(</span>n<span class="br0">)</span>;
+ 
+    <span class="co1">% display polar plot</span>
+    <span class="kw2">plot</span><span class="br0">(</span> thetaRange, E_phi0_far_log<span class="br0">{</span>n<span class="br0">}</span> ,<span class="co2">'k-'</span> <span class="br0">)</span>;
+    <span class="kw2">xlabel</span><span class="br0">(</span> <span class="co2">'theta (deg)'</span> <span class="br0">)</span>;
+    <span class="kw2">ylabel</span><span class="br0">(</span> <span class="co2">'directivity (dBi)'</span><span class="br0">)</span>;
+    <span class="kw2">grid</span> on;
+    <span class="kw2">ylim</span><span class="br0">(</span><span class="br0">[</span>-<span class="nu0">20</span> <span class="nu0">10</span><span class="br0">]</span><span class="br0">)</span>;
+    <span class="kw2">pause</span><span class="br0">(</span><span class="nu0">0.5</span><span class="br0">)</span>
+<span class="kw1">end</span>
+</pre></div>
+</div>
+<p><br /></p>
+<ul>
+<li><b>Calculate the 3D radiation pattern for all frequencies of interest</b>:</li>
+</ul>
+<div class="floatright"><a href="File:CRLH_LWA_3D_Rad.gif.html" class="image" title="CRLH leaky wave antenna 3D radiation pattern"><img alt="CRLH leaky wave antenna 3D radiation pattern" src="../images/f/f5/CRLH_LWA_3D_Rad.gif" width="400" height="437" border="0" /></a></div>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="kw1">for</span> n=<span class="nu0">1</span>:numel<span class="br0">(</span>f_rad<span class="br0">)</span>
+    f_res = f_rad<span class="br0">(</span>n<span class="br0">)</span>;
+    phiRange = <span class="nu0">0</span>:<span class="nu0">3</span>:<span class="nu0">360</span>;
+    thetaRange = <span class="nu0">0</span>:<span class="nu0">3</span>:<span class="nu0">180</span>;
+    r = <span class="nu0">1</span>; <span class="co1">% evaluate fields at radius r</span>
+    <span class="kw2">disp</span><span class="br0">(</span> <span class="co2">'calculating 3D far field...'</span> <span class="br0">)</span>;
+    <span class="br0">[</span>E_far_theta_3D<span class="br0">{</span>n<span class="br0">}</span>,E_far_phi_3D<span class="br0">{</span>n<span class="br0">}</span><span class="br0">]</span> = AnalyzeNF2FF<span class="br0">(</span> Sim_Path, nf2ff, f_res, thetaRange, phiRange, r <span class="br0">)</span>;
+<span class="kw1">end</span>
+ 
+<span class="co1">%%</span>
+<span class="kw2">figure</span>
+<span class="kw1">for</span> n=<span class="nu0">1</span>:numel<span class="br0">(</span>f_rad<span class="br0">)</span>
+    f_res = f_rad<span class="br0">(</span>n<span class="br0">)</span>;
+ 
+    E_far_3D<span class="br0">{</span>n<span class="br0">}</span> = <span class="kw2">sqrt</span><span class="br0">(</span> <span class="kw2">abs</span><span class="br0">(</span>E_far_theta_3D<span class="br0">{</span>n<span class="br0">}</span><span class="br0">)</span>.^<span class="nu0">2</span> + <span class="kw2">abs</span><span class="br0">(</span>E_far_phi_3D<span class="br0">{</span>n<span class="br0">}</span><span class="br0">)</span>.^<span class="nu0">2</span> <span class="br0">)</span>;
+    E_far_normalized_3D<span class="br0">{</span>n<span class="br0">}</span> = E_far_3D<span class="br0">{</span>n<span class="br0">}</span> / <span class="kw2">max</span><span class="br0">(</span>E_far_3D<span class="br0">{</span>n<span class="br0">}</span><span class="br0">(</span>:<span class="br0">)</span><span class="br0">)</span> * <span class="kw2">max</span><span class="br0">(</span>Dmax<span class="br0">)</span>;
+ 
+    <span class="br0">[</span>theta,phi<span class="br0">]</span> = <span class="kw2">ndgrid</span><span class="br0">(</span>thetaRange/<span class="nu0">180</span>*<span class="kw2">pi</span>,phiRange/<span class="nu0">180</span>*<span class="kw2">pi</span><span class="br0">)</span>;
+    x = E_far_normalized_3D<span class="br0">{</span>n<span class="br0">}</span> .* <span class="kw2">sin</span><span class="br0">(</span>theta<span class="br0">)</span> .* <span class="kw2">cos</span><span class="br0">(</span>phi<span class="br0">)</span>;
+    y = E_far_normalized_3D<span class="br0">{</span>n<span class="br0">}</span> .* <span class="kw2">sin</span><span class="br0">(</span>theta<span class="br0">)</span> .* <span class="kw2">sin</span><span class="br0">(</span>phi<span class="br0">)</span>;
+    z = E_far_normalized_3D<span class="br0">{</span>n<span class="br0">}</span> .* <span class="kw2">cos</span><span class="br0">(</span>theta<span class="br0">)</span>;
+    <span class="kw2">surf</span><span class="br0">(</span> x,y,z, E_far_normalized_3D<span class="br0">{</span>n<span class="br0">}</span>,<span class="co2">'EdgeColor'</span>,<span class="co2">'none'</span><span class="br0">)</span>;
+    <span class="kw2">caxis</span><span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="kw2">max</span><span class="br0">(</span>Dmax<span class="br0">)</span><span class="br0">]</span><span class="br0">)</span>;
+    <span class="kw2">axis</span> equal
+    <span class="kw2">xlabel</span><span class="br0">(</span> <span class="co2">'x'</span> <span class="br0">)</span>;
+    <span class="kw2">xlim</span><span class="br0">(</span><span class="br0">[</span>-<span class="nu0">6</span> <span class="nu0">6</span><span class="br0">]</span><span class="br0">)</span>;
+    <span class="kw2">ylabel</span><span class="br0">(</span> <span class="co2">'y'</span> <span class="br0">)</span>;
+    <span class="kw2">ylim</span><span class="br0">(</span><span class="br0">[</span>-<span class="nu0">6</span> <span class="nu0">6</span><span class="br0">]</span><span class="br0">)</span>;
+    <span class="kw2">zlabel</span><span class="br0">(</span> <span class="co2">'z'</span> <span class="br0">)</span>;
+    <span class="kw2">zlim</span><span class="br0">(</span><span class="br0">[</span>-<span class="nu0">4</span> <span class="nu0">10</span><span class="br0">]</span><span class="br0">)</span>;
+    <span class="kw2">title</span><span class="br0">(</span><span class="br0">[</span><span class="co2">'f='</span> <span class="kw2">num2str</span><span class="br0">(</span>f_res*1e-9,<span class="nu0">3</span><span class="br0">)</span> <span class="co2">'GHz  -  D='</span> <span class="kw2">num2str</span><span class="br0">(</span>Dlog<span class="br0">(</span>n<span class="br0">)</span>,<span class="nu0">3</span><span class="br0">)</span> <span class="co2">'dBi'</span><span class="br0">]</span>,<span class="co2">'FontSize'</span>,<span class="nu0">12</span><span class="br0">)</span>
+    <span class="kw2">pause</span><span class="br0">(</span><span class="nu0">0.5</span><span class="br0">)</span>
+ 
+    DumpFF2VTK<span class="br0">(</span> <span class="br0">[</span>Sim_Path <span class="co2">'/FF_Pattern_'</span> <span class="kw2">int2str</span><span class="br0">(</span>f_res/1e6<span class="br0">)</span> <span class="co2">'MHz.vtk'</span><span class="br0">]</span>,E_far_normalized_3D,thetaRange,phiRange,1e-3<span class="br0">)</span>;
+<span class="kw1">end</span>
+</pre></div>
+</div>
+<p><a name="Return_To_Tutorials_Index" id="Return_To_Tutorials_Index"></a></p>
+<h3><span class="mw-headline"><a href="http://openems.de/index.php/Tutorials.html" title="Tutorials">Return To Tutorials Index</a></span></h3>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 41/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:47-0!1!0!!en!2!edit=0 and timestamp 20181110114353 -->
+<div class="printfooter">
+Retrieved from "<a href="Tutorial:_CRLH_Leaky_Wave_Antenna.html">index.php/Tutorial:_CRLH_Leaky_Wave_Antenna</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 13 December 2012, at 00:16.</li>
+					<li id="viewcount">This page has been accessed 16,523 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

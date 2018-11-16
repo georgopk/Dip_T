@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Tutorials,Tutorial: 2D Cylindrical Wave,Tutorial: Bent Patch Antenna,Tutorial: CRLH Leaky Wave Antenna,Tutorial: CRLH Parameter Extraction,Tutorial: Circular Waveguide,Tutorial: Coax to Waveguide Adapter,Tutorial: Conical Horn Antenna,Tutorial: Dipole SAR,Tutorial: First Steps,Tutorial: Helical Antenna" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Tutorials&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Tutorials - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Tutorials";
+		var wgTitle = "Tutorials";
+		var wgAction = "view";
+		var wgArticleId = "12";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 1002;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Tutorials skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Tutorials</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="http://openems.de/index.php/Tutorials.html#column-one">navigation</a>, <a href="http://openems.de/index.php/Tutorials.html#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorials.html#Introductional_Tutorials"><span class="tocnumber">1</span> <span class="toctext">Introductional Tutorials</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorials.html#Microwave_Devices"><span class="tocnumber">2</span> <span class="toctext">Microwave Devices</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorials.html#Antennas"><span class="tocnumber">3</span> <span class="toctext">Antennas</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Tutorials.html#Advanced_Topics"><span class="tocnumber">4</span> <span class="toctext">Advanced Topics</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Introductional_Tutorials" id="Introductional_Tutorials"></a></p>
+<h2><span class="mw-headline">Introductional Tutorials</span></h2>
+<ul>
+<li><a href="http://openems.de/index.php/Tutorial:_First_Steps.html" title="Tutorial: First Steps">Tutorial: First Steps</a> verify the correct installation of openEMS</li>
+<li><a href="http://openems.de/index.php/Tutorial:_Parallel_Plate_Waveguide.html" title="Tutorial: Parallel Plate Waveguide">Tutorial: Parallel Plate Waveguide</a> one of the simplest possible simulation scenarios</li>
+</ul>
+<ul>
+<li><a href="http://openems.de/index.php/Tutorial:_Rectangular_Waveguide.html" title="Tutorial: Rectangular Waveguide">Tutorial: Rectangular Waveguide</a>: A simple rectangular waveguide, showing the openEMS mode profile capabilities.</li>
+<li><a href="Tutorial:_Circular_Waveguide.html" title="Tutorial: Circular Waveguide">Tutorial: Circular Waveguide</a>: A simple circular waveguide, showing the use of a cylindrical mesh in openEMS.</li>
+<li><a href="Tutorial:_2D_Cylindrical_Wave.html" title="Tutorial: 2D Cylindrical Wave">Tutorial: 2D Cylindrical Wave</a>: A 2D simulation demonstrating a cylindrical wave, using a cylindrical mesh including five nested sub-grids to enhance the simulation speed.</li>
+</ul>
+<ul>
+<li><a href="Tutorial:_Metal_Sphere_Radar_Cross_Section.html" title="Tutorial: Metal Sphere Radar Cross Section">Tutorial: Metal Sphere Radar Cross Section</a>: A 3D simulation demonstrating a the total-field/scattered-field approach on a metallic sphere with a RCS (radar cross section) calculation.</li>
+</ul>
+<ul>
+<li><a href="http://openems.de/index.php/Tutorial:_Importing_with_hyp2mat.html" title="Tutorial: Importing with hyp2mat">Tutorial: Importing with hyp2mat</a>: How to import a printed circuit board from a CAD system in openEMS using HyperLynx format files.</li>
+</ul>
+<p><a name="Microwave_Devices" id="Microwave_Devices"></a></p>
+<h2><span class="mw-headline">Microwave Devices</span></h2>
+<ul>
+<li><a href="Tutorial:_Microstrip_Notch_Filter.html" title="Tutorial: Microstrip Notch Filter">Tutorial: Microstrip Notch Filter</a>: A straight MSL line with a open-ended stub to create a simple microwave filter.</li>
+<li><a href="Tutorial:_CRLH_Parameter_Extraction.html" title="Tutorial: CRLH Parameter Extraction">Tutorial: CRLH Parameter Extraction</a>: Setup a composite-right/left-handed (CRLH) unit cell and extract the equivalent circuit parameter.</li>
+<li><a href="Tutorial:_Coax_to_Waveguide_Adapter.html" title="Tutorial: Coax to Waveguide Adapter">Tutorial: Coax to Waveguide Adapter</a>: A simple coax to waveguide adapter.</li>
+<li><a href="Tutorial:_Stripline_to_MSL_Transition.html" title="Tutorial: Stripline to MSL Transition">Tutorial: Stripline to MSL Transition</a>: A Stripline to MSL transition.</li>
+</ul>
+<p><a name="Antennas" id="Antennas"></a></p>
+<h2><span class="mw-headline">Antennas</span></h2>
+<ul>
+<li><a href="http://openems.de/index.php/Tutorial:_Simple_Patch_Antenna.html" title="Tutorial: Simple Patch Antenna">Tutorial: Simple Patch Antenna</a> Setup &amp; Simulate a simple patch antenna for 2.4 GHz</li>
+<li><a href="Tutorial:_Horn_Antenna.html" title="Tutorial: Horn Antenna">Tutorial: Horn Antenna</a> Setup &amp; Simulate a horn antenna feed with a rectangular waveguide for 10 to 20 GHz</li>
+<li><a href="Tutorial:_Conical_Horn_Antenna.html" title="Tutorial: Conical Horn Antenna">Tutorial: Conical Horn Antenna</a> Setup &amp; Simulate a conical horn antenna feed with a circular waveguide for 10 to 20 GHz</li>
+<li><a href="Tutorial:_CRLH_Leaky_Wave_Antenna.html" title="Tutorial: CRLH Leaky Wave Antenna">Tutorial: CRLH Leaky Wave Antenna</a> Setup &amp; Simulate a CRLH leaky wave antenna</li>
+<li><a href="Tutorial:_Helical_Antenna.html" title="Tutorial: Helical Antenna">Tutorial: Helical Antenna</a> Setup &amp; Simulate a helical antenna using the wire primitive</li>
+<li><a href="http://openems.de/index.php/Tutorial:_Bent_Patch_Antenna.html" title="Tutorial: Bent Patch Antenna">Tutorial: Bent Patch Antenna</a> Setup &amp; Simulate a bent patch antenna using a <b>cylindrical mesh</b></li>
+</ul>
+<p><a name="Advanced_Topics" id="Advanced_Topics"></a></p>
+<h2><span class="mw-headline">Advanced Topics</span></h2>
+<ul>
+<li><a href="http://openems.de/index.php/Tutorial:_Dipole_SAR.html" title="Tutorial: Dipole SAR">Tutorial: Dipole SAR</a> Setup a simple dipole antenna with a stacked phantom and <b>SAR calculation</b></li>
+<li><a href="http://openems.de/index.php/Tutorial:_MRI_Loop_Coil.html" title="Tutorial: MRI Loop Coil">Tutorial: MRI Loop Coil</a> A 7T-MRI loop coil including a <b>virtual family body model</b> and <b>SAR calculation</b></li>
+<li><a href="http://openems.de/index.php/Tutorial:_MRI_LP_Birdcage.html" title="Tutorial: MRI LP Birdcage">Tutorial: MRI LP Birdcage</a> A MRI low-pass birdcage including a <b>virtual family body model</b> and <b>SAR calculation</b></li>
+<li><a href="http://openems.de/index.php/Tutorial:_Patch_Antenna_Phased_Array.html" title="Tutorial: Patch Antenna Phased Array">Tutorial: Patch Antenna Phased Array</a> A patch antenna array, including full <b>S-Parameter matrix calculation</b> and <b>superposition of far-field results</b> according to a circuit calculation</li>
+<li><a href="Tutorial:_UWB_Radar.html" title="Tutorial: UWB Radar">Tutorial: UWB Radar</a> An UBW radar antenna tutorial.</li>
+</ul>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 5/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:12-0!1!0!!en!2!edit=0 and timestamp 20181110114347 -->
+<div class="printfooter">
+Retrieved from "<a href="http://openems.de/index.php/Tutorials.html">index.php/Tutorials</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 12 February 2017, at 18:25.</li>
+					<li id="viewcount">This page has been accessed 233,909 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

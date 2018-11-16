@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>make for CSXCAD failed - openEMS.de</title>
+
+
+	<link rel="canonical" href="viewtopic.php%3Ft=222.html">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/en/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=3" rel="stylesheet">
+<![endif]-->
+
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index.php.html" title="Board index"><span class="site_logo"></span></a>
+				<h1>openEMS.de</h1>
+				<p>OpenEMS Support Forum</p>
+				<p class="skiplink"><a href="viewtopic.php%3Fp=1376.html#start_here">Skip to content</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="http://openems.de/forum/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="Search for keywords" class="inputbox search tiny" size="20" value="" placeholder="Search…" />
+					<button class="button button-search" type="submit" title="Search">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+					</button>
+					<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="viewtopic.php%3Fp=1376.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="http://openems.de/forum/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Unanswered topics</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://openems.de/forum/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>Active topics</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="http://openems.de/forum/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>Search</span>
+								</a>
+							</li>
+					
+											<li class="separator"></li>
+																			<li>
+								<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+									<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+								</a>
+							</li>
+																<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="http://openems.de/forum/app.php/help/faq" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp.php%3Fmode=login.html" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp.php%3Fmode=register.html" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+						<li class="breadcrumbs">
+										<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><a href="index.php.html" itemprop="url" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="title">Board index</span></a></span>
+
+											<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="1"><a href="viewforum.php%3Ff=1.html" itemprop="url"><span itemprop="title">openEMS Support</span></a></span>
+															<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="2"><a href="viewforum.php%3Ff=2.html" itemprop="url"><span itemprop="title">Install</span></a></span>
+												</li>
+		
+					<li class="rightside responsive-search">
+				<a href="http://openems.de/forum/search.php" title="View the advanced search options" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php%3Ff=2&amp;t=222.html">make for CSXCAD failed</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">Install support for openEMS<br /></div>
+<p>
+	<strong>Moderators:</strong> <a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>, <a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="posting.php%3Fmode=reply&amp;f=2&amp;t=222.html" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=222&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="http://openems.de/forum/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…" />
+				<button class="button button-search" type="submit" title="Search">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</button>
+				<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+				</a>
+				<input type="hidden" name="t" value="222" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			34 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="http://openems.de/forum/viewtopic.php?f=2&amp;t=222&amp;start=10" role="button">2</a></li>
+				<li><a class="button" href="http://openems.de/forum/viewtopic.php?f=2&amp;t=222&amp;start=20" role="button">3</a></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=222&amp;start=30.html" role="button">4</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="http://openems.de/forum/viewtopic.php?f=2&amp;t=222&amp;start=10" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+		</div>
+
+
+
+
+			<div id="p1370" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1370">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=171.html" class="username">sudantha</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=171&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 29 Jul 2013, 21:44</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1370">
+
+						<h3 class="first"><img src="images/icons/smile/question.gif" width="16" height="16" alt="" title="" /> <a href="viewtopic.php%3Fp=1376.html#p1370">make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1370.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1370.html#p1370" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=171.html" class="username">sudantha</a></strong> &raquo; </span>Mon 21 Apr 2014, 23:43
+			</p>
+			
+			
+			
+			<div class="content">Hello everyone,<br>
+<br>
+I am trying to install OpenEMS. I got a compilation error as below. Can you help with this problem?<br>
+<br>
+<span style="color:#FF0000">compiling CSXCAD ... please wait<br>
+src/CSPrimPolyhedronReader.cpp: In member function ‘virtual bool CSPrimPolyhedronReader::ReadFile(std::string)’:<br>
+src/CSPrimPolyhedronReader.cpp:145:12: error: ‘class vtkPolyData’ has no member named ‘Update’<br>
+  polydata-&gt;Update();<br>
+            ^<br>
+make: *** [obj/CSPrimPolyhedronReader.o] Error 1<br>
+make: *** Waiting for unfinished jobs....<br>
+In file included from /usr/include/CGAL/AABB_polyhedron_triangle_primitive.h:27:0,<br>
+                 from src/CSPrimPolyhedron_p.h:9,<br>
+                 from src/CSPrimPolyhedron.cpp:25:<br>
+/usr/include/CGAL/internal/deprecation_warning.h:57:6: warning: #warning "A deprecated header has been included." [-Wcpp]<br>
+ #    warning "A deprecated header has been included."<br>
+      ^<br>
+In file included from /usr/include/CGAL/AABB_polyhedron_segment_primitive.h:31:0,<br>
+                 from src/CSPrimPolyhedron_p.h:10,<br>
+                 from src/CSPrimPolyhedron.cpp:25:<br>
+/usr/include/CGAL/internal/deprecation_warning.h:57:6: warning: #warning "A deprecated header has been included." [-Wcpp]<br>
+ #    warning "A deprecated header has been included."<br>
+      ^<br>
+In file included from /usr/include/CGAL/AABB_polyhedron_triangle_primitive.h:27:0,<br>
+                 from src/CSPrimPolyhedron_p.h:9,<br>
+                 from src/CSPrimPolyhedron.cpp:25:<br>
+/usr/include/CGAL/internal/deprecation_warning.h:58:54: note: #pragma message: Warning: The header &lt;CGAL/AABB_polyhedron_triangle_primitive.h&gt; is deprecated. Please use &lt;CGAL/AABB_face_graph_triangle_primitive.h&gt; instead.<br>
+ #    pragma message (CGAL_INTERNAL_DEPRECATED_MESSAGE)<br>
+                                                      ^<br>
+In file included from /usr/include/CGAL/AABB_polyhedron_segment_primitive.h:31:0,<br>
+                 from src/CSPrimPolyhedron_p.h:10,<br>
+                 from src/CSPrimPolyhedron.cpp:25:<br>
+/usr/include/CGAL/internal/deprecation_warning.h:58:54: note: #pragma message: Warning: The header &lt;CGAL/AABB_polyhedron_segment_primitive.h&gt; is deprecated. Please use &lt;CGAL/AABB_halfedge_graph_segment_primitive.h&gt; instead.<br>
+ #    pragma message (CGAL_INTERNAL_DEPRECATED_MESSAGE)<br>
+                                                      ^<br>
+make for CSXCAD failed</span><br>
+<br>
+best regards<br>
+<br>
+Sudantha Perera</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1373" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1373">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1373">
+
+						<h3 ><a href="viewtopic.php%3Fp=1376.html#p1373">Re: make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1373.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1373.html#p1373" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Tue 22 Apr 2014, 17:27
+			</p>
+			
+			
+			
+			<div class="content">Only the first error is important, but you really need to supply more informations. E.g. what distribution are you using... Do you now which version of vtk you have? <br>
+Have you tried building the latest development (master branch) version?<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1374" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1374">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=171.html" class="username">sudantha</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=171&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 29 Jul 2013, 21:44</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1374">
+
+						<h3 ><a href="viewtopic.php%3Fp=1376.html#p1374">Re: make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1374.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1374.html#p1374" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=171.html" class="username">sudantha</a></strong> &raquo; </span>Tue 22 Apr 2014, 18:06
+			</p>
+			
+			
+			
+			<div class="content">Thank you, Thorsten. I really appreciate your help.<br>
+<br>
+I used this command to install packages and libraries as instructed on the wiki:<br>
+<strong class="text-strong">sudo yum install make gcc gcc-c++ git hdf5-devel vtk-devel boost-devel CGAL-devel tinyxml-devel qt-devel vtk-qt<br>
+</strong><br>
+<strong class="text-strong">yum list </strong>command gave me these versions<br>
+<strong class="text-strong">vtk-qt.x86_64                  6.0.0-9.fc20 <br>
+vtk.x86_64                          6.0.0-9.fc20<br>
+vtk-devel.x86_64                 6.0.0-9.fc20</strong><br>
+<br>
+I am using fedora20 Linux distro.<br>
+<br>
+I used <strong class="text-strong">git clone -b stable <a href="https://github.com/thliebig/openEMS-Project.git" class="postlink">https://github.com/thliebig/openEMS-Project.git</a></strong> command to clone the openEMS-project. I believe I am getting the latest version.<br>
+<br>
+If this is not enough information, please let me know.<br>
+<br>
+Thank you again<br>
+<br>
+Sudantha</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1375" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1375">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1375">
+
+						<h3 ><a href="viewtopic.php%3Fp=1376.html#p1375">Re: make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1375.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1375.html#p1375" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Tue 22 Apr 2014, 20:48
+			</p>
+			
+			
+			
+			<div class="content">As I though, you use vtk6.x, openEMS v0.0.31 only supports vtk5.x...<br>
+<br>
+I guess you overlooked this line in the wiki:
+<blockquote class="uncited"><div>Note: Fedora user need to checkout the latest development branch (see below)</div></blockquote>
+
+Please follow the instruction to use the development branch with fixes/adaption to vtk6 :<br>
+<a href="../index.php/Compile_from_Source.html#Development_Branch" class="postlink">http://openems.de/index.php/Compile_fro ... ent_Branch</a><br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1376" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1376">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=171.html" class="username">sudantha</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=171&amp;sr=posts">3</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 29 Jul 2013, 21:44</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1376">
+
+						<h3 ><a href="viewtopic.php%3Fp=1376.html#p1376">Re: make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1376.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1376.html#p1376" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=171.html" class="username">sudantha</a></strong> &raquo; </span>Wed 23 Apr 2014, 00:39
+			</p>
+			
+			
+			
+			<div class="content">Thanks a lot Thorsten. It works.</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1665" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1665">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=286.html" class="username">felipebm</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=286&amp;sr=posts">23</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Wed 10 Dec 2014, 14:15</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1665">
+
+						<h3 ><a href="viewtopic.php%3Fp=1376.html#p1665">Re: make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1665.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1665.html#p1665" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=286.html" class="username">felipebm</a></strong> &raquo; </span>Thu 26 Feb 2015, 14:41
+			</p>
+			
+			
+			
+			<div class="content">Hi Thorsten and Sudantha,<br>
+<br>
+I'm having the same problem using Debian Jessie (Testing)<br>
+<br>
+First I tried installing the stable branch with vtk5 and get the following error:<br>
+
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=1376.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>compiling CSXCAD ... please wait
+In file included from /usr/include/CGAL/AABB_polyhedron_triangle_primitive.h:27:0,
+                 from src/CSPrimPolyhedron_p.h:9,
+                 from src/CSPrimPolyhedron.cpp:25:
+/usr/include/CGAL/internal/deprecation_warning.h:57:6: warning: #warning "A deprecated header has been included." [-Wcpp]
+....</code></pre></div>
+
+Then I tried installing the master branch with vtk5 and get the following error:<br>
+
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=1376.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>compiling CSXCAD ... please wait
+In file included from /usr/include/CGAL/AABB_polyhedron_triangle_primitive.h:27:0,
+                 from src/CSPrimPolyhedron_p.h:9,
+                 from src/CSPrimPolyhedron.cpp:25:
+/usr/include/CGAL/internal/deprecation_warning.h:57:6: warning: #warning "A deprecated header has been included." [-Wcpp]
+ #    warning "A deprecated header has been included."
+...</code></pre></div>
+
+Finally, I'd tried installing the master branch with vtk6 installed and vtk5 uninstalled and the error remains the same though,<br>
+
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=1376.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>compiling CSXCAD ... please wait
+In file included from /usr/include/CGAL/AABB_polyhedron_triangle_primitive.h:27:0,
+                 from src/CSPrimPolyhedron_p.h:9,
+                 from src/CSPrimPolyhedron.cpp:25:
+/usr/include/CGAL/internal/deprecation_warning.h:57:6: warning: #warning "A deprecated header has been included." [-Wcpp]
+...</code></pre></div>
+
+Can you please help me!<br>
+<br>
+Thanks,<br>
+Felipe.</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1667" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1667">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1667">
+
+						<h3 ><a href="viewtopic.php%3Fp=1376.html#p1667">Re: make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1667.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1667.html#p1667" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Thu 26 Feb 2015, 17:11
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+as the messages says, it is not related to vtk, but to CGAL. And it is only a warning, thus should not be a problem for now??<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1668" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1668">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=286.html" class="username">felipebm</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=286&amp;sr=posts">23</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Wed 10 Dec 2014, 14:15</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1668">
+
+						<h3 ><a href="viewtopic.php%3Fp=1376.html#p1668">Re: make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1668.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1668.html#p1668" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=286.html" class="username">felipebm</a></strong> &raquo; </span>Thu 26 Feb 2015, 18:48
+			</p>
+			
+			
+			
+			<div class="content">Hi Thorsten,<br>
+<br>
+First of all, thanks for your help and for the great piece of software that you share with us.<br>
+<br>
+Maybe I didn't posted the relevant part of the output messages, but so far I'm not able to pass the first test of the <em class="text-italics">Tutorial: First Steps</em> (there is no even an <em class="text-italics">openEMS</em> file in the installation directory)<br>
+<br>
+At the end of this message you can see all the output messages. Can you tell what is going wrong?<br>
+<br>
+Thanks again,<br>
+Felipe.<br>
+
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=1376.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>$ cd openEMS-Project
+$ git pull
+Already up-to-date.
+$ ./update_openEMS.sh ~/opt/openEMS
+Using qmake from: /usr/bin/qmake-qt4
+dirname: missing operand
+Try 'dirname --help' for more information.
+Detected vtk 5.x library path: 
+setting install path to: /home/felipe/opt/openEMS
+init &amp; updating git submodules... please wait
+compiling fparser ... please wait
+installing fparser ... please wait
+compiling CSXCAD ... please wait
+In file included from /usr/include/CGAL/AABB_polyhedron_triangle_primitive.h:27:0,
+                 from src/CSPrimPolyhedron_p.h:9,
+                 from src/CSPrimPolyhedron.cpp:25:
+/usr/include/CGAL/internal/deprecation_warning.h:57:6: warning: #warning "A deprecated header has been included." [-Wcpp]
+ #    warning "A deprecated header has been included."
+      ^
+In file included from /usr/include/CGAL/AABB_polyhedron_segment_primitive.h:31:0,
+                 from src/CSPrimPolyhedron_p.h:10,
+                 from src/CSPrimPolyhedron.cpp:25:
+/usr/include/CGAL/internal/deprecation_warning.h:57:6: warning: #warning "A deprecated header has been included." [-Wcpp]
+ #    warning "A deprecated header has been included."
+      ^
+src/CSPropDiscMaterial.cpp:19:18: fatal error: hdf5.h: No such file or directory
+ #include &lt;hdf5.h&gt;
+                  ^
+compilation terminated.
+make: *** [obj/CSPropDiscMaterial.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from /usr/include/CGAL/AABB_polyhedron_triangle_primitive.h:27:0,
+                 from src/CSPrimPolyhedron_p.h:9,
+                 from src/CSPrimPolyhedron.cpp:25:
+/usr/include/CGAL/internal/deprecation_warning.h:58:54: note: #pragma message: Warning: The header &lt;CGAL/AABB_polyhedron_triangle_primitive.h&gt; is deprecated. Please use &lt;CGAL/AABB_face_graph_triangle_primitive.h&gt; instead.
+ #    pragma message (CGAL_INTERNAL_DEPRECATED_MESSAGE)
+                                                      ^
+In file included from /usr/include/CGAL/AABB_polyhedron_segment_primitive.h:31:0,
+                 from src/CSPrimPolyhedron_p.h:10,
+                 from src/CSPrimPolyhedron.cpp:25:
+/usr/include/CGAL/internal/deprecation_warning.h:58:54: note: #pragma message: Warning: The header &lt;CGAL/AABB_polyhedron_segment_primitive.h&gt; is deprecated. Please use &lt;CGAL/AABB_halfedge_graph_segment_primitive.h&gt; instead.
+ #    pragma message (CGAL_INTERNAL_DEPRECATED_MESSAGE)
+                                                      ^
+make for CSXCAD failed
+</code></pre></div></div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1670" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1670">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1670">
+
+						<h3 ><a href="viewtopic.php%3Fp=1376.html#p1670">Re: make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1670.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1670.html#p1670" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Fri 27 Feb 2015, 09:40
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+the problem is that the installer cannot find your vtk:
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=1376.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>Detected vtk 5.x library path: </code></pre></div>
+
+Do you use the system vtk version??<br>
+Where is it installed??<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1671" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1671">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1671">
+
+						<h3 ><a href="viewtopic.php%3Fp=1376.html#p1671">Re: make for CSXCAD failed</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=2&amp;p=1671.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1671.html#p1671" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Fri 27 Feb 2015, 10:25
+			</p>
+			
+			
+			
+			<div class="content">You could also try switching to the latest "master" branch and give the new cmake build system a try.<br>
+
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=1376.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>cd openEMS-Project
+git fetch --all
+git checkout -b master origin/master
+git submodule update
+mkdir build
+cd build
+cmake ..
+make
+</code></pre></div>
+
+If it still does not find your vtk, there should be a way to specify the path to look for it, but I would have to search for it...<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1376.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="posting.php%3Fmode=reply&amp;f=2&amp;t=222.html" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=222&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php%3Ff=2&amp;t=222.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			34 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="http://openems.de/forum/viewtopic.php?f=2&amp;t=222&amp;start=10" role="button">2</a></li>
+				<li><a class="button" href="http://openems.de/forum/viewtopic.php?f=2&amp;t=222&amp;start=20" role="button">3</a></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=222&amp;start=30.html" role="button">4</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="http://openems.de/forum/viewtopic.php?f=2&amp;t=222&amp;start=10" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php%3Ff=2.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Install”</span>
+		</a>
+	</p>
+	
+		<div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+			<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+				<span>Jump to</span>
+				<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+			</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																				<li><a href="viewforum.php%3Ff=1.html" class="jumpbox-cat-link"> <span> openEMS Support</span></a></li>
+																<li><a href="viewforum.php%3Ff=5.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News</span></a></li>
+																<li><a href="viewforum.php%3Ff=2.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Install</span></a></li>
+																<li><a href="viewforum.php%3Ff=3.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Usage</span></a></li>
+																<li><a href="viewforum.php%3Ff=4.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Feedback</span></a></li>
+																<li><a href="viewforum.php%3Ff=6.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Development</span></a></li>
+											</ul>
+		</div>
+	</div>
+
+	</div>
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="UTC+2">UTC+02:00</span></li>
+							<li class="rightside">
+				<a href="http://openems.de/forum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+												<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+					<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+				</a>
+			</li>
+									<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=contactadmin.html" role="menuitem">
+					<i class="icon fa-envelope fa-fw" aria-hidden="true"></i><span>Contact us</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row">
+			<a class="footer-link" href="ucp.php%3Fmode=privacy.html" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="ucp.php%3Fmode=terms.html" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php%3Fp=1376.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php%3Fp=1376.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script type="text/javascript" src="assets/javascript/jquery.min.js%3Fassets_version=3"></script>
+<script type="text/javascript" src="assets/javascript/core.js%3Fassets_version=3"></script>
+
+
+
+<script src="styles/prosilver/template/forum_fn.js%3Fassets_version=3"></script>
+<script src="styles/prosilver/template/ajax.js%3Fassets_version=3"></script>
+
+
+
+</body>
+</html>

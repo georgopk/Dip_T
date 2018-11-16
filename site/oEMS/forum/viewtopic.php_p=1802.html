@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>RC-1 for openEMS v0.0.33 - openEMS.de</title>
+
+
+	<link rel="canonical" href="viewtopic.php%3Ft=303.html">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/en/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=3" rel="stylesheet">
+<![endif]-->
+
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index.php.html" title="Board index"><span class="site_logo"></span></a>
+				<h1>openEMS.de</h1>
+				<p>OpenEMS Support Forum</p>
+				<p class="skiplink"><a href="viewtopic.php%3Fp=1802.html#start_here">Skip to content</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="http://openems.de/forum/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="Search for keywords" class="inputbox search tiny" size="20" value="" placeholder="Search…" />
+					<button class="button button-search" type="submit" title="Search">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+					</button>
+					<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="viewtopic.php%3Fp=1802.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="http://openems.de/forum/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Unanswered topics</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://openems.de/forum/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>Active topics</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="http://openems.de/forum/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>Search</span>
+								</a>
+							</li>
+					
+											<li class="separator"></li>
+																			<li>
+								<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+									<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+								</a>
+							</li>
+																<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="http://openems.de/forum/app.php/help/faq" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp.php%3Fmode=login.html" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp.php%3Fmode=register.html" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+						<li class="breadcrumbs">
+										<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><a href="index.php.html" itemprop="url" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="title">Board index</span></a></span>
+
+											<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="1"><a href="viewforum.php%3Ff=1.html" itemprop="url"><span itemprop="title">openEMS Support</span></a></span>
+															<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="5"><a href="viewforum.php%3Ff=5.html" itemprop="url"><span itemprop="title">News</span></a></span>
+												</li>
+		
+					<li class="rightside responsive-search">
+				<a href="http://openems.de/forum/search.php" title="View the advanced search options" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php%3Ff=5&amp;t=303.html">RC-1 for openEMS v0.0.33</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">News about openEMS<br /></div>
+<p>
+	<strong>Moderators:</strong> <a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>, <a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="posting.php%3Fmode=reply&amp;f=5&amp;t=303.html" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=5&amp;t=303&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="http://openems.de/forum/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…" />
+				<button class="button button-search" type="submit" title="Search">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</button>
+				<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+				</a>
+				<input type="hidden" name="t" value="303" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			10 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p1772" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1772">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1772">
+
+						<h3 class="first"><a href="viewtopic.php%3Fp=1802.html#p1772">RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1772.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1772.html#p1772" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Mon 10 Aug 2015, 22:48
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+<em class="text-italics">EDIT: RC1 has been replaced with an RC2, links have been updated</em><br>
+<br>
+this is the first time I'm doing a release candidate. But the large changes to the build system for both Linux and Windows are too massive to just release like this.<br>
+<br>
+Therefore I would ask everybody to give this RC a good bit of testing:<br>
+<br>
+For <strong class="text-strong">Linux</strong>:
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=1802.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>cd /tmp # or any other path to download/unpack and build in
+wget http://openems.de/download/src/openEMS-v0.0.33-rc2.tar.bz2
+tar jxf openEMS-v0.0.33-rc2.tar.bz2
+cd openEMS
+./update_openEMS.sh ~/opt/openEMS --with-hyp2mat --with-CTB  # or any other path to install to
+</code></pre></div>
+- Add the paths given to your .octacerc or matlab startup file<br>
+<br>
+For <strong class="text-strong">Windows (64-bit)</strong>:<br>
+- Just download and unzip: <a href="http://openems.de/download/win64/openEMS_x64_v0.0.33-rc2.zip" class="postlink">openEMS_x64_v0.0.33-rc2.zip</a><br>
+- Add the path (e.g. C:/openEMS/matlab) to your .octacerc or matlab startup file<br>
+Note: I plan on <span style="text-decoration:underline">not supporting Windows 32bit</span> any more. This is just to much work for testing and 32bit is dead  <img class="smilies" src="images/smilies/icon_e_wink.gif" width="15" height="17" alt=";)" title="Wink"> <br>
+<br>
+For <strong class="text-strong">Mac OS-X</strong> (totally new and completely alpha-status):<br>
+- Install <a href="http://brew.sh/" class="postlink">brew</a>
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=1802.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code> brew install --HEAD https://raw.github.com/thliebig/openEMS-Project/master/brew/openEMS.rb</code></pre></div>
+
+Please leave some feedback...<br>
+<br>
+Known bugs:<br>
+ - <a href="http://www.openems.de/forum/viewtopic.php?f=3&amp;t=301" class="postlink">remote simulation with Octave</a> (fixed already but not included in RC-1); <em class="text-italics">Edit: fixed in RC-2</em><br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1775" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1775">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=334.html" class="username">magnus</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=334&amp;sr=posts">1</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 14 Aug 2015, 12:52</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1775">
+
+						<h3 ><a href="viewtopic.php%3Fp=1802.html#p1775">Re: RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1775.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1775.html#p1775" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=334.html" class="username">magnus</a></strong> &raquo; </span>Fri 14 Aug 2015, 12:59
+			</p>
+			
+			
+			
+			<div class="content">Trying the release-candidate on a Debian testing box, I had to figure out which packets to include, such as CGAL-dev, VTK6-dev, TinyURL-dev, qtbase5-dev, which would have been good if there was a debian built method included to sort out, but with some patience I got as far as I did. However, while building I got this error:<br>
+<br>
+...<br>
+[ 19%] Building CXX object FDTD/CMakeFiles/FDTD.dir/engine_multithread.cpp.o<br>
+In file included from /home/magda/work/openems/openEMS/openEMS/FDTD/engine_multi<br>
+thread.cpp:35:0:<br>
+/usr/lib/gcc/i586-linux-gnu/4.9/include/xmmintrin.h: In member function 'void NS<br>
+_Engine_Multithread::thread::operator()()':<br>
+/usr/lib/gcc/i586-linux-gnu/4.9/include/xmmintrin.h:818:1: error: inlining faile<br>
+d in call to always_inline 'unsigned int _mm_getcsr()': target specific option m<br>
+ismatch<br>
+ _mm_getcsr (void)<br>
+ ^<br>
+/home/magda/work/openems/openEMS/openEMS/FDTD/engine_multithread.cpp:257:37: err<br>
+or: called from here<br>
+  unsigned int oldMXCSR = _mm_getcsr(); //read the old MXCSR setting<br>
+                                     ^<br>
+In file included from /home/magda/work/openems/openEMS/openEMS/FDTD/engine_multi<br>
+thread.cpp:35:0:<br>
+/usr/lib/gcc/i586-linux-gnu/4.9/include/xmmintrin.h:850:1: error: inlining failed in call to always_inline 'void _mm_setcsr(unsigned int)': target specific option mismatch<br>
+ _mm_setcsr (unsigned int __I)<br>
+ ^<br>
+/home/magda/work/openems/openEMS/openEMS/FDTD/engine_multithread.cpp:259:24: error: called from here<br>
+  _mm_setcsr( newMXCSR ); //write the new MXCSR setting to the MXCSR<br>
+                        ^<br>
+FDTD/CMakeFiles/FDTD.dir/build.make<img alt=":100:" class="emoji smilies" draggable="false" src="http://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4af.png"> recipe for target 'FDTD/CMakeFiles/FDTD.dir/engine_multithread.cpp.o' failed<br>
+make[5]: *** [FDTD/CMakeFiles/FDTD.dir/engine_multithread.cpp.o] Error 1<br>
+CMakeFiles/Makefile2:213: recipe for target 'FDTD/CMakeFiles/FDTD.dir/all' failed<br>
+make[4]: *** [FDTD/CMakeFiles/FDTD.dir/all] Error 2<br>
+Makefile:116: recipe for target 'all' failed<br>
+make[3]: *** [all] Error 2<br>
+CMakeFiles/openEMS.dir/build.make:110: recipe for target 'openEMS-prefix/src/openEMS-stamp/openEMS-build' failed<br>
+make[2]: *** [openEMS-prefix/src/openEMS-stamp/openEMS-build] Error 2<br>
+CMakeFiles/Makefile2:201: recipe for target 'CMakeFiles/openEMS.dir/all' failed<br>
+make[1]: *** [CMakeFiles/openEMS.dir/all] Error 2<br>
+Makefile:75: recipe for target 'all' failed<br>
+make: *** [all] Error 2<br>
+<br>
+Expect it to build cleanly on an updated Debian testing environment.</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1776" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1776">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1776">
+
+						<h3 ><a href="viewtopic.php%3Fp=1802.html#p1776">Re: RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1776.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1776.html#p1776" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Fri 14 Aug 2015, 17:55
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+thanks for testing. Yes I guess I should have added the link to the dependency list: <a href="../index.php/Compile_from_Source.html#Requirement" class="postlink">http://openems.de/index.php/Compile_fro ... equirement</a><br>
+<br>
+Your error message is really strange. This was certainly not changed during the last release cycle. It looks like a SSE instruction error. I do not think you use such a old CPU that it does not even have SSE?<br>
+<br>
+Can you build using the verbose option? <br>
+Unfortunatly you have to edit the update script, change <a href="https://github.com/thliebig/openEMS-Project/blob/master/update_openEMS.sh#L113" class="postlink">line 113</a> to:
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Fp=1802.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>make VERBOSE=1 &gt;&gt; $LOG_FILE 2&gt;&amp;1</code></pre></div>
+
+Another note:<br>
+- You try to build using vtk6 and qt5. That should work, but my tests revealed a nasty bug in qt5 regarding vtk making this combination pretty unusable on Linux with X11.<br>
+I recommend to use qt4 and vtk5 until this is fixed in qt5...<br>
+But feel free to test, maybe it is already fixed, at least the bug is known to Qt<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1796" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1796">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=339.html" class="username">Zilon</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=339&amp;sr=posts">2</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Wed 02 Sep 2015, 15:29</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1796">
+
+						<h3 ><a href="viewtopic.php%3Fp=1802.html#p1796">Re: RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1796.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1796.html#p1796" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=339.html" class="username">Zilon</a></strong> &raquo; </span>Wed 02 Sep 2015, 15:36
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+I'm trying to test your new version for Windows but it seems to me that there are some scripts that Matlab needs are missing. Examples are the InitFDTD.m, physical_constants.m, and openEMS.exe files. But maybe there are also some other files missing.<br>
+<br>
+<br>
+<br>
+Thanks and regards<br>
+Thomas</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1797" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1797">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1797">
+
+						<h3 ><a href="viewtopic.php%3Fp=1802.html#p1797">Re: RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1797.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1797.html#p1797" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Wed 02 Sep 2015, 17:37
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+yes indeed the new package script seems to be not ok. I will investigate. Thanks<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1798" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1798">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1798">
+
+						<h3 ><a href="viewtopic.php%3Fp=1802.html#p1798">Re: RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1798.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1798.html#p1798" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Wed 02 Sep 2015, 18:20
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+I hope I have fixed the issue, please try RC-2 (see edit on original post)<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1799" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1799">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=339.html" class="username">Zilon</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=339&amp;sr=posts">2</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Wed 02 Sep 2015, 15:29</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1799">
+
+						<h3 ><a href="viewtopic.php%3Fp=1802.html#p1799">Re: RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1799.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1799.html#p1799" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=339.html" class="username">Zilon</a></strong> &raquo; </span>Thu 03 Sep 2015, 14:58
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+thank you for the updated version. I just started testing it with some of my previously used scripts that are successfully running with version 0.32. Now, I observe that the energy within the simulated volume is increasing more and more until the simulation stops after ca. 150 timesteps.<br>
+<br>
+I am simulating light propagation through a material stack of different refractive indices. But also if I reduce my model to propagation through air, the behavior stays the same. For excitation, I employ sinusoidal excitation of a single wavelength, here 500 nm.<br>
+<br>
+Are there any changes regarding the usage of some parameters that may cause this issue?<br>
+<br>
+Thanks<br>
+Thomas</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1800" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1800">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1800">
+
+						<h3 ><a href="viewtopic.php%3Fp=1802.html#p1800">Re: RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1800.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1800.html#p1800" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Thu 03 Sep 2015, 19:21
+			</p>
+			
+			
+			
+			<div class="content">Hi Thomas,<br>
+<br>
+especially for the sinusoidal excitation I made some changes and thus I'm grateful for your feedback.<br>
+First off, for this excitation type the energy can only go up since energy is constantly pumped into the system. It can only reach a steady state at some point (energy feed in equals energy lost e.g. by absorbing boundaries or lossy materials). <br>
+What is new is that openEMS now has a steady state detection which is used by default for periodic and not decaying excitations (like sinusoidal).<br>
+ <br>
+Can you attach your log files? Maybe one with 0.0.32 and 0.0.33-rc2? Do the result differ as well?<br>
+<br>
+Edit: maybe you can open a new topic for this in the "Usage" section?<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1801" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1801">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1801">
+
+						<h3 ><a href="viewtopic.php%3Fp=1802.html#p1801">Re: RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1801.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1801.html#p1801" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Thu 03 Sep 2015, 21:19
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+I had another look at the steady state detection and found a bug that actually makes this unstable. Thus your observation about exploding energy was correct... <br>
+I'm working on it...<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p1802" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile1802">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content1802">
+
+						<h3 ><a href="viewtopic.php%3Fp=1802.html#p1802">Re: RC-1 for openEMS v0.0.33</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="posting.php%3Fmode=quote&amp;f=5&amp;p=1802.html" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php%3Fp=1802.html#p1802" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Thu 03 Sep 2015, 23:17
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+I fixed the instability and improved the sinusoidal excitation handling and the steady state detection. Please test!<br>
+<a href="http://openems.de/download/win64/openEMS_x64_v0.0.33-rc2-3-g9c80672.zip" class="postlink">http://openems.de/download/win64/openEM ... c80672.zip</a><br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Fp=1802.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="posting.php%3Fmode=reply&amp;f=5&amp;t=303.html" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=5&amp;t=303&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php%3Ff=5&amp;t=303.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			10 posts
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php%3Ff=5.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “News”</span>
+		</a>
+	</p>
+	
+		<div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+			<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+				<span>Jump to</span>
+				<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+			</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																				<li><a href="viewforum.php%3Ff=1.html" class="jumpbox-cat-link"> <span> openEMS Support</span></a></li>
+																<li><a href="viewforum.php%3Ff=5.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News</span></a></li>
+																<li><a href="viewforum.php%3Ff=2.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Install</span></a></li>
+																<li><a href="viewforum.php%3Ff=3.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Usage</span></a></li>
+																<li><a href="viewforum.php%3Ff=4.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Feedback</span></a></li>
+																<li><a href="viewforum.php%3Ff=6.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Development</span></a></li>
+											</ul>
+		</div>
+	</div>
+
+	</div>
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="UTC+2">UTC+02:00</span></li>
+							<li class="rightside">
+				<a href="http://openems.de/forum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+												<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+					<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+				</a>
+			</li>
+									<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=contactadmin.html" role="menuitem">
+					<i class="icon fa-envelope fa-fw" aria-hidden="true"></i><span>Contact us</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row">
+			<a class="footer-link" href="ucp.php%3Fmode=privacy.html" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="ucp.php%3Fmode=terms.html" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php%3Fp=1802.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php%3Fp=1802.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script type="text/javascript" src="assets/javascript/jquery.min.js%3Fassets_version=3"></script>
+<script type="text/javascript" src="assets/javascript/core.js%3Fassets_version=3"></script>
+
+
+
+<script src="styles/prosilver/template/forum_fn.js%3Fassets_version=3"></script>
+<script src="styles/prosilver/template/ajax.js%3Fassets_version=3"></script>
+
+
+
+</body>
+</html>

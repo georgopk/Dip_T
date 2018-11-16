@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Overview,AppCSXCAD,Box,CSXCAD,Curve,Cylinder,Cylindrical Shell,Drude/Lorentz Material Property,Dump Box Property,Examples,Excitation" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Overview&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Overview - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Overview";
+		var wgTitle = "Overview";
+		var wgAction = "view";
+		var wgArticleId = "162";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 780;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Overview skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Overview</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="http://openems.de/index.php/Overview.html#column-one">navigation</a>, <a href="http://openems.de/index.php/Overview.html#searchInput">search</a></div>			<!-- start content -->
+			<p><b>Note: This page is under construction. If you have experience with openEMS, please consider to create an account and help improve this page.</b></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Overview.html#Installation"><span class="tocnumber">1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Overview.html#FDTD_Setup"><span class="tocnumber">2</span> <span class="toctext">FDTD Setup</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Overview.html#CSXCAD:_Geometry_Setup"><span class="tocnumber">3</span> <span class="toctext">CSXCAD: Geometry Setup</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Overview.html#Properties"><span class="tocnumber">3.1</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://openems.de/index.php/Overview.html#Physical_properties"><span class="tocnumber">3.1.1</span> <span class="toctext">Physical properties</span></a></li>
+<li class="toclevel-3"><a href="http://openems.de/index.php/Overview.html#Non-physical_properties"><span class="tocnumber">3.1.2</span> <span class="toctext">Non-physical properties</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Overview.html#Primitives"><span class="tocnumber">3.2</span> <span class="toctext">Primitives</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Overview.html#Combined_Properties_and_Primitives"><span class="tocnumber">3.3</span> <span class="toctext">Combined Properties and Primitives</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://openems.de/index.php/Overview.html#Ports"><span class="tocnumber">3.3.1</span> <span class="toctext">Ports</span></a></li>
+<li class="toclevel-3"><a href="http://openems.de/index.php/Overview.html#Other"><span class="tocnumber">3.3.2</span> <span class="toctext">Other</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Overview.html#Meshing"><span class="tocnumber">3.4</span> <span class="toctext">Meshing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Overview.html#Simulation_Run"><span class="tocnumber">4</span> <span class="toctext">Simulation Run</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Overview.html#Post-Processing"><span class="tocnumber">5</span> <span class="toctext">Post-Processing</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Overview.html#Help"><span class="tocnumber">6</span> <span class="toctext">Help</span></a></li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Overview.html#Other_topics.2Flinks"><span class="tocnumber">7</span> <span class="toctext">Other topics/links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Installation" id="Installation"></a></p>
+<h1><span class="mw-headline">Installation</span></h1>
+<ul>
+<li><a href="http://openems.de/index.php/OpenEMS.html#Installation" title="OpenEMS">Install instructions for Windows and Linux</a></li>
+</ul>
+<p><a name="FDTD_Setup" id="FDTD_Setup"></a></p>
+<h1><span class="mw-headline">FDTD Setup</span></h1>
+<ul>
+<li><a href="http://openems.de/index.php/index.php?title=FDTD_Options&amp;action=edit&amp;redlink=1" class="new" title="FDTD Options (page does not exist)">Init FDTD</a></li>
+<li><a href="FDTD_Boundary_Conditions.html" title="FDTD Boundary Conditions">FDTD Boundary Conditions</a></li>
+<li><a href="Excitation.html" title="Excitation">Excitation time signals</a></li>
+</ul>
+<p><a name="CSXCAD:_Geometry_Setup" id="CSXCAD:_Geometry_Setup"></a></p>
+<h1><span class="mw-headline"><a href="CSXCAD.html" title="CSXCAD">CSXCAD</a>: Geometry Setup</span></h1>
+<p><a name="Properties" id="Properties"></a></p>
+<h2><span class="mw-headline"><a href="Properties.html" title="Properties">Properties</a></span></h2>
+<p><a name="Physical_properties" id="Physical_properties"></a></p>
+<h3><span class="mw-headline">Physical properties</span></h3>
+<ul>
+<li><a href="Material_Property.html" title="Material Property">Material</a></li>
+<li><a href="Metal_Property.html" title="Metal Property">Metal</a></li>
+<li><a href="http://openems.de/index.php/Drude/Lorentz_Material_Property.html" title="Drude/Lorentz Material Property" class="mw-redirect">Dispersive Materials</a></li>
+<li><a href="http://openems.de/index.php/index.php?title=Discrete_Material&amp;action=edit&amp;redlink=1" class="new" title="Discrete Material (page does not exist)">Discrete Material</a></li>
+<li><a href="http://openems.de/index.php/index.php?title=Lumped_Elements&amp;action=edit&amp;redlink=1" class="new" title="Lumped Elements (page does not exist)">Lumped Elements</a></li>
+<li><a href="Excitation.html" title="Excitation">Excitation</a></li>
+</ul>
+<p><a name="Non-physical_properties" id="Non-physical_properties"></a></p>
+<h3><span class="mw-headline">Non-physical properties</span></h3>
+<ul>
+<li><a href="Dump_Box_Property.html" title="Dump Box Property">Dump Box</a></li>
+<li><a href="Probe_Box_Property.html" title="Probe Box Property">Probe Box</a></li>
+</ul>
+<p><a name="Primitives" id="Primitives"></a></p>
+<h2><span class="mw-headline"><a href="Primitives.html" title="Primitives">Primitives</a></span></h2>
+<ul>
+<li><a href="Box.html" title="Box">Box</a></li>
+<li><a href="Sphere.html" title="Sphere">Sphere</a></li>
+<li><a href="Spherical_Shell.html" title="Spherical Shell">Spherical Shell</a></li>
+<li><a href="Cylinder.html" title="Cylinder">Cylinder</a></li>
+<li><a href="Cylindrical_Shell.html" title="Cylindrical Shell">Cylindrical Shell</a></li>
+<li><a href="Curve.html" title="Curve">Curve</a></li>
+<li><a href="Wire.html" title="Wire">Wire</a></li>
+<li><a href="Polygon.html" title="Polygon">Polygon</a></li>
+<li><a href="Polygon.html" title="Polygon">Extruded polygon</a></li>
+<li><a href="Polygon.html" title="Polygon">Rotational solid (based on a polygon)</a></li>
+<li><a href="Polyhedron.html" title="Polyhedron">Polyhedron</a></li>
+</ul>
+<p><a name="Combined_Properties_and_Primitives" id="Combined_Properties_and_Primitives"></a></p>
+<h2><span class="mw-headline">Combined Properties and Primitives</span></h2>
+<p><a name="Ports" id="Ports"></a></p>
+<h3><span class="mw-headline"><a href="http://openems.de/index.php/Ports.html" title="Ports">Ports</a></span></h3>
+<ul>
+<li><a href="http://openems.de/index.php/Ports.html#Lumped_Port" title="Ports">Lumped Ports</a></li>
+<li><a href="http://openems.de/index.php/Ports.html#Curve_Port" title="Ports">Curve Ports</a></li>
+<li><a href="http://openems.de/index.php/Ports.html#Microstrip_Port" title="Ports">Microstrip Ports</a></li>
+<li><a href="http://openems.de/index.php/Ports.html#Circular_Wave-Guide_Ports" title="Ports">Circular Wave-Guide Ports</a></li>
+<li><a href="http://openems.de/index.php/Ports.html#Rectangular_Wave-Guide_Ports" title="Ports">Rectangular Wave-Guide Ports</a></li>
+</ul>
+<p><a name="Other" id="Other"></a></p>
+<h3><span class="mw-headline">Other</span></h3>
+<ul>
+<li><a href="NF2FF.html" title="NF2FF">Near-field to far-field dump setup</a></li>
+</ul>
+<p><a name="Meshing" id="Meshing"></a></p>
+<h2><span class="mw-headline"><a href="FDTD_Mesh.html" title="FDTD Mesh">Meshing</a></span></h2>
+<ul>
+<li><a href="FDTD_Mesh.html" title="FDTD Mesh">General infos on meshing</a></li>
+<li><a href="http://openems.de/index.php/index.php?title=Detect_Edges&amp;action=edit&amp;redlink=1" class="new" title="Detect Edges (page does not exist)">Detect Edges</a></li>
+<li><a href="http://openems.de/index.php/index.php?title=Mesh_Smoothing&amp;action=edit&amp;redlink=1" class="new" title="Mesh Smoothing (page does not exist)">Mesh smoothing</a></li>
+</ul>
+<p><a name="Simulation_Run" id="Simulation_Run"></a></p>
+<h1><span class="mw-headline">Simulation Run</span></h1>
+<ul>
+<li><a href="http://openems.de/index.php/AppCSXCAD.html" title="AppCSXCAD">Structural review</a></li>
+<li><a href="http://openems.de/index.php/index.php?title=Simulation_Run&amp;action=edit&amp;redlink=1" class="new" title="Simulation Run (page does not exist)">Running a simulation</a></li>
+<li><a href="Remote_SSH.html" title="Remote SSH">Running on a remote server using SSH</a></li>
+<li><a href="http://openems.de/index.php/index.php?title=MPI&amp;action=edit&amp;redlink=1" class="new" title="MPI (page does not exist)">Running on a MPI cluster</a></li>
+</ul>
+<p><a name="Post-Processing" id="Post-Processing"></a></p>
+<h1><span class="mw-headline">Post-Processing</span></h1>
+<ul>
+<li><a href="http://openems.de/index.php/index.php?title=UI-Processing&amp;action=edit&amp;redlink=1" class="new" title="UI-Processing (page does not exist)">Voltage and current processing</a></li>
+<li><a href="http://openems.de/index.php/index.php?title=S-Parameter&amp;action=edit&amp;redlink=1" class="new" title="S-Parameter (page does not exist)">Scattering Parameter processing</a></li>
+<li><a href="http://openems.de/index.php/index.php?title=Field_Processing&amp;action=edit&amp;redlink=1" class="new" title="Field Processing (page does not exist)">Field Processing</a></li>
+<li><a href="NF2FF.html" title="NF2FF">Near-field to far-field processing</a></li>
+<li><a href="http://openems.de/index.php/index.php?title=SAR&amp;action=edit&amp;redlink=1" class="new" title="SAR (page does not exist)">SAR processing</a></li>
+</ul>
+<p><a name="Help" id="Help"></a></p>
+<h1><span class="mw-headline">Help</span></h1>
+<ul>
+<li><a href="https://www.openEMS.de/forum" class="external text" title="https://www.openEMS.de/forum" rel="nofollow">Forum</a></li>
+<li><a href="http://openems.de/index.php/Tutorials.html" title="Tutorials">Tutorials</a></li>
+<li><a href="Examples.html" title="Examples">Examples</a></li>
+<li><a href="Frequently_Asked_Questions.html" title="Frequently Asked Questions">Frequently Asked Questions</a></li>
+<li><a href="http://openems.de/index.php/Troubleshooting.html" title="Troubleshooting">Troubleshooting and debugging</a></li>
+<li><a href="Introduction.html" title="Introduction">Introduction</a></li>
+<li><a href="List_of_Functions.html" title="List of Functions">List of Functions</a></li>
+</ul>
+<p><a name="Other_topics.2Flinks" id="Other_topics.2Flinks"></a></p>
+<h1><span class="mw-headline">Other topics/links</span></h1>
+<ul>
+<li><a href="http://openems.de/index.php/Publications.html" title="Publications">Publications</a></li>
+<li><a href="http://openems.de/index.php/Main_Page.html" title="Main Page">Main Page</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Finite-difference_time-domain_method" class="external text" title="https://en.wikipedia.org/wiki/Finite-difference_time-domain_method" rel="nofollow">Wikipedia on FDTD</a></li>
+</ul>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 16/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:162-0!1!0!!en!2!edit=0 and timestamp 20181110114347 -->
+<div class="printfooter">
+Retrieved from "<a href="http://openems.de/index.php/Overview.html">index.php/Overview</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 21 June 2013, at 19:02.</li>
+					<li id="viewcount">This page has been accessed 25,250 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.1" />
+		<meta name="keywords" content="Ports,Ports,Excitation,FDTD Boundary Conditions,FDTD Mesh,Primitives,Properties,Tutorial: CRLH Parameter Extraction,Tutorial: Microstrip Notch Filter,Tutorial: Simple Patch Antenna,Metal" />
+		<link rel="shortcut icon" href="http://openems.de/index.php/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="http://openems.de/index.php/opensearch_desc.php" title="openEMS (en)" />
+		<link title="Creative Commons" type="application/rdf+xml" href="http://openems.de/index.php/index.php?title=Ports&amp;action=creativecommons" rel="meta" />
+		<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" />
+		<link rel="alternate" type="application/rss+xml" title="openEMS RSS Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="openEMS Atom Feed" href="http://openems.de/index.php/index.php?title=Special:RecentChanges&amp;feed=atom" />
+		<title>Ports - openEMS</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Ports";
+		var wgTitle = "Ports";
+		var wgAction = "view";
+		var wgArticleId = "155";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 1099;
+		var wgVersion = "1.15.1";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-matlab {line-height: normal;}
+.source-matlab li, .source-matlab pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for matlab
+ * CSS class: source-matlab, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (https://qbnz.com/highlighter/ and https://geshi.org/)
+ * --------------------------------------
+ */
+.matlab.source-matlab .de1, .matlab.source-matlab .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.matlab.source-matlab  {font-family:monospace;}
+.matlab.source-matlab .imp {font-weight: bold; color: red;}
+.matlab.source-matlab li, .matlab.source-matlab .li1 {font-weight: normal; vertical-align:top;}
+.matlab.source-matlab .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.matlab.source-matlab .li2 {font-weight: bold; vertical-align:top;}
+.matlab.source-matlab .kw1 {color: #0000FF;}
+.matlab.source-matlab .kw2 {color: #0000FF;}
+.matlab.source-matlab .co1 {color: #228B22;}
+.matlab.source-matlab .co2 {color:#A020F0;}
+.matlab.source-matlab .br0 {color: #080;}
+.matlab.source-matlab .sy0 {color: #080;}
+.matlab.source-matlab .nu0 {color: #33f;}
+.matlab.source-matlab .re0 {color: #33f;}
+.matlab.source-matlab .ln-xtra, .matlab.source-matlab li.ln-xtra, .matlab.source-matlab div.ln-xtra {background-color: #ffc;}
+.matlab.source-matlab span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "http://openems.de/index.php/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="http://openems.de/index.php/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	<style type='text/css'> #turnkey-credit { font-family: Tahoma,Sans,Arial,Helvetica,Verdana,sans-serif; font-size: 11px; text-align: center; } #turnkey-credit a { text-decoration: none; } #turnkey-credit a:hover { text-decoration: underline; } </style></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Ports skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Ports</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From openEMS</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="http://openems.de/index.php/Ports.html#column-one">navigation</a>, <a href="http://openems.de/index.php/Ports.html#searchInput">search</a></div>			<!-- start content -->
+			<p><b>Note: This page is under construction. If you have experience with openEMS, please consider to create an account and help improve this page.</b></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Ports.html#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Ports.html#Defining_Multiple_Ports"><span class="tocnumber">1.1</span> <span class="toctext">Defining Multiple Ports</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Ports.html#Concentrated_Ports"><span class="tocnumber">2</span> <span class="toctext">Concentrated Ports</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Ports.html#Lumped_Port"><span class="tocnumber">2.1</span> <span class="toctext">Lumped Port</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Ports.html#Curve_Port"><span class="tocnumber">2.2</span> <span class="toctext">Curve Port</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Ports.html#Transmission_Line_Ports"><span class="tocnumber">3</span> <span class="toctext">Transmission Line Ports</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Ports.html#Microstrip_Port"><span class="tocnumber">3.1</span> <span class="toctext">Microstrip Port</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Ports.html#Waveguide_Ports"><span class="tocnumber">4</span> <span class="toctext">Waveguide Ports</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Ports.html#Circular_Waveguide_Ports"><span class="tocnumber">4.1</span> <span class="toctext">Circular Waveguide Ports</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Ports.html#Rectangular_Waveguide_Ports"><span class="tocnumber">4.2</span> <span class="toctext">Rectangular Waveguide Ports</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://openems.de/index.php/Ports.html#Port_Post_Processing"><span class="tocnumber">5</span> <span class="toctext">Port Post Processing</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Ports.html#Time_Domain_Currents_and_Voltages_Data"><span class="tocnumber">5.1</span> <span class="toctext">Time Domain Currents and Voltages Data</span></a></li>
+<li class="toclevel-2"><a href="http://openems.de/index.php/Ports.html#Frequency_Domain_Data"><span class="tocnumber">5.2</span> <span class="toctext">Frequency Domain Data</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Overview" id="Overview"></a></p>
+<h2><span class="mw-headline">Overview</span></h2>
+<p>Ports are macro function that combine e.g. current and voltage probes, field excitations and other necessary <a href="Properties.html" title="Properties">properties</a> and <a href="Primitives.html" title="Primitives">primitives</a>.</p>
+<p>General layout (example):</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="br0">[</span>CSX port<span class="br0">]</span> = Add<span class="sy0">...</span><span class="me1">Port</span><span class="br0">(</span>CSX, prio, port_number, &lt;a list of port dependent parameters&gt;<span class="br0">)</span>
+</pre></div>
+</div>
+<p>with the following parameters:</p>
+<ul>
+<li><b>CSX</b>: The original CSX structure (in &amp; out)</li>
+<li><b>prio</b>: priority for all contained <a href="Primitives.html" title="Primitives">primitives</a></li>
+<li><b>port_number</b>: number of this port (must be unique)</li>
+</ul>
+<p>return values:</p>
+<ul>
+<li><b>CSX</b>: The manipulated CSXCAD structure</li>
+<li><b>port</b>: A new port structure containing all necessary information to use with <a href="http://openems.de/index.php/Ports.html#Port_Post_Processing" title="Ports">calcPort</a> for post-processing purposes</li>
+</ul>
+<p><a name="Defining_Multiple_Ports" id="Defining_Multiple_Ports"></a></p>
+<h3><span class="mw-headline">Defining Multiple Ports</span></h3>
+<p>In many cases you may want to create more than one port, e.g. to calculate the reflection and transmission parameters. In this case it is a good idea to create a cell array of port structures. Example:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="co1">% port 1 (maybe active)</span>
+<span class="br0">[</span>CSX port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="br0">]</span> = Add<span class="sy0">...</span><span class="me1">Port</span><span class="br0">(</span>CSX, prio, <span class="nu0">1</span>, &lt;a list of port dependent parameters&gt;<span class="br0">)</span>
+ 
+<span class="co1">% port 2 (maybe passive)</span>
+<span class="br0">[</span>CSX port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span><span class="br0">]</span> = Add<span class="sy0">...</span><span class="me1">Port</span><span class="br0">(</span>CSX, prio, <span class="nu0">2</span>, &lt;a list of port dependent parameters&gt;<span class="br0">)</span>
+</pre></div>
+</div>
+<p><b>Note:</b> Keep in mind that in order to calculate a reflection and transmission, only one port at a time can be active.</p>
+<p><a name="Concentrated_Ports" id="Concentrated_Ports"></a></p>
+<h2><span class="mw-headline">Concentrated Ports</span></h2>
+<p>Concentrated ports such as the lumped or curve port are supposed to be very small and compact ports. Their size should be much smaller than the wavelength.</p>
+<p><a name="Lumped_Port" id="Lumped_Port"></a></p>
+<h3><span class="mw-headline">Lumped Port</span></h3>
+<p>A lumped port is a 1D, 2D or 3D box containing a feeding resistance (e.g. 50 Ohms) and a current and voltage probe measuring the current through and the voltage along this resistance. As any port it can be active/include an <a href="Excitation.html" title="Excitation">excitation</a> or not.</p>
+<p>Example of an active 1D port with 50 Ohm:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+start = <span class="br0">[</span><span class="nu0">100</span> <span class="nu0">0</span> <span class="nu0">0</span><span class="br0">]</span>;
+stop  = <span class="br0">[</span><span class="nu0">100</span> <span class="nu0">0</span> <span class="nu0">50</span><span class="br0">]</span>;
+<span class="br0">[</span>CSX port<span class="br0">]</span> = AddLumpedPort<span class="br0">(</span>CSX, <span class="nu0">5</span> ,<span class="nu0">1</span> , <span class="nu0">50</span>, start, stop, <span class="br0">[</span><span class="nu0">0</span> <span class="nu0">0</span> <span class="nu0">1</span><span class="br0">]</span>, true<span class="br0">)</span>;
+</pre></div>
+</div>
+<p>The vector argument indicates that the direction of the port is z. The value "true" indicates that this port is active.</p>
+<p>See also: <a href="http://openems.de/index.php/Tutorial:_Simple_Patch_Antenna.html" title="Tutorial: Simple Patch Antenna">Simple Patch Antenna Tutorial</a></p>
+<p><a name="Curve_Port" id="Curve_Port"></a></p>
+<h3><span class="mw-headline">Curve Port</span></h3>
+<p><a name="Transmission_Line_Ports" id="Transmission_Line_Ports"></a></p>
+<h2><span class="mw-headline">Transmission Line Ports</span></h2>
+<p>Transmission line ports are the most complex ports available in openEMS.</p>
+<p><b>The <a href="FDTD_Mesh.html" title="FDTD Mesh">FDTD mesh</a> must be already defined for this type of port!</b></p>
+<p><a name="Microstrip_Port" id="Microstrip_Port"></a></p>
+<h3><span class="mw-headline">Microstrip Port</span></h3>
+<p>General layout (example):</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="br0">[</span>CSX,port<span class="br0">]</span> = AddMSLPort<span class="br0">(</span> CSX, prio, portnr, materialname, start, stop, <span class="kw2">dir</span>, evec, <span class="kw2">varargin</span> <span class="br0">)</span>
+</pre></div>
+</div>
+<p>with the following additional parameters:</p>
+<ul>
+<li><b>materialname</b>: is the <a href="http://openems.de/index.php/index.php?title=Metal&amp;action=edit&amp;redlink=1" class="new" title="Metal (page does not exist)">metal</a> or conducting sheet property name used for the metallic property</li>
+<li><b>start/stop</b>: the start/stop coordinates of a box defining the outer boundary of the port. The order of start/stop does matter in this case as the wave is assumed to travel from start to stop. Ensure that the box covers at least 2 grid cells in the direction of the excitation vector.</li>
+<li><b>dir</b>: direction of propagation (0,1 or 2 for x-, y- or z-direction)</li>
+<li><b>evec</b>: excitation vector, which defines the direction of the e-field</li>
+</ul>
+<p>optional/variable parameters as key/values:</p>
+<ul>
+<li><b>ExcitePort</b>: true/false to make the port an active feeding port (default is false)</li>
+<li><b>FeedShift</b>: shift the port from start by a given distance in drawing units. Default is 0. Only used if port is active!</li>
+<li><b>Feed_R</b>: Specify a lumped port resistance. Default is no lumped port resistance --&gt; port has to start in an absorbing boundary such as a <a href="FDTD_Boundary_Conditions.html#PML_x_ABC" title="FDTD Boundary Conditions">PML</a>.</li>
+<li><b>MeasPlaneShift</b>: Shift the measurement plane from start in propagation direction to a given distance in drawing units. Default is the middle of start/stop.</li>
+</ul>
+<p>Example:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+CSX = AddMetal<span class="br0">(</span> CSX, <span class="co2">'PEC'</span> <span class="br0">)</span>;
+portstart = <span class="br0">[</span> <span class="nu0">0</span>,    -MSL_width/<span class="nu0">2</span>, substrate_thickness<span class="br0">]</span>;
+portstop  = <span class="br0">[</span> <span class="nu0">5000</span>,  MSL_width/<span class="nu0">2</span>, <span class="nu0">0</span><span class="br0">]</span>;
+<span class="br0">[</span>CSX, port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="br0">]</span> = AddMSLPort<span class="br0">(</span>CSX, <span class="nu0">999</span>, <span class="nu0">1</span>, <span class="co2">'PEC'</span>, portstart, portstop, <span class="nu0">0</span>, <span class="br0">[</span><span class="nu0">0</span> <span class="nu0">0</span> -<span class="nu0">1</span><span class="br0">]</span>, <span class="co2">'ExcitePort'</span>, true, <span class="sy0">...</span>
+                            <span class="co2">'FeedShift'</span>, <span class="nu0">10</span>*resolution, <span class="co2">'MeasPlaneShift'</span>,  MSL_length/<span class="nu0">3</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>See also: <a href="Tutorial:_Microstrip_Notch_Filter.html" title="Tutorial: Microstrip Notch Filter">Microstip Notch Filter Tutorial</a>, <a href="Tutorial:_CRLH_Parameter_Extraction.html" title="Tutorial: CRLH Parameter Extraction">CRLH Parameter Extraction Tutorial</a></p>
+<p><a name="Waveguide_Ports" id="Waveguide_Ports"></a></p>
+<h2><span class="mw-headline">Waveguide Ports</span></h2>
+<p><a name="Circular_Waveguide_Ports" id="Circular_Waveguide_Ports"></a></p>
+<h3><span class="mw-headline">Circular Waveguide Ports</span></h3>
+<p>Circular waveguide ports are set up with the following command:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="br0">[</span>CSX,port<span class="br0">]</span> = AddCircWaveGuidePort<span class="br0">(</span>CSX, prio, portnr, start, stop, radius, mode_name, pol_ang, exc_amp, <span class="kw2">varargin</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>with the following parameters:</p>
+<ul>
+<li><b>CSX</b>: The original CSX structure (in &amp; out)</li>
+<li><b>prio</b>: priority for all contained <a href="Primitives.html" title="Primitives">primitives</a></li>
+<li><b>port_number</b>: number of this port (must be unique)</li>
+<li><b>start</b>: start coordinates of waveguide port box</li>
+<li><b>stop</b>: stop coordinates of waveguide port box</li>
+<li><b>radius</b>: circular waveguide radius in metres</li>
+<li><b>mode_name</b>: mode name, e.g. 'TE11' or 'TM21'</li>
+<li><b>pol_ang</b>: polarization angle (e.g. 0 = horizontal, pi/2 = vertical)</li>
+<li><b>exc_amp</b>: excitation amplitude (set 0 to be passive)</li>
+</ul>
+<p>Return values:</p>
+<ul>
+<li><b>CSX</b>: The manipulated CSXCAD structure</li>
+<li><b>port</b>: A new port structure containing all necessary information to use with <a href="http://openems.de/index.php/Ports.html#Port_Post_Processing" title="Ports">calcPort</a> for post-processing purposes</li>
+</ul>
+<p>Note that the excitation will be located at the start position and the voltage and current probes will be located at the stop position.</p>
+<p>The stop coordinate of the port box defines the reference plane for the port.</p>
+<p>An example using a cylindrical coordinate system (cartesian coordinates also work in a similar manner):</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+   <span class="co1">% create a TE11 circular waveguide mode, using cylindrical coordinates</span>
+   start=<span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">r</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">a</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="nu0">0</span>  <span class="br0">]</span>;
+   stop =<span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">r</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">a</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="nu0">100</span><span class="br0">]</span>;
+   <span class="br0">[</span>CSX,port<span class="br0">]</span> = AddCircWaveGuidePort<span class="br0">(</span> CSX, <span class="nu0">99</span>, <span class="nu0">1</span>, start, stop, 320e-3, <span class="co2">'TE11'</span>, <span class="nu0">0</span>, <span class="nu0">1</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Rectangular_Waveguide_Ports" id="Rectangular_Waveguide_Ports"></a></p>
+<h3><span class="mw-headline">Rectangular Waveguide Ports</span></h3>
+<p>Rectangular waveguide ports are set up with the following command:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+<span class="br0">[</span>CSX,port<span class="br0">]</span> = AddRectWaveGuidePort<span class="br0">(</span> CSX, prio, portnr, start, stop, <span class="kw2">dir</span>, a, b, mode_name, exc_amp, <span class="kw2">varargin</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p>with the following parameters:</p>
+<ul>
+<li><b>CSX</b>: complete CSX structure (must contain a mesh)</li>
+<li><b>prio</b>: priority of primitives</li>
+<li><b>start</b>: start coordinates of waveguide port box</li>
+<li><b>stop</b>: stop coordinates of waveguide port box</li>
+<li><b>dir</b>: direction of port (0/1/2 or 'x'/'y'/'z'-direction)</li>
+<li><b>a,b</b>: rectangular waveguide width and height (in metre)</li>
+<li><b>mode_name</b>: mode name, e.g. 'TE11' or 'TM21'</li>
+<li><b>exc_amp</b>: excitation amplitude (set 0 to be passive)</li>
+</ul>
+<p>Return values:</p>
+<ul>
+<li><b>CSX</b>: modified CSX structure</li>
+<li><b>port</b>: port structure to use with calcPort</li>
+</ul>
+<p>Ports are in the form of a box with the excitation plane located at the start position and the voltage and current probes located at the stop position.</p>
+<p>The stop coordinate of the port box defines the reference plane for the port.</p>
+<p>An example of an active port directed along the z-direction:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+start=<span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>   <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="nu0">11</span><span class="br0">)</span><span class="br0">]</span>;
+stop =<span class="br0">[</span><span class="kw2">mesh</span>.<span class="me1">x</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">y</span><span class="br0">(</span><span class="kw1">end</span><span class="br0">)</span> <span class="kw2">mesh</span>.<span class="me1">z</span><span class="br0">(</span><span class="nu0">15</span><span class="br0">)</span><span class="br0">]</span>;
+<span class="br0">[</span>CSX, port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span><span class="br0">]</span> = AddRectWaveGuidePort<span class="br0">(</span> CSX, <span class="nu0">0</span>, <span class="nu0">1</span>, start, stop, <span class="co2">'z'</span>, a*unit, b*unit, TE_mode, <span class="nu0">1</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Port_Post_Processing" id="Port_Post_Processing"></a></p>
+<h2><span class="mw-headline">Port Post Processing</span></h2>
+<p><a name="Time_Domain_Currents_and_Voltages_Data" id="Time_Domain_Currents_and_Voltages_Data"></a></p>
+<h3><span class="mw-headline">Time Domain Currents and Voltages Data</span></h3>
+<p>After calling <code>calcPort()</code> one can obtain the time-domain voltages and currents for ports i=1,2,3 ...:</p>
+<ul>
+<li>Time values: <code>port{i}.raw.U.TD{1}.t</code></li>
+<li>Voltage values: <code>port{i}.raw.U.TD{1}.val</code></li>
+<li>Current values: <code>port{i}.raw.I.TD{1}.val</code></li>
+</ul>
+<p>Example of plotting out an input (port{1}) and output (port{2}) voltage and current are shown below</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span> = calcPort<span class="br0">(</span>port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>, Sim_Path, freq<span class="br0">)</span>;
+port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span> = calcPort<span class="br0">(</span>port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>, Sim_Path, freq<span class="br0">)</span>;
+ 
+<span class="co1">% plot time domain response voltage</span>
+<span class="kw2">figure</span>
+<span class="kw2">plot</span><span class="br0">(</span> 1E12*port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">raw</span>.<span class="me1">U</span>.<span class="me1">TD</span><span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">t</span>,port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">raw</span>.<span class="me1">U</span>.<span class="me1">TD</span><span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">val</span> ,<span class="co2">'k-'</span>, <span class="co2">'Linewidth'</span>, <span class="nu0">2</span> <span class="br0">)</span>;
+<span class="kw2">hold</span> on
+<span class="kw2">grid</span> on
+<span class="kw2">plot</span><span class="br0">(</span> 1E12*port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>.<span class="me1">raw</span>.<span class="me1">U</span>.<span class="me1">TD</span><span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">t</span>,port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>.<span class="me1">raw</span>.<span class="me1">U</span>.<span class="me1">TD</span><span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">val</span> ,<span class="co2">'r--'</span>, <span class="co2">'Linewidth'</span>, <span class="nu0">2</span> <span class="br0">)</span>;
+<span class="kw2">title</span><span class="br0">(</span> <span class="co2">'Voltage vs Time'</span> <span class="br0">)</span>;
+<span class="kw2">xlabel</span><span class="br0">(</span> <span class="co2">'Time (pS)'</span> <span class="br0">)</span>;
+<span class="kw2">ylabel</span><span class="br0">(</span> <span class="co2">'Voltage (V)'</span> <span class="br0">)</span>;
+<span class="kw2">legend</span><span class="br0">(</span> <span class="co2">'port 1'</span>,<span class="co2">'port 2'</span><span class="br0">)</span>;
+<span class="kw2">axis</span> <span class="br0">(</span><span class="br0">[</span><span class="nu0">0</span> <span class="nu0">100</span><span class="br0">]</span><span class="br0">)</span>;
+</pre></div>
+</div>
+<p><a name="Frequency_Domain_Data" id="Frequency_Domain_Data"></a></p>
+<h3><span class="mw-headline">Frequency Domain Data</span></h3>
+<p>After calling <code>calcPort()</code> one can obtain the frequency-domain parameters for ports i=1,2,3 ...:</p>
+<ul>
+<li>Incident voltage: <code>port{i}.uf.inc</code></li>
+<li>Reflected voltage: <code>port{i}.uf.ref</code></li>
+<li>Total voltage: <code>port{i}.uf.tot</code></li>
+<li>Incident current: <code>port{i}.if.inc</code></li>
+<li>Reflected current: <code>port{i}.if.ref</code></li>
+<li>Total current: <code>port{i}.if.tot</code></li>
+</ul>
+<p>Example of calculating s-parameters:</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="matlab source-matlab">
+<pre class="de1">
+port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span> = calcPort<span class="br0">(</span>port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>, Sim_Path, freq<span class="br0">)</span>;
+port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span> = calcPort<span class="br0">(</span>port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>, Sim_Path, freq<span class="br0">)</span>;
+ 
+s11 = port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./ port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+s21 = port<span class="br0">{</span><span class="nu0">2</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">ref</span>./ port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">inc</span>;
+ZL = port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="me1">uf</span>.<span class="me1">tot</span>./port<span class="br0">{</span><span class="nu0">1</span><span class="br0">}</span>.<span class="kw1">if</span>.<span class="me1">tot</span>;
+</pre></div>
+</div>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 47/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki_db:pcache:idhash:155-0!1!0!!en!2!edit=0 and timestamp 20181110114354 -->
+<div class="printfooter">
+Retrieved from "<a href="http://openems.de/index.php/Ports.html">index.php/Ports</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(../images/logo.png);" href="http://openems.de/index.php/Main_Page.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Front-Page"><a href="https://www.openEMS.de">Front Page</a></li>
+				<li id="n-Wiki-Main-Page"><a href="http://openems.de/index.php/Main_Page.html">Wiki Main Page</a></li>
+				<li id="n-Forum"><a href="https://www.openEMS.de/forum">Forum</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-documentation'>
+		<h5>documentation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Installation"><a href="https://openems.de/index.php/OpenEMS#Installation">Installation</a></li>
+				<li id="n-Tutorials"><a href="http://openems.de/index.php/Tutorials.html">Tutorials</a></li>
+				<li id="n-Overview"><a href="http://openems.de/index.php/Overview.html">Overview</a></li>
+				<li id="n-Online-Manual"><a href="Introduction.html">Online Manual</a></li>
+				<li id="n-FAQ"><a href="Frequently_Asked_Questions.html">FAQ</a></li>
+				<li id="n-Publications"><a href="http://openems.de/index.php/Publications.html">Publications</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-copyrightico"><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de"><img src="https://i.creativecommons.org/l/by-sa/3.0/de/88x31.png" alt='Creative Commons 3.0 (CC by-sa)' /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 11 May 2017, at 19:17.</li>
+					<li id="viewcount">This page has been accessed 119,338 times.</li>
+					<li id="copyright">Content is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" class="external " title="https://creativecommons.org/licenses/by-sa/3.0/deed.de">Creative Commons 3.0 (CC by-sa)</a>.</li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=privacy.html" title="openEMS:Privacy policy">Privacy policy</a></li>
+					<li id="about"><a href="http://openems.de/index.php/index.php/openEMS:About" title="openEMS:About">About openEMS</a></li>
+					<li id="privacy"><a href="../start/index.php%3Fshow=imprint.html" title="openEMS:Imprint">Imprint</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+</body></html>

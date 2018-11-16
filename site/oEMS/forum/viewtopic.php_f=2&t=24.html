@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-gb">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>openEMS &amp; Octave - openEMS.de</title>
+
+
+	<link rel="canonical" href="http://openems.de/forum/viewtopic.php?t=24">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+<link href="styles/prosilver/theme/en/stylesheet.css%3Fassets_version=3.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/prosilver/theme/tweaks.css?assets_version=3" rel="stylesheet">
+<![endif]-->
+
+
+
+
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+				<a id="logo" class="logo" href="index.php.html" title="Board index"><span class="site_logo"></span></a>
+				<h1>openEMS.de</h1>
+				<p>OpenEMS Support Forum</p>
+				<p class="skiplink"><a href="viewtopic.php%3Ff=2&amp;t=24.html#start_here">Skip to content</a></p>
+			</div>
+
+									<div id="search-box" class="search-box search-header" role="search">
+				<form action="http://openems.de/forum/search.php" method="get" id="search">
+				<fieldset>
+					<input name="keywords" id="keywords" type="search" maxlength="128" title="Search for keywords" class="inputbox search tiny" size="20" value="" placeholder="Search…" />
+					<button class="button button-search" type="submit" title="Search">
+						<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+					</button>
+					<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+						<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+					</a>
+					
+				</fieldset>
+				</form>
+			</div>
+						
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu" data-skip-responsive="true">
+			<a href="viewtopic.php%3Ff=2&amp;t=24.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+											<li class="separator"></li>
+																									<li>
+								<a href="http://openems.de/forum/search.php?search_id=unanswered" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>Unanswered topics</span>
+								</a>
+							</li>
+							<li>
+								<a href="http://openems.de/forum/search.php?search_id=active_topics" role="menuitem">
+									<i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>Active topics</span>
+								</a>
+							</li>
+							<li class="separator"></li>
+							<li>
+								<a href="http://openems.de/forum/search.php" role="menuitem">
+									<i class="icon fa-search fa-fw" aria-hidden="true"></i><span>Search</span>
+								</a>
+							</li>
+					
+											<li class="separator"></li>
+																			<li>
+								<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+									<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+								</a>
+							</li>
+																<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="http://openems.de/forum/app.php/help/faq" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="ucp.php%3Fmode=login.html" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="ucp.php%3Fmode=register.html" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+						<li class="breadcrumbs">
+										<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><a href="index.php.html" itemprop="url" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="title">Board index</span></a></span>
+
+											<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="1"><a href="viewforum.php%3Ff=1.html" itemprop="url"><span itemprop="title">openEMS Support</span></a></span>
+															<span class="crumb"  itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" data-forum-id="2"><a href="viewforum.php%3Ff=2.html" itemprop="url"><span itemprop="title">Install</span></a></span>
+												</li>
+		
+					<li class="rightside responsive-search">
+				<a href="http://openems.de/forum/search.php" title="View the advanced search options" role="menuitem">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php%3Ff=2&amp;t=24.html">openEMS &amp; Octave</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">Install support for openEMS<br /></div>
+<p>
+	<strong>Moderators:</strong> <a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>, <a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a>
+</p>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="http://openems.de/forum/posting.php?mode=reply&amp;f=2&amp;t=24" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=24&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+			<div class="search-box" role="search">
+			<form method="get" id="topic-search" action="http://openems.de/forum/search.php">
+			<fieldset>
+				<input class="inputbox search tiny"  type="search" name="keywords" id="search_keywords" size="20" placeholder="Search this topic…" />
+				<button class="button button-search" type="submit" title="Search">
+					<i class="icon fa-search fa-fw" aria-hidden="true"></i><span class="sr-only">Search</span>
+				</button>
+				<a href="http://openems.de/forum/search.php" class="button button-search-end" title="Advanced search">
+					<i class="icon fa-cog fa-fw" aria-hidden="true"></i><span class="sr-only">Advanced search</span>
+				</a>
+				<input type="hidden" name="t" value="24" />
+<input type="hidden" name="sf" value="msgonly" />
+
+			</fieldset>
+			</form>
+		</div>
+	
+			<div class="pagination">
+			60 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=10.html" role="button">2</a></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=20.html" role="button">3</a></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=30.html" role="button">4</a></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=40.html" role="button">5</a></li>
+				<li><a class="button" href="http://openems.de/forum/viewtopic.php?f=2&amp;t=24&amp;start=50" role="button">6</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=10.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+		</div>
+
+
+
+
+			<div id="p41" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile41">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=83&amp;sr=posts">16</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 16 Mar 2012, 18:06</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content41">
+
+						<h3 class="first"><a href="viewtopic.php%3Ff=2&amp;t=24.html#p41">openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=41" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=41#p41" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a></strong> &raquo; </span>Fri 16 Mar 2012, 18:32
+			</p>
+			
+			
+			
+			<div class="content">Dear Madam / Sir,<br>
+<br>
+I am a free lancing physicist and work for different clients on<br>
+different projects. Therefore I am dependent on opensource<br>
+software or the license costs would eat up almost all my earnings.<br>
+<br>
+Currently I'm working for a WiTricity-like project for a small<br>
+company and need to compute and visualize the time-varying<br>
+magnetic fields of two weakly coupled (circular) loop antennas.<br>
+<br>
+That's why I'm glad I found openEMS. The best part about<br>
+openEMS is that it is supposed to work with Octave.<br>
+<br>
+Trouble is, I'm new to Octave as well. (I'm using an old<br>
+version of Maple for hard mathematics and visualization).<br>
+<br>
+Thats why I tripped on this sentence in your install<br>
+description:<br>
+"<strong class="text-strong">Add the openEMS path to matlab (maybe in a "startup.m" in your Matlab startup folder):<br>
+addpath('D:/openEMS/matlab');</strong>"<br>
+<br>
+Where exactly does this line enter the Ocatave-environment?<br>
+And has this to be modified to "addpath('D:/openEMS/octave')?<br>
+<br>
+Or is the procedure done differently for Octave?<br>
+<br>
+I hope this doesn't sound silly, but I'm stuck at this point.<br>
+<br>
+Could you please explain the installation with Octave a <br>
+little bit more in detail?<br>
+<br>
+Thank you very much!<br>
+<br>
+By the way (I hope this doesn't come across as stupid):<br>
+Is there a way to share the code that I might write for<br>
+this simulations?<br>
+<br>
+Best regards,<br>
+Georg Huber</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p42" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile42">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=55&amp;sr=posts">114</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:36</dd>		
+		
+											
+							<dd class="profile-contact">
+				<strong>Contact:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="viewtopic.php%3Ff=2&amp;t=24.html#" class="dropdown-trigger" title="Contact sebastian">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contact sebastian</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="../index.html" title="Website" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">Website</span>
+									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content42">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=24.html#p42">Re: openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=42" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=42#p42" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=55.html" class="username">sebastian</a></strong> &raquo; </span>Fri 16 Mar 2012, 19:46
+			</p>
+			
+			
+			
+			<div class="content">Hello Georg Huber,<br>
+<br>
+the command to add the scripting files is identical. Start octave and enter
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Ff=2&amp;t=24.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>addpath('D:/openEMS/matlab');</code></pre></div>
+(if openEMS was installed to D:/openEMS). The folder inside the openEMS install directory is named matlab, which is confusing if you use octave.<br>
+<br>
+Octave will execute the script <strong class="text-strong">.octaverc</strong> inside your home directory (s.th. like c:\documents and settings\&lt;username&gt;). You may add the <em class="text-italics">addpath</em> to this file to have Octave execute it every startup.<br>
+<br>
+We will consider adding a repository to share code, but in the meanwhile it is the simplest to create a new wiki page and post your code with explanations there. We are very glad to hear you like to share your code!<br>
+<br>
+You're welcome.<br>
+Best regards,<br>
+Sebastian</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p43" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile43">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content43">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=24.html#p43">Re: openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=43" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=43#p43" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Fri 16 Mar 2012, 21:36
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+you may also want to have a look at Gui Octave (<a href="http://sites.google.com/site/guioctave/" class="postlink">http://sites.google.com/site/guioctave/</a>). It is a nice graphical front-end which makes using Octave much easier.<br>
+<br>
+Keep in mind that Octave is kind of a free alternative to Matlab. It uses the Matlab Syntax etc. That's why the Matlab-Interface of openEMS (found in the folder openEMS/matlab) can be directly used with Octave as well.<br>
+<br>
+Furthermore, after you added the Matlab/Octave Interface path (in your case D:/openEMS/matlab) as Sebastian described, you must execute:
+<div class="codebox"><p>Code: <a href="viewtopic.php%3Ff=2&amp;t=24.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>setup</code></pre></div> in Octave to add some Octave specific functionality. But you only need to do this once for every new Octave or openEMS version you use.<br>
+<br>
+If you want to use openEMS, your first step should be to make yourself familiar with the Matlab/Octave Syntax. <br>
+Maybe this Matlab Seminar (<a href="http://nts.uni-duisburg-essen.de/downloads/matlab/MatlabSeminar_main.pdf" class="postlink">http://nts.uni-duisburg-essen.de/downlo ... r_main.pdf</a>) is helpful. At least the first four chapters.<br>
+<br>
+regards,<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p50" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile50">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=83&amp;sr=posts">16</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 16 Mar 2012, 18:06</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content50">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=24.html#p50">Re: openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=50" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=50#p50" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a></strong> &raquo; </span>Wed 21 Mar 2012, 15:37
+			</p>
+			
+			
+			
+			<div class="content">Dear Sirs,<br>
+<br>
+your answers have been very kind and I have tried my best to<br>
+1) install Octave<br>
+2) install GUI Octave<br>
+3) install openEMS<br>
+<br>
+1) Worked very well, indeed. I could run the examples given in the PDF-script<br>
+    provided by thorsten.<br>
+    Therefore, I consider this a success.<br>
+<br>
+2) The install seems to have worked for there appeared two windows, one is<br>
+     titled "GUI Octave" and the other one "Octave Editor".<br>
+    The "GUI Octave" window shows the same prompt (e.g., "octave:1&gt;") as does<br>
+    the command-line version of Octave. The only but important difference is that<br>
+    while I can type instructions into the command-line version, I can't do the<br>
+    same in the "GUI Octave" window. I even don't know whether this behavior is<br>
+    "normal" or not.<br>
+    In contrast, the "Octave Editor" window allows inputs and looks very neat, but<br>
+    after inserting said inputs not much happened: the cursor just jumped to the<br>
+    start position of a new line.<br>
+<br>
+3) Expanding the openEMS zip file was no problem. I entered my path into the<br>
+    command-line version of Octave and just another prompt appeared.<br>
+    When I tried to fire up CSXGeomPlot('nonexistant.xml') nothing happened.<br>
+    OK, I wasn't very much surprised, because the I didn't know what to make of<br>
+    "invoke the openEMS solver" in the first place (see "Tutorial: First Steps -&gt;<br>
+    Windows" on "<a href="http://www.openems.de/index.php/Tutorial:_First_Steps" class="postlink">http://www.openems.de/index.php/Tutorial:_First_Steps</a>").<br>
+<br>
+The only other working instance was when double-clicking on "Patch_Antenna.m"<br>
+automatically opened this file in "Octave Editor".<br>
+<br>
+Having browsed the Internet for help I can only say that there is not much help<br>
+out there. The worst part of all seems to get GUI Octave working with Octave.<br>
+But getting the command-line version of Octave working with openEMS seems to<br>
+be daunting enough, at least for me. I don't even know what kind of characters<br>
+are allowed within the Octave environment when entering the path to openEMS.<br>
+Are white spaces acceptable?<br>
+<br>
+As for today I will persevere, but then I will have to look for alternatives for I have<br>
+already spent three days to no avail. This is getting rather frustrating.<br>
+<br>
+(There is a forum for GUI Octave, and some people got it working, I wonder what<br>
+magic they brought forth.)<br>
+<br>
+So thanks for your efforts, but I'm afraid, that there's too much uncharted territory<br>
+and too little time to explore it by hit and miss.<br>
+<br>
+Best regards,<br>
+Georg Huber</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p51" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile51">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content51">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=24.html#p51">Re: openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=51" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=51#p51" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Wed 21 Mar 2012, 18:40
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+I'm sorry to hear that this is so frustrating.<br>
+<br>
+I can't quite make out where the problems have their root. So maybe I just write down what steps I just took on my Windows Notebook.<br>
+<br>
+1) Download openEMS, Octave 3.2.4, Gui Octave<br>
+2) unzip openEMS to D:\openEMS<br>
+3) Install Octave, just accepting all defaults<br>
+4) Install GuiOctave, accepting all defaults<br>
+5) Running GuiOctave<br>
+6) File-&gt;Set Paths : Add folder... "D:\openEMS\matlab"<br>
+7) running "setup" in the command window: this will compile some Matlab functions needed by openEMS which Octave is not supporting by default<br>
+8) GuiOctave Editor: File-&gt;Open open a tutorial example <br>
+9) Press "Run" (green triangular icon) OR Debug-&gt;Run<br>
+10) Maybe close the AppCSXCAD windows after reviewing the structure<br>
+11) Enjoy the openEMS results<br>
+<br>
+I hope this helps. It just worked like this for me. Maybe you can tell me at which point it failed for you.<br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p52" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile52">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=83&amp;sr=posts">16</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 16 Mar 2012, 18:06</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content52">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=24.html#p52">Re: openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=52" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=52#p52" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a></strong> &raquo; </span>Wed 21 Mar 2012, 20:22
+			</p>
+			
+			
+			
+			<div class="content">Dear thorsten,<br>
+<br>
+I'm very thankful that you replied so quickly, I just came<br>
+back from cleaning up the kitchen and was overjoyed in<br>
+reading you kind answer.<br>
+<br>
+I will set to work immediately, especially the GUI Octave part,<br>
+and post my results.<br>
+<br>
+Best regards,<br>
+Georg Huber</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p53" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile53">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=83&amp;sr=posts">16</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 16 Mar 2012, 18:06</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content53">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=24.html#p53">Re: openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=53" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=53#p53" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a></strong> &raquo; </span>Wed 21 Mar 2012, 20:56
+			</p>
+			
+			
+			
+			<div class="content">Dear thorsten,<br>
+<br>
+right now my computer downloads all the software<br>
+you specified in your post and stores it in a completely<br>
+empty partition of its harddisk.<br>
+<br>
+(I'm doing that because who knows what went wrong<br>
+the first two times I downloaded and installed everything.<br>
+That's also the reason of my having created a new<br>
+partition on my harddisk. I think, one of my mistakes<br>
+was downloading the wrong version of GNU Octave, but<br>
+soon I will know for sure. It's like in mathematics, now<br>
+that I know that a solution exists, it's easier to persevere<br>
+and try again.)<br>
+<br>
+Going by the estimated download time my browser<br>
+indicates, I'm condemned to inaction for the next half<br>
+hour or so. (I live in small village and must be glad that<br>
+we have been granted 768 kbit/s digital bandwidth.<br>
+But our mayor does his best so that we may get a high-<br>
+speed connection within the next year.)<br>
+<br>
+Best regards,<br>
+Georg Huber</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p54" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile54">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=83&amp;sr=posts">16</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 16 Mar 2012, 18:06</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content54">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=24.html#p54">Re: openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=54" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=54#p54" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a></strong> &raquo; </span>Wed 21 Mar 2012, 21:30
+			</p>
+			
+			
+			
+			<div class="content">Dear thorsten,<br>
+<br>
+I did what you wrote and yes, for the first time<br>
+at least half of the connection between GNU<br>
+Octave and GUI Octave seems to work.<br>
+<br>
+Why the word "half"? Well, for the first time<br>
+in my very, very short Octave career I can type<br>
+e.g., "1+1" into the window titled "GUI Octave"<br>
+and get a mathematically correct result <br>
+"ans = 2".<br>
+<br>
+So far so good. But how do I get the "Octave<br>
+Editor" to produce a sensible result?<br>
+<br>
+Right know it is showing in its input-output<br>
+area just the number "1" in the left upper<br>
+corner and a bluish line to the right of it.<br>
+<br>
+Typing, say "1+1" and pressing the "Return" key<br>
+is acknowledged with a symbol like "CR|LF" and<br>
+that's all. At least it does what this symbol<br>
+implies: a carriage return and a line feed.<br>
+<br>
+What have I missed here?<br>
+<br>
+Best regards,<br>
+Georg Huber</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p55" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile55">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=54&amp;sr=posts">1221</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon 27 Jun 2011, 12:26</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content55">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=24.html#p55">Re: openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=55" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=55#p55" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=54.html" class="username">thorsten</a></strong> &raquo; </span>Wed 21 Mar 2012, 21:52
+			</p>
+			
+			
+			
+			<div class="content">Hi,<br>
+<br>
+what do you mean the Editor shows just 1?<br>
+<br>
+I took a screenshot of my GUIOctave: <a href="http://picpaste.com/pics/GUIOctave-KIWePBz8.1332359492.jpg" class="postlink">http://picpaste.com/pics/GUIOctave-KIWe ... 359492.jpg</a><br>
+<br>
+regards<br>
+Thorsten</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+				<div id="p56" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile56">
+			<dt class="no-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a>							</dt>
+
+									
+		<dd class="profile-posts"><strong>Posts:</strong> <a href="http://openems.de/forum/search.php?author_id=83&amp;sr=posts">16</a></dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri 16 Mar 2012, 18:06</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content56">
+
+						<h3 ><a href="viewtopic.php%3Ff=2&amp;t=24.html#p56">Re: openEMS &amp; Octave</a></h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="http://openems.de/forum/posting.php?mode=quote&amp;f=2&amp;p=56" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="http://openems.de/forum/viewtopic.php?p=56#p56" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="memberlist.php%3Fmode=viewprofile&amp;u=83.html" class="username">GeorgHuber</a></strong> &raquo; </span>Thu 22 Mar 2012, 02:10
+			</p>
+			
+			
+			
+			<div class="content">Dear Thorsten,<br>
+<br>
+I'm sorry that it took so long for me to reply, but my<br>
+computer crashed very badly. Fortunately, a system<br>
+restore point saved me from major damage. The<br>
+misbehavior of my computer started when the C++<br>
+redistributable 2008 acted up (it was installed <br>
+together with GUI Octave).<br>
+<br>
+But now it is up and running again.<br>
+<br>
+So here is how my GUI Octave looks directly upon starting:<br>
+<a href="http://picpaste.com/GUI_Octave_Editor_01-QkZQyQXi.png" class="postlink">http://picpaste.com/GUI_Octave_Editor_01-QkZQyQXi.png</a><br>
+<br>
+And this is my attempt to do perform advanced mathematics:<br>
+<a href="http://picpaste.com/GUI_Octave_Editor_02-g6cZ4Elc.png" class="postlink">http://picpaste.com/GUI_Octave_Editor_02-g6cZ4Elc.png</a><br>
+<br>
+How do you manage to get the Octave Editor integrated in GUI Octave?<br>
+In my installed version the program looks like that:<br>
+<a href="http://picpaste.com/GUI_Octave-G66MOMS2.png" class="postlink">http://picpaste.com/GUI_Octave-G66MOMS2.png</a><br>
+<br>
+Which looks suspiciously similar to the command-line version of Octave:<br>
+<a href="http://picpaste.com/Just_Octave-35td3wO0.png" class="postlink">http://picpaste.com/Just_Octave-35td3wO0.png</a><br>
+<br>
+It seems there is something that I'm missing. But what?<br>
+<br>
+Best regards and thanks for all your help,<br>
+Georg Huber</div>
+
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php%3Ff=2&amp;t=24.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	<hr class="divider" />
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="http://openems.de/forum/posting.php?mode=reply&amp;f=2&amp;t=24" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="http://openems.de/forum/viewtopic.php?f=2&amp;t=24&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php%3Ff=2&amp;t=24.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			60 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=10.html" role="button">2</a></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=20.html" role="button">3</a></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=30.html" role="button">4</a></li>
+				<li><a class="button" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=40.html" role="button">5</a></li>
+				<li><a class="button" href="http://openems.de/forum/viewtopic.php?f=2&amp;t=24&amp;start=50" role="button">6</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php%3Ff=2&amp;t=24&amp;start=10.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php%3Ff=2.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Install”</span>
+		</a>
+	</p>
+	
+		<div class="jumpbox dropdown-container dropdown-container-right dropdown-up dropdown-left dropdown-button-control" id="jumpbox">
+			<span title="Jump to" class="button button-secondary dropdown-trigger dropdown-select">
+				<span>Jump to</span>
+				<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+			</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																				<li><a href="viewforum.php%3Ff=1.html" class="jumpbox-cat-link"> <span> openEMS Support</span></a></li>
+																<li><a href="viewforum.php%3Ff=5.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; News</span></a></li>
+																<li><a href="viewforum.php%3Ff=2.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Install</span></a></li>
+																<li><a href="viewforum.php%3Ff=3.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Usage</span></a></li>
+																<li><a href="viewforum.php%3Ff=4.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Feedback</span></a></li>
+																<li><a href="viewforum.php%3Ff=6.html" class="jumpbox-sub-link"><span class="spacer"></span> <span>&#8627; &nbsp; Development</span></a></li>
+											</ul>
+		</div>
+	</div>
+
+	</div>
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="UTC+2">UTC+02:00</span></li>
+							<li class="rightside">
+				<a href="http://openems.de/forum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+												<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=team.html" role="menuitem">
+					<i class="icon fa-shield fa-fw" aria-hidden="true"></i><span>The team</span>
+				</a>
+			</li>
+									<li class="rightside" data-last-responsive="true">
+				<a href="memberlist.php%3Fmode=contactadmin.html" role="menuitem">
+					<i class="icon fa-envelope fa-fw" aria-hidden="true"></i><span>Contact us</span>
+				</a>
+			</li>
+			</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row">
+			<a class="footer-link" href="ucp.php%3Fmode=privacy.html" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="ucp.php%3Fmode=terms.html" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php%3Ff=2&amp;t=24.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php%3Ff=2&amp;t=24.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	<img src="http://openems.de/forum/cron.php?cron_type=cron.task.core.tidy_cache" width="1" height="1" alt="cron" /></div>
+
+<script type="text/javascript" src="assets/javascript/jquery.min.js%3Fassets_version=3"></script>
+<script type="text/javascript" src="assets/javascript/core.js%3Fassets_version=3"></script>
+
+
+
+<script src="styles/prosilver/template/forum_fn.js%3Fassets_version=3"></script>
+<script src="styles/prosilver/template/ajax.js%3Fassets_version=3"></script>
+
+
+
+</body>
+</html>
