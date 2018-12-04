@@ -51,35 +51,48 @@ patch.length = 40;
 %substrate setup
 substrate.epsR   = 3.38;
 substrate.kappa  = 1e-3 * 2*pi*2.45e9 * EPS0*substrate.epsR;
-substrate.width  = 170;
-substrate.length = 170;
+substrate.width  = 400;
+substrate.length = 400;
 substrate.thickness = 1.524;
 substrate.cells = 4;
 
 %setup feeding
-feed.pos = -6; %feeding position in x-direction
+feed.pos = 0; %feeding position in x-direction
 feed.R = 50;     %feed resistance
 
 % size of the simulation box
-SimBox = [300 300 100];
+SimBox = [450 450 40];
 
 %% Setup FDTD Parameter & Excitation Function
 f0 = 9e8; % center frequency
 fc = 3e8; % 20 dB corner frequency -----> it determines the bandwidth (keep it less than f0)
 FDTD = InitFDTD( 'NrTs', 30000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
-BC = {'MUR' 'MUR' 'MUR' 'MUR' 'MUR' 'MUR'}; % boundary conditions
-FDTD = SetBoundaryCond( FDTD, BC );
+BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
+FDTD = SetBoundaryCond( FDTD, BC,'PML_Grading','-log(1e-6)*log(2.5)/(2*dl*pow(2.5,W/dl)-1) * pow(2.5, D/dl) / Z' );
 
 %% initialize complex Geometry
-%initialize poloygon
-poly.cen =[0,0,0]; % define Polygon Center 
+
+% initialize Line 1 
+% width -> 5 mm,  length -> 15 mm
+line(1).length = 17.5; %SPECIAL LENGTH
+line(1).width = 5;
+
+% initialize Line 2
+line(2).length = 45;
+line(2).width = 10;
+
+%initialize 1st poloygon
 poly.N = 16;  % define the shape - number of vertices (6-gon, 8-gon, N-gon)
 poly.ang_centr = 2*pi / poly.N; % Central Angle of the polygon (radians)
 poly.ang_inter = pi-(2*pi/poly.N); % Interior Angle of the polygon
 poly.side_length = 30;  % define the side length in mm (actually in the chosen unit - see "unit" variable)
 poly.r = poly.side_length/(2*sin(pi/poly.N)); % radius of the polygon (see inscribed polygons)
 poly.rotation = 0; %rad
+cent_from_origin = line(1).length + line(2).length + poly.r;
+theta = pi/2 - 1.5 * poly.ang_centr;
+poly.cen =cent_from_origin * [ cos(theta),  sin(theta), 0];
+
 for i=1:poly.N
     temp = poly.rotation + (i-1) * poly.ang_centr;
     poly.vert(:,i) = [poly.cen(1), poly.cen(2)] + poly.r * [cos(temp), sin(temp)];
@@ -89,6 +102,30 @@ poly.vert = round(poly.vert,preci);  % NECESSARY!!!
 % A very small difference between the coordinates of two vertices (due to
 % aproximation), will cause an extream discretization of the grid.
 % If more precision is required, the second argument may be increased.
+
+
+% line 1 placement
+% !SPECIAL!
+rot = pi/2 - theta;
+start = [0,0]; % special
+stop = line(1).length * [cos(pi/2 - rot),sin(pi/2 - rot)];
+
+line(1).vert(:,1) = line(1).width * sqrt(2)/2 * [cos(-pi/4 -rot), sin(-pi/4 - rot)];  % (special)
+line(1).vert(:,2) = stop + line(1).width/2 * [cos(-rot), sin(-rot)];
+line(1).vert(:,3) = stop + line(1).width/2 * [cos(pi-rot), sin(pi-rot)];
+line(1).vert(:,4) = line(1).width * sqrt(2)/2 * [cos(-3*pi/4 -rot), sin(-3*pi/4 - rot) ]  ;% (special)
+
+
+% line 2 placement
+start = stop;  % attached to the first line
+stop = start + line(2).length * [cos(pi/2 -rot), sin(pi/2 - rot)] + 10;
+
+line(2).vert(:,1) = start + line(2).width/2 * [cos(-rot), sin(-rot)];
+line(2).vert(:,2) = stop + line(2).width/2 * [cos(-rot), sin(-rot)];
+line(2).vert(:,3) = stop + line(2).width/2 * [cos(pi-rot), sin(pi-rot)];
+line(2).vert(:,4) = start + line(2).width/2 * [cos(pi-rot), sin(pi-rot)];
+
+
 
 %% Setup CSXCAD Geometry & Mesh
 CSX = InitCSX();
@@ -102,7 +139,12 @@ mesh.z = [-SimBox(3)/2 SimBox(3)/2];
 
 % Create Patch
 CSX = AddMetal( CSX, 'patch' ); % create a perfect electric conductor (PEC)
-CSX = AddPolygon(CSX,'patch',10,2,0,poly.vert); % add a box-primitive to the metal property 'patch'
+CSX = AddMetal( CSX, 'patch1' ); % create a perfect electric conductor (PEC)
+CSX = AddMetal( CSX, 'patch2' ); % create a perfect electric conductor (PEC)
+CSX = AddPolygon(CSX,'patch',10,2,substrate.thickness,poly.vert); % add a box-primitive to the metal property 'patch'
+CSX = AddPolygon(CSX,'patch1',12,2,substrate.thickness,line(1).vert); % add a box-primitive to the metal property 'patch'
+CSX = AddPolygon(CSX,'patch2',13,2,substrate.thickness,line(2).vert); % add a box-primitive to the metal property 'patch'
+
 
 % Create Substrate
 CSX = AddMaterial( CSX, 'substrate' );
@@ -139,10 +181,16 @@ CSX = DefineRectGrid(CSX, unit, mesh);
 CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
 CSX = AddBox(CSX,'Hf',10,[-(substrate.width/2+10) -(substrate.length/2+10) -10*substrate.thickness],[substrate.width/2+10 +substrate.length/2+10 10*substrate.thickness]); %assign box
 
-% add a nf2ff calc box; size is 3 cells away from MUR boundary condition
-start = [mesh.x(4)     mesh.y(4)     mesh.z(4)];
-stop  = [mesh.x(end-3) mesh.y(end-3) mesh.z(end-3)];
+% add a nf2ff calc box; size is 3 cells away from boundary condition
+start = [mesh.x(9)     mesh.y(9)     mesh.z(9)];
+stop  = [mesh.x(end-8) mesh.y(end-8) mesh.z(end-8)];
 [CSX nf2ff] = CreateNF2FFBox(CSX, 'nf2ff', start, stop);
+
+% just to visualize
+CSX = AddDump(CSX,'my_nf2ff', 'DumpType', 11, 'Frequency',[9e8]);
+CSX = AddBox(CSX,'my_nf2ff',2,start,stop); %assign box
+
+
 
 %% Prepare and Run Simulation
 Sim_Path = 'tmp_Patch_Ant_simulation';
