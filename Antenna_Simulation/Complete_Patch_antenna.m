@@ -48,6 +48,9 @@ unit = 1e-3; % all length in mm
 % % patch length in y-direction
 % patch.length = 40;
 
+% ground distance from substrate
+grnd_pos = -12.3;
+
 %substrate setup
 substrate.epsR   = 3.38;
 substrate.kappa  = 1e-3 * 2*pi*2.45e9 * EPS0*substrate.epsR;
@@ -101,14 +104,14 @@ mesh.z = [linspace(0,substrate.thickness,substrate.cells+1) mesh.z];
 
 % Create Ground same size as substrate
 CSX = AddMetal( CSX, 'gnd' ); % create a perfect electric conductor (PEC)
-start(3)=0;
-stop(3) =0;
+start(3)=grnd_pos;
+stop(3) =grnd_pos;
 CSX = AddBox(CSX,'gnd',10,start,stop);
 
 % Apply the Excitation & Resist as a Current Source
 % start = [feed.pos 0 0];
 % stop  = [feed.pos 0 substrate.thickness];
-start = [feed.pos, 0];
+start = [feed.pos, grnd_pos];
 stop = [feed.pos, substrate.thickness];
 [CSX port{1}] = AddLumpedPort(CSX, 5 ,1 ,feed.R, start, stop, [0 0 1], true);
 
