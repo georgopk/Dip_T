@@ -42,32 +42,35 @@ clc
 physical_constants;
 unit = 1e-3; % all length in mm
 
-
-% % patch width in x-direction
-% patch.width  = 32; % resonant length
-% % patch length in y-direction
-% patch.length = 40;
+%rotation
+rot = 1.5*2*pi/16;
+% rot = 0;
 
 % ground distance from substrate
 grnd_pos = -12.3;
 
 %substrate setup
+sub_freq = 8.5e8; % Frequency to calculate the substrate conductivity
 substrate.epsR   = 3.38;
-substrate.kappa  = 1e-3 * 2*pi*2.45e9 * EPS0*substrate.epsR;
+substrate.kappa  = 1e-3 * 2*pi*sub_freq * EPS0*substrate.epsR; %conductivity 
 substrate.width  = 400;
 substrate.length = 400;
 substrate.thickness = 1.524;
 substrate.cells = 4;
+substrate.dimx = [-175, 175];
+substrate.domy = [-145, 90];
+substrate.points = [-175,-145;175,-145;175,90;-175,90]';
 
 %setup feeding
-feed.pos = [18.2516,-115.336]; %feeding position in x,y directions
+% feed.pos = [18.2516,-115.336]; %feeding position in x,y directions
+feed.pos = [18.85, -115.46]; 
 feed.R = 50;     %feed resistance
 
 % size of the simulation box
-SimBox = [450 450 40];
+SimBox = [570 570 40];
 
 %% Setup FDTD Parameter & Excitation Function
-f0 = 9e8; % center frequency
+f0 = 8.5e8; % center frequency
 fc = 4e8; % 20 dB corner frequency -----> it determines the bandwidth (keep it less than f0)
 FDTD = InitFDTD( 'NrTs', 30000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
@@ -87,7 +90,12 @@ mesh.z = [-SimBox(3)/2 SimBox(3)/2];
 % Create Patch
 load('points.mat');                     % load a matrix named "points" which contains the coordinates of the geometry
 points = points(:,1:length(points)-1);  % this line is not necessary.
-points = sp_round(points,0.2,feed.pos); % "round" the coordinates of some vertices, to reduce the mesh
+points = rotate_points(points,rot,1);
+hold on;
+points = sp_round(points,0.2,[feed.pos, 0]); % "round" the coordinates of some vertices, to reduce the mesh
+feed.pos = (rotate_points(feed.pos',rot,1))' ;
+
+% points = [0,0;1,0;1.5,0;1.6,0;1.62,0;100,0;100,100;1.63,100;1.61,100;0,100]' % for debugging
 %-----
 CSX = AddMetal( CSX, 'patch' ); % create a perfect electric conductor (PEC)
 CSX = AddPolygon(CSX,'patch',13,2,substrate.thickness,points(1:2,:));
@@ -95,18 +103,25 @@ CSX = AddPolygon(CSX,'patch',13,2,substrate.thickness,points(1:2,:));
 % Create Substrate
 CSX = AddMaterial( CSX, 'substrate' );
 CSX = SetMaterialProperty( CSX, 'substrate', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );
-start = [-substrate.width/2 -substrate.length/2 0];
-stop  = [ substrate.width/2  substrate.length/2 substrate.thickness];
-CSX = AddBox( CSX, 'substrate', 0, start, stop );
+% start = [-substrate.width/2 -substrate.length/2 0];
+% stop  = [ substrate.width/2  substrate.length/2 substrate.thickness];
+% CSX = AddBox( CSX, 'substrate', 0, start, stop );
+points = substrate.points;
+points = rotate_points(points,rot,1);
+CSX = AddLinPoly(CSX, 'substrate', 0, 2, 0,points, substrate.thickness);
 
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(0,substrate.thickness,substrate.cells+1) mesh.z];
 
-% Create Ground same size as substrate
+% % Create Ground same size as substrate
 CSX = AddMetal( CSX, 'gnd' ); % create a perfect electric conductor (PEC)
-start(3)=grnd_pos;
-stop(3) =grnd_pos;
-CSX = AddBox(CSX,'gnd',10,start,stop);
+% start(3)=grnd_pos;
+% stop(3) =grnd_pos;
+% CSX = AddBox(CSX,'gnd',10,start,stop);
+points = [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
+points = rotate_points(points,rot,1);
+CSX = AddPolygon(CSX, 'gnd', 10, 2, grnd_pos,points);
+
 
 % Apply the Excitation & Resist as a Current Source
 % start = [feed.pos 0 0];
@@ -123,7 +138,8 @@ mesh = DetectEdges(CSX, mesh,'ExcludeProperty','patch');
 % detect and set a special 2D metal edge mesh for the patch
 mesh = DetectEdges(CSX, mesh,'SetProperty','patch','2D_Metal_Edge_Res', c0/(f0+fc)/unit/50);
 % generate a smooth mesh with max. cell size: lambda_min / 20 
-mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20);
+% mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20); 
+mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/65,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
 CSX = DefineRectGrid(CSX, unit, mesh);
 
 CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
