@@ -2,7 +2,7 @@
 %   Simulates a patch antenna.
 % --------------------------------
 % Creates:
-%  -a patch antenna with the shape of a regular polygon
+%  -a patch antenna
 %  -a Rectangle substrate
 %  -a Rectangle ground plane
 %
