@@ -1,10 +1,18 @@
 %% Antenna coupling (based on...) % Simple Patch Antenna Tutorial
 % Simulates Two identical Patch Antennas (back to back).
-
-
-
-
-
+%-------------------------
+% -Create two patch antennas (back to back). 
+%   The distance between the antennas is "backDist" (in mm)
+% -rotate the geometry.
+%   The rotation angle is "rot" (in rad)
+% -"round" the coordinates of the points to reduce the mesh
+%   keep the coordinates of the ports unchanged and change 
+%   other coordinates to "fit" on ports (if necessary)
+%
+% ---- results ----
+% plot S11, S21...
+%
+% Uses sp_round.m, points.mat, rotate_points.m
 
 
 %% Initialization
@@ -17,7 +25,7 @@ clc
 physical_constants;
 unit = 1e-3; % all length in mm. (unit only for the geometry)
 
-%distance between Antennas (in units)
+%distance between Antennas (in units). (actually, distance between substrates)
 backDist = 100; % here in mm
 
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
@@ -72,74 +80,98 @@ mesh.x = [-SimBox(1)/2 SimBox(1)/2];
 mesh.y = [-SimBox(2)/2 SimBox(2)/2];
 mesh.z = [-SimBox(3)/2 SimBox(3)/2];
 
-% Create Patch
+% --- Calculate Points ---
+% Calculate patch
 load('points.mat');                     % load a matrix named "points" which contains the coordinates of the geometry
 points = points(:,1:length(points)-1);  % remove the redundant last coordinate (same with the first). this line is not necessary. 
-points2 = points;
-points = rotate_points(points,rot,1);   % rotate the geometry. The third argument enables plot.
-hold on;    % Usefull to plot all the geometries in one diagram. (for debugging)
-points = sp_round(points,0.2,[feed.pos, 0]); % "round" the coordinates of some vertices, to reduce the mesh
-allpoints = points;
-pointInd(1) = size(points,2);
-CSX = AddMetal( CSX, 'patch' ); % create a perfect electric conductor (PEC)
-CSX = AddPolygon(CSX,'patch',patchPri,2,backDist/2+substrate.thickness,points(1:2,:));
-% patch 2
+points2 = points;                       % store the points for patch2
+points = rotate_points(points,rot,1);   % rotate the geometry. The third argument enables plot (for debugging).
+hold on;                                % Usefull to plot all the geometries in one diagram. (for debugging)
+allpoints = points;                     % store the points to "round" the coordinates later
+pointInd(1) = size(points,2);           % necessary to recall the points after "sp_round"
+% Calculate patch2
 points = points2;
-points(1,:) = - points2(1,:);          % mirror the patch
-points = rotate_points(points,rot,1);   % rotate the geometry. The third argument enables plot.
-points = sp_round(points,0.2,[feed.pos, 0]); % "round" the coordinates of some vertices, to reduce the mesh
-allpoints = [allpoints, points];
-pointInd(2) = pointInd(1)+size(points,2);
-CSX = AddMetal( CSX, 'patch2' ); % create a perfect electric conductor (PEC)
-CSX = AddPolygon(CSX,'patch2',patchPri+1,2,-(backDist/2+substrate.thickness),points(1:2,:));
+points(1,:) = - points2(1,:);               % mirror the patch
+points = rotate_points(points,rot,1);       % rotate the geometry. The third argument enables plot.
+allpoints = [allpoints, points];            % store the points to "round" the coordinates later
+pointInd(2) = pointInd(1)+size(points,2);   % necessary to recall the points after "sp_round"
 
+% Calculate substrate
+points = substrate.points;                  
+points = rotate_points(points,rot,1);       % rotate the geometry. The third argument enables plot.
+allpoints = [allpoints, points];            % store the points to "round" the coordinates later
+pointInd(3) = pointInd(2)+size(points,2);   % necessary to recall the points after "sp_round"
+% Calculate substrate2
+points = substrate.points;
+points(1,:) = - substrate.points(1,:);      % mirror
+points = rotate_points(points,rot,1);       % rotate the geometry. The third argument enables plot.
+allpoints = [allpoints, points];            % store the points to "round" the coordinates later
+pointInd(4) = pointInd(3)+size(points,2);   % necessary to recall the points after "sp_round"
+
+% Calculate ground
+points = grnd_points;                       
+points = rotate_points(points,rot,1);       % rotate the geometry. The third argument enables plot.
+allpoints = [allpoints, points];            % store the points to "round" the coordinates later
+pointInd(5) = pointInd(4)+size(points,2);   % necessary to recall the points after "sp_round"
+% Calculate ground2
+points = grnd_points;                       
+points(1,:) = -grnd_points(1,:);            % mirror
+points = rotate_points(points,rot,1);       % rotate the geometry. The third argument enables plot.
+allpoints = [allpoints, points];            % store the points to "round" the coordinates later
+pointInd(6) = pointInd(5)+size(points,2);   % necessary to recall the points after "sp_round"
+
+% Calculate feed
+feed.pos = (rotate_points(feed.pos',rot,1))' ;      % adjust the feeding position to the rotated structure
+% Calculate feed2
+feed2.pos(1) = -feed2.pos(1);                       % mirror
+feed2.pos = (rotate_points(feed2.pos',rot,1))' ;    % adjust the feeding position to the rotated structure
+
+
+%ROUND ALL POINTS
+allpoints = sp_round(allpoints,0.2,[[feed.pos,0]' , [feed2.pos,0]']); % "round" the coordinates of some vertices, to reduce the mesh
+
+
+
+% --- CREATE ---
+% Create Patch
+points = allpoints(:,1:pointInd(1));                % recall the (rounded) points
+CSX = AddMetal( CSX, 'patch' );                     % create a perfect electric conductor (PEC) named "patch"
+CSX = AddPolygon(CSX,'patch',patchPri,2,backDist/2+substrate.thickness,points(1:2,:));  % create a polygon of the material "patch"
+% Create patch 2
+points = allpoints(:,pointInd(1)+1:pointInd(2));    % recall the (rounded) points
+CSX = AddMetal( CSX, 'patch2' );                    % create a perfect electric conductor (PEC) named "patch2"
+CSX = AddPolygon(CSX,'patch2',patchPri+1,2,-(backDist/2+substrate.thickness),points(1:2,:));    % create a polygon of the material "patch2"
 
 % Create Substrate
-CSX = AddMaterial( CSX, 'substrate' );
-CSX = SetMaterialProperty( CSX, 'substrate', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );
-points = substrate.points;
-points = rotate_points(points,rot,1);
-allpoints = [allpoints, points];
-pointInd(3) = pointInd(2)+size(points,2);
-CSX = AddLinPoly(CSX, 'substrate', substratePri, 2, backDist/2+ 0,points, substrate.thickness);
+points = allpoints(:,pointInd(2)+1:pointInd(3));                                                    % recall the (rounded) points
+CSX = AddMaterial( CSX, 'substrate' );                                                              % create a new material named "substrate"
+CSX = SetMaterialProperty( CSX, 'substrate', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
+CSX = AddLinPoly(CSX, 'substrate', substratePri, 2, backDist/2+ 0,points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(backDist/2+0,backDist/2 + substrate.thickness,substrate.cells+1) mesh.z];
-%substrate 2
-points = substrate.points;
-points(1,:) = - substrate.points(1,:);          % mirror
-points = rotate_points(points,rot,1);
-allpoints = [allpoints, points];
-pointInd(4) = pointInd(3)+size(points,2);
-CSX = AddMaterial( CSX, 'substrate2' );
-CSX = SetMaterialProperty( CSX, 'substrate2', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );
-CSX = AddLinPoly(CSX, 'substrate2', substratePri+1, 2, -(backDist/2+ 0),points, -substrate.thickness);
+% Create substrate 2
+points = allpoints(:,pointInd(3)+1:pointInd(4));                                                    % recall the (rounded) points
+CSX = AddMaterial( CSX, 'substrate2' );                                                             % create a new material named "substrate2"
+CSX = SetMaterialProperty( CSX, 'substrate2', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );% define the properties of the material "substrate2"
+CSX = AddLinPoly(CSX, 'substrate2', substratePri+1, 2, -(backDist/2+ 0),points, -substrate.thickness);% create a polygon of the material "substrate2" with thickness
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(-(backDist/2+0),-(backDist/2 + substrate.thickness),substrate.cells+1) mesh.z];
 
 % Create Ground
-CSX = AddMetal( CSX, 'gnd' ); % create a perfect electric conductor (PEC)
-points = grnd_points;
-points = rotate_points(points,rot,1);
-allpoints = [allpoints, points];
-pointInd(5) = pointInd(4)+size(points,2);
-CSX = AddPolygon(CSX, 'gnd', groundPri, 2, backDist/2 + grnd_pos,points);
-%ground 2
-points = grnd_points;
-points(1,:) = -grnd_points(1,:);
-points = rotate_points(points,rot,1);
-allpoints = [allpoints, points];
-pointInd(6) = pointInd(5)+size(points,2);
-CSX = AddMetal( CSX, 'gnd2' ); % create a perfect electric conductor (PEC)
-CSX = AddPolygon(CSX, 'gnd2', groundPri+1, 2, -(backDist/2 + grnd_pos),points);
+points = allpoints(:,pointInd(4)+1:pointInd(5));        % recall the (rounded) points
+CSX = AddMetal( CSX, 'gnd' );                           % create a perfect electric conductor (PEC) named "gnd"
+CSX = AddPolygon(CSX, 'gnd', groundPri, 2, backDist/2 + grnd_pos,points);   % create a polygon of the material "gnd"
+% Create ground 2
+points = allpoints(:,pointInd(5)+1:pointInd(6));        % recall the (rounded) points
+CSX = AddMetal( CSX, 'gnd2' );                          % create a perfect electric conductor (PEC)
+CSX = AddPolygon(CSX, 'gnd2', groundPri+1, 2, -(backDist/2 + grnd_pos),points);% create a polygon of the material "gnd2"
 
-% Apply the Excitation & Resist as a Current Source
-feed.pos = (rotate_points(feed.pos',rot,1))' ; % adjust the feeding position to the rotated structure
+
+% --- Apply the Excitation & Resist as a Current Source ---
 start = [feed.pos, backDist/2 + grnd_pos];
 stop = [feed.pos, backDist/2 + substrate.thickness];
 [CSX, port{1}] = AddLumpedPort(CSX, feedPri ,1 ,feed.R, start, stop, [0 0 1], true);
 % port2
-feed2.pos(1) = -feed2.pos(1);
-feed2.pos = (rotate_points(feed2.pos',rot,1))' ; % adjust the feeding position to the rotated structure
 start = [feed2.pos, -(backDist/2 + grnd_pos)];
 stop = [feed2.pos, -(backDist/2 + substrate.thickness)];
 [CSX, port{2}] = AddLumpedPort(CSX, feedPri+1 ,2 ,feed2.R, start, stop, [0 0 1]);
@@ -153,8 +185,8 @@ mesh = DetectEdges(CSX, mesh,'ExcludeProperty','patch');
 % detect and set a special 2D metal edge mesh for the patch
 mesh = DetectEdges(CSX, mesh,'SetProperty','patch','2D_Metal_Edge_Res', c0/(f0+fc)/unit/50);
 % generate a smooth mesh with max. cell size: (e.g) lambda_min / 20 
-% mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20); 
-mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/25,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
+mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20); 
+% mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/65,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
 
 CSX = DefineRectGrid(CSX, unit, mesh);
 CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
