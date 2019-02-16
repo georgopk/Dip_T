@@ -52,8 +52,8 @@ unit = 1e-3; % all length in mm
 grnd_pos = -12.3;
 
 %substrate setup
-substrate.epsR   = 3.38;
-substrate.kappa  = 1e-3 * 2*pi*2.45e9 * EPS0*substrate.epsR;
+substrate.epsR   = 4.2;
+substrate.kappa  = 0.025 * 2*pi*867e8 * EPS0*substrate.epsR;
 substrate.width  = 400;
 substrate.length = 400;
 substrate.thickness = 1.524;
@@ -213,7 +213,8 @@ polarFF(nf2ff,'xaxis','theta','param',[1 2],'normalize',1)
 figure
 plotFFdB(nf2ff,'xaxis','theta','param',[1 2])
 % conventional plot approach
-% plot( nf2ff.theta*180/pi, 20*log10(nf2ff.E_norm{1}/max(nf2ff.E_norm{1}(:)))+10*log10(nf2ff.Dmax));
+%figure
+%plot( nf2ff.theta*180/pi, 20*log10(nf2ff.E_norm{1}/max(nf2ff.E_norm{1}(:)))+10*log10(nf2ff.Dmax));
 
 drawnow
 
