@@ -1,8 +1,8 @@
 %% Simple polygon patch antenna (based on...) % Simple Patch Antenna Tutorial
-%   Simulates a patch antenna with the shape of a regular polygon.
+%   Simulates a patch antenna.
 % --------------------------------
 % Creates:
-%  -a patch antenna with the shape of a regular polygon
+%  -a patch antenna
 %  -a Rectangle substrate
 %  -a Rectangle ground plane
 %
@@ -42,38 +42,43 @@ clc
 physical_constants;
 unit = 1e-3; % all length in mm
 
+%rotation
+rot = 1.5*2*pi/16;
+% rot = 0;
 
-% % patch width in x-direction
-% patch.width  = 32; % resonant length
-% % patch length in y-direction
-% patch.length = 40;
-
-% ground distance from substrate
-grnd_pos = -12.3;
+%ground setup
+grnd_pos = -12.3; % ground distance from substrate
+grnd_points =  [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
 
 %substrate setup
-substrate.epsR   = 4.2;
-substrate.kappa  = 0.025 * 2*pi*867e8 * EPS0*substrate.epsR;
+sub_freq = 8.5e8; % Frequency to calculate the substrate conductivity for
+%substrate.epsR   = 3.38;
+substrate.epsR = 2.2;
+substrate.kappa  = 1e-3 * 2*pi*sub_freq * EPS0*substrate.epsR; %conductivity 
 substrate.width  = 400;
 substrate.length = 400;
 substrate.thickness = 1.524;
 substrate.cells = 4;
+substrate.dimx = [-175, 175];
+substrate.domy = [-145, 90];
+substrate.points = [-175,-145;175,-145;175,90;-175,90]';
 
 %setup feeding
-feed.pos = [18.2516,-115.336]; %feeding position in x,y directions
+% feed.pos = [18.2516,-115.336]; %feeding position in x,y directions
+feed.pos = [18.85, -115.46]; %feeding position in x,y directions
 feed.R = 50;     %feed resistance
 
 % size of the simulation box
-SimBox = [450 450 40];
+SimBox = [570 570 40];
 
 %% Setup FDTD Parameter & Excitation Function
-f0 = 9e8; % center frequency
-fc = 4e8; % 20 dB corner frequency -----> it determines the bandwidth (keep it less than f0)
+f0 = 8.5e8; % center frequency (Hz)
+fc = 4e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
 FDTD = InitFDTD( 'NrTs', 30000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
 BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
-FDTD = SetBoundaryCond( FDTD, BC,'PML_Grading','-log(1e-6)*log(2.5)/(2*dl*pow(2.5,W/dl)-1) * pow(2.5, D/dl) / Z' );
-
+% FDTD = SetBoundaryCond( FDTD, BC,'PML_Grading','-log(1e-6)*log(2.5)/(2*dl*pow(2.5,W/dl)-1) * pow(2.5, D/dl) / Z' );
+FDTD = SetBoundaryCond( FDTD, BC );
 
 
 %% Setup CSXCAD Geometry & Mesh
@@ -86,8 +91,13 @@ mesh.z = [-SimBox(3)/2 SimBox(3)/2];
 
 % Create Patch
 load('points.mat');                     % load a matrix named "points" which contains the coordinates of the geometry
-points = points(:,1:length(points)-1);  % this line is not necessary.
-points = sp_round(points,0.2,feed.pos); % "round" the coordinates of some vertices, to reduce the mesh
+points = points(:,1:length(points)-1);  % remove the redundant last coordinate (same with the first). this line is not necessary. 
+points = rotate_points(points,rot,1);   % rotate the geometry. The third argument enables plot.
+hold on;    % Usefull to plot all the geometries in one diagram. (for debugging)
+points = sp_round(points,0.2,[feed.pos, 0]); % "round" the coordinates of some vertices, to reduce the mesh
+feed.pos = (rotate_points(feed.pos',rot,1))' ; % adjust the feeding position to the rotated structure
+
+% points = [0,0;1,0;1.5,0;1.6,0;1.62,0;100,0;100,100;1.63,100;1.61,100;0,100]' % for debugging
 %-----
 CSX = AddMetal( CSX, 'patch' ); % create a perfect electric conductor (PEC)
 CSX = AddPolygon(CSX,'patch',13,2,substrate.thickness,points(1:2,:));
@@ -95,25 +105,32 @@ CSX = AddPolygon(CSX,'patch',13,2,substrate.thickness,points(1:2,:));
 % Create Substrate
 CSX = AddMaterial( CSX, 'substrate' );
 CSX = SetMaterialProperty( CSX, 'substrate', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );
-start = [-substrate.width/2 -substrate.length/2 0];
-stop  = [ substrate.width/2  substrate.length/2 substrate.thickness];
-CSX = AddBox( CSX, 'substrate', 0, start, stop );
+% start = [-substrate.width/2 -substrate.length/2 0];
+% stop  = [ substrate.width/2  substrate.length/2 substrate.thickness];
+% CSX = AddBox( CSX, 'substrate', 0, start, stop );
+points = substrate.points;
+points = rotate_points(points,rot,1);
+CSX = AddLinPoly(CSX, 'substrate', 0, 2, 0,points, substrate.thickness);
 
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(0,substrate.thickness,substrate.cells+1) mesh.z];
 
-% Create Ground same size as substrate
+% Create Ground
 CSX = AddMetal( CSX, 'gnd' ); % create a perfect electric conductor (PEC)
-start(3)=grnd_pos;
-stop(3) =grnd_pos;
-CSX = AddBox(CSX,'gnd',10,start,stop);
+% start(3)=grnd_pos;
+% stop(3) =grnd_pos;
+% CSX = AddBox(CSX,'gnd',10,start,stop);
+points = grnd_points;
+points = rotate_points(points,rot,1);
+CSX = AddPolygon(CSX, 'gnd', 10, 2, grnd_pos,points);
+
 
 % Apply the Excitation & Resist as a Current Source
 % start = [feed.pos 0 0];
 % stop  = [feed.pos 0 substrate.thickness];
 start = [feed.pos, grnd_pos];
 stop = [feed.pos, substrate.thickness];
-[CSX port{1}] = AddLumpedPort(CSX, 5 ,1 ,feed.R, start, stop, [0 0 1], true);
+[CSX, port{1}] = AddLumpedPort(CSX, 5 ,1 ,feed.R, start, stop, [0 0 1], true);
 
 
 % Finalize the Mesh
@@ -122,16 +139,17 @@ stop = [feed.pos, substrate.thickness];
 mesh = DetectEdges(CSX, mesh,'ExcludeProperty','patch');
 % detect and set a special 2D metal edge mesh for the patch
 mesh = DetectEdges(CSX, mesh,'SetProperty','patch','2D_Metal_Edge_Res', c0/(f0+fc)/unit/50);
-% generate a smooth mesh with max. cell size: lambda_min / 20 
-mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20);
+% generate a smooth mesh with max. cell size: (e.g) lambda_min / 20 
+% mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20); 
+mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/65,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
 CSX = DefineRectGrid(CSX, unit, mesh);
 
 CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
 CSX = AddBox(CSX,'Hf',10,[-(substrate.width/2+10) -(substrate.length/2+10) -10*substrate.thickness],[substrate.width/2+10 +substrate.length/2+10 10*substrate.thickness]); %assign box
 
 % add a nf2ff calc box; size is 3 cells away from boundary condition
-start = [mesh.x(9)     mesh.y(9)     mesh.z(9)];
-stop  = [mesh.x(end-8) mesh.y(end-8) mesh.z(end-8)];
+start = [mesh.x(12)     mesh.y(12)     mesh.z(12)];
+stop  = [mesh.x(end-11) mesh.y(end-11) mesh.z(end-11)];
 [CSX nf2ff] = CreateNF2FFBox(CSX, 'nf2ff', start, stop);
 
 % just to visualize
