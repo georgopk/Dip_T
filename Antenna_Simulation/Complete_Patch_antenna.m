@@ -36,15 +36,15 @@
 
 close all
 clear
-clc
+% clc
 
 %% Setup the Simulation
 physical_constants;
 unit = 1e-3; % all length in mm
 
 %rotation
-rot = 1.5*2*pi/16;
-% rot = 0;
+% rot = 1.5*2*pi/16;
+rot = 0;
 
 %ground setup
 grnd_pos = -12.3; % ground distance from substrate
@@ -52,7 +52,8 @@ grnd_points =  [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
 
 %substrate setup
 sub_freq = 8.5e8; % Frequency to calculate the substrate conductivity for
-substrate.epsR   = 3.38;
+% substrate.epsR   = 3.38;
+substrate.epsR   = 2.2;
 substrate.kappa  = 1e-3 * 2*pi*sub_freq * EPS0*substrate.epsR; %conductivity 
 substrate.width  = 400;
 substrate.length = 400;
@@ -68,12 +69,12 @@ feed.pos = [18.85, -115.46]; %feeding position in x,y directions
 feed.R = 50;     %feed resistance
 
 % size of the simulation box
-SimBox = [570 570 40];
+SimBox = [650 650 300];
 
 %% Setup FDTD Parameter & Excitation Function
 f0 = 8.5e8; % center frequency (Hz)
-fc = 4e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
-FDTD = InitFDTD( 'NrTs', 30000, 'EndCriteria', 1e-5);
+fc = 1.5e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
+FDTD = InitFDTD( 'NrTs', 300000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
 BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
 % FDTD = SetBoundaryCond( FDTD, BC,'PML_Grading','-log(1e-6)*log(2.5)/(2*dl*pow(2.5,W/dl)-1) * pow(2.5, D/dl) / Z' );
@@ -141,19 +142,19 @@ mesh = DetectEdges(CSX, mesh,'SetProperty','patch','2D_Metal_Edge_Res', c0/(f0+f
 % generate a smooth mesh with max. cell size: (e.g) lambda_min / 20 
 % mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20); 
 mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/65,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
+
 CSX = DefineRectGrid(CSX, unit, mesh);
 
-CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
-CSX = AddBox(CSX,'Hf',10,[-(substrate.width/2+10) -(substrate.length/2+10) -10*substrate.thickness],[substrate.width/2+10 +substrate.length/2+10 10*substrate.thickness]); %assign box
+% CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
+% CSX = AddBox(CSX,'Hf',10,[-(substrate.width/2+10) -(substrate.length/2+10) -10*substrate.thickness],[substrate.width/2+10 +substrate.length/2+10 10*substrate.thickness]); %assign box
 
 % add a nf2ff calc box; size is 3 cells away from boundary condition
 start = [mesh.x(12)     mesh.y(12)     mesh.z(12)];
 stop  = [mesh.x(end-11) mesh.y(end-11) mesh.z(end-11)];
-[CSX nf2ff] = CreateNF2FFBox(CSX, 'nf2ff', start, stop);
+[CSX, nf2ff0] = CreateNF2FFBox(CSX, 'nf2ff', start, stop);
 
-% just to visualize
-CSX = AddDump(CSX,'my_nf2ff', 'DumpType', 11, 'Frequency',[9e8]);
-CSX = AddBox(CSX,'my_nf2ff',2,start,stop); %assign box
+CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
+CSX = AddBox(CSX,'Hf',10,start,stop); %assign box
 
 
 
@@ -208,6 +209,7 @@ drawnow
 %% NFFF Plots
 %find resonance frequncy from s11
 f_res_ind = find(s11==min(s11));
+f_res_ind = 280;
 f_res = freq(f_res_ind);
 
 
@@ -215,7 +217,7 @@ f_res = freq(f_res_ind);
 % calculate the far field at phi=0 degrees and at phi=90 degrees
 disp( 'calculating far field at phi=[0 90] deg...' );
 
-nf2ff = CalcNF2FF(nf2ff, Sim_Path, f_res, [-180:2:180]*pi/180, [0 90]*pi/180);
+nf2ff = CalcNF2FF(nf2ff0, Sim_Path, f_res, [-180:2:180]*pi/180, [0 90]*pi/180);
 
 % display power and directivity
 disp( ['radiated power: Prad = ' num2str(nf2ff.Prad) ' Watt']);
