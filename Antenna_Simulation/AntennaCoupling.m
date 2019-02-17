@@ -45,7 +45,8 @@ grnd_points =  [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
 
 %substrate setup
 sub_freq = 8.5e8; % Frequency to calculate the substrate conductivity for
-substrate.epsR   = 3.38;
+% substrate.epsR   = 3.38;
+substrate.epsR = 2.2;
 substrate.kappa  = 1e-3 * 2*pi*sub_freq * EPS0*substrate.epsR; %conductivity 
 substrate.thickness = 1.524;
 substrate.cells = 4;
@@ -58,14 +59,14 @@ feed2.pos = feed.pos;
 feed2.R = feed.R;
 
 % size of the simulation and dump box 
-SimBox = [600 600 150];
+SimBox = [650 650 400];
 dumpWidth = 400;
 dumpLength = 400;
 
 %% Setup FDTD Parameter & Excitation Function
 f0 = 8.5e8; % center frequency (Hz)
 fc = 4e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
-FDTD = InitFDTD( 'NrTs', 30000, 'EndCriteria', 1e-5);
+FDTD = InitFDTD( 'NrTs', 300000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
 BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
 % FDTD = SetBoundaryCond( FDTD, BC,'PML_Grading','-log(1e-6)*log(2.5)/(2*dl*pow(2.5,W/dl)-1) * pow(2.5, D/dl) / Z' );
@@ -137,10 +138,10 @@ allpoints = sp_round(allpoints,0.2,[[feed.pos,0]' , [feed2.pos,0]']); % "round" 
 points = allpoints(:,1:pointInd(1));                % recall the (rounded) points
 CSX = AddMetal( CSX, 'patch' );                     % create a perfect electric conductor (PEC) named "patch"
 CSX = AddPolygon(CSX,'patch',patchPri,2,backDist/2+substrate.thickness,points(1:2,:));  % create a polygon of the material "patch"
-% Create patch 2
-points = allpoints(:,pointInd(1)+1:pointInd(2));    % recall the (rounded) points
-CSX = AddMetal( CSX, 'patch2' );                    % create a perfect electric conductor (PEC) named "patch2"
-CSX = AddPolygon(CSX,'patch2',patchPri+1,2,-(backDist/2+substrate.thickness),points(1:2,:));    % create a polygon of the material "patch2"
+% % Create patch 2
+% points = allpoints(:,pointInd(1)+1:pointInd(2));    % recall the (rounded) points
+% CSX = AddMetal( CSX, 'patch2' );                    % create a perfect electric conductor (PEC) named "patch2"
+% CSX = AddPolygon(CSX,'patch2',patchPri+1,2,-(backDist/2+substrate.thickness),points(1:2,:));    % create a polygon of the material "patch2"
 
 % Create Substrate
 points = allpoints(:,pointInd(2)+1:pointInd(3));                                                    % recall the (rounded) points
@@ -150,21 +151,21 @@ CSX = AddLinPoly(CSX, 'substrate', substratePri, 2, backDist/2+ 0,points, substr
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(backDist/2+0,backDist/2 + substrate.thickness,substrate.cells+1) mesh.z];
 % Create substrate 2
-points = allpoints(:,pointInd(3)+1:pointInd(4));                                                    % recall the (rounded) points
-CSX = AddMaterial( CSX, 'substrate2' );                                                             % create a new material named "substrate2"
-CSX = SetMaterialProperty( CSX, 'substrate2', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );% define the properties of the material "substrate2"
-CSX = AddLinPoly(CSX, 'substrate2', substratePri+1, 2, -(backDist/2+ 0),points, -substrate.thickness);% create a polygon of the material "substrate2" with thickness
-% add extra cells to discretize the substrate thickness
-mesh.z = [linspace(-(backDist/2+0),-(backDist/2 + substrate.thickness),substrate.cells+1) mesh.z];
+% points = allpoints(:,pointInd(3)+1:pointInd(4));                                                    % recall the (rounded) points
+% CSX = AddMaterial( CSX, 'substrate2' );                                                             % create a new material named "substrate2"
+% CSX = SetMaterialProperty( CSX, 'substrate2', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );% define the properties of the material "substrate2"
+% CSX = AddLinPoly(CSX, 'substrate2', substratePri+1, 2, -(backDist/2+ 0),points, -substrate.thickness);% create a polygon of the material "substrate2" with thickness
+% % add extra cells to discretize the substrate thickness
+% mesh.z = [linspace(-(backDist/2+0),-(backDist/2 + substrate.thickness),substrate.cells+1) mesh.z];
 
 % Create Ground
 points = allpoints(:,pointInd(4)+1:pointInd(5));        % recall the (rounded) points
 CSX = AddMetal( CSX, 'gnd' );                           % create a perfect electric conductor (PEC) named "gnd"
 CSX = AddPolygon(CSX, 'gnd', groundPri, 2, backDist/2 + grnd_pos,points);   % create a polygon of the material "gnd"
-% Create ground 2
-points = allpoints(:,pointInd(5)+1:pointInd(6));        % recall the (rounded) points
-CSX = AddMetal( CSX, 'gnd2' );                          % create a perfect electric conductor (PEC)
-CSX = AddPolygon(CSX, 'gnd2', groundPri+1, 2, -(backDist/2 + grnd_pos),points);% create a polygon of the material "gnd2"
+% % Create ground 2
+% points = allpoints(:,pointInd(5)+1:pointInd(6));        % recall the (rounded) points
+% CSX = AddMetal( CSX, 'gnd2' );                          % create a perfect electric conductor (PEC)
+% CSX = AddPolygon(CSX, 'gnd2', groundPri+1, 2, -(backDist/2 + grnd_pos),points);% create a polygon of the material "gnd2"
 
 
 % --- Apply the Excitation & Resist as a Current Source ---
@@ -185,21 +186,20 @@ mesh = DetectEdges(CSX, mesh,'ExcludeProperty','patch');
 % detect and set a special 2D metal edge mesh for the patch
 mesh = DetectEdges(CSX, mesh,'SetProperty','patch','2D_Metal_Edge_Res', c0/(f0+fc)/unit/50);
 % generate a smooth mesh with max. cell size: (e.g) lambda_min / 20 
-mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20); 
-% mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/65,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
+% mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20); 
+mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/65,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
 
 CSX = DefineRectGrid(CSX, unit, mesh);
-CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
-CSX = AddBox(CSX,'Hf',10,[-(dumpWidth/2+10) -(dumpLength/2+10) -10*substrate.thickness],[dumpWidth/2+10,  dumpLength/2+10 10*substrate.thickness]); %assign box
 
 % add a nf2ff calc box; size is 3 cells away from boundary condition
 start = [mesh.x(12)     mesh.y(12)     mesh.z(12)];
 stop  = [mesh.x(end-11) mesh.y(end-11) mesh.z(end-11)];
 [CSX, nf2ff] = CreateNF2FFBox(CSX, 'nf2ff', start, stop);
 
-% just to visualize
-CSX = AddDump(CSX,'my_nf2ff', 'DumpType', 11, 'Frequency',[9e8]);
-CSX = AddBox(CSX,'my_nf2ff',2,start,stop); %assign box
+
+CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
+CSX = AddBox(CSX,'Hf',2,start, stop); %assign box
+
 
 %% Prepare and Run Simulation
 Sim_Path = 'tmp_Patch_Ant_simulation';
