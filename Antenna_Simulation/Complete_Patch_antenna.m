@@ -232,7 +232,8 @@ polarFF(nf2ff,'xaxis','theta','param',[1 2],'normalize',1)
 figure
 plotFFdB(nf2ff,'xaxis','theta','param',[1 2])
 % conventional plot approach
-% plot( nf2ff.theta*180/pi, 20*log10(nf2ff.E_norm{1}/max(nf2ff.E_norm{1}(:)))+10*log10(nf2ff.Dmax));
+%figure
+%plot( nf2ff.theta*180/pi, 20*log10(nf2ff.E_norm{1}/max(nf2ff.E_norm{1}(:)))+10*log10(nf2ff.Dmax));
 
 drawnow
 
