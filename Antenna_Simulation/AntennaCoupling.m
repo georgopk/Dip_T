@@ -17,16 +17,18 @@
 
 %% Initialization
 
-close all
+% close all
 clear
-clc
+% clc
 
 %% Setup the Simulation (Initialize Geometry)
 physical_constants;
 unit = 1e-3; % all length in mm. (unit only for the geometry)
 
+sec_antenna = 1;
+
 %distance between Antennas (in units). (actually, distance between substrates)
-backDist = 100; % here in mm
+backDist = 400 + 24.6; % here in mm
 
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
 %on the grid lines)
@@ -59,13 +61,13 @@ feed2.pos = feed.pos;
 feed2.R = feed.R;
 
 % size of the simulation and dump box 
-SimBox = [650 650 400];
+SimBox = [650 650 700];
 dumpWidth = 400;
 dumpLength = 400;
 
 %% Setup FDTD Parameter & Excitation Function
 f0 = 8.5e8; % center frequency (Hz)
-fc = 4e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
+fc = 1.5e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
 FDTD = InitFDTD( 'NrTs', 300000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
 BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
@@ -139,9 +141,11 @@ points = allpoints(:,1:pointInd(1));                % recall the (rounded) point
 CSX = AddMetal( CSX, 'patch' );                     % create a perfect electric conductor (PEC) named "patch"
 CSX = AddPolygon(CSX,'patch',patchPri,2,backDist/2+substrate.thickness,points(1:2,:));  % create a polygon of the material "patch"
 % % Create patch 2
-% points = allpoints(:,pointInd(1)+1:pointInd(2));    % recall the (rounded) points
-% CSX = AddMetal( CSX, 'patch2' );                    % create a perfect electric conductor (PEC) named "patch2"
-% CSX = AddPolygon(CSX,'patch2',patchPri+1,2,-(backDist/2+substrate.thickness),points(1:2,:));    % create a polygon of the material "patch2"
+if (sec_antenna == 1)
+points = allpoints(:,pointInd(1)+1:pointInd(2));    % recall the (rounded) points
+CSX = AddMetal( CSX, 'patch2' );                    % create a perfect electric conductor (PEC) named "patch2"
+CSX = AddPolygon(CSX,'patch2',patchPri+1,2,-(backDist/2+substrate.thickness),points(1:2,:));    % create a polygon of the material "patch2"
+end
 
 % Create Substrate
 points = allpoints(:,pointInd(2)+1:pointInd(3));                                                    % recall the (rounded) points
@@ -151,21 +155,25 @@ CSX = AddLinPoly(CSX, 'substrate', substratePri, 2, backDist/2+ 0,points, substr
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(backDist/2+0,backDist/2 + substrate.thickness,substrate.cells+1) mesh.z];
 % Create substrate 2
-% points = allpoints(:,pointInd(3)+1:pointInd(4));                                                    % recall the (rounded) points
-% CSX = AddMaterial( CSX, 'substrate2' );                                                             % create a new material named "substrate2"
-% CSX = SetMaterialProperty( CSX, 'substrate2', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );% define the properties of the material "substrate2"
-% CSX = AddLinPoly(CSX, 'substrate2', substratePri+1, 2, -(backDist/2+ 0),points, -substrate.thickness);% create a polygon of the material "substrate2" with thickness
-% % add extra cells to discretize the substrate thickness
-% mesh.z = [linspace(-(backDist/2+0),-(backDist/2 + substrate.thickness),substrate.cells+1) mesh.z];
+if (sec_antenna == 1)
+points = allpoints(:,pointInd(3)+1:pointInd(4));                                                    % recall the (rounded) points
+CSX = AddMaterial( CSX, 'substrate2' );                                                             % create a new material named "substrate2"
+CSX = SetMaterialProperty( CSX, 'substrate2', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );% define the properties of the material "substrate2"
+CSX = AddLinPoly(CSX, 'substrate2', substratePri+1, 2, -(backDist/2+ 0),points, -substrate.thickness);% create a polygon of the material "substrate2" with thickness
+% add extra cells to discretize the substrate thickness
+mesh.z = [linspace(-(backDist/2+0),-(backDist/2 + substrate.thickness),substrate.cells+1) mesh.z];
+end
 
 % Create Ground
 points = allpoints(:,pointInd(4)+1:pointInd(5));        % recall the (rounded) points
 CSX = AddMetal( CSX, 'gnd' );                           % create a perfect electric conductor (PEC) named "gnd"
 CSX = AddPolygon(CSX, 'gnd', groundPri, 2, backDist/2 + grnd_pos,points);   % create a polygon of the material "gnd"
 % % Create ground 2
-% points = allpoints(:,pointInd(5)+1:pointInd(6));        % recall the (rounded) points
-% CSX = AddMetal( CSX, 'gnd2' );                          % create a perfect electric conductor (PEC)
-% CSX = AddPolygon(CSX, 'gnd2', groundPri+1, 2, -(backDist/2 + grnd_pos),points);% create a polygon of the material "gnd2"
+if (sec_antenna == 1)
+points = allpoints(:,pointInd(5)+1:pointInd(6));        % recall the (rounded) points
+CSX = AddMetal( CSX, 'gnd2' );                          % create a perfect electric conductor (PEC)
+CSX = AddPolygon(CSX, 'gnd2', groundPri+1, 2, -(backDist/2 + grnd_pos),points);% create a polygon of the material "gnd2"
+end
 
 
 % --- Apply the Excitation & Resist as a Current Source ---
@@ -252,6 +260,7 @@ drawnow
 %% NFFF Plots
 %find resonance frequncy from s11
 f_res_ind = find(s11==min(s11));
+f_res_ind = 280;
 f_res = freq(f_res_ind);
 
 
