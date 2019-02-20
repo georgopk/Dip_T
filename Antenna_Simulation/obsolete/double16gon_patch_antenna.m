@@ -105,8 +105,8 @@ CSX = AddPolygon(CSX,'patch',11,2,0,poly2.vert); % add a 2nd box-primitive to th
 % Create Substrate
 CSX = AddMaterial( CSX, 'substrate' );
 CSX = SetMaterialProperty( CSX, 'substrate', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa );
-start = [-substrate.width/2+74 -substrate.length/2 0];
-stop  = [ substrate.width/2+74  substrate.length/2 substrate.thickness];
+start = [-substrate.width/2+74 -substrate.length/2 -substrate.thickness];
+stop  = [ substrate.width/2+74  substrate.length/2 0];
 CSX = AddBox( CSX, 'substrate', 0, start, stop );
 
 % add extra cells to discretize the substrate thickness
@@ -114,8 +114,8 @@ mesh.z = [linspace(0,substrate.thickness,substrate.cells+1) mesh.z];
 
 % Create Ground same size as substrate
 CSX = AddMetal( CSX, 'gnd' ); % create a perfect electric conductor (PEC)
-start(3)=0;
-stop(3) =0;
+start(3)=-substrate.thickness;
+stop(3) =-substrate.thickness;
 CSX = AddBox(CSX,'gnd',10,start,stop);
 
 % Apply the Excitation & Resist as a Current Source
