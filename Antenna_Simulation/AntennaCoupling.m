@@ -25,10 +25,10 @@ clear
 physical_constants;
 unit = 1e-3; % all length in mm. (unit only for the geometry)
 
-sec_antenna = 1;
+sec_antenna = 0;
 
 %distance between Antennas (in units). (actually, distance between substrates)
-backDist = 400 + 24.6; % here in mm
+backDist = 0; %24.6 here in mm
 
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
 %on the grid lines)
@@ -61,7 +61,7 @@ feed2.pos = feed.pos;
 feed2.R = feed.R;
 
 % size of the simulation and dump box 
-SimBox = [650 650 700];
+SimBox = [650 650 400];
 dumpWidth = 400;
 dumpLength = 400;
 
@@ -205,7 +205,7 @@ stop  = [mesh.x(end-11) mesh.y(end-11) mesh.z(end-11)];
 [CSX, nf2ff] = CreateNF2FFBox(CSX, 'nf2ff', start, stop);
 
 
-CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
+CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',(9e8));
 CSX = AddBox(CSX,'Hf',2,start, stop); %assign box
 
 
@@ -227,7 +227,7 @@ CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
 RunOpenEMS( Sim_Path, Sim_CSX);
 
 %% Postprocessing & Plots
-freq = linspace( max([200e6,f0-fc]), f0+fc, 501 );
+freq = linspace((f0-fc), (f0+fc), 501 );
 port = calcPort(port, Sim_Path, freq);
 
 % %% Smith chart port reflection
@@ -259,7 +259,7 @@ drawnow
 
 %% NFFF Plots
 %find resonance frequncy from s11
-f_res_ind = find(s11==min(s11));
+%f_res_ind = find(s11==min(s11));
 f_res_ind = 280;
 f_res = freq(f_res_ind);
 
@@ -268,7 +268,7 @@ f_res = freq(f_res_ind);
 % calculate the far field at phi=0 degrees and at phi=90 degrees
 disp( 'calculating far field at phi=[0 90] deg...' );
 
-nf2ff = CalcNF2FF(nf2ff, Sim_Path, f_res, [-180:2:180]*pi/180, [0 90]*pi/180);
+nf2ff = CalcNF2FF(nf2ff, Sim_Path, f_res, (-180:2:180)*pi/180, [0 90]*pi/180);
 
 % display power and directivity
 disp( ['radiated power: Prad = ' num2str(nf2ff.Prad) ' Watt']);
@@ -287,18 +287,18 @@ plotFFdB(nf2ff,'xaxis','theta','param',[1 2])
 
 drawnow
 
-% Show 3D pattern
-disp( 'calculating 3D far field pattern and dumping to vtk (use Paraview to visualize)...' );
-thetaRange = (0:2:180);
-phiRange = (0:2:360) - 180;
-nf2ff = CalcNF2FF(nf2ff, Sim_Path, f_res, thetaRange*pi/180, phiRange*pi/180,'Verbose',1,'Outfile','3D_Pattern.h5');
-
-figure
-plotFF3D(nf2ff,'logscale',-20);
-
-
-E_far_normalized = nf2ff.E_norm{1} / max(nf2ff.E_norm{1}(:)) * nf2ff.Dmax;
-DumpFF2VTK([Sim_Path '/3D_Pattern.vtk'],E_far_normalized,thetaRange,phiRange,'scale',1e-3);
+% % Show 3D pattern
+% disp( 'calculating 3D far field pattern and dumping to vtk (use Paraview to visualize)...' );
+% thetaRange = (0:2:180);
+% phiRange = (0:2:360) - 180;
+% nf2ff = CalcNF2FF(nf2ff, Sim_Path, f_res, thetaRange*pi/180, phiRange*pi/180,'Verbose',1,'Outfile','3D_Pattern.h5');
+% 
+% figure
+% plotFF3D(nf2ff,'logscale',-20);
+% 
+% 
+% E_far_normalized = nf2ff.E_norm{1} / max(nf2ff.E_norm{1}(:)) * nf2ff.Dmax;
+% DumpFF2VTK([Sim_Path '/3D_Pattern.vtk'],E_far_normalized,thetaRange,phiRange,'scale',1e-3);
 
 
 %% postproc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
