@@ -25,10 +25,7 @@ clear
 physical_constants;
 unit = 1e-3; % all length in mm. (unit only for the geometry)
 
-sec_antenna = 0;
-
-%distance between Antennas (in units). (actually, distance between substrates)
-backDist = 0; %24.6 here in mm
+sec_antenna = 1;
 
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
 %on the grid lines)
@@ -44,6 +41,9 @@ feedPri = 30;
 %ground setup
 grnd_pos = -12.3; % ground distance from substrate
 grnd_points =  [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
+
+%distance between Antennas (in units). (actually, distance between substrates)
+backDist = 100 + 2 * abs(grnd_pos); %24.6 here in mm
 
 %substrate setup
 sub_freq = 8.5e8; % Frequency to calculate the substrate conductivity for
@@ -61,7 +61,7 @@ feed2.pos = feed.pos;
 feed2.R = feed.R;
 
 % size of the simulation and dump box 
-SimBox = [650 650 400];
+SimBox = [650, 650, 300 + backDist ];
 dumpWidth = 400;
 dumpLength = 400;
 
