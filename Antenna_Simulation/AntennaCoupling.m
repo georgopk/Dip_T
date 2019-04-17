@@ -1,11 +1,42 @@
 %% Antenna coupling (based on...) % Simple Patch Antenna Tutorial
-% Simulates Two identical Patch Antennas (back to back).
+% Simulates one patch Antenna or Two Patch Antennas (back to back).
 %-------------------------
-% -Create two patch antennas (back to back). 
+%
+%  ### SINGLE ANTENNA MODE ### 
+% If sec_antenna != 1 (e.g. 0 )
+%
+% Creates:
+%  -a patch antenna
+%  -a Rectangle substrate
+%  -a Rectangle ground plane
+%
+% Calculates:
+% - the feed point impedance
+% - the frequency of the minimum impedance
+% (for the frequency range [f0-fc , f0+fc] ) 
+% (a lower frequency boundary is set)
+%     
+% Calculates:
+% - the radiation pattern at phi = 0 and phi = 90
+% - the 3d representation of the radiation pattern
+% (for the frequency of minimum impedance )
+% 
+%   NOTE:
+% In "single antenna mode" it calculates the geometry of the second antenna
+% but it does not create this geometry.
+% Do NOT remove the lines for the second antenna!!! It causes erros!
+% 
+% 
+%
+% ### DOUBLE ANTENNA MODE (BACK TO BACK) ###
+% If sec_antenna = 1
+% 
+% -Creates two identical patch antennas (back to back). 
 %   The distance between the antennas is "backDist" (in mm)
-% -rotate the geometry.
+% -Creates a simulation Box based on "backDist"
+% -rotates the geometry.
 %   The rotation angle is "rot" (in rad)
-% -"round" the coordinates of the points to reduce the mesh
+% -"rounds" the coordinates of the points to reduce the mesh
 %   keep the coordinates of the ports unchanged and change 
 %   other coordinates to "fit" on ports (if necessary)
 %
@@ -13,6 +44,26 @@
 % plot S11, S21...
 %
 % Uses sp_round.m, points.mat, rotate_points.m
+%
+% 
+% 
+% 
+% 
+% 
+% %  ------ Previous Version ------
+% %    Complete_Patch_antenna.m
+% %  
+% %  -------Tutorial info----------
+% % Describtion at:
+% % <http://openems.de/index.php/Tutorial:_Simple_Patch_Antenna>
+% %
+% % Tested with
+% %  - Matlab 2013a / Octave 4.0
+% %  - openEMS v0.0.35
+% %
+% % (C) 2010-2017 Thorsten Liebig <thorsten.liebig@uni-due.de>
+% 
+
 
 
 %% Initialization
@@ -27,12 +78,9 @@ unit = 1e-3; % all length in mm. (unit only for the geometry)
 
 sec_antenna = 1;
 
-%distance between Antennas (in units). (actually, distance between substrates)
-backDist = 400 + 24.6; % here in mm
-
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
 %on the grid lines)
-% rot = 1.5*2*pi/16;
+% rot = 1.5*2*pi/16;        % 1.5 * (16gon_central_angle)
 rot = 0;
 
 %piorities
@@ -45,11 +93,15 @@ feedPri = 30;
 grnd_pos = -12.3; % ground distance from substrate
 grnd_points =  [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
 
+%distance between Antennas (in units). (actually, distance between substrates)
+backDist = 20 + 2 * abs(grnd_pos); %24.6 here in mm
+
 %substrate setup
 sub_freq = 8.5e8; % Frequency to calculate the substrate conductivity for
 % substrate.epsR   = 3.38;
-substrate.epsR = 2.2;
-substrate.kappa  = 1e-3 * 2*pi*sub_freq * EPS0*substrate.epsR; %conductivity 
+substrate.epsR = 4.2;
+substrate.tan_delta = 0.025;
+substrate.kappa  = substrate.tan_delta * 2*pi*sub_freq * EPS0*substrate.epsR; %conductivity 
 substrate.thickness = 1.524;
 substrate.cells = 4;
 substrate.points = [-175,-145;175,-145;175,90;-175,90]';
@@ -61,13 +113,13 @@ feed2.pos = feed.pos;
 feed2.R = feed.R;
 
 % size of the simulation and dump box 
-SimBox = [650 650 700];
+SimBox = [650, 650, 300 + backDist ];
 dumpWidth = 400;
 dumpLength = 400;
 
 %% Setup FDTD Parameter & Excitation Function
 f0 = 8.5e8; % center frequency (Hz)
-fc = 1.5e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
+fc = 0.5e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
 FDTD = InitFDTD( 'NrTs', 300000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
 BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
@@ -204,9 +256,12 @@ start = [mesh.x(12)     mesh.y(12)     mesh.z(12)];
 stop  = [mesh.x(end-11) mesh.y(end-11) mesh.z(end-11)];
 [CSX, nf2ff] = CreateNF2FFBox(CSX, 'nf2ff', start, stop);
 
+%record E-Field
+%start = [-185.4, -185.4, backDist/2 + substrate.thickness ];
+%stop =  [185.4, 185.4, -( backDist/2 + substrate.thickness )];
+CSX = AddDump(CSX,'Ef', 'DumpType', 10, 'Frequency',(f0));
+CSX = AddBox(CSX,'Ef',2,start, stop); %assign box
 
-CSX = AddDump(CSX,'Hf', 'DumpType', 11, 'Frequency',[9e8]);
-CSX = AddBox(CSX,'Hf',2,start, stop); %assign box
 
 
 %% Prepare and Run Simulation
@@ -227,7 +282,7 @@ CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
 RunOpenEMS( Sim_Path, Sim_CSX);
 
 %% Postprocessing & Plots
-freq = linspace( max([200e6,f0-fc]), f0+fc, 501 );
+freq = linspace((f0-fc), (f0+fc), 501 );
 port = calcPort(port, Sim_Path, freq);
 
 % %% Smith chart port reflection
@@ -259,7 +314,7 @@ drawnow
 
 %% NFFF Plots
 %find resonance frequncy from s11
-f_res_ind = find(s11==min(s11));
+%f_res_ind = find(s11==min(s11));
 f_res_ind = 280;
 f_res = freq(f_res_ind);
 
@@ -268,7 +323,7 @@ f_res = freq(f_res_ind);
 % calculate the far field at phi=0 degrees and at phi=90 degrees
 disp( 'calculating far field at phi=[0 90] deg...' );
 
-nf2ff = CalcNF2FF(nf2ff, Sim_Path, f_res, [-180:2:180]*pi/180, [0 90]*pi/180);
+nf2ff = CalcNF2FF(nf2ff, Sim_Path, f_res, (-180:2:180)*pi/180, [0 90]*pi/180);
 
 % display power and directivity
 disp( ['radiated power: Prad = ' num2str(nf2ff.Prad) ' Watt']);
@@ -287,18 +342,18 @@ plotFFdB(nf2ff,'xaxis','theta','param',[1 2])
 
 drawnow
 
-% Show 3D pattern
-disp( 'calculating 3D far field pattern and dumping to vtk (use Paraview to visualize)...' );
-thetaRange = (0:2:180);
-phiRange = (0:2:360) - 180;
-nf2ff = CalcNF2FF(nf2ff, Sim_Path, f_res, thetaRange*pi/180, phiRange*pi/180,'Verbose',1,'Outfile','3D_Pattern.h5');
-
-figure
-plotFF3D(nf2ff,'logscale',-20);
-
-
-E_far_normalized = nf2ff.E_norm{1} / max(nf2ff.E_norm{1}(:)) * nf2ff.Dmax;
-DumpFF2VTK([Sim_Path '/3D_Pattern.vtk'],E_far_normalized,thetaRange,phiRange,'scale',1e-3);
+% % Show 3D pattern
+% disp( 'calculating 3D far field pattern and dumping to vtk (use Paraview to visualize)...' );
+% thetaRange = (0:2:180);
+% phiRange = (0:2:360) - 180;
+% nf2ff = CalcNF2FF(nf2ff, Sim_Path, f_res, thetaRange*pi/180, phiRange*pi/180,'Verbose',1,'Outfile','3D_Pattern.h5');
+% 
+% figure
+% plotFF3D(nf2ff,'logscale',-20);
+% 
+% 
+% E_far_normalized = nf2ff.E_norm{1} / max(nf2ff.E_norm{1}(:)) * nf2ff.Dmax;
+% DumpFF2VTK([Sim_Path '/3D_Pattern.vtk'],E_far_normalized,thetaRange,phiRange,'scale',1e-3);
 
 
 %% postproc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,5 +1,6 @@
 %% Simple polygon patch antenna (based on...) % Simple Patch Antenna Tutorial
 %   Simulates a patch antenna.
+%   "Almost" obsolete! AntennaCoupling.m covers this case.
 % --------------------------------
 % Creates:
 %  -a patch antenna
@@ -53,8 +54,9 @@ grnd_points =  [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
 %substrate setup
 sub_freq = 8.5e8; % Frequency to calculate the substrate conductivity for
 % substrate.epsR   = 3.38;
-substrate.epsR   = 2.2;
-substrate.kappa  = 1e-3 * 2*pi*sub_freq * EPS0*substrate.epsR; %conductivity 
+substrate.epsR   = 4.2;
+substrate.tan_delta = 0.025;
+substrate.kappa  = substrate.tan_delta * 2*pi*sub_freq * EPS0*substrate.epsR; %conductivity 
 substrate.width  = 400;
 substrate.length = 400;
 substrate.thickness = 1.524;
