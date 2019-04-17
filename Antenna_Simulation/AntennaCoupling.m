@@ -219,12 +219,12 @@ end
 % Create Ground
 points = allpoints(:,pointInd(4)+1:pointInd(5));        % recall the (rounded) points
 CSX = AddMetal( CSX, 'gnd' );                           % create a perfect electric conductor (PEC) named "gnd"
-CSX = AddPolygon(CSX, 'gnd', groundPri, 2, backDist/2 + grnd_pos,points);   % create a polygon of the material "gnd"
+CSX = AddLinPoly(CSX, 'gnd', groundPri, 2, backDist/2 + grnd_pos,points, -1);   % create a polygon of the material "gnd"
 % % Create ground 2
 if (sec_antenna == 1)
 points = allpoints(:,pointInd(5)+1:pointInd(6));        % recall the (rounded) points
 CSX = AddMetal( CSX, 'gnd2' );                          % create a perfect electric conductor (PEC)
-CSX = AddPolygon(CSX, 'gnd2', groundPri+1, 2, -(backDist/2 + grnd_pos),points);% create a polygon of the material "gnd2"
+CSX = AddLinPoly(CSX, 'gnd2', groundPri+1, 2, -(backDist/2 + grnd_pos),points, 1);% create a polygon of the material "gnd2"
 end
 
 
@@ -259,8 +259,8 @@ stop  = [mesh.x(end-11) mesh.y(end-11) mesh.z(end-11)];
 %record E-Field
 %start = [-185.4, -185.4, backDist/2 + substrate.thickness ];
 %stop =  [185.4, 185.4, -( backDist/2 + substrate.thickness )];
-CSX = AddDump(CSX,'Ef', 'DumpType', 10, 'Frequency',(f0));
-CSX = AddBox(CSX,'Ef',2,start, stop); %assign box
+CSX = AddDump(CSX,'If', 'DumpType', 12, 'Frequency',(f0));
+CSX = AddBox(CSX,'If',2,start, stop); %assign box
 
 
 
