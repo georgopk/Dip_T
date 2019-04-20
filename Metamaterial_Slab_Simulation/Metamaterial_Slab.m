@@ -57,29 +57,30 @@ substrate.points = [-substrate.x_dim/2,-substrate.y_dim/2;
 substrate.points = substrate.points + substrate.pos(1:2);
 
 %setup feeding
-feed.pos = [0;0;20];         % reference point (center) for the feeding (x,y,z)
-feed.length = lamda/2; % length of the dipol
-feed.dir = [1,0,0];               % direction of antenna. 0->x, 1->y, 2->z
+feed.pos = [0;150;20];     % reference point (center) for the feeding (x,y,z)
+feed.length = lamda/2;      % length of the dipol
+feed.dir = [1,0,0];         % direction of antenna. 100->x, 010->y, 001->z
 feed.R = 50;                % feed resistance
     % calcualte the vertices of the dipol
 feed.start = feed.pos-feed.length/2*feed.dir';
 feed.stop = feed.pos+feed.length/2*feed.dir';
 
-% % calculeate the center of the geometry
-% center = ;
-
-% size of the simulation and dump box 
-SimBox = [2*abs(substrate.pos(1)) + substrate.x_dim + 2*abs(feed.pos(1)) + 4*lamda/5,
-    2*abs(substrate.pos(2)) + substrate.y_dim + 2*abs(feed.pos(2)) + 4*lamda/5,
-    2*abs(feed.pos(3)) + 2*abs(feed.pos(3)) + 4*lamda/5 ];
+% size of the simulation box 
+% aggregate all coordinates
+all_xy = [grnd.points , substrate.points, feed.start(1:2), feed.stop(1:2)]';
+all_z = [grnd.pos(3), substrate.pos(3), feed.start(3), feed.start(3)]';
+% find "outlier" coordinates
+StructDimen(1,:) = [min(all_xy(:,1)), max(all_xy(:,1))];
+StructDimen(2,:) = [min(all_xy(:,2)), max(all_xy(:,2))];
+StructDimen(3,:) = [min(all_z), max(all_z)];
 
 %% Setup CSXCAD Geometry & Mesh
 CSX = InitCSX();
 
 %initialize the mesh with the "air-box" dimensions
-mesh.x = [-SimBox(1)/2 SimBox(1)/2];
-mesh.y = [-SimBox(2)/2 SimBox(2)/2];
-mesh.z = [-SimBox(3)/2 SimBox(3)/2];
+mesh.x = [StructDimen(1,1) - 2/5*lamda, StructDimen(1,2) + 2/5*lamda];
+mesh.y = [StructDimen(2,1) - 2/5*lamda, StructDimen(2,2) + 2/5*lamda];
+mesh.z = [StructDimen(3,1) - 2/5*lamda, StructDimen(3,2) + 2/5*lamda];
 
 
 % Create Substrate
@@ -87,7 +88,7 @@ CSX = AddMaterial( CSX, 'substrate' );                                          
 CSX = SetMaterialProperty( CSX, 'substrate', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
 CSX = AddLinPoly(CSX, 'substrate', substratePri, 2, substrate.pos(3), substrate.points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
 % add extra cells to discretize the substrate thickness
-mesh.z = [linspace(substrate.pos(1),substrate.pos(1)+ substrate.thickness,substrate.cells+1) mesh.z];
+mesh.z = [linspace(substrate.pos(3),substrate.pos(3)+ substrate.thickness,substrate.cells+1) mesh.z];
 
 % Create Ground
 CSX = AddMetal( CSX, 'gnd' );                           % create a perfect electric conductor (PEC) named "gnd"
