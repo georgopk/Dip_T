@@ -42,7 +42,7 @@ clear
 
 %% Setup FDTD Parameter & Excitation Function
 f0 = 8.5e8; % center frequency (Hz)
-fc = 0.5e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
+fc = 4e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
 FDTD = InitFDTD( 'NrTs', 300000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
 BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
@@ -67,8 +67,8 @@ feedPri = 30;
 %ground setup
 grnd.pos = [0;0;0]; % reference point for the ground (x,y)
 grnd.thickness = 0;
-grnd.x_dim = 370.8;
-% grnd.x_dim = 50;
+% grnd.x_dim = 370.8;
+grnd.x_dim = 180;
 grnd.y_dim = 50;
 grnd.points = [-grnd.x_dim/2,-grnd.y_dim/2; 
     -grnd.x_dim/2,grnd.y_dim/2; 
@@ -93,19 +93,20 @@ substrate.points = [-substrate.x_dim/2,-substrate.y_dim/2;
 substrate.points = substrate.points + substrate.pos(1:2);
 
 % SRR/metamaterial setup
-srr.L = 20;     % length of the outer edge
-srr.w = 1;      % width of the strip
-srr.g = 2;      % gap between strips
-srr.s = 1;      % slot dimention
-srr.d = 2;      % distance between two SRRs
+srr.L = 23;     % length of the outer edge
+srr.w = 0.6;      % width of the strip
+srr.g = 0.6;      % gap between strips
+srr.s = 0.6;      % slot dimention
+srr.d = 1.8;      % distance between two SRRs
 srr.d_c = srr.L + srr.d;  % distance betwenn the centers of two (neighbouring) SRRs
 srr.nCells = floor (substrate.x_dim/srr.d_c); % Number of SRR cells
 srr.first_center = -(srr.nCells-1)*srr.d_c/2;
 srr.centers = srr.first_center + (0:(srr.nCells-1)) * srr.d_c;
 
 %setup feeding
-feed.pos = [0;150;20];      % reference point (center) for the feeding (x,y,z)
-feed.length = lamda/2;      % length of the dipol
+feed.pos = [0;150;40];      % reference point (center) for the feeding (x,y,z)
+% feed.length = lamda/2;      % length of the dipol
+feed.length = 165.7;      % length of the dipol
 feed.dir = [1,0,0];         % direction of antenna. 100->x, 010->y, 001->z
 feed.R = 50;                % feed resistance
     % calcualte the vertices of the dipol
@@ -151,7 +152,7 @@ mesh.z = [linspace(substrate.pos(3),substrate.pos(3)+ substrate.thickness,substr
 CSX = AddMetal( CSX, 'gnd' );                           % create a perfect electric conductor (PEC) named "gnd"
 CSX = AddLinPoly(CSX, 'gnd', groundPri, 2, grnd.pos(3),grnd.points, grnd.thickness);   % create a polygon of the material "gnd"
 
-% --- Apply the Excitation ---
+% --- Add dipol ---
 [CSX, port{1}] = AddLumpedPort(CSX, feedPri ,1 ,feed.R, feed.start, feed.stop, feed.dir, true);
 
 % % detect all edges except of the patch
@@ -164,6 +165,11 @@ mesh = DetectEdges(CSX, mesh,'SetProperty','patch','2D_Metal_Edge_Res', c0/(f0+f
 mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/65,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
 
 CSX = DefineRectGrid(CSX, unit, mesh);
+
+% --- Add port ---
+start = [-substrate.points(1,1), substrate.points(2,1), substrate.pos(3) - substrate.thickness/4 ];
+stop = [substrate.points(1,1)+0.5, substrate.points(2,1)+0.5, substrate.thickness];
+[CSX, port{2}] = AddRectWaveGuidePort(CSX,0,2,start,stop, 'y',(stop(2)-start(2)),(stop(3)-start(3)),'TE11', 0);
 
 
 % add a nf2ff calc box; size is 3 cells away from boundary condition
@@ -201,3 +207,39 @@ RunOpenEMS( Sim_Path, Sim_CSX);
 h5ef = squeeze(h5field.FD.values{1}(:,17,18,:));
 h5ef_y = abs(h5ef(:,2));
 plot(h5mesh.lines{1}/unit,h5ef_y);
+
+freq = linspace( f0-fc, f0+fc, 501 );
+port = calcPort(port, Sim_Path, freq);
+
+Zin = port{1}.uf.tot ./ port{1}.if.tot;
+s11 = port{1}.uf.ref ./ port{1}.uf.inc;
+s21 = port{2}.uf.ref ./ port{1}.uf.inc;
+P_in = 0.5 * port{1}.uf.inc .* conj( port{1}.if.inc ); % antenna feed power
+
+% plot feed point impedance
+figure
+plot( freq/1e6, real(Zin), 'k-', 'Linewidth', 2 );
+hold on
+grid on
+plot( freq/1e6, imag(Zin), 'r--', 'Linewidth', 2 );
+title( 'feed point impedance' );
+xlabel( 'frequency f / MHz' );
+ylabel( 'impedance Z_{in} / Ohm' );
+legend( 'real', 'imag' );
+
+% plot reflection coefficient S11
+figure
+plot( freq/1e6, 20*log10(abs(s11)), 'k-', 'Linewidth', 2 );
+grid on
+title( 'reflection coefficient S_{11}' );
+xlabel( 'frequency f / MHz' );
+ylabel( 'reflection coefficient |S_{11}|' );
+
+% plot coefficient S21
+figure
+plot( freq/1e6, 20*log10(abs(s21)), 'r--', 'Linewidth', 2 );
+grid on
+title( 'S_{21}' );
+xlabel( 'frequency f / MHz' );
+ylabel( '|S_{21}|' );
+
