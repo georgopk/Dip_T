@@ -137,9 +137,9 @@ feed.stop = feed.pos+feed.length/2*feed.dir';
 %setup "hearing" dipole 2
 feed2.pos = [0;0;-feed.pos(3)];      % reference point (center) for the feeding (x,y,z)
 % feed.length = lamda/2;      % length of the dipol
-feed2.length = 176.5;      % length of the dipol
-feed2.dir = [1,0,0];         % direction of antenna. 100->x, 010->y, 001->z
-feed2.R = 50;                % feed resistance
+feed2.length = feed.length;      % length of the dipol
+feed2.dir = feed.dir;         % direction of antenna. 100->x, 010->y, 001->z
+feed2.R = feed.R;                % feed resistance
     % calcualte the vertices of the dipol
 feed2.start = feed2.pos-feed2.length/2*feed2.dir';
 feed2.stop = feed2.pos+feed2.length/2*feed2.dir';
