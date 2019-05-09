@@ -1,4 +1,4 @@
-function [] = ParamMetaSlab(varargin)
+function [freq, port, s11, s21] = ParamMetaSlab(varargin)
 % Simulation of a Slab with two arrays of SRRs
 % 
 % -Create a slab made of ground and substrate.
@@ -214,9 +214,9 @@ StructDimen(3,:) = [min(all_z), max(all_z)];
 CSX = InitCSX();
 
 %initialize the mesh with the "air-box" dimensions
-mesh.x = [StructDimen(1,1) - lamda/3, StructDimen(1,2) + lamda/3];
-mesh.y = [StructDimen(2,1) - lamda/3, StructDimen(2,2) + lamda/3];
-mesh.z = [StructDimen(3,1) - lamda/3, StructDimen(3,2) + lamda/3];
+mesh.x = [StructDimen(1,1) - lamda/6, StructDimen(1,2) + lamda/6];
+mesh.y = [StructDimen(2,1) - lamda/6, StructDimen(2,2) + lamda/6];
+mesh.z = [StructDimen(3,1) - lamda/6, StructDimen(3,2) + lamda/6];
 
 
 [points1,points2] = srr_points(srr.L,srr.w,srr.g,srr.s,plot_on);               % calculate points for an SRR
@@ -299,8 +299,8 @@ Sim_CSX = 'Slab_simulation.xml';
 % write openEMS compatible xml-file
 WriteOpenEMS( [Sim_Path '/' Sim_CSX], FDTD, CSX );
 
-% show the structure
-CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
+% % show the structure
+% CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
 
 % run openEMS
 RunOpenEMS( Sim_Path, Sim_CSX);
@@ -315,32 +315,32 @@ Zin = port{1}.uf.tot ./ port{1}.if.tot;
 s11 = port{1}.uf.ref ./ port{1}.uf.inc;
 s21 = port{2}.uf.ref ./ port{1}.uf.inc;
 P_in = 0.5 * port{1}.uf.inc .* conj( port{1}.if.inc ); % antenna feed power
-
-% plot feed point impedance
-figure
-plot( freq/1e6, real(Zin), 'k-', 'Linewidth', 2 );
-hold on
-grid on
-plot( freq/1e6, imag(Zin), 'r--', 'Linewidth', 2 );
-title( 'feed point impedance' );
-xlabel( 'frequency f / MHz' );
-ylabel( 'impedance Z_{in} / Ohm' );
-legend( 'real', 'imag' );
-
-% plot reflection coefficient S11
-figure
-plot( freq/1e6, 20*log10(abs(s11)), 'k-', 'Linewidth', 2 );
-grid on
-title( 'reflection coefficient S_{11}' );
-xlabel( 'frequency f / MHz' );
-ylabel( 'reflection coefficient |S_{11}|' );
-
-% plot coefficient S21
-figure
-plot( freq/1e6, 20*log10(abs(s21)), 'r', 'Linewidth', 2 );
-grid on
-title( 'S_{21}' );
-xlabel( 'frequency f / MHz' );
-ylabel( '|S_{21}|' );
+% % % 
+% % % % plot feed point impedance
+% % % figure
+% % % plot( freq/1e6, real(Zin), 'k-', 'Linewidth', 2 );
+% % % hold on
+% % % grid on
+% % % plot( freq/1e6, imag(Zin), 'r--', 'Linewidth', 2 );
+% % % title( 'feed point impedance' );
+% % % xlabel( 'frequency f / MHz' );
+% % % ylabel( 'impedance Z_{in} / Ohm' );
+% % % legend( 'real', 'imag' );
+% % % 
+% % % % plot reflection coefficient S11
+% % % figure
+% % % plot( freq/1e6, 20*log10(abs(s11)), 'k-', 'Linewidth', 2 );
+% % % grid on
+% % % title( 'reflection coefficient S_{11}' );
+% % % xlabel( 'frequency f / MHz' );
+% % % ylabel( 'reflection coefficient |S_{11}|' );
+% % % 
+% % % % plot coefficient S21
+% % % figure
+% % % plot( freq/1e6, 20*log10(abs(s21)), 'r', 'Linewidth', 2 );
+% % % grid on
+% % % title( 'S_{21}' );
+% % % xlabel( 'frequency f / MHz' );
+% % % ylabel( '|S_{21}|' );
 
 end
