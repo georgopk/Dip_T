@@ -1,6 +1,7 @@
 clear
 % declare the parameters
-dplen = [165,155,145];
+dplen = 140:10:180;
+disp (dplen);   % for convenience
 
 for i = 1: length(dplen)
     

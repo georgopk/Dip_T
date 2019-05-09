@@ -85,8 +85,8 @@ end
 % % clc
 
 %% Setup FDTD Parameter & Excitation Function
-f0 = 8.5e8; % center frequency (Hz)
-fc = 1e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
+f0 = 9.25e8; % center frequency (Hz)
+fc = 1.75e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
 FDTD = InitFDTD( 'NrTs', 300000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
 BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
