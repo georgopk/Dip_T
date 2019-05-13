@@ -201,8 +201,8 @@ substrate2.points = substrate2.points + substrate2.pos(1:2)';
 
 % size of the simulation box 
 % aggregate all coordinates
-all_xy = [grnd.points , substrate1.points,substrate2.points, feed.start(1:2), feed.stop(1:2)]';
-all_z = [grnd.pos(3), substrate1.pos(3), substrate2.pos(3), feed.start(3), feed.start(3)]';
+all_xy = [grnd.points , substrate1.points,substrate2.points, feed.start(1:2), feed2.stop(1:2)]';
+all_z = [grnd.pos(3), substrate1.pos(3), substrate2.pos(3), feed.start(3), feed2.start(3)]';
 % find "outlier" coordinates
 StructDimen(1,:) = [min(all_xy(:,1)), max(all_xy(:,1))];
 StructDimen(2,:) = [min(all_xy(:,2)), max(all_xy(:,2))];
@@ -289,7 +289,7 @@ CSX = AddDump(CSX,'Ef_vtr', 'DumpType', 10, 'Frequency',(f0));
 CSX = AddBox(CSX,'Ef_vtr',2,start, stop); %assign box
 
 %% Prepare and Run Simulation
-Sim_Path = ['tmp_Slab_sim' '_g' num2str(srr.g) '_L' num2str(srr.L) '_s' num2str(srr.s) '_w' num2str(srr.w) '_dip' num2str(feed.length)];
+Sim_Path = ['tmp_Slab_sim' '_s' num2str(srr.s) '_g' num2str(srr.g) '_L' num2str(srr.L) '_w' num2str(srr.w) '_dip' num2str(feed.length)];
 Sim_CSX = 'Slab_simulation.xml';
 
 % create an empty working directory
