@@ -85,8 +85,8 @@ end
 % % clc
 
 %% Setup FDTD Parameter & Excitation Function
-f0 = 9.25e8; % center frequency (Hz)
-fc = 1.75e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
+f0 = 8.5e8; % center frequency (Hz)
+fc = 1e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
 FDTD = InitFDTD( 'NrTs', 300000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
 BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
@@ -300,7 +300,7 @@ Sim_CSX = 'Slab_simulation.xml';
 WriteOpenEMS( [Sim_Path '/' Sim_CSX], FDTD, CSX );
 
 % % show the structure
-% CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
+CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
 
 % run openEMS
 RunOpenEMS( Sim_Path, Sim_CSX);
