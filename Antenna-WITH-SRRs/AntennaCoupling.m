@@ -29,7 +29,7 @@
 % 
 %
 % ### DOUBLE ANTENNA MODE (BACK TO BACK) ###
-% If sec_antenna = 1
+% If sec_antenna == 1
 % 
 % -Creates two identical patch antennas (back to back). 
 %   The distance between the antennas is "backDist" (in mm)
@@ -40,19 +40,26 @@
 %   keep the coordinates of the ports unchanged and change 
 %   other coordinates to "fit" on ports (if necessary)
 %
+% 
+% ### SRRs MODE ###
+% If add_srrs == 1
+% 
+% -Replaces the Ground of the antenna with a new one containing substrate
+% with SRRs.
+% *** This task uses ParamMetaSlab.m ***
+% To run the simulation without SRRS set 'add_srrs' to 0 
+% 
+% 
 % ---- results ----
 % plot S11, S21...
 %
-% Uses sp_round.m, points.mat, rotate_points.m
+% Uses sp_round.m, points.mat, rotate_points.m, ParamMetaSlab.m
 %
 % 
+%  ------ Previous Version ------
+%    Complete_Patch_antenna.m
 % 
-% 
-% 
-% 
-% %  ------ Previous Version ------
-% %    Complete_Patch_antenna.m
-% %  
+% == based on Simple Patch Antenna Tutorial ==
 % %  -------Tutorial info----------
 % % Describtion at:
 % % <http://openems.de/index.php/Tutorial:_Simple_Patch_Antenna>
@@ -77,6 +84,7 @@ physical_constants;
 unit = 1e-3; % all length in mm. (unit only for the geometry)
 
 sec_antenna = 1;
+add_srrs = 1;
 
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
 %on the grid lines)
@@ -184,10 +192,16 @@ feed.pos = (rotate_points(feed.pos',rot,1))' ;      % adjust the feeding positio
 feed2.pos(1) = -feed2.pos(1);                       % mirror
 feed2.pos = (rotate_points(feed2.pos',rot,1))' ;    % adjust the feeding position to the rotated structure
 
-[~,~,~,~, in_SRR_points, CSX,mesh] = ParamMetaSlab('L',srr.L,'CSX',CSX,'grndelev',grnd_pos+backDist/2,'mesh',mesh);    % import SRRs with ground
-
+if (add_srrs == 1)
+    [~,~,~,~, in_SRR_points, CSX,mesh] = ParamMetaSlab('L',srr.L,'CSX',CSX,'grndelev',grnd_pos+backDist/2,'mesh',mesh);    % import SRRs with ground
+elseif (add_srrs == 0)
+    in_SRR_points = [];
+else
+    error('Check the "add_srrs" value!!!');
+end
 %ROUND ALL POINTS
-allpoints = sp_round(allpoints,0.2,[[feed.pos]' , [feed2.pos]', in_SRR_points]); % "round" the coordinates of some vertices, to reduce the mesh. Don't change the coordinates of SRRs or feeds
+allpoints = round(allpoints,1);
+allpoints = sp_round(allpoints,0.3,[in_SRR_points,[feed2.pos]' , [feed.pos]']); % "round" the coordinates of some vertices, to reduce the mesh. Don't change the coordinates of SRRs or feeds
 
 
 
@@ -220,11 +234,13 @@ CSX = AddLinPoly(CSX, 'substrate2', substratePri+1, 2, -(backDist/2+ 0),points, 
 mesh.z = [linspace(-(backDist/2+0),-(backDist/2 + substrate.thickness),substrate.cells+1) mesh.z];
 end
 
-% % % Create Ground
-% % points = allpoints(:,pointInd(4)+1:pointInd(5));        % recall the (rounded) points
-% % CSX = AddMetal( CSX, 'gnd' );                           % create a perfect electric conductor (PEC) named "gnd"
-% % CSX = AddLinPoly(CSX, 'gnd', groundPri, 2, backDist/2 + grnd_pos,points, -1);   % create a polygon of the material "gnd"
-% % Create ground 2
+if (add_srrs == 0)
+% Create Ground
+points = allpoints(:,pointInd(4)+1:pointInd(5));        % recall the (rounded) points
+CSX = AddMetal( CSX, 'gnd' );                           % create a perfect electric conductor (PEC) named "gnd"
+CSX = AddLinPoly(CSX, 'gnd', groundPri, 2, backDist/2 + grnd_pos,points, -1);   % create a polygon of the material "gnd"
+end
+% Create ground 2
 if (sec_antenna == 1)
 points = allpoints(:,pointInd(5)+1:pointInd(6));        % recall the (rounded) points
 CSX = AddMetal( CSX, 'gnd2' );                          % create a perfect electric conductor (PEC)
@@ -246,12 +262,14 @@ stop = [feed2.pos, -(backDist/2 + substrate.thickness)];
 % Finalize the Mesh
 % -----------------
 % detect all edges except of the patch
-mesh = DetectEdges(CSX, mesh,'ExcludeProperty','patch');
+mesh = DetectEdges(CSX, mesh,'ExcludeProperty',['SRRpatch1', 'SRRpatch2','SRRpatch3','SRRpatch4','patch']);
 % detect and set a special 2D metal edge mesh for the patch
-mesh = DetectEdges(CSX, mesh,'SetProperty','patch','2D_Metal_Edge_Res', c0/(f0+fc)/unit/50);
+mesh = DetectEdges(CSX, mesh,'SetProperty',['SRRpatch1', 'SRRpatch2','SRRpatch3','SRRpatch4','patch'],'2D_Metal_Edge_Res', c0/(f0+fc)/unit/50);
 % generate a smooth mesh with max. cell size: (e.g) lambda_min / 20 
 % mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20); 
-mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/50,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
+mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/30,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
+% mesh.x= unique(sp_round(mesh.x,0.2,allpoints(1,:)));
+% mesh.y= unique(sp_round(mesh.y,0.2,allpoints(2,:)));
 
 CSX = DefineRectGrid(CSX, unit, mesh);
 
@@ -270,7 +288,14 @@ CSX = AddBox(CSX,'Ef_vtr',2,start, stop); %assign box
 
 
 %% Prepare and Run Simulation
-Sim_Path = ['tmp_Antenna_with_SRRs', '_L',num2str(srr.L),'_oneSide'];
+if(add_srrs == 1)
+    Sim_Path = ['tmp_Antenna_with_SRRs', '_L',num2str(srr.L),'_oneSide'];
+elseif(add_srrs == 0)
+    Sim_Path = ['tmp_Antenna_without_SRRs'];
+else
+    error('Check the "add_srrs" value!!!');
+end
+
 Sim_CSX = 'Ant_with_SRRs_simulation.xml';
 
 % create an empty working directory
