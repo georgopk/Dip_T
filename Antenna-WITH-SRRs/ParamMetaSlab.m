@@ -1,18 +1,30 @@
 function [freq, port, s11, s21, xy_points, CSX, mesh] = ParamMetaSlab(varargin)
-% varargin = [];
 % Simulation of a Slab with two arrays of SRRs
 % 
 % -Create a slab made of ground and substrate.
-% -Calculate the number of SRRs needed to fill the slab (on x axis)
-% -Fill the two edges of the slab with SRRs. (As a patch on the substrate 
+%  The ground dimensions and position can be changed parametrically.
+% -Calculate the number of SRRs needed to fill the perimeter of the slab.
+% -Fill the four edges of the slab with SRRs. (As a patch on the substrate 
 %  of the slab). The SRR parameters can be changed parametrically.
 %  *** This task uses the function srr_points.m ***
+% 
+% IF the parameter 'CSX' is not set:
 % -Create a dipole (lamda/2)
-%   The length of the dipol can be canged parametrically 
-% -Create an auto-adjustable Simulation Box depending on the dimentions of
-%   the structure and the dipol, accounting for "extra free space".
+%   The length of the dipole can be canged parametrically.
+% -Create an auto-adjustable Simulation Box depending on the dimensions of
+%   the structure and the dipole, accounting for "extra free space".
 % -Store the values of the Electric field (frequency domain) both in .vtr
 %   and in .h5 files.
+% 
+% SECOND WAY TO USE THIS FUNCTION:
+% --Use the argument 'CSX'--
+% The function will return a CSX object containing the slab with SRRs. 
+% It also returns a 'mesh' matrix  and a 'xy_points' matrix containing the 
+% points of the sructure.
+% 
+% --In this case the output arguments freq, port, s11, s21 are useless.--
+% 
+% 
 % 
 %  ----------------- NOTE: -------------------
 %  This Simulation needs the file srr_points.m
@@ -37,10 +49,27 @@ function [freq, port, s11, s21, xy_points, CSX, mesh] = ParamMetaSlab(varargin)
 % 
 % 
 % (optional) arguments:
+%
 %    'L', 'w', 'g', 's', 'd':      SRR parameters.
 %    'dipLength':                  Length of the feeding dipole.
-%    'grndxDim', grndyDim:         Dimentions of the ground.
-%    
+%    'grndxDim', 'grndyDim':       Dimensions of the ground.
+%    'grndelev':                   Ground elevation. (z position)
+%    'CSX':                        A CSX object. If this argument is being 
+%                                  used the function creates a ground, 
+%                                  fills the edges with SRRs and substrate
+%                                  and returns the CSX objecet.
+%    'mesh':                       A mesh matrix. Usefull when 'CSX'
+%                                  argument is being used to add lines in
+%                                  your mesh for each point of the Slab
+%                                  structure.
+%    'substrate':                  A substrate structure containing epsR,
+%                                  tan_delta, kappa, thickness, cells.
+%
+%   --there are default values for any of the arguments above--    
+% 
+% 
+% 
+% 
 %  examples:
 % -----------
 % Ex.1
@@ -56,11 +85,14 @@ function [freq, port, s11, s21, xy_points, CSX, mesh] = ParamMetaSlab(varargin)
 % variables)
 % >> ParamMetaSlab('w',5,'L',50)
 % 
+% Ex.4
+% Call the function using the 'CSX' and 'mesh' arguments, defining L=14
+% and grndelev=20;
+% >>[~,~,~,~, in_SRR_points, CSX, mesh] = ParamMetaSlab('L',14,'CSX',CSX,'grndelev',20,'mesh',mesh);
 % 
 
 
-
-%% Overwrite the predefined parameters
+%% Store input parameters
 for n=1:numel(varargin)/2
     if ~ischar(varargin{2*n-1})
         error([' NOT a variable name: ' varargin{2*n-1}]);
@@ -112,9 +144,9 @@ end
 %% Setup the Simulation (Initialize Geometry)
 
 
-    %%____DEFAULT PARAMETERS___
-    physical_constants;
-if ~exist('input_CSX','var') 
+    
+physical_constants;
+if ~exist('input_CSX','var')                % do not declare these parameters if 'CSX' is being used
     unit = 1e-3; % all length in mm. (unit only for the geometry)
     lamda_meter = c0/f0;
     lamda = lamda_meter/unit;
@@ -150,27 +182,27 @@ grnd.points = [-grnd.x_dim/2,-grnd.y_dim/2;
 grnd.points = grnd.points + grnd.pos(1:2);
 
 
-if ~exist('input_CSX','var') 
+if ~exist('input_CSX','var')  % do not declare these parameters if 'CSX' is being used
     %setup feeding dipole 1
     feed.pos = [0;0;30];      % reference point (center) for the feeding (x,y,z)
-    % feed.length = lamda/2;      % length of the dipol
-    feed.length = 176.5;      % length of the dipol
+    % feed.length = lamda/2;      % length of the dipole
+    feed.length = 176.5;      % length of the dipole
     if exist('input_dipLength','var')       % if exists, overwrite the default value
         feed.length = input_dipLength;
     end
     feed.dir = [1,0,0];         % direction of antenna. 100->x, 010->y, 001->z
     feed.R = 50;                % feed resistance
-        % calcualte the vertices of the dipol
+        % calcualte the vertices of the dipole
     feed.start = feed.pos-feed.length/2*feed.dir';
     feed.stop = feed.pos+feed.length/2*feed.dir';
 
     %setup "hearing" dipole 2
     feed2.pos = [0;0;-feed.pos(3)];      % reference point (center) for the feeding (x,y,z)
-    % feed.length = lamda/2;      % length of the dipol
-    feed2.length = feed.length;      % length of the dipol
+    % feed.length = lamda/2;      % length of the dipole
+    feed2.length = feed.length;      % length of the dipole
     feed2.dir = feed.dir;         % direction of antenna. 100->x, 010->y, 001->z
     feed2.R = feed.R;                % feed resistance
-        % calcualte the vertices of the dipol
+        % calcualte the vertices of the dipole
     feed2.start = feed2.pos-feed2.length/2*feed2.dir';
     feed2.stop = feed2.pos+feed2.length/2*feed2.dir';
 end
@@ -323,6 +355,8 @@ end
 % SRRs on Y-axis 
 points1 = sp_round(rotate_points(points1',pi/2),0.2)';
 points2 = sp_round(rotate_points(points2',pi/2),0.2)';
+points1=round(points1,1);
+points2=round(points2,1);
 CSX = AddMetal( CSX, 'SRRpatch3' );                     % create a perfect electric conductor (PEC) named "patch"
 for i=1:srr.nCellsY
     % Create outer strip    
