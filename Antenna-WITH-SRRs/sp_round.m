@@ -33,7 +33,6 @@ function points = sp_round(points,eee,feed)
 %     (3.18). Use smaller "eee" to avoid it.
 
 
-
 for i=1:length (points) % check every cell of a row............
 %   variable "temp" is used to store the indices of the values with
 %   difference less than "eee"
@@ -41,10 +40,14 @@ for i=1:length (points) % check every cell of a row............
     for j=1:length (points) %............with any other cell in the row !!!
         for k = 1 : size (points,1) % for each row in "points"
 
-            if exist('feed','var') && (abs(points(k,j) - feed(k))< eee)
-                % if a value is similar to the corresponding
-                % "feed-coordinate" overwrite it!
-                points(k,j) = feed(k);
+            if exist('feed','var')  % if 'feed' argument is set. Check if the value is similar to any of the corresponding "feed-coordinates"
+                for m=1:size(feed,2)
+                    if (abs(points(k,j) - feed(k,m))< eee)
+                    % if a value is similar to the corresponding
+                    % "feed-coordinate" overwrite it!
+                    points(k,j) = feed(k,m);
+                    end
+                end
             elseif(abs(points(k,j) - points(k,i))< eee)
                 % if the difference is less than "eee" switch the
                 % corresponding cell in "temp" to "TRUE"
@@ -58,6 +61,7 @@ for i=1:length (points) % check every cell of a row............
         points(k,temp(k,:))= mean(points(k,temp(k,:))) ;
        
     end
+
 end
 
  
