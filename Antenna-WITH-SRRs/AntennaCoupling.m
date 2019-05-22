@@ -121,7 +121,7 @@ feed2.pos = feed.pos;
 feed2.R = feed.R;
 
 % srr setup
-srr.L = 50;
+srr.L = 52;
 
 % size of the simulation and dump box 
 SimBox = [650, 650, 300 + backDist ];
