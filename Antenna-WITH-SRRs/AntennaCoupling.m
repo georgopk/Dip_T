@@ -128,7 +128,7 @@ grnd.xdim = 370.8 + 2*srr.L;
 grnd.ydim = 370.8 + 2*srr.L;
 
 % size of the simulation and dump box 
-SimBox = [650, 650, 300 + backDist ];
+SimBox = [280 + grnd.xdim, 280 + grnd.ydim, 300 + backDist ];
 dumpWidth = 400;
 dumpLength = 400;
 
