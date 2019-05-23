@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openEMS>
+   <FDTD NumberOfTimesteps="1000000" endCriteria="1e-05" f_max="950000000">
+      <Excitation Type="0" f0="850000000" fc="100000000"/>
+      <BoundaryCond xmax="PML_8" xmin="PML_8" ymax="PML_8" ymin="PML_8" zmax="PML_8" zmin="PML_8"/>
+   </FDTD>
+   <ContinuousStructure CoordSystem="0">
+      <Properties>
+         <Metal Name="patch">
+            <Primitives>
+               <Polygon Elevation="23.824" NormDir="2" Priority="50">
+                  <Vertex X1="14.8" X2="-116"/>
+                  <Vertex X1="18.85" X2="-118.8"/>
+                  <Vertex X1="30.6" X2="-101.3"/>
+                  <Vertex X1="32.7" X2="-102.7"/>
+                  <Vertex X1="57.7" X2="-65.3"/>
+                  <Vertex X1="66" X2="-70.9"/>
+                  <Vertex X1="89.5" X2="-75.6"/>
+                  <Vertex X1="89.5" X2="-85.6"/>
+                  <Vertex X1="76" X2="-85.6"/>
+                  <Vertex X1="76" X2="-87.6"/>
+                  <Vertex X1="115" X2="-87.6"/>
+                  <Vertex X1="115" X2="-85.6"/>
+                  <Vertex X1="101.5" X2="-85.6"/>
+                  <Vertex X1="101.5" X2="-75.6"/>
+                  <Vertex X1="101.5" X2="-75.6"/>
+                  <Vertex X1="125" X2="-70.9"/>
+                  <Vertex X1="149.9" X2="-54.2"/>
+                  <Vertex X1="166.6" X2="-29.2"/>
+                  <Vertex X1="172.5" X2="0.3"/>
+                  <Vertex X1="166.6" X2="29.7"/>
+                  <Vertex X1="149.9" X2="54.7"/>
+                  <Vertex X1="125" X2="71.4"/>
+                  <Vertex X1="101.5" X2="76.1"/>
+                  <Vertex X1="101.5" X2="86.1"/>
+                  <Vertex X1="115" X2="86.1"/>
+                  <Vertex X1="115" X2="88.1"/>
+                  <Vertex X1="76" X2="88.1"/>
+                  <Vertex X1="76" X2="86.1"/>
+                  <Vertex X1="89.5" X2="86.1"/>
+                  <Vertex X1="89.5" X2="76.1"/>
+                  <Vertex X1="89.5" X2="76.1"/>
+                  <Vertex X1="66" X2="71.4"/>
+                  <Vertex X1="41" X2="54.7"/>
+                  <Vertex X1="24.3" X2="29.7"/>
+                  <Vertex X1="18.5" X2="0.3"/>
+                  <Vertex X1="24.3" X2="-29.2"/>
+                  <Vertex X1="41" X2="-54.2"/>
+                  <Vertex X1="49.4" X2="-59.8"/>
+                  <Vertex X1="24.4" X2="-97.2"/>
+                  <Vertex X1="26.5" X2="-98.6"/>
+                  <Vertex X1="17.6" X2="-111.9"/>
+                  <Vertex X1="4.3" X2="-103"/>
+                  <Vertex X1="-2.7" X2="-104.4"/>
+                  <Vertex X1="-4.9" X2="-107.7"/>
+                  <Vertex X1="-11.6" X2="-103.2"/>
+                  <Vertex X1="-8.8" X2="-99.1"/>
+                  <Vertex X1="-6.7" X2="-100.5"/>
+                  <Vertex X1="18.3" X2="-63.1"/>
+                  <Vertex X1="-18.85" X2="-38.1"/>
+                  <Vertex X1="-13.5" X2="-29.7"/>
+                  <Vertex X1="-8.9" X2="-6.3"/>
+                  <Vertex X1="1.1" X2="-6.3"/>
+                  <Vertex X1="1.1" X2="-19.8"/>
+                  <Vertex X1="3.1" X2="-19.8"/>
+                  <Vertex X1="3.1" X2="19.2"/>
+                  <Vertex X1="1.1" X2="19.2"/>
+                  <Vertex X1="1.1" X2="5.7"/>
+                  <Vertex X1="-8.9" X2="5.7"/>
+                  <Vertex X1="-8.9" X2="5.7"/>
+                  <Vertex X1="-13.5" X2="29.2"/>
+                  <Vertex X1="-30.2" X2="54.2"/>
+                  <Vertex X1="-55.2" X2="70.9"/>
+                  <Vertex X1="-84.7" X2="76.7"/>
+                  <Vertex X1="-114.1" X2="70.9"/>
+                  <Vertex X1="-139.1" X2="54.2"/>
+                  <Vertex X1="-155.8" X2="29.2"/>
+                  <Vertex X1="-160.5" X2="5.7"/>
+                  <Vertex X1="-170.5" X2="5.7"/>
+                  <Vertex X1="-170.5" X2="19.2"/>
+                  <Vertex X1="-172.5" X2="19.2"/>
+                  <Vertex X1="-172.5" X2="-19.8"/>
+                  <Vertex X1="-170.5" X2="-19.8"/>
+                  <Vertex X1="-170.5" X2="-6.3"/>
+                  <Vertex X1="-160.5" X2="-6.3"/>
+                  <Vertex X1="-160.5" X2="-6.3"/>
+                  <Vertex X1="-155.8" X2="-29.7"/>
+                  <Vertex X1="-139.1" X2="-54.7"/>
+                  <Vertex X1="-114.1" X2="-71.4"/>
+                  <Vertex X1="-84.7" X2="-77.3"/>
+                  <Vertex X1="-55.2" X2="-71.4"/>
+                  <Vertex X1="-30.2" X2="-54.7"/>
+                  <Vertex X1="-24.7" X2="-46.4"/>
+                  <Vertex X1="4.4" X2="-65.8"/>
+                  <Vertex X1="-15" X2="-94.9"/>
+                  <Vertex X1="-12.9" X2="-96.3"/>
+                  <Vertex X1="-15.7" X2="-100.5"/>
+                  <Vertex X1="-14.3" X2="-107.4"/>
+                  <Vertex X1="-7.7" X2="-111.8"/>
+                  <Vertex X1="-0.7" X2="-110.5"/>
+                  <Vertex X1="1.5" X2="-107.1"/>
+               </Polygon>
+            </Primitives>
+         </Metal>
+         <Metal Name="patch2">
+            <Primitives>
+               <Polygon Elevation="-23.824" NormDir="2" Priority="51">
+                  <Vertex X1="-14.8" X2="-116"/>
+                  <Vertex X1="-18.85" X2="-118.8"/>
+                  <Vertex X1="-30.6" X2="-101.3"/>
+                  <Vertex X1="-32.7" X2="-102.7"/>
+                  <Vertex X1="-57.7" X2="-65.3"/>
+                  <Vertex X1="-66" X2="-70.9"/>
+                  <Vertex X1="-89.5" X2="-75.6"/>
+                  <Vertex X1="-89.5" X2="-85.6"/>
+                  <Vertex X1="-76" X2="-85.6"/>
+                  <Vertex X1="-76" X2="-87.6"/>
+                  <Vertex X1="-115" X2="-87.6"/>
+                  <Vertex X1="-115" X2="-85.6"/>
+                  <Vertex X1="-101.5" X2="-85.6"/>
+                  <Vertex X1="-101.5" X2="-75.6"/>
+                  <Vertex X1="-101.5" X2="-75.6"/>
+                  <Vertex X1="-125" X2="-70.9"/>
+                  <Vertex X1="-149.9" X2="-54.2"/>
+                  <Vertex X1="-166.6" X2="-29.2"/>
+                  <Vertex X1="-172.5" X2="0.3"/>
+                  <Vertex X1="-166.6" X2="29.7"/>
+                  <Vertex X1="-149.9" X2="54.7"/>
+                  <Vertex X1="-125" X2="71.4"/>
+                  <Vertex X1="-101.5" X2="76.1"/>
+                  <Vertex X1="-101.5" X2="86.1"/>
+                  <Vertex X1="-115" X2="86.1"/>
+                  <Vertex X1="-115" X2="88.1"/>
+                  <Vertex X1="-76" X2="88.1"/>
+                  <Vertex X1="-76" X2="86.1"/>
+                  <Vertex X1="-89.5" X2="86.1"/>
+                  <Vertex X1="-89.5" X2="76.1"/>
+                  <Vertex X1="-89.5" X2="76.1"/>
+                  <Vertex X1="-66" X2="71.4"/>
+                  <Vertex X1="-41" X2="54.7"/>
+                  <Vertex X1="-24.3" X2="29.7"/>
+                  <Vertex X1="-18.5" X2="0.3"/>
+                  <Vertex X1="-24.3" X2="-29.2"/>
+                  <Vertex X1="-41" X2="-54.2"/>
+                  <Vertex X1="-49.4" X2="-59.8"/>
+                  <Vertex X1="-24.4" X2="-97.2"/>
+                  <Vertex X1="-26.5" X2="-98.6"/>
+                  <Vertex X1="-17.6" X2="-111.9"/>
+                  <Vertex X1="-4.3" X2="-103"/>
+                  <Vertex X1="2.7" X2="-104.4"/>
+                  <Vertex X1="4.9" X2="-107.7"/>
+                  <Vertex X1="11.6" X2="-103.2"/>
+                  <Vertex X1="8.8" X2="-99.1"/>
+                  <Vertex X1="6.7" X2="-100.5"/>
+                  <Vertex X1="-18.3" X2="-63.1"/>
+                  <Vertex X1="18.85" X2="-38.1"/>
+                  <Vertex X1="13.5" X2="-29.7"/>
+                  <Vertex X1="8.9" X2="-6.3"/>
+                  <Vertex X1="-1.1" X2="-6.3"/>
+                  <Vertex X1="-1.1" X2="-19.8"/>
+                  <Vertex X1="-3.1" X2="-19.8"/>
+                  <Vertex X1="-3.1" X2="19.2"/>
+                  <Vertex X1="-1.1" X2="19.2"/>
+                  <Vertex X1="-1.1" X2="5.7"/>
+                  <Vertex X1="8.9" X2="5.7"/>
+                  <Vertex X1="8.9" X2="5.7"/>
+                  <Vertex X1="13.5" X2="29.2"/>
+                  <Vertex X1="30.2" X2="54.2"/>
+                  <Vertex X1="55.2" X2="70.9"/>
+                  <Vertex X1="84.7" X2="76.7"/>
+                  <Vertex X1="114.1" X2="70.9"/>
+                  <Vertex X1="139.1" X2="54.2"/>
+                  <Vertex X1="155.8" X2="29.2"/>
+                  <Vertex X1="160.5" X2="5.7"/>
+                  <Vertex X1="170.5" X2="5.7"/>
+                  <Vertex X1="170.5" X2="19.2"/>
+                  <Vertex X1="172.5" X2="19.2"/>
+                  <Vertex X1="172.5" X2="-19.8"/>
+                  <Vertex X1="170.5" X2="-19.8"/>
+                  <Vertex X1="170.5" X2="-6.3"/>
+                  <Vertex X1="160.5" X2="-6.3"/>
+                  <Vertex X1="160.5" X2="-6.3"/>
+                  <Vertex X1="155.8" X2="-29.7"/>
+                  <Vertex X1="139.1" X2="-54.7"/>
+                  <Vertex X1="114.1" X2="-71.4"/>
+                  <Vertex X1="84.7" X2="-77.3"/>
+                  <Vertex X1="55.2" X2="-71.4"/>
+                  <Vertex X1="30.2" X2="-54.7"/>
+                  <Vertex X1="24.7" X2="-46.4"/>
+                  <Vertex X1="-4.4" X2="-65.8"/>
+                  <Vertex X1="15" X2="-94.9"/>
+                  <Vertex X1="12.9" X2="-96.3"/>
+                  <Vertex X1="15.7" X2="-100.5"/>
+                  <Vertex X1="14.3" X2="-107.4"/>
+                  <Vertex X1="7.7" X2="-111.8"/>
+                  <Vertex X1="0.7" X2="-110.5"/>
+                  <Vertex X1="-1.5" X2="-107.1"/>
+               </Polygon>
+            </Primitives>
+         </Metal>
+         <Metal Name="gnd">
+            <Primitives>
+               <LinPoly Elevation="10" Length="-1" NormDir="2" Priority="40">
+                  <Vertex X1="-285.4" X2="-235.4"/>
+                  <Vertex X1="-285.4" X2="235.4"/>
+                  <Vertex X1="285.4" X2="235.4"/>
+                  <Vertex X1="285.4" X2="-235.4"/>
+               </LinPoly>
+            </Primitives>
+         </Metal>
+         <Metal Name="gnd2">
+            <Primitives>
+               <LinPoly Elevation="-10" Length="1" NormDir="2" Priority="41">
+                  <Vertex X1="185.4" X2="-185.4"/>
+                  <Vertex X1="185.4" X2="185.4"/>
+                  <Vertex X1="-185.4" X2="185.4"/>
+                  <Vertex X1="-185.4" X2="-185.4"/>
+               </LinPoly>
+            </Primitives>
+         </Metal>
+         <Material Name="substrate">
+            <Property Epsilon="4.2" Kappa="0.00496520087513927"/>
+            <Primitives>
+               <LinPoly Elevation="22.3" Length="1.524" NormDir="2" Priority="10">
+                  <Vertex X1="-175" X2="-145"/>
+                  <Vertex X1="175" X2="-145"/>
+                  <Vertex X1="175" X2="90"/>
+                  <Vertex X1="-175" X2="90"/>
+               </LinPoly>
+            </Primitives>
+         </Material>
+         <Material Name="substrate2">
+            <Property Epsilon="4.2" Kappa="0.00496520087513927"/>
+            <Primitives>
+               <LinPoly Elevation="-22.3" Length="-1.524" NormDir="2" Priority="11">
+                  <Vertex X1="175" X2="-145"/>
+                  <Vertex X1="-175" X2="-145"/>
+                  <Vertex X1="-175" X2="90"/>
+                  <Vertex X1="175" X2="90"/>
+               </LinPoly>
+            </Primitives>
+         </Material>
+         <LumpedElement Caps="1" Direction="2" Name="port_resist_1" R="50">
+            <Primitives>
+               <Box Priority="30">
+                  <P1 X="18.85" Y="-115.46" Z="10"/>
+                  <P2 X="18.85" Y="-115.46" Z="23.824"/>
+               </Box>
+            </Primitives>
+         </LumpedElement>
+         <LumpedElement Caps="1" Direction="2" Name="port_resist_2" R="50">
+            <Primitives>
+               <Box Priority="31">
+                  <P1 X="-18.85" Y="-115.46" Z="-10"/>
+                  <P2 X="-18.85" Y="-115.46" Z="-23.824"/>
+               </Box>
+            </Primitives>
+         </LumpedElement>
+         <Excitation Excite="0,0,-1" Name="port_excite_1" Type="0">
+            <Primitives>
+               <Box Priority="30">
+                  <P1 X="18.85" Y="-115.46" Z="10"/>
+                  <P2 X="18.85" Y="-115.46" Z="23.824"/>
+               </Box>
+            </Primitives>
+         </Excitation>
+         <ProbeBox Name="port_ut1" Type="0" Weight="-1">
+            <Primitives>
+               <Box Priority="30">
+                  <P1 X="18.85" Y="-115.46" Z="10"/>
+                  <P2 X="18.85" Y="-115.46" Z="23.824"/>
+               </Box>
+            </Primitives>
+         </ProbeBox>
+         <ProbeBox Name="port_it1" NormDir="2" Type="1" Weight="1">
+            <Primitives>
+               <Box Priority="30">
+                  <P1 X="18.85" Y="-115.46" Z="16.912"/>
+                  <P2 X="18.85" Y="-115.46" Z="16.912"/>
+               </Box>
+            </Primitives>
+         </ProbeBox>
+         <ProbeBox Name="port_ut2" Type="0" Weight="1">
+            <Primitives>
+               <Box Priority="31">
+                  <P1 X="-18.85" Y="-115.46" Z="-10"/>
+                  <P2 X="-18.85" Y="-115.46" Z="-23.824"/>
+               </Box>
+            </Primitives>
+         </ProbeBox>
+         <ProbeBox Name="port_it2" NormDir="2" Type="1" Weight="-1">
+            <Primitives>
+               <Box Priority="31">
+                  <P1 X="-18.85" Y="-115.46" Z="-16.912"/>
+                  <P2 X="-18.85" Y="-115.46" Z="-16.912"/>
+               </Box>
+            </Primitives>
+         </ProbeBox>
+         <DumpBox DumpMode="1" DumpType="0" FileType="1" Name="nf2ff_E_xn">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="-265.4" Z="-63.4176"/>
+                  <P2 X="-315.4" Y="265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="1" FileType="1" Name="nf2ff_H_xn">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="-265.4" Z="-63.4176"/>
+                  <P2 X="-315.4" Y="265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="0" FileType="1" Name="nf2ff_E_xp">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="315.4" Y="-265.4" Z="-63.4176"/>
+                  <P2 X="315.4" Y="265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="1" FileType="1" Name="nf2ff_H_xp">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="315.4" Y="-265.4" Z="-63.4176"/>
+                  <P2 X="315.4" Y="265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="0" FileType="1" Name="nf2ff_E_yn">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="-265.4" Z="-63.4176"/>
+                  <P2 X="315.4" Y="-265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="1" FileType="1" Name="nf2ff_H_yn">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="-265.4" Z="-63.4176"/>
+                  <P2 X="315.4" Y="-265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="0" FileType="1" Name="nf2ff_E_yp">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="265.4" Z="-63.4176"/>
+                  <P2 X="315.4" Y="265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="1" FileType="1" Name="nf2ff_H_yp">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="265.4" Z="-63.4176"/>
+                  <P2 X="315.4" Y="265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="0" FileType="1" Name="nf2ff_E_zn">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="-265.4" Z="-63.4176"/>
+                  <P2 X="315.4" Y="265.4" Z="-63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="1" FileType="1" Name="nf2ff_H_zn">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="-265.4" Z="-63.4176"/>
+                  <P2 X="315.4" Y="265.4" Z="-63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="0" FileType="1" Name="nf2ff_E_zp">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="-265.4" Z="63.4176"/>
+                  <P2 X="315.4" Y="265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="1" FileType="1" Name="nf2ff_H_zp">
+            <Primitives>
+               <Box Priority="0">
+                  <P1 X="-315.4" Y="-265.4" Z="63.4176"/>
+                  <P2 X="315.4" Y="265.4" Z="63.4176"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="10" FileType="1" Name="Ef">
+            <FD_Samples>850000000</FD_Samples>
+            <Primitives>
+               <Box Priority="2">
+                  <P1 X="-415.4" Y="-365.4" Z="-162.4016"/>
+                  <P2 X="415.4" Y="365.4" Z="162.4016"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+         <DumpBox DumpMode="1" DumpType="10" Name="Ef_vtr">
+            <FD_Samples>850000000</FD_Samples>
+            <Primitives>
+               <Box Priority="2">
+                  <P1 X="-415.4" Y="-365.4" Z="-162.4016"/>
+                  <P2 X="415.4" Y="365.4" Z="162.4016"/>
+               </Box>
+            </Primitives>
+         </DumpBox>
+      </Properties>
+      <RectilinearGrid CoordSystem="0" DeltaUnit="0.001">
+         <XLines>-425.4,-415.4,-405.4,-395.4,-385.4,-375.4,-365.4,-355.4,-345.4,-335.4,-325.4,-315.4,-305.4,-295.4,-285.4,-275.4,-265.4,-255.4,-245.4,-235.4,-225.4,-215.4,-205.4,-195.4,-185.4,-175,-172.5,-170.5,-166.6,-160.5,-155.8,-149.9,-144.5,-139.1,-132.05,-125,-115,-114.1,-107.8,-101.5,-95.5,-89.5,-84.7,-76,-66,-57.7,-55.2,-49.4,-41,-32.7,-30.6,-30.2,-26.5,-24.7,-24.4,-24.3,-18.85,-18.5,-18.3,-17.6,-15.7,-15,-14.8,-14.3,-13.5,-12.9,-11.6,-8.9,-8.8,-7.7,-6.7,-4.9,-4.4,-4.3,-3.1,-2.7,-1.5,-1.1,-0.7,0.7,1.1,1.5,2.7,3.1,4.3,4.4,4.9,6.7,7.7,8.8,8.9,11.6,12.9,13.5,14.3,14.8,15,15.7,17.6,18.3,18.5,18.85,24.3,24.4,24.7,26.5,30.2,30.6,32.7,41,49.4,55.2,57.7,66,76,84.7,89.5,95.5,101.5,107.8,114.1,115,125,132.05,139.1,144.5,149.9,155.8,160.5,166.6,170.5,172.5,175,185.4,195.4,205.4,215.4,225.4,235.4,245.4,255.4,265.4,275.4,285.4,295.4,305.4,315.4,325.4,335.4,345.4,355.4,365.4,375.4,385.4,395.4,405.4,415.4,425.4</XLines>
+         <YLines>-375.4,-365.4,-355.4,-345.4,-335.4,-325.4,-315.4,-305.4,-295.4,-285.4,-275.4,-265.4,-255.4,-245.4,-235.4,-225.4,-215.4,-205.4,-195.4,-185.4,-175.3,-165.2,-155.1,-145,-136.266666666667,-127.533333333333,-118.8,-116,-115.46,-111.9,-111.8,-110.5,-107.7,-107.4,-107.1,-104.4,-103.2,-103,-102.7,-101.3,-100.5,-99.1,-98.6,-97.2,-96.3,-94.9,-87.6,-85.6,-77.3,-75.6,-71.4,-70.9,-65.8,-65.3,-63.1,-59.8,-54.7,-54.2,-46.4,-38.1,-29.7,-29.2,-19.8,-13.05,-6.3,0.3,5.7,12.45,19.2,29.2,29.7,37.8666666666667,46.0333333333333,54.2,54.7,62.8,70.9,71.4,76.1,76.7,86.1,88.1,90,99.54,109.08,118.62,128.16,137.7,147.24,156.78,166.32,175.86,185.4,195.4,205.4,215.4,225.4,235.4,245.4,255.4,265.4,275.4,285.4,295.4,305.4,315.4,325.4,335.4,345.4,355.4,365.4,375.4</YLines>
+         <ZLines>-172.3,-162.4016,-152.5032,-142.6048,-132.7064,-122.808,-112.9096,-103.0112,-93.1128,-83.2144,-73.316,-63.4176,-53.5192,-43.6208,-33.7224,-23.824,-23.443,-23.062,-22.681,-22.3,-16.15,-10,-9,0,9,10,16.15,22.3,22.681,23.062,23.443,23.824,33.7224,43.6208,53.5192,63.4176,73.316,83.2144,93.1128,103.0112,112.9096,122.808,132.7064,142.6048,152.5032,162.4016,172.3</ZLines>
+      </RectilinearGrid>
+   </ContinuousStructure>
+</openEMS>
