@@ -123,7 +123,9 @@ feed2.pos = feed.pos;
 feed2.R = feed.R;
 
 % srr setup
-srr.L = 48;
+srr.L = 50;
+grnd.xdim = 370.8 + 2*srr.L;
+grnd.ydim = 370.8 + 2*srr.L;
 
 % size of the simulation and dump box 
 SimBox = [650, 650, 300 + backDist ];
@@ -133,7 +135,7 @@ dumpLength = 400;
 %% Setup FDTD Parameter & Excitation Function
 f0 = 8.5e8; % center frequency (Hz)
 fc = 1e8; % 20 dB corner frequency (Hz) -----> it determines the bandwidth (keep it less than f0)
-FDTD = InitFDTD( 'NrTs', 800000, 'EndCriteria', 1e-5);
+FDTD = InitFDTD( 'NrTs', 1000000, 'EndCriteria', 1e-5);
 FDTD = SetGaussExcite( FDTD, f0, fc );
 BC = {'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8' 'PML_8'}; % boundary conditions
 % FDTD = SetBoundaryCond( FDTD, BC,'PML_Grading','-log(1e-6)*log(2.5)/(2*dl*pow(2.5,W/dl)-1) * pow(2.5, D/dl) / Z' );
@@ -195,7 +197,7 @@ feed2.pos(1) = -feed2.pos(1);                       % mirror
 feed2.pos = (rotate_points(feed2.pos',rot,1))' ;    % adjust the feeding position to the rotated structure
 
 if (add_srrs == 1)
-    [~,~,~,~, in_SRR_points, CSX,mesh] = ParamMetaSlab('L',srr.L,'CSX',CSX,'grndelev',grnd_pos+backDist/2,'mesh',mesh);    % import SRRs with ground
+    [~,~,~,~, in_SRR_points, CSX,mesh] = ParamMetaSlab('L',srr.L,'CSX',CSX,'grndelev',grnd_pos+backDist/2,'mesh',mesh,'grndxDim',grnd.xdim,'grndyDim',grnd.ydim);    % import SRRs with ground
 elseif (add_srrs == 0)
     in_SRR_points = [];
 else
@@ -291,7 +293,7 @@ CSX = AddBox(CSX,'Ef_vtr',2,start, stop); %assign box
 
 %% Prepare and Run Simulation
 if(add_srrs == 1)
-    Sim_Path = ['tmp_Antenna_with_SRRs', '_L',num2str(srr.L),'_oneSide'];
+    Sim_Path = ['tmp_Antenna_with_SRRs', '_L',num2str(srr.L),'_grndX',num2str(grnd.xdim),'_oneSide'];
 elseif(add_srrs == 0)
     Sim_Path = ['tmp_Antenna_without_SRRs'];
 else
