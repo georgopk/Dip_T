@@ -85,8 +85,8 @@ physical_constants;
 unit = 1e-3; % all length in mm. (unit only for the geometry)
 
 sec_antenna = 1;
-add_srrs = 1;
-
+add_srrs = 0;
+same_grnd_size = 0;
 
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
 %on the grid lines)
@@ -99,9 +99,30 @@ substratePri = 10;
 groundPri = 40;
 feedPri = 30;
 
+% srr setup
+srr.L = 50;
+
 %ground setup
 grnd_pos = -12.3; % ground distance from substrate
-grnd_points =  [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
+% grnd.points =  [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
+grnd.xdim = 370.8 + 4*srr.L;
+grnd.ydim = 370.8 + 2*srr.L;
+grnd.points = [-grnd.xdim/2,-grnd.ydim/2;
+     -grnd.xdim/2,grnd.ydim/2;
+     grnd.xdim/2,grnd.ydim/2;
+     grnd.xdim/2,-grnd.ydim/2]';
+if (same_grnd_size == 1)
+    grnd2 = grnd; 
+elseif(same_grnd_size == 0)
+    grnd2.xdim = 370.8;
+    grnd2.ydim = 370.8;
+    grnd2.points = [-grnd2.xdim/2,-grnd2.ydim/2;
+         -grnd2.xdim/2,grnd2.ydim/2;
+         grnd2.xdim/2,grnd2.ydim/2;
+         grnd2.xdim/2,-grnd2.ydim/2]';
+else
+    error('Check the "same_grnd_size" value!!!');
+end
 
 %distance between Antennas (in units). (actually, distance between substrates)
 backDist = 20 + 2 * abs(grnd_pos); %24.6 here in mm
@@ -121,11 +142,6 @@ feed.pos = [18.85, -115.46]; %feeding position in x,y directions
 feed.R = 50;     %feed resistance
 feed2.pos = feed.pos;
 feed2.R = feed.R;
-
-% srr setup
-srr.L = 50;
-grnd.xdim = 370.8 + 2*srr.L;
-grnd.ydim = 370.8 + 2*srr.L;
 
 % size of the simulation and dump box 
 SimBox = [280 + grnd.xdim, 280 + grnd.ydim, 300 + backDist ];
@@ -179,13 +195,13 @@ allpoints = [allpoints, points];            % store the points to "round" the co
 pointInd(4) = pointInd(3)+size(points,2);   % necessary to recall the points after "sp_round"
 
 % Calculate ground
-points = grnd_points;                       
+points = grnd.points;                       
 points = rotate_points(points,rot,1);       % rotate the geometry. The third argument enables plot.
 allpoints = [allpoints, points];            % store the points to "round" the coordinates later
 pointInd(5) = pointInd(4)+size(points,2);   % necessary to recall the points after "sp_round"
 % Calculate ground2
-points = grnd_points;                       
-points(1,:) = -grnd_points(1,:);            % mirror
+points = grnd2.points;                       
+points(1,:) = -grnd2.points(1,:);            % mirror
 points = rotate_points(points,rot,1);       % rotate the geometry. The third argument enables plot.
 allpoints = [allpoints, points];            % store the points to "round" the coordinates later
 pointInd(6) = pointInd(5)+size(points,2);   % necessary to recall the points after "sp_round"
@@ -292,13 +308,28 @@ CSX = AddBox(CSX,'Ef_vtr',2,start, stop); %assign box
 
 
 %% Prepare and Run Simulation
+Sim_Path = 'tmp_';
+if(sec_antenna == 1)
+    Sim_Path = [Sim_Path, 'Antennas'];
+elseif (sec_antenna ==0)
+    Sim_Path = [Sim_Path, 'SingleAntenna'];
+else
+    error('Check the "sec_antenna" value!!!');    
+end
 if(add_srrs == 1)
-    Sim_Path = ['tmp_Antenna_with_SRRs', '_L',num2str(srr.L),'_grndX',num2str(grnd.xdim),'_oneSide'];
+    Sim_Path = [Sim_Path, '_with_SRRs', '_L',num2str(srr.L),'_grndX',num2str(grnd.xdim),'_oneSide'];
 elseif(add_srrs == 0)
-    Sim_Path = ['tmp_Antenna_without_SRRs'];
+    Sim_Path = [Sim_Path, '_without_SRRs'];
 else
     error('Check the "add_srrs" value!!!');
 end
+
+if(sec_antenna == 1)
+    if(same_grnd_size == 1)   
+        Sim_Path = [Sim_Path, '_sameSize'];    
+    end
+end
+
 
 Sim_CSX = 'Ant_with_SRRs_simulation.xml';
 
