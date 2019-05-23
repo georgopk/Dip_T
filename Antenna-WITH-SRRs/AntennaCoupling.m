@@ -46,14 +46,15 @@
 % 
 % -Replaces the Ground of the antenna with a new one containing substrate
 % with SRRs.
-% *** This task uses ParamMetaSlab.m ***
+% *** This task uses ParamMetaSlab.m and srr_points.m ***
 % To run the simulation without SRRS set 'add_srrs' to 0 
 % 
 % 
 % ---- results ----
 % plot S11, S21...
 %
-% Uses sp_round.m, points.mat, rotate_points.m, ParamMetaSlab.m
+% Uses sp_round.m, points.mat, rotate_points.m, ParamMetaSlab.m,
+% srr_points.m
 %
 % 
 %  ------ Previous Version ------
@@ -85,6 +86,7 @@ unit = 1e-3; % all length in mm. (unit only for the geometry)
 
 sec_antenna = 1;
 add_srrs = 1;
+
 
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
 %on the grid lines)
@@ -121,7 +123,7 @@ feed2.pos = feed.pos;
 feed2.R = feed.R;
 
 % srr setup
-srr.L = 52;
+srr.L = 48;
 
 % size of the simulation and dump box 
 SimBox = [650, 650, 300 + backDist ];
@@ -311,6 +313,7 @@ CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
 % run openEMS
 RunOpenEMS( Sim_Path, Sim_CSX);
 
+
 %% Postprocessing & Plots
 freq = linspace((f0-fc), (f0+fc), 501 );
 port = calcPort(port, Sim_Path, freq);
@@ -403,3 +406,8 @@ l = legend('S_{11}','S_{21}','Location','Best');
 set(l,'FontSize',12);
 ylabel('S-Parameter (dB)','FontSize',12);
 xlabel('frequency (MHz) \rightarrow','FontSize',12);
+
+
+
+% store workspace variables
+save([Sim_Path, '/', Sim_Path] );
