@@ -211,8 +211,8 @@ end
 
 % SRR/metamaterial setup
 srr.L = 50;     % length of the outer edge
-srr.w = 1;      % width of the strip
-srr.g = 1;      % gap between strips
+srr.w = 2;      % width of the strip
+srr.g = 2;      % gap between strips
 srr.s = 2;      % slot dimension
 srr.d = 3;      % distance between two SRRs
 if exist('input_L','var')       % if exists, overwrite the default value
