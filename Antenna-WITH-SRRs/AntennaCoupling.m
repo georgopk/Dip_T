@@ -87,6 +87,7 @@ unit = 1e-3; % all length in mm. (unit only for the geometry)
 sec_antenna = 1;
 add_srrs = 0;
 same_grnd_size = 0;
+on_server = 0;
 
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
 %on the grid lines)
@@ -220,8 +221,8 @@ else
     error('Check the "add_srrs" value!!!');
 end
 %ROUND ALL POINTS
-allpoints = round(allpoints,1);
-allpoints = sp_round(allpoints,0.3,[in_SRR_points,[feed2.pos]' , [feed.pos]']); % "round" the coordinates of some vertices, to reduce the mesh. Don't change the coordinates of SRRs or feeds
+% allpoints = round(allpoints,2); %bad practice
+allpoints = sp_round(allpoints,0.5,[in_SRR_points,[feed2.pos]' , [feed.pos]']); % "round" the coordinates of some vertices, to reduce the mesh. Don't change the coordinates of SRRs or feeds
 
 
 
@@ -288,8 +289,8 @@ mesh = DetectEdges(CSX, mesh,'SetProperty',['SRRpatch1', 'SRRpatch2','SRRpatch3'
 % generate a smooth mesh with max. cell size: (e.g) lambda_min / 20 
 % mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/20); 
 mesh = SmoothMesh(mesh, c0/(f0+fc)/unit/30,'algorithm',[1 3]); % alternative. Useful when SmoothMesh gets stuck in an infinite loop inside "SmoothMeshLines2" function
-% mesh.x= unique(sp_round(mesh.x,0.2,allpoints(1,:)));
-% mesh.y= unique(sp_round(mesh.y,0.2,allpoints(2,:)));
+% mesh.x= unique(round(mesh.x,0));
+% mesh.y= unique(round(mesh.y,0));
 
 CSX = DefineRectGrid(CSX, unit, mesh);
 
@@ -344,8 +345,15 @@ WriteOpenEMS( [Sim_Path '/' Sim_CSX], FDTD, CSX );
 CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
 
 % run openEMS
-RunOpenEMS( Sim_Path, Sim_CSX);
-
+if (on_server == 1)
+    Settings.SSH.Putty.Path = 'C:/"Program Files"/PuTTY';
+    Settings.SSH.Putty.Key = 'C:/.ssh/openEmsPuttyKey_priv.ppk';
+%     Settings.SSH.host = %%%%%% ;
+    Settings.SSH.bin='/home/lamda/opt/openEMS/bin/openEMS.sh';
+    RunOpenEMS( Sim_Path, Sim_CSX,'',Settings);
+else
+    RunOpenEMS( Sim_Path, Sim_CSX);
+end
 
 %% Postprocessing & Plots
 freq = linspace((f0-fc), (f0+fc), 501 );
@@ -439,7 +447,9 @@ l = legend('S_{11}','S_{21}','Location','Best');
 set(l,'FontSize',12);
 ylabel('S-Parameter (dB)','FontSize',12);
 xlabel('frequency (MHz) \rightarrow','FontSize',12);
-
+tit = Sim_Path(5:end);
+tit(tit == '_') = ' ';
+title (tit);
 
 
 % store workspace variables
