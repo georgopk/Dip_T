@@ -48,7 +48,8 @@ for i=1:length (points) % check every cell of a row............
                     points(k,j) = feed(k,m);
                     end
                 end
-            elseif(abs(points(k,j) - points(k,i))< eee)
+            end
+            if(abs(points(k,j) - points(k,i))< eee)
                 % if the difference is less than "eee" switch the
                 % corresponding cell in "temp" to "TRUE"
                 temp(k,j) = true; 
