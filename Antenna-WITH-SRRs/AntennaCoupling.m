@@ -213,21 +213,21 @@ feed.pos = (rotate_points(feed.pos',rot,1))' ;      % adjust the feeding positio
 feed2.pos(1) = -feed2.pos(1);                       % mirror
 feed2.pos = (rotate_points(feed2.pos',rot,1))' ;    % adjust the feeding position to the rotated structure
 
+
+% import ground with SRRs calling ParamMetaSlab
+in_SRR_points = [];
+in_SRR_points2 = [];
 if ((add_srrs == 1) || (add_srrs == 2))
     [~,~,~,~, in_SRR_points, CSX,mesh] = ParamMetaSlab('L',srr.L,'CSX',CSX,'grndelev',grnd_pos+backDist/2,'mesh',mesh,'grndxDim',grnd.xdim,'grndyDim',grnd.ydim,'inv',0);    % import SRRs with ground
+    if (add_srrs == 2 && sec_antenna == 1)
+        [~,~,~,~, in_SRR_points2, CSX,mesh] = ParamMetaSlab('L',srr.L,'CSX',CSX,'grndelev',-grnd_pos-backDist/2,'mesh',mesh,'grndxDim',grnd2.xdim,'grndyDim',grnd2.ydim,'inv',1);    % import SRRs with ground
+    end
 elseif (add_srrs == 0)
-    in_SRR_points = [];
+% --- Nothing special
 else
     error('Check the "add_srrs" value!!!');
 end
 
-if (add_srrs == 2)
-    [~,~,~,~, in_SRR_points2, CSX,mesh] = ParamMetaSlab('L',srr.L,'CSX',CSX,'grndelev',-grnd_pos-backDist/2,'mesh',mesh,'grndxDim',grnd.xdim,'grndyDim',grnd.ydim,'inv',1);    % import SRRs with ground
-elseif (add_srrs == 0)
-    in_SRR_points2 = [];
-else
-    error('Check the "add_srrs" value!!!');
-end
 %ROUND ALL POINTS
 % allpoints = round(allpoints,2); %bad practice
 allpoints = sp_round(allpoints,0.5,[in_SRR_points,in_SRR_points2,[feed2.pos]' , [feed.pos]']); % "round" the coordinates of some vertices, to reduce the mesh. Don't change the coordinates of SRRs or feeds
@@ -270,7 +270,7 @@ CSX = AddMetal( CSX, 'gnd' );                           % create a perfect elect
 CSX = AddLinPoly(CSX, 'gnd', groundPri, 2, backDist/2 + grnd_pos,points, -1);   % create a polygon of the material "gnd"
 end
 % Create ground 2
-if (sec_antenna == 1 && add_srrs == 1)
+if (sec_antenna == 1 && (add_srrs == 1 || add_srrs == 0))
 points = allpoints(:,pointInd(5)+1:pointInd(6));        % recall the (rounded) points
 CSX = AddMetal( CSX, 'gnd2' );                          % create a perfect electric conductor (PEC)
 CSX = AddLinPoly(CSX, 'gnd2', groundPri+1, 2, -(backDist/2 + grnd_pos),points, 1);% create a polygon of the material "gnd2"
