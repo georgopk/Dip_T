@@ -121,6 +121,8 @@ for n=1:numel(varargin)/2
         input_mesh = varargin{2*n};
     elseif strcmp(varargin{2*n-1},'substrate')
         input_substrate = varargin{2*n};
+    elseif strcmp(varargin{2*n-1},'inv')
+        input_inv = varargin{2*n};
     else
         error(['Is this a variable??? ', varargin{2*n-1}]);
     end
@@ -248,6 +250,9 @@ srr.centersY = srr.first_centerY + (0:(srr.nCellsY-1)) * srr.d_c;
     substrate.tan_delta = 0.025;
     substrate.kappa  = substrate.tan_delta * 2*pi*sub_freq * EPS0*substrate.epsR; %conductivity 
     substrate.thickness = 1.524;
+    if(input_inv==1)
+    substrate.thickness=-substrate.thickness;
+    end
     substrate.cells = 4;
 if exist('input_substrate','var') % if exists, overwrite the default value
     substrate=input_substrate;
@@ -329,26 +334,26 @@ end
 all_SRR_points =[];
  
 % SRRs on X-axis
-CSX = AddMetal( CSX, 'SRRpatch1' );                     % create a perfect electric conductor (PEC) named "patch"
+CSX = AddMetal( CSX, ['SRRpatch1',num2str(input_inv)] );                     % create a perfect electric conductor (PEC) named "patch"
  for i=1:srr.nCellsX
     % Create outer strip    
     tmp_SRR_points = [points1' + [srr.centersX(i);substrate1.pos(2)] ];
-    CSX = AddPolygon(CSX,'SRRpatch1',patchPri,2,substrate1.pos(3) + substrate.thickness,tmp_SRR_points);  % create a polygon of the material "patch"
+    CSX = AddPolygon(CSX,['SRRpatch1',num2str(input_inv)],patchPri,2,substrate1.pos(3) + substrate.thickness,tmp_SRR_points);  % create a polygon of the material "patch"
     all_SRR_points = [all_SRR_points, tmp_SRR_points]; % store SRR points
     %  Create inner strip
     tmp_SRR_points = [ points2' + [srr.centersX(i);substrate1.pos(2)]];
-    CSX = AddPolygon(CSX,'SRRpatch1',patchPri+1,2,substrate1.pos(3)+substrate.thickness,tmp_SRR_points);    % create a polygon of the material "patch"
+    CSX = AddPolygon(CSX,['SRRpatch1',num2str(input_inv)],patchPri+1,2,substrate1.pos(3)+substrate.thickness,tmp_SRR_points);    % create a polygon of the material "patch"
     all_SRR_points = [all_SRR_points, tmp_SRR_points]; % store SRR points
  end
-CSX = AddMetal( CSX, 'SRRpatch2' );                     % create a perfect electric conductor (PEC) named "patch"
+CSX = AddMetal( CSX, ['SRRpatch2',num2str(input_inv)] );                     % create a perfect electric conductor (PEC) named "patch"
 for i=1:srr.nCellsX
     % Create outer strip 2
     tmp_SRR_points = points1' + [srr.centersX(i);substrate2.pos(2)];
-    CSX = AddPolygon(CSX,'SRRpatch2',patchPri,2,substrate2.pos(3)+substrate.thickness,tmp_SRR_points);  % create a polygon of the material "patch"
+    CSX = AddPolygon(CSX,['SRRpatch2',num2str(input_inv)],patchPri,2,substrate2.pos(3)+substrate.thickness,tmp_SRR_points);  % create a polygon of the material "patch"
     all_SRR_points = [all_SRR_points, tmp_SRR_points]; % store SRR points
     %  Create inner strip 2
     tmp_SRR_points = points2' + [srr.centersX(i);substrate2.pos(2)];
-    CSX = AddPolygon(CSX,'SRRpatch2',patchPri+1,2,substrate2.pos(3)+substrate.thickness,tmp_SRR_points );    % create a polygon of the material "patch"
+    CSX = AddPolygon(CSX,['SRRpatch2',num2str(input_inv)],patchPri+1,2,substrate2.pos(3)+substrate.thickness,tmp_SRR_points );    % create a polygon of the material "patch"
     all_SRR_points = [all_SRR_points, tmp_SRR_points]; % store SRR points
 end
 
@@ -357,26 +362,26 @@ points1 = sp_round(rotate_points(points1',pi/2),0.2)';
 points2 = sp_round(rotate_points(points2',pi/2),0.2)';
 points1=round(points1,1);
 points2=round(points2,1);
-CSX = AddMetal( CSX, 'SRRpatch3' );                     % create a perfect electric conductor (PEC) named "patch"
+CSX = AddMetal( CSX, ['SRRpatch3',num2str(input_inv)] );                     % create a perfect electric conductor (PEC) named "patch"
 for i=1:srr.nCellsY
     % Create outer strip    
     tmp_SRR_points = [points1' + [substrate3.pos(1);srr.centersY(i)] ];
-    CSX = AddPolygon(CSX,'SRRpatch3',patchPri,2,substrate3.pos(3) + substrate.thickness,tmp_SRR_points);  % create a polygon of the material "patch"
+    CSX = AddPolygon(CSX,['SRRpatch3',num2str(input_inv)],patchPri,2,substrate3.pos(3) + substrate.thickness,tmp_SRR_points);  % create a polygon of the material "patch"
     all_SRR_points = [all_SRR_points, tmp_SRR_points]; % store SRR points
     %  Create inner strip
     tmp_SRR_points = [ points2' + [substrate3.pos(1);srr.centersY(i)]];
-    CSX = AddPolygon(CSX,'SRRpatch3',patchPri+1,2,substrate3.pos(3)+substrate.thickness,tmp_SRR_points);    % create a polygon of the material "patch"
+    CSX = AddPolygon(CSX,['SRRpatch3',num2str(input_inv)],patchPri+1,2,substrate3.pos(3)+substrate.thickness,tmp_SRR_points);    % create a polygon of the material "patch"
     all_SRR_points = [all_SRR_points, tmp_SRR_points]; % store SRR points
  end
-CSX = AddMetal( CSX, 'SRRpatch4' );                     % create a perfect electric conductor (PEC) named "patch"
+CSX = AddMetal( CSX, ['SRRpatch4',num2str(input_inv)] );                     % create a perfect electric conductor (PEC) named "patch"
 for i=1:srr.nCellsY
     % Create outer strip    
     tmp_SRR_points = [points1' + [substrate4.pos(1);srr.centersY(i)] ];
-    CSX = AddPolygon(CSX,'SRRpatch4',patchPri,2,substrate4.pos(3) + substrate.thickness,tmp_SRR_points);  % create a polygon of the material "patch"
+    CSX = AddPolygon(CSX,['SRRpatch4',num2str(input_inv)],patchPri,2,substrate4.pos(3) + substrate.thickness,tmp_SRR_points);  % create a polygon of the material "patch"
     all_SRR_points = [all_SRR_points, tmp_SRR_points]; % store SRR points
     %  Create inner strip
     tmp_SRR_points = [ points2' + [substrate4.pos(1);srr.centersY(i)]];
-    CSX = AddPolygon(CSX,'SRRpatch4',patchPri+1,2,substrate4.pos(3)+substrate.thickness,tmp_SRR_points);    % create a polygon of the material "patch"
+    CSX = AddPolygon(CSX,['SRRpatch4',num2str(input_inv)],patchPri+1,2,substrate4.pos(3)+substrate.thickness,tmp_SRR_points);    % create a polygon of the material "patch"
     all_SRR_points = [all_SRR_points, tmp_SRR_points]; % store SRR points
 end
  
@@ -385,34 +390,34 @@ end
 xy_points = [all_xy', all_SRR_points];
   
 % Create Substrate 1
-CSX = AddMaterial( CSX, 'SRRsub' );                                                              % create a new material named "substrate"
-CSX = SetMaterialProperty( CSX, 'SRRsub', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
-CSX = AddLinPoly(CSX, 'SRRsub', substratePri, 2, substrate1.pos(3), substrate1.points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
+CSX = AddMaterial( CSX, ['SRRsub',num2str(input_inv)] );                                                              % create a new material named "substrate"
+CSX = SetMaterialProperty( CSX, ['SRRsub',num2str(input_inv)], 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
+CSX = AddLinPoly(CSX, ['SRRsub',num2str(input_inv)], substratePri, 2, substrate1.pos(3), substrate1.points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(substrate1.pos(3),substrate1.pos(3)+ substrate.thickness,substrate.cells+1) mesh.z];
 % Create Substrate 2
 % CSX = AddMaterial( CSX, 'SRRsub' );                                                              % create a new material named "substrate"
-CSX = SetMaterialProperty( CSX, 'SRRsub', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
-CSX = AddLinPoly(CSX, 'SRRsub', substratePri, 2, substrate2.pos(3), substrate2.points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
+CSX = SetMaterialProperty( CSX, ['SRRsub',num2str(input_inv)], 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
+CSX = AddLinPoly(CSX, ['SRRsub',num2str(input_inv)], substratePri, 2, substrate2.pos(3), substrate2.points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(substrate2.pos(3),substrate2.pos(3)+ substrate.thickness,substrate.cells+1) mesh.z];
 
 % Create Substrate 3
 % CSX = AddMaterial( CSX, 'SRRsub' );                                                              % create a new material named "substrate"
-CSX = SetMaterialProperty( CSX, 'SRRsub', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
-CSX = AddLinPoly(CSX, 'SRRsub', substratePri, 2, substrate3.pos(3), substrate3.points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
+CSX = SetMaterialProperty( CSX, ['SRRsub',num2str(input_inv)], 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
+CSX = AddLinPoly(CSX, ['SRRsub',num2str(input_inv)], substratePri, 2, substrate3.pos(3), substrate3.points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(substrate3.pos(3),substrate3.pos(3)+ substrate.thickness,substrate.cells+1) mesh.z];
 % Create Substrate 4
 % CSX = AddMaterial( CSX, 'SRRsub' );                                                              % create a new material named "substrate"
-CSX = SetMaterialProperty( CSX, 'SRRsub', 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
-CSX = AddLinPoly(CSX, 'SRRsub', substratePri, 2, substrate4.pos(3), substrate4.points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
+CSX = SetMaterialProperty( CSX, ['SRRsub',num2str(input_inv)], 'Epsilon', substrate.epsR, 'Kappa', substrate.kappa ); % define the properties of the material "substrate"
+CSX = AddLinPoly(CSX, ['SRRsub',num2str(input_inv)], substratePri, 2, substrate4.pos(3), substrate4.points, substrate.thickness);     % create a polygon of the material "substrate" with thickness
 % add extra cells to discretize the substrate thickness
 mesh.z = [linspace(substrate4.pos(3),substrate4.pos(3)+ substrate.thickness,substrate.cells+1) mesh.z];
 
 % Create Ground
-CSX = AddMetal( CSX, 'SRRgnd' );                           % create a perfect electric conductor (PEC) named "SRRgnd"
-CSX = AddLinPoly(CSX, 'SRRgnd', groundPri, 2, grnd.pos(3),grnd.points, grnd.thickness);   % create a polygon of the material "SRRgnd"
+CSX = AddMetal( CSX, ['SRRgnd',num2str(input_inv)] );                           % create a perfect electric conductor (PEC) named "SRRgnd"
+CSX = AddLinPoly(CSX, ['SRRgnd',num2str(input_inv)], groundPri, 2, grnd.pos(3),grnd.points, grnd.thickness);   % create a polygon of the material "SRRgnd"
 
 if ~exist('input_CSX','var') 
 % --- Add dipole 1 ---
