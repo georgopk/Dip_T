@@ -1,1 +1,1 @@
-Small Antenna with SRRs - Big antenna (NO SRRs)
+Small Antenna with SRRs - Small antenna (NO SRRs)
