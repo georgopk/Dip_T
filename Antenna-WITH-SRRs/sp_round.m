@@ -9,10 +9,10 @@ function points = sp_round(points,eee,feed)
 % eee    -> Threshold. If the difference between two values in a row is
 %           less than "eee", they will be replaced in order to be
 %           identical.
-% feed   -> A vector 1xN (or Nx1) containing the coordinates of a point 
+% feed   -> A NxK matrix containing the coordinates of a point 
 %           which has to be unchanged, where N is the number of rows of the 
-%           matrix "points" (Useful for feeding points) Other points with 
-%           coordinates similar to "feed" will change in order to fit    
+%           matrix "points" (Useful for feeding points). Other points with 
+%           coordinates similar to "feed" will change in order to fit.    
 %           This argument is optional.
 %
 % 
