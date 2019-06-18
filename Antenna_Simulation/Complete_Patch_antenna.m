@@ -62,7 +62,7 @@ substrate.length = 400;
 substrate.thickness = 1.524;
 substrate.cells = 4;
 substrate.dimx = [-175, 175];
-substrate.domy = [-145, 90];
+substrate.dimy = [-145, 90];
 substrate.points = [-175,-145;175,-145;175,90;-175,90]';
 
 %setup feeding
