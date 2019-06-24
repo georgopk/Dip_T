@@ -401,7 +401,7 @@ drawnow
 %% NFFF Plots
 %find resonance frequncy from s11
 %f_res_ind = find(s11==min(s11));
-f_res_ind = 280;
+f_res_ind = 295;
 f_res = freq(f_res_ind);
 
 
