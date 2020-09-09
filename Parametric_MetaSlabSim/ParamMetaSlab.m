@@ -254,10 +254,10 @@ mesh.z = [linspace(substrate2.pos(3),substrate2.pos(3)+ substrate.thickness,subs
 CSX = AddMetal( CSX, 'gnd' );                           % create a perfect electric conductor (PEC) named "gnd"
 CSX = AddLinPoly(CSX, 'gnd', groundPri, 2, grnd.pos(3),grnd.points, grnd.thickness);   % create a polygon of the material "gnd"
 
-% --- Add dipol 1 ---
+% --- Add dipole 1 ---
 [CSX, port{1}] = AddLumpedPort(CSX, feedPri ,1 ,feed.R, feed.start, feed.stop, feed.dir, true);
 
-% % --- Add dipol 2 ---
+% --- Add dipole 2 ---
 [CSX, port{2}] = AddLumpedPort(CSX, feedPri ,2 ,feed2.R, feed2.start, feed2.stop, feed2.dir);
 
 % % detect all edges except of the patch
@@ -300,11 +300,15 @@ Sim_CSX = 'Slab_simulation.xml';
 WriteOpenEMS( [Sim_Path '/' Sim_CSX], FDTD, CSX );
 
 % % show the structure
-CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
+ CSXGeomPlot( [Sim_Path '/' Sim_CSX] );
 
 % run openEMS
+% Settings.SSH.Putty.Path = 'C:/"Program Files"/PuTTY';
+% Settings.SSH.Putty.Key = 'C:/.ssh/openEmsPuttyKey_priv.ppk';
+% Settings.SSH.host = 'lamda@207.180.250.60';
+% Settings.SSH.bin='/home/lamda/opt/openEMS/bin/openEMS.sh';
+% RunOpenEMS( Sim_Path, Sim_CSX,'',Settings);
 RunOpenEMS( Sim_Path, Sim_CSX);
-
 
 %% Post-processing
 

@@ -84,9 +84,9 @@ clear
 physical_constants;
 unit = 1e-3; % all length in mm. (unit only for the geometry)
 
-sec_antenna = 0;
-add_srrs = 0;
-same_grnd_size = 0;
+sec_antenna = 1;
+add_srrs = 1;
+same_grnd_size = 1;
 on_server = 0;
 
 %rotation (rotation of the geometry on XY plane. Useful to "fit" a geometry
@@ -106,10 +106,10 @@ srr.L = 50;
 %ground setup
 grnd_pos = -12.3; % ground distance from substrate
 % grnd.points =  [-185.4,-185.4; -185.4,185.4; 185.4,185.4; 185.4,-185.4]' ;
-% grnd.xdim = 370.8 + 4*srr.L;
-% grnd.ydim = 370.8 + 2*srr.L;
-grnd.xdim = 370.8;
-grnd.ydim = 370.8;
+grnd.xdim = 370.8 + 4*srr.L;
+grnd.ydim = 370.8 + 2*srr.L;
+% grnd.xdim = 370.8;
+% grnd.ydim = 370.8;
 grnd.points = [-grnd.xdim/2,-grnd.ydim/2;
      -grnd.xdim/2,grnd.ydim/2;
      grnd.xdim/2,grnd.ydim/2;
